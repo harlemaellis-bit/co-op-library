@@ -3,10 +3,11 @@
  * -----------------------------------------------------------------
  * Site-wide settings menu (☰, top-left):
  *   - Theme: dark / light / custom wallpaper
- *   - Accent: an optional tint on game cards (subtle wash + left
- *     border), picked from a full saturation/value square + hue
- *     slider + hex field — any color, not a fixed preset list — with
- *     no forced text colors)
+ *   - Accent: an optional solid fill on game cards, picked from a
+ *     full saturation/value square + hue slider + hex field — any
+ *     color, not a fixed preset list. Text color (black/white) is
+ *     picked automatically per-color via relative luminance, so it
+ *     stays readable against whatever hex is chosen.
  *
  * Fully self-contained — just include this on any page:
  *
@@ -86,6 +87,18 @@
     else if (h < 300) { r = x; g = 0; b = c; }
     else { r = c; g = 0; b = x; }
     return { r: (r + m) * 255, g: (g + m) * 255, b: (b + m) * 255 };
+  }
+
+  // Picks black or white text for readable contrast against an
+  // arbitrary rgb background, using the standard WCAG relative
+  // luminance formula (sRGB gamma-corrected).
+  function contrastTextColor(r, g, b) {
+    const toLinear = c => {
+      c /= 255;
+      return c <= 0.03928 ? c / 12.92 : Math.pow((c + 0.055) / 1.055, 2.4);
+    };
+    const L = 0.2126 * toLinear(r) + 0.7152 * toLinear(g) + 0.0722 * toLinear(b);
+    return L > 0.35 ? "#000000" : "#ffffff";
   }
 
   function rgbToHsv(r, g, b) {
@@ -311,17 +324,17 @@
       styleEl.textContent = "";
       return;
     }
-    // Fill the whole card with the chosen color. Card text keeps
-    // using the theme's own --text / --text-dim, so it always stays
-    // legible regardless of which accent is picked.
+    // Fill the whole card with the chosen color, and pick black or
+    // white text automatically (via relative luminance) so it stays
+    // readable against any hex the person lands on.
+    const textColor = contrastTextColor(rgb.r, rgb.g, rgb.b);
     styleEl.textContent = `
       .card{
-        background: rgba(${rgb.r},${rgb.g},${rgb.b},0.30);
-        border-color: ${hex};
+        background: ${hex} !important;
+        border-color: ${hex} !important;
       }
-      .card:hover{
-        background: rgba(${rgb.r},${rgb.g},${rgb.b},0.40);
-        border-color: ${hex};
+      .card .name, .card .note{
+        color: ${textColor} !important;
       }
     `;
   }

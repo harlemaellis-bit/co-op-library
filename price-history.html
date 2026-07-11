@@ -1,11 +1,595 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <meta charset="utf-8">
-  <title>Co-op Library</title>
-  <meta http-equiv="refresh" content="0; url=coop-library.html">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Price History — Co-op Library</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#0e1016;
+    --bg-alt:#151824;
+    --surface:#1b1f2e;
+    --surface-hover:#212639;
+    --border:#2a3044;
+    --text:#eef1f7;
+    --text-dim:#9aa0b8;
+    --text-faint:#5e6478;
+
+    --up:#5ce1a0;
+    --up-dim:#1f4436;
+    --down:#ff6b81;
+    --down-dim:#4a2733;
+  }
+
+  *{box-sizing:border-box; margin:0; padding:0;}
+
+  body{
+    background:
+      radial-gradient(ellipse 900px 500px at 15% -10%, rgba(91,157,255,0.08), transparent),
+      radial-gradient(ellipse 700px 500px at 100% 10%, rgba(92,225,160,0.06), transparent),
+      var(--bg);
+    color:var(--text);
+    font-family:'Space Grotesk', sans-serif;
+    min-height:100vh;
+    padding:48px 24px 80px;
+  }
+
+  .wrap{ max-width:820px; margin:0 auto; }
+
+  .back-btn{
+    display:inline-flex;
+    align-items:center;
+    gap:7px;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:11px;
+    font-weight:600;
+    letter-spacing:0.04em;
+    color:var(--text-dim);
+    background:var(--surface);
+    border:1px solid var(--border);
+    padding:8px 14px;
+    border-radius:20px;
+    text-decoration:none;
+    transition: all 0.15s ease;
+    margin-bottom:28px;
+  }
+  .back-btn:hover{ color:var(--text); border-color:var(--text-faint); }
+
+  .eyebrow{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:12px;
+    letter-spacing:0.18em;
+    color:var(--text-faint);
+    text-transform:uppercase;
+    margin-bottom:14px;
+  }
+  .eyebrow::before{ content:"▸ "; color:var(--up); }
+
+  .detail-head{
+    display:flex;
+    gap:18px;
+    align-items:center;
+    margin-bottom:28px;
+  }
+  .detail-head img{
+    width:130px;
+    aspect-ratio:460 / 215;
+    height:auto;
+    border-radius:8px;
+    object-fit:cover;
+    background:var(--bg-alt);
+    border:1px solid var(--border);
+    flex-shrink:0;
+  }
+  .detail-head-placeholder{
+    width:130px;
+    aspect-ratio:460 / 215;
+    border-radius:8px;
+    background:linear-gradient(135deg, var(--bg-alt), var(--bg));
+    border:1px solid var(--border);
+    flex-shrink:0;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-family:'Press Start 2P', monospace;
+    font-size:20px;
+    color:var(--text-faint);
+  }
+  .detail-head h1{
+    font-family:'Press Start 2P', monospace;
+    font-size:clamp(15px, 3vw, 20px);
+    line-height:1.6;
+    letter-spacing:-0.01em;
+    color:var(--text);
+    text-shadow: 2px 2px 0 rgba(91,157,255,0.2);
+  }
+
+  .stat-row{
+    display:grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap:14px;
+    background:var(--bg-alt);
+    border:1px solid var(--border);
+    border-radius:14px;
+    padding:20px;
+    margin-bottom:16px;
+  }
+  .stat{ text-align:center; }
+  .stat-value{ font-family:'IBM Plex Mono', monospace; font-size:22px; font-weight:700; }
+  .stat-value.low{ color:var(--up); }
+  .stat-label{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:10.5px;
+    letter-spacing:0.04em;
+    text-transform:uppercase;
+    color:var(--text-faint);
+    margin-top:6px;
+  }
+
+  .chart-panel{
+    background:var(--surface);
+    border:1px solid var(--border);
+    border-radius:14px;
+    padding:20px;
+  }
+  .zoom-row{
+    display:flex;
+    gap:6px;
+    margin-bottom:16px;
+    flex-wrap:wrap;
+  }
+  .zoom-btn{
+    font-family:'Space Grotesk', sans-serif;
+    font-weight:600;
+    background:var(--bg);
+    border:1px solid var(--border);
+    color:var(--text-dim);
+    padding:7px 13px;
+    border-radius:20px;
+    font-size:12.5px;
+    cursor:pointer;
+    transition: all 0.15s ease;
+  }
+  .zoom-btn.active{ background:var(--text); color:var(--bg); border-color:var(--text); }
+  .zoom-btn:hover:not(.active){ color:var(--text); border-color:var(--text-faint); }
+
+  #chartWrap{ width:100%; overflow:hidden; position:relative; }
+  #chartSvg{ width:100%; height:auto; display:block; cursor:crosshair; }
+
+  .chart-tooltip{
+    position:absolute;
+    top:0; left:0;
+    transform:translate(-50%, calc(-100% - 12px));
+    background:#0a0c12;
+    border:1px solid var(--border);
+    border-radius:8px;
+    padding:8px 12px;
+    font-size:12px;
+    line-height:1.5;
+    pointer-events:none;
+    white-space:nowrap;
+    box-shadow:0 8px 24px rgba(0,0,0,0.5);
+    opacity:0;
+    transition:opacity 0.1s ease;
+    z-index:10;
+  }
+  .chart-tooltip.visible{ opacity:1; }
+  .chart-tooltip .tt-date{ font-family:'IBM Plex Mono', monospace; color:var(--text-dim); font-size:10.5px; margin-bottom:2px; }
+  .chart-tooltip .tt-price{ font-family:'IBM Plex Mono', monospace; color:var(--text); font-size:15px; font-weight:700; }
+
+  .chart-status{
+    padding:60px 0;
+    text-align:center;
+    color:var(--text-dim);
+    font-size:14px;
+  }
+  .chart-status.error{ color:var(--down); }
+
+  .source-note{
+    margin-top:14px;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:10.5px;
+    color:var(--text-faint);
+    text-align:right;
+  }
+  .source-note a{ color:var(--text-faint); }
+
+  .no-selection{
+    text-align:center;
+    padding:80px 20px;
+    color:var(--text-dim);
+    font-family:'IBM Plex Mono', monospace;
+    font-size:13px;
+    line-height:1.8;
+  }
+</style>
 </head>
 <body>
-  <p>Redirecting to <a href="coop-library.html">the Co-op Library</a>…</p>
+<div class="wrap">
+
+  <a class="back-btn" href="coop-library.html">&larr; Back to Co-op Library</a>
+
+  <div id="detail" style="display:none;">
+    <div class="eyebrow">Price history</div>
+    <div class="detail-head">
+      <img id="dImg" src="" alt="" onerror="handleDetailImgError(this)">
+      <h1 id="dTitle">Loading…</h1>
+    </div>
+
+    <div class="stat-row">
+      <div class="stat">
+        <div class="stat-value" id="statCurrent">—</div>
+        <div class="stat-label">Current price</div>
+      </div>
+      <div class="stat">
+        <div class="stat-value low" id="statLow">—</div>
+        <div class="stat-label">All-time low</div>
+      </div>
+      <div class="stat">
+        <div class="stat-value" id="statLowYear">—</div>
+        <div class="stat-label">Lowest this year</div>
+      </div>
+    </div>
+
+    <div class="chart-panel">
+      <div class="zoom-row" id="zoomRow">
+        <button class="zoom-btn" data-days="30">1m</button>
+        <button class="zoom-btn" data-days="90">3m</button>
+        <button class="zoom-btn active" data-days="180">6m</button>
+        <button class="zoom-btn" data-days="365">1y</button>
+        <button class="zoom-btn" data-days="99999">max</button>
+      </div>
+      <div id="chartWrap">
+        <div class="chart-status" id="chartStatus">Loading price history…</div>
+        <svg id="chartSvg" viewBox="0 0 900 320" preserveAspectRatio="xMidYMid meet" style="display:none;"></svg>
+        <div class="chart-tooltip" id="chartTooltip"></div>
+      </div>
+      <div class="source-note">Data by <a href="https://isthereanydeal.com" target="_blank" rel="noopener">IsThereAnyDeal</a> · Steam prices, France region</div>
+    </div>
+  </div>
+
+  <div class="no-selection" id="noSelection" style="display:none;">
+    No game selected.<br><br>
+    <a class="back-btn" href="coop-library.html">&larr; Pick one from the Co-op Library</a>
+  </div>
+
+</div>
+
+<script src="theme.js"></script>
+<script>
+/* ---------------------------------------------------------
+   This page is deep-linked from coop-library.html cards via
+   price-history.html?appid=NNNN — it renders the price chart
+   for that one game. Data comes from games.json / prices.json,
+   generated ahead of time by fetch-prices.js.
+--------------------------------------------------------- */
+let GAMES = [];
+let PRICES = { games: {} };
+
+async function loadData(){
+  const params = new URLSearchParams(window.location.search);
+  const appid = params.get("appid");
+
+  let gamesRes, pricesRes;
+  try {
+    [gamesRes, pricesRes] = await Promise.all([
+      fetch("games.json"),
+      fetch("prices.json")
+    ]);
+    if(!gamesRes.ok) throw new Error(`games.json — HTTP ${gamesRes.status}`);
+    if(!pricesRes.ok) throw new Error(`prices.json — HTTP ${pricesRes.status}`);
+    GAMES = await gamesRes.json();
+    PRICES = await pricesRes.json();
+  } catch(err){
+    showLoadError(appid, err);
+    return;
+  }
+
+  const game = GAMES.find(g => String(g.appid) === appid);
+
+  if(!game){
+    document.getElementById("noSelection").style.display = "block";
+    return;
+  }
+  document.getElementById("detail").style.display = "block";
+  openHistory(game);
+}
+
+function showLoadError(appid, err){
+  console.error("Failed to load price data:", err);
+  const noSel = document.getElementById("noSelection");
+  noSel.innerHTML = `
+    Couldn't load price data.<br>
+    <span style="color:var(--text-faint); font-size:11.5px;">${appid ? `(appid ${appid} — ` : "("}${(err && err.message) || "unknown error"})</span>
+    <br><br>
+    This usually means <code>prices.json</code> hasn't been generated yet —
+    see the README's "Testing locally" section.
+    <br><br>
+    <a class="back-btn" href="coop-library.html">&larr; Back to Co-op Library</a>
+  `;
+  noSel.style.display = "block";
+}
+
+/* ---------------------------------------------------------
+   Detail view
+--------------------------------------------------------- */
+let currentHistory = [];
+let currentZoomDays = 180;
+
+document.getElementById("zoomRow").addEventListener("click", e => {
+  const btn = e.target.closest(".zoom-btn");
+  if(!btn) return;
+  document.querySelectorAll(".zoom-btn").forEach(b => b.classList.remove("active"));
+  btn.classList.add("active");
+  currentZoomDays = +btn.dataset.days;
+  drawChart(currentHistory, currentZoomDays);
+});
+
+function handleDetailImgError(imgEl){
+  const placeholder = document.createElement("div");
+  placeholder.className = "detail-head-placeholder";
+  placeholder.textContent = (imgEl.alt || "?").charAt(0);
+  imgEl.replaceWith(placeholder);
+}
+window.handleDetailImgError = handleDetailImgError;
+
+function openHistory(game){
+  document.getElementById("dTitle").textContent = game.title;
+  const dImg = document.getElementById("dImg");
+  if(dImg){
+    dImg.alt = game.title;
+    dImg.src = `https://cdn.akamai.steamstatic.com/steam/apps/${game.appid}/header.jpg`;
+  }
+  document.getElementById("statCurrent").textContent = "—";
+  document.getElementById("statLow").textContent = "—";
+  document.getElementById("statLowYear").textContent = "—";
+  document.getElementById("chartSvg").style.display = "none";
+
+  const data = PRICES.games[game.appid];
+
+  if(!data){
+    setChartStatus("No price data yet for this game — it'll show up after the next refresh.", true);
+    return;
+  }
+  if(data.error){
+    setChartStatus(`Couldn't load price data: ${data.error}`, true);
+    return;
+  }
+
+  if(data.current) document.getElementById("statCurrent").textContent = formatPrice(data.current);
+  if(data.allTimeLow) document.getElementById("statLow").textContent = formatPrice(data.allTimeLow);
+  if(data.yearLow) document.getElementById("statLowYear").textContent = formatPrice(data.yearLow);
+
+  const history = (data.history || []).map(h => ({
+    date: new Date(h.date),
+    price: h.price,
+    currency: h.currency
+  }));
+
+  currentHistory = history;
+
+  if(history.length === 0){
+    setChartStatus("No tracked price changes found for this game yet.", false);
+    return;
+  }
+
+  setChartStatus("", false);
+  document.getElementById("chartSvg").style.display = "block";
+  drawChart(history, currentZoomDays);
+}
+
+function setChartStatus(msg, isError){
+  const el = document.getElementById("chartStatus");
+  el.textContent = msg;
+  el.style.display = msg ? "block" : "none";
+  el.className = "chart-status" + (isError ? " error" : "");
+}
+
+function formatPrice(p){
+  if(!p) return "—";
+  return new Intl.NumberFormat("fr-FR", { style: "currency", currency: p.currency || "EUR" }).format(p.amount);
+}
+
+/* ---------------------------------------------------------
+   Interactive SVG price chart — smooth line, hover crosshair
+   + tooltip with the exact price on the hovered date.
+--------------------------------------------------------- */
+const ns = "http://www.w3.org/2000/svg";
+const W = 900, H = 320, padL = 55, padR = 20, padT = 20, padB = 40;
+const plotW = W - padL - padR, plotH = H - padT - padB;
+
+let liveScale = null;
+
+function drawChart(fullHistory, days){
+  const svg = document.getElementById("chartSvg");
+  svg.innerHTML = "";
+
+  const cutoff = new Date();
+  cutoff.setDate(cutoff.getDate() - days);
+  let points = fullHistory.filter(p => p.date >= cutoff);
+  if(points.length === 0 || points[0].date > cutoff){
+    const before = fullHistory.filter(p => p.date < cutoff).pop();
+    if(before) points = [{...before, date: cutoff}, ...points];
+  }
+  if(points.length === 0) points = fullHistory.slice(-1);
+
+  const today = new Date();
+  if(points[points.length-1].date < today){
+    points = [...points, { ...points[points.length-1], date: today }];
+  }
+
+  const minDate = points[0].date.getTime();
+  const maxDate = points[points.length-1].date.getTime();
+  const maxPrice = Math.max(...points.map(p => p.price), 0.01) * 1.08;
+  const minPrice = 0;
+
+  const x = d => padL + ((d - minDate) / (maxDate - minDate || 1)) * plotW;
+  const y = v => padT + plotH - ((v - minPrice) / (maxPrice - minPrice || 1)) * plotH;
+
+  liveScale = { x, y, points, minDate, maxDate };
+
+  for(let i = 0; i <= 4; i++){
+    const val = maxPrice * (i/4);
+    const yy = y(val);
+    const line = document.createElementNS(ns, "line");
+    line.setAttribute("x1", padL); line.setAttribute("x2", W - padR);
+    line.setAttribute("y1", yy); line.setAttribute("y2", yy);
+    line.setAttribute("stroke", "#242a3c");
+    line.setAttribute("stroke-width", "1");
+    svg.appendChild(line);
+
+    const label = document.createElementNS(ns, "text");
+    label.setAttribute("x", padL - 8);
+    label.setAttribute("y", yy + 4);
+    label.setAttribute("text-anchor", "end");
+    label.setAttribute("font-size", "11");
+    label.setAttribute("font-family", "IBM Plex Mono, monospace");
+    label.setAttribute("fill", "#5e6478");
+    label.textContent = val.toFixed(0) + "€";
+    svg.appendChild(label);
+  }
+
+  for(let i = 0; i <= 4; i++){
+    const t = minDate + (maxDate - minDate) * (i/4);
+    const xx = x(t);
+    const label = document.createElementNS(ns, "text");
+    label.setAttribute("x", xx);
+    label.setAttribute("y", H - 12);
+    label.setAttribute("text-anchor", i === 0 ? "start" : i === 4 ? "end" : "middle");
+    label.setAttribute("font-size", "11");
+    label.setAttribute("font-family", "IBM Plex Mono, monospace");
+    label.setAttribute("fill", "#5e6478");
+    label.textContent = new Date(t).toLocaleDateString("en-GB", { day:"numeric", month:"short" });
+    svg.appendChild(label);
+  }
+
+  const px = points.map(p => x(p.date.getTime()));
+  const py = points.map(p => y(p.price));
+  let d = `M ${px[0]} ${py[0]}`;
+  for(let i = 1; i < points.length; i++){
+    d += ` L ${px[i]} ${py[i]}`;
+  }
+
+  const areaD = `${d} L ${px[px.length-1]} ${padT+plotH} L ${px[0]} ${padT+plotH} Z`;
+  const defs = document.createElementNS(ns, "defs");
+  defs.innerHTML = `
+    <linearGradient id="areaFill" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#5ce1a0" stop-opacity="0.22"/>
+      <stop offset="100%" stop-color="#5ce1a0" stop-opacity="0"/>
+    </linearGradient>
+  `;
+  svg.appendChild(defs);
+
+  const area = document.createElementNS(ns, "path");
+  area.setAttribute("d", areaD);
+  area.setAttribute("fill", "url(#areaFill)");
+  area.setAttribute("stroke", "none");
+  svg.appendChild(area);
+
+  const path = document.createElementNS(ns, "path");
+  path.setAttribute("d", d);
+  path.setAttribute("fill", "none");
+  path.setAttribute("stroke", "#5ce1a0");
+  path.setAttribute("stroke-width", "2");
+  path.setAttribute("stroke-linejoin", "round");
+  path.setAttribute("stroke-linecap", "round");
+  svg.appendChild(path);
+
+  const crosshair = document.createElementNS(ns, "g");
+  crosshair.setAttribute("id", "crosshair");
+  crosshair.style.opacity = "0";
+
+  const vLine = document.createElementNS(ns, "line");
+  vLine.setAttribute("id", "chVLine");
+  vLine.setAttribute("y1", padT);
+  vLine.setAttribute("y2", padT + plotH);
+  vLine.setAttribute("stroke", "#9aa0b8");
+  vLine.setAttribute("stroke-width", "1");
+  vLine.setAttribute("stroke-dasharray", "3,3");
+  crosshair.appendChild(vLine);
+
+  const hDot = document.createElementNS(ns, "circle");
+  hDot.setAttribute("id", "chDot");
+  hDot.setAttribute("r", 5);
+  hDot.setAttribute("fill", "#0e1016");
+  hDot.setAttribute("stroke", "#5ce1a0");
+  hDot.setAttribute("stroke-width", "2.5");
+  crosshair.appendChild(hDot);
+
+  svg.appendChild(crosshair);
+
+  const capture = document.createElementNS(ns, "rect");
+  capture.setAttribute("x", padL);
+  capture.setAttribute("y", padT);
+  capture.setAttribute("width", plotW);
+  capture.setAttribute("height", plotH);
+  capture.setAttribute("fill", "transparent");
+  svg.appendChild(capture);
+}
+
+const chartSvgEl = document.getElementById("chartSvg");
+const tooltipEl = document.getElementById("chartTooltip");
+
+function svgPointFromEvent(evt){
+  const rect = chartSvgEl.getBoundingClientRect();
+  const clientX = evt.touches ? evt.touches[0].clientX : evt.clientX;
+  const relX = (clientX - rect.left) / rect.width;
+  return { x: relX * W, clientRect: rect };
+}
+
+function nearestPoint(svgX){
+  const { points, x } = liveScale;
+  let best = points[0], bestDist = Infinity;
+  for(const p of points){
+    const dist = Math.abs(x(p.date.getTime()) - svgX);
+    if(dist < bestDist){ bestDist = dist; best = p; }
+  }
+  return best;
+}
+
+function onChartHover(evt){
+  if(!liveScale) return;
+  const { x: svgX, clientRect } = svgPointFromEvent(evt);
+  if(svgX < padL || svgX > W - padR){ hideCrosshair(); return; }
+
+  const p = nearestPoint(svgX);
+  const cx = liveScale.x(p.date.getTime());
+  const cy = liveScale.y(p.price);
+
+  const crosshair = document.getElementById("crosshair");
+  crosshair.style.opacity = "1";
+  document.getElementById("chVLine").setAttribute("x1", cx);
+  document.getElementById("chVLine").setAttribute("x2", cx);
+  document.getElementById("chDot").setAttribute("cx", cx);
+  document.getElementById("chDot").setAttribute("cy", cy);
+
+  const scale = clientRect.width / W;
+  tooltipEl.style.left = (cx * scale) + "px";
+  tooltipEl.style.top = (cy * scale) + "px";
+  tooltipEl.innerHTML = `
+    <div class="tt-date">${p.date.toLocaleDateString("en-GB", { day:"numeric", month:"short", year:"numeric" })}</div>
+    <div class="tt-price">${formatPrice({ amount: p.price, currency: p.currency })}</div>
+  `;
+  tooltipEl.classList.add("visible");
+}
+
+function hideCrosshair(){
+  const crosshair = document.getElementById("crosshair");
+  if(crosshair) crosshair.style.opacity = "0";
+  tooltipEl.classList.remove("visible");
+}
+
+chartSvgEl.addEventListener("mousemove", onChartHover);
+chartSvgEl.addEventListener("touchmove", onChartHover, { passive: true });
+chartSvgEl.addEventListener("mouseleave", hideCrosshair);
+chartSvgEl.addEventListener("touchend", hideCrosshair);
+
+// Kick things off now that every function/variable above is defined.
+loadData();
+</script>
+
 </body>
 </html>
