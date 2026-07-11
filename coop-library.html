@@ -1,0 +1,687 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Co-op Library</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#0e1016;
+    --bg-alt:#151824;
+    --surface:#1b1f2e;
+    --surface-hover:#212639;
+    --border:#2a3044;
+    --text:#eef1f7;
+    --text-dim:#9aa0b8;
+    --text-faint:#5e6478;
+
+    --only2:#ff6b81;
+    --only2-dim:#4a2733;
+    --oneto3:#ffb84d;
+    --oneto3-dim:#4a3a20;
+    --oneto4:#5ce1a0;
+    --oneto4-dim:#1f4436;
+    --twoto4:#5b9dff;
+    --twoto4-dim:#233350;
+  }
+
+  *{box-sizing:border-box; margin:0; padding:0;}
+
+  body{
+    background:
+      radial-gradient(ellipse 900px 500px at 15% -10%, rgba(91,157,255,0.08), transparent),
+      radial-gradient(ellipse 700px 500px at 100% 10%, rgba(92,225,160,0.06), transparent),
+      var(--bg);
+    color:var(--text);
+    font-family:'Space Grotesk', sans-serif;
+    min-height:100vh;
+    padding:48px 24px 80px;
+  }
+
+  .wrap{ max-width:1180px; margin:0 auto; }
+
+  .lang-switch{
+    display:flex;
+    justify-content:flex-end;
+    gap:8px;
+  }
+  .lang-btn{
+    display:flex;
+    align-items:center;
+    gap:7px;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:11px;
+    font-weight:600;
+    letter-spacing:0.04em;
+    color:var(--text-dim);
+    background:var(--surface);
+    border:1px solid var(--border);
+    padding:7px 13px;
+    border-radius:20px;
+    cursor:pointer;
+    transition: all 0.15s ease;
+  }
+  .lang-btn .flag{ font-size:15px; line-height:1; }
+  .lang-btn:hover{ color:var(--text); border-color:var(--text-faint); }
+  .lang-btn.active{
+    color:var(--bg);
+    background:var(--text);
+    border-color:var(--text);
+  }
+
+  .top-controls{
+    display:flex;
+    justify-content:flex-end;
+    align-items:center;
+    gap:10px;
+    margin-bottom:20px;
+    flex-wrap:wrap;
+  }
+
+  header{ margin-bottom:40px; }
+
+  .eyebrow{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:12px;
+    letter-spacing:0.18em;
+    color:var(--text-faint);
+    text-transform:uppercase;
+    margin-bottom:14px;
+  }
+  .eyebrow::before{ content:"▸ "; color:var(--twoto4); }
+
+  h1{
+    font-family:'Press Start 2P', monospace;
+    font-size:clamp(22px, 4vw, 38px);
+    line-height:1.5;
+    letter-spacing:-0.01em;
+    color:var(--text);
+    text-shadow: 3px 3px 0 rgba(91,157,255,0.25);
+    margin-bottom:16px;
+  }
+
+  .sub{
+    color:var(--text-dim);
+    font-size:16px;
+    max-width:620px;
+    line-height:1.6;
+  }
+
+  .legend{
+    display:flex;
+    flex-wrap:wrap;
+    gap:10px;
+    margin-top:28px;
+  }
+  .legend-item{
+    display:flex;
+    align-items:center;
+    gap:8px;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:11px;
+    color:var(--text-dim);
+    background:var(--surface);
+    border:1px solid var(--border);
+    padding:6px 12px;
+    border-radius:20px;
+  }
+  .dot{ width:8px; height:8px; border-radius:50%; flex-shrink:0; }
+
+  .filters{
+    margin-top:36px;
+    display:flex;
+    flex-direction:column;
+    gap:14px;
+    background:var(--bg-alt);
+    border:1px solid var(--border);
+    border-radius:14px;
+    padding:20px;
+  }
+  .filter-row{ display:flex; align-items:center; gap:12px; flex-wrap:wrap; }
+  .filter-label{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:11px;
+    letter-spacing:0.08em;
+    text-transform:uppercase;
+    color:var(--text-faint);
+    width:88px;
+    flex-shrink:0;
+  }
+  .chip{
+    font-family:'Space Grotesk', sans-serif;
+    font-weight:600;
+    font-size:13px;
+    color:var(--text-dim);
+    background:var(--surface);
+    border:1px solid var(--border);
+    padding:8px 16px;
+    border-radius:20px;
+    cursor:pointer;
+    transition: all 0.15s ease;
+    user-select:none;
+  }
+  .chip:hover{ color:var(--text); border-color:var(--text-faint); }
+  .chip.active{
+    color:var(--bg);
+    background:var(--text);
+    border-color:var(--text);
+  }
+
+  .count{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:12px;
+    color:var(--text-faint);
+    margin:28px 0 16px;
+  }
+  .count span{ color:var(--oneto4); }
+
+  .grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fill, minmax(270px, 1fr));
+    gap:14px;
+  }
+
+  .thumb{
+    position:relative;
+    width:100%;
+    height:130px;
+    border-radius:8px;
+    overflow:hidden;
+    background:linear-gradient(135deg, var(--bg-alt), var(--bg));
+    flex-shrink:0;
+  }
+  .thumb-img{
+    position:absolute;
+    inset:0;
+    width:100%;
+    height:100%;
+    object-fit:cover;
+  }
+
+  .thumb-placeholder{
+    position:absolute;
+    inset:0;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-family:'Press Start 2P', monospace;
+    font-size:22px;
+    color:var(--text-faint);
+  }
+
+  .card{
+    background:var(--surface);
+    border:1px solid var(--border);
+    border-radius:12px;
+    padding:20px;
+    display:flex;
+    flex-direction:column;
+    gap:12px;
+    transition: transform 0.15s ease, border-color 0.15s ease, background 0.15s ease;
+    cursor:pointer;
+  }
+  .card:hover{
+    transform:translateY(-2px);
+    background:var(--surface-hover);
+    border-color:var(--text-faint);
+  }
+
+  .card-links{
+    display:flex;
+    gap:8px;
+    margin-top:2px;
+    flex-wrap:wrap;
+  }
+  .card-link{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:10.5px;
+    color:var(--text-faint);
+    text-decoration:none;
+    display:inline-flex;
+    align-items:center;
+    gap:4px;
+    padding:5px 9px;
+    border-radius:6px;
+    border:1px solid var(--border);
+    background:var(--bg);
+    transition: color 0.15s ease, border-color 0.15s ease;
+  }
+  .card-link:hover{
+    color:var(--text);
+    border-color:var(--text-faint);
+  }
+
+  .card-top{
+    display:flex;
+    justify-content:space-between;
+    align-items:flex-start;
+    gap:10px;
+  }
+
+  .name{ font-weight:600; font-size:16.5px; line-height:1.3; }
+
+  .price-tag{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:12px;
+    font-weight:600;
+    white-space:normal;
+    text-align:right;
+    background:var(--bg);
+    border:1px solid var(--border);
+    padding:4px 9px;
+    border-radius:6px;
+    color:var(--text);
+    max-width:130px;
+  }
+
+  .note{
+    font-size:13px;
+    color:var(--text-dim);
+    line-height:1.5;
+    flex-grow:1;
+  }
+
+  .card-bottom{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding-top:10px;
+    border-top:1px solid var(--border);
+  }
+
+  .ports{ display:flex; gap:5px; }
+  .port{
+    width:16px; height:16px;
+    border-radius:4px;
+    border:1.5px solid var(--border);
+    background:transparent;
+    position:relative;
+  }
+  .port.filled{ border-color:transparent; }
+  .port.filled.solo-optional{
+    border-style:dashed;
+    border-color:rgba(255,255,255,0.4);
+    opacity:0.55;
+  }
+
+  .mode-tag{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:10.5px;
+    letter-spacing:0.04em;
+    text-transform:uppercase;
+    padding:4px 9px;
+    border-radius:5px;
+    font-weight:600;
+  }
+
+  .m-only2 .mode-tag{ background:var(--only2-dim); color:var(--only2); }
+  .m-only2 .port.filled{ background:var(--only2); }
+
+  .m-1to3 .mode-tag{ background:var(--oneto3-dim); color:var(--oneto3); }
+  .m-1to3 .port.filled{ background:var(--oneto3); }
+
+  .m-1to4 .mode-tag{ background:var(--oneto4-dim); color:var(--oneto4); }
+  .m-1to4 .port.filled{ background:var(--oneto4); }
+
+  .m-2to4 .mode-tag{ background:var(--twoto4-dim); color:var(--twoto4); }
+  .m-2to4 .port.filled{ background:var(--twoto4); }
+
+  .empty{
+    text-align:center;
+    padding:60px 20px;
+    color:var(--text-faint);
+    font-family:'IBM Plex Mono', monospace;
+    font-size:13px;
+  }
+
+  footer{
+    margin-top:56px;
+    padding-top:20px;
+    border-top:1px solid var(--border);
+    font-family:'IBM Plex Mono', monospace;
+    font-size:11.5px;
+    color:var(--text-faint);
+    line-height:1.7;
+  }
+
+  .disclaimer-box{
+    margin-top:14px;
+    padding:12px 14px;
+    background:var(--surface);
+    border:1px solid var(--border);
+    border-left:3px solid var(--oneto3);
+    border-radius:6px;
+  }
+
+  @media (max-width:520px){
+    .filter-label{ width:100%; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="top-controls">
+    <div class="lang-switch">
+      <button class="lang-btn active" data-lang="en" id="lang-en" aria-pressed="true"><span class="flag">🇬🇧</span>EN</button>
+      <button class="lang-btn" data-lang="fr" id="lang-fr" aria-pressed="false"><span class="flag">🇫🇷</span>FR</button>
+    </div>
+  </div>
+
+  <header>
+    <div class="eyebrow" id="t-eyebrow">Player select</div>
+    <h1 id="t-title">CO-OP<br>LIBRARY</h1>
+    <p class="sub" id="t-sub">A running list of 2–4 player online co-op games, filterable by squad size and budget. Prices are approximate Steam pricing and shift often with sales — check before buying.</p>
+
+    <div class="legend">
+      <div class="legend-item"><span class="dot" style="background:var(--only2)"></span><span id="t-legend-only2">Only 2 players</span></div>
+      <div class="legend-item"><span class="dot" style="background:var(--oneto3)"></span><span id="t-legend-1to3">1–3 players</span></div>
+      <div class="legend-item"><span class="dot" style="background:var(--oneto4)"></span><span id="t-legend-1to4">1–4 players (solo playable)</span></div>
+      <div class="legend-item"><span class="dot" style="background:var(--twoto4)"></span><span id="t-legend-2to4">2–4 players (no solo)</span></div>
+    </div>
+  </header>
+
+  <div class="filters">
+    <div class="filter-row">
+      <span class="filter-label" id="t-filter-squad">Squad size</span>
+      <button class="chip active" data-filter-type="mode" data-value="all" data-t="mode-all" aria-pressed="true">All</button>
+      <button class="chip" data-filter-type="mode" data-value="only2" data-t="mode-only2" aria-pressed="false">Only 2P</button>
+      <button class="chip" data-filter-type="mode" data-value="1to3" data-t="mode-1to3" aria-pressed="false">1–3P</button>
+      <button class="chip" data-filter-type="mode" data-value="1to4" data-t="mode-1to4" aria-pressed="false">1–4P</button>
+      <button class="chip" data-filter-type="mode" data-value="2to4" data-t="mode-2to4" aria-pressed="false">2–4P</button>
+    </div>
+    <div class="filter-row">
+      <span class="filter-label" id="t-filter-budget">Budget</span>
+      <button class="chip active" data-filter-type="price" data-value="all" data-t="price-all" aria-pressed="true">All</button>
+      <button class="chip" data-filter-type="price" data-value="5" data-t="price-5" aria-pressed="false">Under €5</button>
+      <button class="chip" data-filter-type="price" data-value="10" data-t="price-10" aria-pressed="false">Under €10</button>
+      <button class="chip" data-filter-type="price" data-value="20" data-t="price-20" aria-pressed="false">Under €20</button>
+      <button class="chip" data-filter-type="price" data-value="20plus" data-t="price-20plus" aria-pressed="false">Over €20</button>
+    </div>
+  </div>
+
+  <div class="count"><span id="count-num">0</span> <span id="t-games-word">games</span></div>
+
+  <div class="grid" id="grid"></div>
+  <div class="empty" id="empty" style="display:none;">No games match those filters. Try widening your search.</div>
+
+  <footer>
+    <span id="t-foot-1">Prices are approximate EUR Steam pricing as of July 2026 and change frequently with sales.</span><br>
+    <span id="t-foot-2">Click a card to search that game on its store. The 📈 Price history link opens SteamDB, which tracks real historical low/high pricing — I didn't fabricate any price-graph data myself.</span><br>
+    <span id="t-foot-3">"Solo playable" games show a dimmed, dashed port for every seat beyond the first — meaning you can play with fewer people, down to one.</span>
+    <div class="disclaimer-box">⚠️ <span id="t-foot-4">Prices shown are a snapshot and WILL change — sales, regional pricing, early-access price hikes, and 1.0 launches (like Palworld's, exiting Early Access on July 10, 2026) can shift a price by 30–100% overnight. Always double-check the live price on the store before buying.</span></div>
+  </footer>
+
+</div>
+
+<script src="theme.js"></script>
+<script>
+const games = [
+  { name:"It Takes Two", appid:1426210, price:"~€21 (sale), ~€35 base", tier:"20plus", mode:"only2", players:2, note:"Friend's Pass — only one of you needs to buy it.", note_fr:"Pass ami — un seul de vous doit l'acheter." },
+  { name:"A Way Out", appid:1222700, price:"~€20–30", tier:"20plus", mode:"only2", players:2, note:"Friend's Pass — exclusively co-op prison break.", note_fr:"Pass ami — évasion de prison, exclusivement coopératif." },
+  { name:"Split Fiction", appid:2001120, price:"~€33 (sale), ~€50 base", tier:"20plus", mode:"only2", players:2, note:"Friend's Pass — only one of you needs to buy it, from the It Takes Two team.", note_fr:"Pass ami — un seul de vous doit l'acheter, par l'équipe de It Takes Two." },
+
+  { name:"Arc Raiders", appid:1808500, price:"~€40", tier:"20plus", mode:"1to3", players:3, solo:false, note:"Extraction shooter, PvE and PvP mixed.", note_fr:"Jeu de tir d'extraction, mélange PvE et PvP." },
+  { name:"Remnant 2", appid:1282100, price:"~€9 (sale), ~€50 base", tier:"10", mode:"1to3", players:3, solo:true, note:"Souls-like third-person shooter — solo or co-op with up to 2 friends.", note_fr:"TPS façon souls-like — solo ou coop jusqu'à 2 amis." },
+  { name:"Aliens: Fireteam Elite", appid:1549970, price:"~€6 (sale), ~€30 base", tier:"5", mode:"1to3", players:3, solo:true, note:"Co-op survival shooter in the Alien universe, bots fill empty slots.", note_fr:"Jeu de tir coopératif de survie dans l'univers Alien, des bots remplacent les places vides." },
+  { name:"Hunt: Showdown 1896", appid:594650, price:"~€12 (sale), ~€30 base", tier:"10", mode:"1to3", players:3, solo:true, note:"Extraction shooter — solo, duo, or trio bounty hunting.", note_fr:"Jeu de tir d'extraction — chasse aux primes en solo, duo ou trio." },
+
+  { name:"Castle Crashers", appid:204360, price:"Under €5 (sale)", tier:"5", mode:"1to4", players:4, solo:true, note:"Brawler/RPG hybrid, local or online.", note_fr:"Hybride bagarre/RPG, en local ou en ligne." },
+  { name:"Moving Out", appid:996770, price:"Under €5 (sale)", tier:"5", mode:"1to4", players:4, solo:true, note:"Physics-based moving-company chaos.", note_fr:"Chaos physique d'entreprise de déménagement." },
+  { name:"Risk of Rain 2", appid:632360, price:"~€4–5 (sale)", tier:"5", mode:"1to4", players:4, solo:true, note:"Roguelike shooter, base price higher off-sale.", note_fr:"Jeu de tir roguelike, prix de base plus élevé hors soldes." },
+  { name:"Witch It", appid:559650, price:"€5", tier:"5", mode:"1to4", players:8, solo:false, note:"Prop-hunt style hide and seek, scales past 4.", note_fr:"Cache-cache façon prop-hunt, jouable à plus de 4." },
+  { name:"Lethal Company", appid:1966720, price:"€10", tier:"10", mode:"1to4", players:4, solo:true, note:"Horror scavenging on abandoned moons.", note_fr:"Collecte d'objets horrifique sur des lunes abandonnées." },
+  { name:"PEAK", appid:3527290, img1:"https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3527290/31bac6b2eccf09b368f5e95ce510bae2baf3cfcd/header.jpg?t=1775581133", price:"~€8", tier:"10", mode:"1to4", players:4, solo:true, note:"Cooperative mountain climbing chaos.", note_fr:"Chaos coopératif d'escalade en montagne." },
+  { name:"Human: Fall Flat", appid:477160, price:"€8", tier:"10", mode:"1to4", players:8, solo:true, note:"Physics puzzle-platformer, scales past 4.", note_fr:"Plateforme-puzzle physique, jouable à plus de 4." },
+  { name:"Borderlands 3", appid:397540, price:"~€6 (sale)", tier:"10", mode:"1to4", players:4, solo:true, note:"90% off its €60 base right now — loot shooter.", note_fr:"90% de réduction sur son prix de base de 60€ — loot shooter." },
+  { name:"Palworld", appid:1623730, price:"~€21 (sale), €30 base — exiting EA today", tier:"20plus", mode:"1to4", players:4, solo:true, note:"Creature-collecting survival crafting, hits 1.0 on July 10, 2026.", note_fr:"Survie et artisanat avec collecte de créatures, sortie en version 1.0 le 10 juillet 2026." },
+  { name:"Aground", price:"Under €20", tier:"20", mode:"1to4", players:4, solo:true, note:"Sci-fi survival and crafting, budget-friendly.", note_fr:"Survie et artisanat sci-fi, économique." },
+  { name:"Satisfactory", appid:526870, price:"~€28 (sale), ~€40 base — price rose at 1.0", tier:"20plus", mode:"1to4", players:4, solo:true, note:"Factory building, price increased when it left Early Access.", note_fr:"Construction d'usines, le prix a augmenté à la sortie de l'accès anticipé." },
+  { name:"Subnautica 2", appid:1962700, price:"~€30 (Early Access)", tier:"20plus", mode:"1to4", players:4, solo:true, note:"Underwater survival, Early Access since May 2026, price rises at 1.0.", note_fr:"Survie sous-marine, en accès anticipé depuis mai 2026, le prix augmentera à la version 1.0." },
+  { name:"Outbound", appid:2681030, price:"€24.99", tier:"20plus", mode:"1to4", players:4, solo:true, note:"Cozy camper-van survival and building, up to 4 players.", note_fr:"Survie et construction cosy en camping-car, jusqu'à 4 joueurs." },
+  { name:"Solarpunk", appid:1805110, price:"€22.99", tier:"20plus", mode:"1to4", players:4, solo:true, note:"Floating-island survival crafting, solo or 4-player co-op.", note_fr:"Survie et artisanat sur îles flottantes, solo ou coop à 4." },
+  { name:"Stranded Deep", appid:313120, price:"~€10 (sale), ~€20 base", tier:"10", mode:"1to4", players:4, solo:true, note:"Plane-crash survival, solo or online/split-screen co-op.", note_fr:"Survie après un crash d'avion, solo ou coop en ligne/écran partagé." },
+  { name:"Sons Of The Forest", appid:1326470, price:"~€30", tier:"20plus", mode:"1to4", players:8, solo:true, note:"Survival horror in a mutant-filled forest, solo or online co-op.", note_fr:"Survie horrifique dans une forêt de mutants, solo ou coop en ligne." },
+  { name:"Grounded", appid:962130, price:"~€20 (sale), ~€40 base", tier:"20plus", mode:"1to4", players:4, solo:true, note:"Shrunk-to-ant-size survival, up to 4-player co-op. Currently on the free \"Fully Yoked\" 1.4 update.", note_fr:"Survie miniature façon fourmi, coop jusqu'à 4 joueurs. Inclut la mise à jour gratuite « Fully Yoked » 1.4." },
+  { name:"Raft", appid:648800, price:"~€20", tier:"20plus", mode:"1to4", players:4, solo:true, note:"Ocean raft survival building, solo or co-op.", note_fr:"Survie et construction sur un radeau en mer, solo ou coop." },
+  { name:"Left 4 Dead 2", appid:550, price:"~€8", tier:"10", mode:"1to4", players:4, solo:true, note:"Zombie horde co-op campaign, bots fill empty slots.", note_fr:"Campagne coopérative contre des zombies, des bots remplacent les places vides." },
+  { name:"Minecraft: Java & Bedrock", noSteam:true, buyUrl:"https://www.minecraft.net/en-us/store/minecraft-java-bedrock-edition-pc", price:"~€29.95 (Java + Bedrock)", tier:"20plus", mode:"1to4", players:8, solo:true, note:"Sandbox building/survival; Realms support far more than 4. Not sold on Steam.", note_fr:"Bac à sable de construction/survie ; les Realms supportent bien plus de 4 joueurs. Non vendu sur Steam." },
+  { name:"Halo 3 (MCC)", appid:976730, price:"~€10 (sale), ~€40 base", tier:"10", mode:"1to4", players:4, solo:true, note:"Halo 3 campaign co-op, included in the Master Chief Collection bundle.", note_fr:"Campagne coopérative de Halo 3, incluse dans le pack Master Chief Collection." },
+  { name:"ARK: Survival Evolved", appid:346110, price:"~€9 (sale), ~€15 base", tier:"10", mode:"1to4", players:4, solo:true, note:"Dinosaur survival and taming — the original Evolved version, not Ascended.", note_fr:"Survie et domestication de dinosaures — la version Evolved originale, pas Ascended." },
+  { name:"Dead Island 2", appid:934700, price:"~€20–30 (sale), ~€60 base", tier:"20plus", mode:"1to4", players:4, solo:true, note:"Zombie loot shooter, up to 3-player co-op.", note_fr:"Loot shooter zombie, coop jusqu'à 3 joueurs." },
+  { name:"Terraria", appid:105600, price:"~€7", tier:"10", mode:"1to4", players:8, solo:true, note:"2D sandbox survival and building, up to 8 players.", note_fr:"Survie et construction en 2D, jusqu'à 8 joueurs." },
+  { name:"Destiny 2", appid:1085660, price:"Free (F2P base game)", tier:"5", mode:"1to4", players:6, solo:true, note:"Free-to-play looter shooter; fireteams scale up to 6 for raids.", note_fr:"Looter shooter free-to-play ; équipes jusqu'à 6 pour les raids." },
+
+  { name:"Unrailed!", appid:1016920, price:"€5", tier:"5", mode:"2to4", players:4, note:"Hectic group train-track routing.", note_fr:"Construction frénétique de voies ferrées en groupe." },
+  { name:"Content Warning", appid:2881650, price:"€8", tier:"10", mode:"2to4", players:4, note:"Horror found-footage filming for views.", note_fr:"Tournage horrifique found-footage pour des vues." },
+  { name:"Pratfall", price:"~€8", tier:"10", mode:"2to4", players:4, note:"Session-based party co-op.", note_fr:"Jeu de fête coopératif par sessions." },
+  { name:"RV There Yet?", appid:3949040, price:"€8", tier:"10", mode:"2to4", players:4, note:"Drive a broken-down RV home without wrecking it — or your friendships.", note_fr:"Ramenez un camping-car cassé à la maison sans le détruire — ni vos amitiés." },
+  { name:"Overcooked! 2", appid:728880, price:"€20 base, ~€5 on sale", tier:"5", mode:"2to4", players:4, note:"Frenetic kitchen management.", note_fr:"Gestion de cuisine frénétique." },
+];
+
+const modeLabels = {
+  en: { only2: "Only 2P", "1to3": "1–3P", "1to4": "1–4P", "2to4": "2–4P" },
+  fr: { only2: "2J uniq.", "1to3": "1-3J", "1to4": "1-4J", "2to4": "2-4J" }
+};
+
+const i18n = {
+  en: {
+    eyebrow: "Player select",
+    title: "CO-OP<br>LIBRARY",
+    sub: "A running list of 2–4 player online co-op games, filterable by squad size and budget. Prices are approximate Steam pricing and shift often with sales — check before buying.",
+    legendOnly2: "Only 2 players",
+    legend1to3: "1–3 players",
+    legend1to4: "1–4 players (solo playable)",
+    legend2to4: "2–4 players (no solo)",
+    filterSquad: "Squad size",
+    filterBudget: "Budget",
+    modeAll: "All",
+    modeOnly2: "Only 2P",
+    mode1to3: "1–3P",
+    mode1to4: "1–4P",
+    mode2to4: "2–4P",
+    priceAll: "All",
+    price5: "Under €5",
+    price10: "Under €10",
+    price20: "Under €20",
+    price20plus: "Over €20",
+    gamesWord: "games",
+    emptyText: "No games match those filters. Try widening your search.",
+    foot1: "Prices are approximate EUR Steam pricing as of July 2026 and change frequently with sales.",
+    foot2: "Click a card to search that game on its store. The 📈 Price history link opens a chart of that game's real Steam price history, pulled from IsThereAnyDeal — nothing on that graph is fabricated.",
+    foot3: "\"Solo playable\" games show a dimmed, dashed port for every seat beyond the first — meaning you can play with fewer people, down to one.",
+    foot4: "Prices shown are a snapshot and WILL change — sales, regional pricing, early-access price hikes, and 1.0 launches (like Palworld's, exiting Early Access on July 10, 2026) can shift a price by 30–100% overnight. Always double-check the live price on the store before buying.",
+    priceHistoryLink: "📈 Price history"
+  },
+  fr: {
+    eyebrow: "Sélection du joueur",
+    title: "BIBLIOTHÈQUE<br>CO-OP",
+    sub: "Une liste évolutive de jeux coopératifs en ligne pour 2 à 4 joueurs, filtrable par taille d'équipe et par budget. Les prix sont approximatifs (Steam) et varient souvent selon les soldes — à vérifier avant l'achat.",
+    legendOnly2: "2 joueurs uniquement",
+    legend1to3: "1 à 3 joueurs",
+    legend1to4: "1 à 4 joueurs (jouable en solo)",
+    legend2to4: "2 à 4 joueurs (pas de solo)",
+    filterSquad: "Taille d'équipe",
+    filterBudget: "Budget",
+    modeAll: "Tous",
+    modeOnly2: "2J uniq.",
+    mode1to3: "1-3J",
+    mode1to4: "1-4J",
+    mode2to4: "2-4J",
+    priceAll: "Tous",
+    price5: "Moins de 5€",
+    price10: "Moins de 10€",
+    price20: "Moins de 20€",
+    price20plus: "Plus de 20€",
+    gamesWord: "jeux",
+    emptyText: "Aucun jeu ne correspond à ces filtres. Essayez d'élargir votre recherche.",
+    foot1: "Les prix sont des prix Steam approximatifs en euros (juillet 2026) et changent souvent avec les soldes.",
+    foot2: "Cliquez sur une carte pour rechercher ce jeu sur sa boutique. Le lien 📈 Historique des prix ouvre un graphique de l'historique réel des prix Steam de ce jeu, basé sur IsThereAnyDeal — aucune donnée du graphique n'est fabriquée.",
+    foot3: "Les jeux « jouables en solo » affichent un emplacement en pointillés et estompé pour chaque place au-delà de la première — cela signifie que vous pouvez jouer à moins nombreux, jusqu'à un seul.",
+    foot4: "Les prix affichés sont un instantané et VONT changer — soldes, tarifs régionaux, hausses de prix en accès anticipé et sorties en version 1.0 (comme Palworld, qui quitte l'accès anticipé le 10 juillet 2026) peuvent faire varier un prix de 30 à 100% du jour au lendemain. Vérifiez toujours le prix en direct sur la boutique avant d'acheter.",
+    priceHistoryLink: "📈 Historique des prix"
+  }
+};
+
+let activeMode = "all";
+let activePrice = "all";
+let currentLang = "en";
+
+function renderPorts(game){
+  const total = 4;
+  let filled = Math.min(game.players, 4);
+  let html = "";
+  for(let i=1;i<=total;i++){
+    if(i <= filled){
+      const optionalClass = (game.solo && i > 1) ? " solo-optional" : "";
+      html += `<span class="port filled${optionalClass}"></span>`;
+    } else {
+      html += `<span class="port"></span>`;
+    }
+  }
+  return html;
+}
+
+function handleImgError(imgEl, letter){
+  const placeholder = document.createElement("div");
+  placeholder.className = "thumb-placeholder";
+  placeholder.textContent = letter;
+  imgEl.replaceWith(placeholder);
+}
+window.handleImgError = handleImgError;
+
+function applyStaticTranslations(){
+  const t = i18n[currentLang];
+  document.getElementById("t-eyebrow").textContent = t.eyebrow;
+  document.getElementById("t-title").innerHTML = t.title;
+  document.getElementById("t-sub").textContent = t.sub;
+  document.getElementById("t-legend-only2").textContent = t.legendOnly2;
+  document.getElementById("t-legend-1to3").textContent = t.legend1to3;
+  document.getElementById("t-legend-1to4").textContent = t.legend1to4;
+  document.getElementById("t-legend-2to4").textContent = t.legend2to4;
+  document.getElementById("t-filter-squad").textContent = t.filterSquad;
+  document.getElementById("t-filter-budget").textContent = t.filterBudget;
+  document.getElementById("t-games-word").textContent = t.gamesWord;
+  document.getElementById("empty").textContent = t.emptyText;
+  document.getElementById("t-foot-1").textContent = t.foot1;
+  document.getElementById("t-foot-2").textContent = t.foot2;
+  document.getElementById("t-foot-3").textContent = t.foot3;
+  document.getElementById("t-foot-4").textContent = t.foot4;
+
+  const directMap = {
+    "mode-all": t.modeAll, "mode-only2": t.modeOnly2, "mode-1to3": t.mode1to3, "mode-1to4": t.mode1to4, "mode-2to4": t.mode2to4,
+    "price-all": t.priceAll, "price-5": t.price5, "price-10": t.price10, "price-20": t.price20, "price-20plus": t.price20plus
+  };
+  document.querySelectorAll('.chip[data-t]').forEach(chip => {
+    chip.textContent = directMap[chip.dataset.t];
+  });
+
+  document.getElementById("lang-en").classList.toggle("active", currentLang === "en");
+  document.getElementById("lang-fr").classList.toggle("active", currentLang === "fr");
+  document.getElementById("lang-en").setAttribute("aria-pressed", currentLang === "en" ? "true" : "false");
+  document.getElementById("lang-fr").setAttribute("aria-pressed", currentLang === "fr" ? "true" : "false");
+}
+
+function render(){
+  const grid = document.getElementById("grid");
+  const empty = document.getElementById("empty");
+  const t = i18n[currentLang];
+  grid.innerHTML = "";
+
+  const filtered = games.filter(g => {
+    const modeMatch = activeMode === "all" || g.mode === activeMode;
+    const priceMatch = activePrice === "all" || g.tier === activePrice;
+    return modeMatch && priceMatch;
+  });
+
+  document.getElementById("count-num").textContent = filtered.length;
+
+  if(filtered.length === 0){
+    empty.style.display = "block";
+    return;
+  }
+  empty.style.display = "none";
+
+  filtered.forEach(g => {
+    const query = encodeURIComponent(g.name);
+    const steamUrl = g.buyUrl
+      ? g.buyUrl
+      : (g.appid
+        ? `https://store.steampowered.com/app/${g.appid}/`
+        : `https://store.steampowered.com/search/?term=${query}`);
+    const steamDbUrl = g.appid
+      ? `https://steamdb.info/app/${g.appid}/`
+      : `https://steamdb.info/search/?a=app&q=${query}`;
+
+    const card = document.createElement("div");
+    card.className = `card m-${g.mode}`;
+
+    const img1 = g.img1 || (g.appid ? `https://cdn.akamai.steamstatic.com/steam/apps/${g.appid}/header.jpg` : null);
+    const firstLetter = g.name.charAt(0);
+
+    const thumbHtml = img1
+      ? `<div class="thumb">
+          <img class="thumb-img" src="${img1}" alt="${g.name} cover art" loading="lazy" onerror="handleImgError(this,'${firstLetter}')">
+        </div>`
+      : `<div class="thumb"><div class="thumb-placeholder">${firstLetter}</div></div>`;
+
+    const noteText = currentLang === "fr" && g.note_fr ? g.note_fr : g.note;
+    const chartUrl = `price-history.html?appid=${g.appid}`;
+    const priceHistoryLink = g.noSteam ? "" : (g.appid
+      ? `<a class="card-link" href="${chartUrl}">${t.priceHistoryLink}</a>`
+      : `<a class="card-link" href="${steamDbUrl}" target="_blank" rel="noopener">${t.priceHistoryLink}</a>`);
+    const linksRow = priceHistoryLink ? `<div class="card-links">${priceHistoryLink}</div>` : "";
+
+    card.innerHTML = `
+      ${thumbHtml}
+      <div class="card-top">
+        <div class="name">${g.name}</div>
+        <div class="price-tag">${g.price}</div>
+      </div>
+      <div class="note">${noteText}</div>
+      ${linksRow}
+      <div class="card-bottom">
+        <div class="ports">${renderPorts(g)}</div>
+        <div class="mode-tag">${modeLabels[currentLang][g.mode]}</div>
+      </div>
+    `;
+    card.addEventListener('click', (e) => {
+      if(e.target.closest('a')) return;
+      window.open(steamUrl, '_blank', 'noopener');
+    });
+    grid.appendChild(card);
+  });
+}
+
+document.querySelectorAll('.chip').forEach(chip => {
+  chip.addEventListener('click', () => {
+    const type = chip.dataset.filterType;
+    const value = chip.dataset.value;
+    document.querySelectorAll(`.chip[data-filter-type="${type}"]`).forEach(c => {
+      c.classList.remove('active');
+      c.setAttribute('aria-pressed', 'false');
+    });
+    chip.classList.add('active');
+    chip.setAttribute('aria-pressed', 'true');
+    if(type === "mode") activeMode = value;
+    if(type === "price") activePrice = value;
+    render();
+  });
+});
+
+document.querySelectorAll('.lang-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    currentLang = btn.dataset.lang;
+    applyStaticTranslations();
+    render();
+  });
+});
+
+applyStaticTranslations();
+render();
+</script>
+</body>
+</html>
