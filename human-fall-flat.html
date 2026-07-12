@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Human: Fall Flat — Dream Log</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:            #12172b;
+    --panel:         #1c2340;
+    --panel-hover:   #232c4c;
+    --line:          #323b63;
+    --coral:         #ff6b57;
+    --coral-soft:    #ff9a86;
+    --sky:           #6fd6ff;
+    --text:          #f4efe4;
+    --text-dim:      #a9b0d0;
+    --text-faint:    #6b7299;
+    --good:          #7de6a0;
+    --radius:        20px;
+  }
+
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:
+      radial-gradient(ellipse 900px 500px at 12% -8%, rgba(255,107,87,0.10), transparent),
+      radial-gradient(ellipse 700px 500px at 100% 8%, rgba(111,214,255,0.08), transparent),
+      var(--bg);
+    color:var(--text);
+    font-family:'Nunito', sans-serif;
+    font-size:16px;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+
+  h1,h2,h3, .stencil{
+    font-family:'Baloo 2', sans-serif;
+    letter-spacing:0.01em;
+  }
+  .mono{ font-family:'Baloo 2', sans-serif; font-weight:600; }
+  a{ color:inherit; text-decoration:none; }
+  img{ max-width:100%; display:block; }
+  ::selection{ background:var(--coral); color:#1a1300; }
+  a:focus-visible, button:focus-visible{ outline:2px solid var(--coral); outline-offset:3px; }
+
+  /* ============ BOUNCE STRIP — playful stand-in for a hazard strip, used under the title and near the footer ============ */
+  .hazard-strip{
+    height:8px;
+    width:100%;
+    background:repeating-linear-gradient(
+      90deg,
+      var(--coral) 0 22px,
+      var(--sky) 22px 44px
+    );
+    background-size:200% 100%;
+    animation: crawl 7s linear infinite;
+  }
+  @media (prefers-reduced-motion: reduce){
+    .hazard-strip{ animation:none; }
+  }
+  @keyframes crawl{
+    0%{ background-position:0 0; }
+    100%{ background-position:-88px 0; }
+  }
+
+  /* ============ NAV ============ */
+  header.nav{
+    position:sticky; top:0; z-index:50;
+    background:rgba(18,23,43,0.88);
+    backdrop-filter:blur(8px);
+    border-bottom:1px solid var(--line);
+    display:flex; align-items:center; justify-content:space-between;
+    padding:14px 32px;
+  }
+  .brand{
+    display:flex; align-items:center; gap:10px;
+    font-family:'Baloo 2', sans-serif;
+    font-weight:700; letter-spacing:0.02em;
+    font-size:14px;
+  }
+  .brand .bolt{
+    width:18px; height:18px;
+    border-radius:50%;
+    background:var(--coral);
+    flex-shrink:0;
+  }
+  nav.links{ display:flex; gap:24px; font-size:12px; letter-spacing:0.03em; }
+  nav.links a{
+    color:var(--text-dim); font-weight:700;
+    padding-bottom:4px; border-bottom:2px solid transparent;
+    transition:color .2s, border-color .2s;
+  }
+  nav.links a:hover, nav.links a.active{ color:var(--coral); border-color:var(--coral); }
+
+  /* ============ HERO ============ */
+  .hero{
+    position:relative;
+    padding:44px 32px 40px;
+    display:flex; flex-direction:column; justify-content:flex-end;
+    min-height:46vh;
+    background:
+      linear-gradient(180deg, rgba(18,23,43,0.20) 0%, rgba(18,23,43,0.55) 60%, var(--bg) 100%),
+      url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMjAwIDcwMCI+CjxkZWZzPgo8bGluZWFyR3JhZGllbnQgaWQ9InNreSIgeDE9IjAiIHkxPSIwIiB4Mj0iMCIgeTI9IjEiPgo8c3RvcCBvZmZzZXQ9IjAlIiBzdG9wLWNvbG9yPSIjZmY5YTY4Ii8+CjxzdG9wIG9mZnNldD0iNDUlIiBzdG9wLWNvbG9yPSIjZmY2YjhhIi8+CjxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0iIzNhMmY2MyIvPgo8L2xpbmVhckdyYWRpZW50Pgo8L2RlZnM+CjxyZWN0IHdpZHRoPSIxMjAwIiBoZWlnaHQ9IjcwMCIgZmlsbD0idXJsKCNza3kpIi8+CjxjaXJjbGUgY3g9IjIyMCIgY3k9IjE1MCIgcj0iNzAiIGZpbGw9IiNmZmZmZmYiIG9wYWNpdHk9IjAuMTIiLz4KPGNpcmNsZSBjeD0iOTgwIiBjeT0iMjIwIiByPSI0MCIgZmlsbD0iI2ZmZmZmZiIgb3BhY2l0eT0iMC4xIi8+CjxjaXJjbGUgY3g9IjYwMCIgY3k9IjQ1MCIgcj0iMTEwIiBmaWxsPSIjZmZmZmZmIiBvcGFjaXR5PSIwLjA4Ii8+Cjx0ZXh0IHg9IjYwMCIgeT0iNjAwIiBmb250LWZhbWlseT0iVmVyZGFuYSIgZm9udC1zaXplPSIyMiIgZmlsbD0iI2ZmZmZmZiIgdGV4dC1hbmNob3I9Im1pZGRsZSIgb3BhY2l0eT0iMC41NSI+SEVSTyBJTUFHRSDigJQgZHJvcCAvYXNzZXRzL2hmZi9oZXJvLmpwZyBoZXJlPC90ZXh0Pgo8L3N2Zz4=') center 50% / cover no-repeat;
+    background-color:#241c3a;
+  }
+  .hero-eyebrow{
+    display:flex; align-items:center; gap:10px;
+    color:var(--coral-soft);
+    font-family:'Baloo 2', sans-serif; font-weight:600;
+    font-size:12px; letter-spacing:0.08em;
+    margin-bottom:14px;
+  }
+  .hero-eyebrow::before{ content:''; width:22px; height:1px; background:var(--coral-soft); }
+  .hero h1{
+    font-size:clamp(38px, 7vw, 76px);
+    line-height:0.98;
+    color:var(--text);
+    text-shadow:0 4px 24px rgba(0,0,0,0.45);
+    margin-bottom:10px;
+  }
+  .hero h1 span{ color:var(--coral); }
+  .hero-tagline{
+    font-size:clamp(14px,1.8vw,16px);
+    color:var(--text-dim);
+    max-width:540px;
+    margin-bottom:20px;
+  }
+  .tag-row{ display:flex; flex-wrap:wrap; gap:8px; margin-bottom:22px; }
+  .tag-pill{
+    font-family:'Baloo 2', sans-serif; font-weight:600;
+    font-size:11px; letter-spacing:0.03em;
+    color:var(--text-dim);
+    border:1px solid var(--line);
+    padding:6px 14px;
+    border-radius:20px;
+    background:rgba(28,35,64,0.7);
+  }
+  .cta-row{ display:flex; gap:12px; flex-wrap:wrap; }
+  .btn{
+    font-family:'Baloo 2', sans-serif;
+    font-weight:700; letter-spacing:0.02em;
+    font-size:14px;
+    padding:13px 26px;
+    border-radius:24px;
+    border:1px solid transparent;
+    cursor:pointer;
+    display:inline-flex; align-items:center; gap:9px;
+    transition:transform .15s ease, background .2s, color .2s, border-color .2s;
+  }
+  .btn:active{ transform:translateY(1px) scale(0.98); }
+  .btn-primary{ background:var(--coral); color:#2a0f08; }
+  .btn-primary:hover{ background:var(--coral-soft); }
+  .btn-ghost{ background:transparent; color:var(--text); border-color:var(--line); }
+  .btn-ghost:hover{ border-color:var(--coral); color:var(--coral); }
+  .btn-ghost.saved{ border-color:var(--good); color:var(--good); }
+  .btn-ghost .pip{ width:7px; height:7px; border-radius:50%; background:currentColor; }
+
+  /* ============ SECTION SHELL ============ */
+  section{ padding:56px 32px; max-width:1120px; margin:0 auto; }
+  section + section{ border-top:1px solid var(--line); }
+  .section-head{
+    display:flex; align-items:baseline; justify-content:space-between;
+    gap:24px; margin-bottom:8px; flex-wrap:wrap;
+  }
+  .section-head h2{ font-size:clamp(22px,2.8vw,30px); }
+  .section-head .idx{ font-family:'Baloo 2', sans-serif; font-weight:600; color:var(--text-faint); font-size:12px; }
+  .section-sub{ color:var(--text-dim); max-width:600px; margin-bottom:28px; font-size:14.5px;}
+
+  /* ============ GALLERY ============ */
+  .gallery-main{
+    position:relative;
+    border:1px solid var(--line);
+    border-radius:var(--radius);
+    overflow:hidden;
+    aspect-ratio:16/9;
+    background:#1c2340;
+  }
+  .gallery-main img{ width:100%; height:100%; object-fit:cover; transition:opacity .25s ease; }
+  .gallery-nav-btn{
+    position:absolute; top:50%; transform:translateY(-50%);
+    width:42px; height:42px; border-radius:50%;
+    background:rgba(18,23,43,0.7);
+    border:1px solid var(--line);
+    color:var(--text);
+    display:flex; align-items:center; justify-content:center;
+    cursor:pointer; font-size:18px;
+    transition:background .2s, border-color .2s;
+    backdrop-filter:blur(4px);
+  }
+  .gallery-nav-btn:hover{ background:var(--coral); color:#2a0f08; border-color:var(--coral); }
+  .gallery-nav-btn.prev{ left:14px; }
+  .gallery-nav-btn.next{ right:14px; }
+  .gallery-counter{
+    position:absolute; bottom:14px; right:14px;
+    font-family:'Baloo 2', sans-serif; font-weight:600; font-size:11px;
+    background:rgba(18,23,43,0.75); border:1px solid var(--line);
+    padding:5px 10px; border-radius:20px; color:var(--coral-soft);
+  }
+  .thumb-strip{ display:grid; grid-template-columns:repeat(6,1fr); gap:8px; margin-top:12px; }
+  .thumb{
+    aspect-ratio:16/10; overflow:hidden; border-radius:12px;
+    border:2px solid transparent; cursor:pointer; background:#1c2340;
+    opacity:0.5; transition:opacity .2s, border-color .2s;
+  }
+  .thumb img{ width:100%; height:100%; object-fit:cover; }
+  .thumb:hover{ opacity:0.85; }
+  .thumb.active{ opacity:1; border-color:var(--coral); }
+
+  /* ============ DETAILS — consolidated: platform tabs + data + overview + features ============ */
+  .platform-tabs{ display:flex; gap:8px; margin-bottom:24px; flex-wrap:wrap; }
+  .ptab{
+    font-family:'Baloo 2', sans-serif; font-weight:600; font-size:12px; letter-spacing:0.02em;
+    padding:9px 16px; border:1px solid var(--line); color:var(--text-dim);
+    background:var(--panel); cursor:pointer; border-radius:20px;
+    transition:all .2s;
+  }
+  .ptab.active{ color:#0c1720; background:var(--sky); border-color:var(--sky); }
+  .ptab:hover:not(.active){ border-color:var(--sky); color:var(--sky); }
+
+  .details-layout{ display:grid; grid-template-columns:1fr 1fr; gap:14px; margin-bottom:36px; }
+  .data-card{
+    background:var(--panel); border:1px solid var(--line); border-radius:var(--radius);
+    padding:22px 24px;
+  }
+  .data-row{
+    display:flex; align-items:baseline; justify-content:space-between; gap:16px;
+    padding:11px 0; border-bottom:1px solid var(--line);
+  }
+  .data-row:last-child{ border-bottom:none; }
+  .data-row .label{
+    font-family:'Baloo 2', sans-serif; font-weight:600; font-size:11.5px; color:var(--text-faint);
+    letter-spacing:0.02em; flex-shrink:0;
+  }
+  .data-row .value{ text-align:right; font-size:14px; font-weight:700; }
+  .data-row .value.good{ color:var(--good); }
+  .data-row .value.accent{ color:var(--coral-soft); }
+  .data-row .note{ display:block; font-weight:400; font-size:12px; color:var(--text-faint); margin-top:2px; }
+
+  .quick-facts{ display:flex; flex-direction:column; gap:0; }
+
+  /* core loop as a compact tag list rather than a heavy card grid */
+  .loop-list{ display:flex; flex-direction:column; gap:0; }
+  .loop-item{
+    display:flex; gap:16px; padding:14px 0; border-bottom:1px solid var(--line);
+  }
+  .loop-item:last-child{ border-bottom:none; }
+  .loop-dot{
+    width:8px; height:8px; border-radius:50%; background:var(--coral);
+    margin-top:7px; flex-shrink:0;
+  }
+  .loop-item h3{ font-size:15px; font-family:'Baloo 2', sans-serif; font-weight:700; }
+
+  /* overview */
+  .desc-text p{ color:var(--text-dim); margin-bottom:14px; font-size:14.5px; }
+  .desc-text .clip{ max-height:78px; overflow:hidden; position:relative; transition:max-height .35s ease; }
+  .desc-text .clip.open{ max-height:600px; }
+  .desc-text .clip:not(.open)::after{
+    content:''; position:absolute; left:0; right:0; bottom:0; height:40px;
+    background:linear-gradient(180deg, transparent, var(--bg));
+  }
+  .read-more{
+    margin-top:10px; background:none; border:none; color:var(--sky);
+    font-family:'Baloo 2', sans-serif; font-weight:600; font-size:12px; letter-spacing:0.02em;
+    cursor:pointer; padding:0;
+    display:flex; align-items:center; gap:6px;
+  }
+  .read-more:hover{ color:var(--coral); }
+  .read-more .chev{ transition:transform .25s; }
+  .read-more.open .chev{ transform:rotate(180deg); }
+
+  .cta-row{ margin-top:22px; }
+
+  footer{
+    padding:32px 32px 48px; text-align:center;
+    color:var(--text-faint); font-size:12px; font-family:'Baloo 2', sans-serif; font-weight:600;
+    letter-spacing:0.02em;
+  }
+  footer .brand{ justify-content:center; margin-bottom:12px; }
+
+  @media (max-width:760px){
+    nav.links{ display:none; }
+    .thumb-strip{ grid-template-columns:repeat(3,1fr); }
+    .details-layout{ grid-template-columns:1fr; }
+  }
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <div class="brand">
+    <div class="bolt"></div>
+    HUMAN: FALL FLAT — DREAM LOG
+  </div>
+  <nav class="links">
+    <a href="#gallery" class="active">Gallery</a>
+    <a href="#details">Details</a>
+  </nav>
+</header>
+
+<!-- Hero background is a placeholder — swap the data URI in the .hero background rule for a real screenshot -->
+<section class="hero">
+  <div class="hero-eyebrow mono">NO BRAKES GAMES · FLOATING DREAMSCAPE 01</div>
+  <h1>HUMAN<span>: FALL FLAT</span></h1>
+  <p class="hero-tagline">A hilarious, light-hearted physics platformer where wobbly rag-doll humans solve puzzles across floating dreamscapes, solo or with up to 8 friends.</p>
+  <div class="tag-row">
+    <span class="tag-pill">PHYSICS PUZZLE</span>
+    <span class="tag-pill">PLATFORMER</span>
+    <span class="tag-pill">FUNNY</span>
+    <span class="tag-pill">CO-OP</span>
+  </div>
+  <div class="cta-row">
+    <button class="btn btn-primary" onclick="window.open('https://store.steampowered.com/app/477160/Human_Fall_Flat/','_blank')">View on Steam</button>
+    <button class="btn btn-ghost" id="wishlistBtn" onclick="toggleWishlist()">
+      <span class="pip"></span><span id="wishlistLabel">Add to Wishlist</span>
+    </button>
+  </div>
+</section>
+
+<div class="hazard-strip"></div>
+
+<!-- ============ GALLERY ============ -->
+<section id="gallery">
+  <div class="section-head"><h2>Screenshots</h2><span class="idx mono">002</span></div>
+
+  <div class="gallery-main">
+    <img id="mainImg" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA4MDAgNDUwIj4KPHJlY3Qgd2lkdGg9IjgwMCIgaGVpZ2h0PSI0NTAiIGZpbGw9IiMzYTJmNjMiLz4KPHJlY3Qgd2lkdGg9IjgwMCIgaGVpZ2h0PSI0NTAiIGZpbGw9InVybCgjZG90cykiIG9wYWNpdHk9IjAuMTUiLz4KPGRlZnM+PHBhdHRlcm4gaWQ9ImRvdHMiIHdpZHRoPSIyOCIgaGVpZ2h0PSIyOCIgcGF0dGVyblVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+PGNpcmNsZSBjeD0iNCIgY3k9IjQiIHI9IjIiIGZpbGw9IiNmZmZmZmYiLz48L3BhdHRlcm4+PC9kZWZzPgo8dGV4dCB4PSI0MDAiIHk9IjIxNSIgZm9udC1mYW1pbHk9IlZlcmRhbmEiIGZvbnQtc2l6ZT0iMjYiIGZpbGw9IiNmZmZmZmYiIHRleHQtYW5jaG9yPSJtaWRkbGUiIG9wYWNpdHk9IjAuODUiPlNDUkVFTlNIT1QgMTwvdGV4dD4KPHRleHQgeD0iNDAwIiB5PSIyNTAiIGZvbnQtZmFtaWx5PSJWZXJkYW5hIiBmb250LXNpemU9IjE0IiBmaWxsPSIjZmZmZmZmIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBvcGFjaXR5PSIwLjYiPmRyb3AgeW91ciBjYXB0dXJlIGluIC9hc3NldHMvaGZmLzwvdGV4dD4KPC9zdmc+" alt="Human: Fall Flat screenshot placeholder">
+    <button class="gallery-nav-btn prev" onclick="shiftGallery(-1)" aria-label="Previous screenshot">‹</button>
+    <button class="gallery-nav-btn next" onclick="shiftGallery(1)" aria-label="Next screenshot">›</button>
+    <div class="gallery-counter mono"><span id="galleryCount">1</span> / <span id="galleryTotal">6</span></div>
+  </div>
+
+  <div class="thumb-strip" id="thumbStrip">
+    <div class="thumb active" onclick="setGallery(0)"><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA4MDAgNDUwIj4KPHJlY3Qgd2lkdGg9IjgwMCIgaGVpZ2h0PSI0NTAiIGZpbGw9IiMzYTJmNjMiLz4KPHJlY3Qgd2lkdGg9IjgwMCIgaGVpZ2h0PSI0NTAiIGZpbGw9InVybCgjZG90cykiIG9wYWNpdHk9IjAuMTUiLz4KPGRlZnM+PHBhdHRlcm4gaWQ9ImRvdHMiIHdpZHRoPSIyOCIgaGVpZ2h0PSIyOCIgcGF0dGVyblVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+PGNpcmNsZSBjeD0iNCIgY3k9IjQiIHI9IjIiIGZpbGw9IiNmZmZmZmYiLz48L3BhdHRlcm4+PC9kZWZzPgo8dGV4dCB4PSI0MDAiIHk9IjIxNSIgZm9udC1mYW1pbHk9IlZlcmRhbmEiIGZvbnQtc2l6ZT0iMjYiIGZpbGw9IiNmZmZmZmYiIHRleHQtYW5jaG9yPSJtaWRkbGUiIG9wYWNpdHk9IjAuODUiPlNDUkVFTlNIT1QgMTwvdGV4dD4KPHRleHQgeD0iNDAwIiB5PSIyNTAiIGZvbnQtZmFtaWx5PSJWZXJkYW5hIiBmb250LXNpemU9IjE0IiBmaWxsPSIjZmZmZmZmIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBvcGFjaXR5PSIwLjYiPmRyb3AgeW91ciBjYXB0dXJlIGluIC9hc3NldHMvaGZmLzwvdGV4dD4KPC9zdmc+" alt=""></div>
+    <div class="thumb" onclick="setGallery(1)"><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA4MDAgNDUwIj4KPHJlY3Qgd2lkdGg9IjgwMCIgaGVpZ2h0PSI0NTAiIGZpbGw9IiMyZjRhNjMiLz4KPHJlY3Qgd2lkdGg9IjgwMCIgaGVpZ2h0PSI0NTAiIGZpbGw9InVybCgjZG90cykiIG9wYWNpdHk9IjAuMTUiLz4KPGRlZnM+PHBhdHRlcm4gaWQ9ImRvdHMiIHdpZHRoPSIyOCIgaGVpZ2h0PSIyOCIgcGF0dGVyblVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+PGNpcmNsZSBjeD0iNCIgY3k9IjQiIHI9IjIiIGZpbGw9IiNmZmZmZmYiLz48L3BhdHRlcm4+PC9kZWZzPgo8dGV4dCB4PSI0MDAiIHk9IjIxNSIgZm9udC1mYW1pbHk9IlZlcmRhbmEiIGZvbnQtc2l6ZT0iMjYiIGZpbGw9IiNmZmZmZmYiIHRleHQtYW5jaG9yPSJtaWRkbGUiIG9wYWNpdHk9IjAuODUiPlNDUkVFTlNIT1QgMjwvdGV4dD4KPHRleHQgeD0iNDAwIiB5PSIyNTAiIGZvbnQtZmFtaWx5PSJWZXJkYW5hIiBmb250LXNpemU9IjE0IiBmaWxsPSIjZmZmZmZmIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBvcGFjaXR5PSIwLjYiPmRyb3AgeW91ciBjYXB0dXJlIGluIC9hc3NldHMvaGZmLzwvdGV4dD4KPC9zdmc+" alt=""></div>
+    <div class="thumb" onclick="setGallery(2)"><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA4MDAgNDUwIj4KPHJlY3Qgd2lkdGg9IjgwMCIgaGVpZ2h0PSI0NTAiIGZpbGw9IiM2MzQzMmYiLz4KPHJlY3Qgd2lkdGg9IjgwMCIgaGVpZ2h0PSI0NTAiIGZpbGw9InVybCgjZG90cykiIG9wYWNpdHk9IjAuMTUiLz4KPGRlZnM+PHBhdHRlcm4gaWQ9ImRvdHMiIHdpZHRoPSIyOCIgaGVpZ2h0PSIyOCIgcGF0dGVyblVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+PGNpcmNsZSBjeD0iNCIgY3k9IjQiIHI9IjIiIGZpbGw9IiNmZmZmZmYiLz48L3BhdHRlcm4+PC9kZWZzPgo8dGV4dCB4PSI0MDAiIHk9IjIxNSIgZm9udC1mYW1pbHk9IlZlcmRhbmEiIGZvbnQtc2l6ZT0iMjYiIGZpbGw9IiNmZmZmZmYiIHRleHQtYW5jaG9yPSJtaWRkbGUiIG9wYWNpdHk9IjAuODUiPlNDUkVFTlNIT1QgMzwvdGV4dD4KPHRleHQgeD0iNDAwIiB5PSIyNTAiIGZvbnQtZmFtaWx5PSJWZXJkYW5hIiBmb250LXNpemU9IjE0IiBmaWxsPSIjZmZmZmZmIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBvcGFjaXR5PSIwLjYiPmRyb3AgeW91ciBjYXB0dXJlIGluIC9hc3NldHMvaGZmLzwvdGV4dD4KPC9zdmc+" alt=""></div>
+    <div class="thumb" onclick="setGallery(3)"><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA4MDAgNDUwIj4KPHJlY3Qgd2lkdGg9IjgwMCIgaGVpZ2h0PSI0NTAiIGZpbGw9IiMyZjYzNTAiLz4KPHJlY3Qgd2lkdGg9IjgwMCIgaGVpZ2h0PSI0NTAiIGZpbGw9InVybCgjZG90cykiIG9wYWNpdHk9IjAuMTUiLz4KPGRlZnM+PHBhdHRlcm4gaWQ9ImRvdHMiIHdpZHRoPSIyOCIgaGVpZ2h0PSIyOCIgcGF0dGVyblVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+PGNpcmNsZSBjeD0iNCIgY3k9IjQiIHI9IjIiIGZpbGw9IiNmZmZmZmYiLz48L3BhdHRlcm4+PC9kZWZzPgo8dGV4dCB4PSI0MDAiIHk9IjIxNSIgZm9udC1mYW1pbHk9IlZlcmRhbmEiIGZvbnQtc2l6ZT0iMjYiIGZpbGw9IiNmZmZmZmYiIHRleHQtYW5jaG9yPSJtaWRkbGUiIG9wYWNpdHk9IjAuODUiPlNDUkVFTlNIT1QgNDwvdGV4dD4KPHRleHQgeD0iNDAwIiB5PSIyNTAiIGZvbnQtZmFtaWx5PSJWZXJkYW5hIiBmb250LXNpemU9IjE0IiBmaWxsPSIjZmZmZmZmIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBvcGFjaXR5PSIwLjYiPmRyb3AgeW91ciBjYXB0dXJlIGluIC9hc3NldHMvaGZmLzwvdGV4dD4KPC9zdmc+" alt=""></div>
+    <div class="thumb" onclick="setGallery(4)"><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA4MDAgNDUwIj4KPHJlY3Qgd2lkdGg9IjgwMCIgaGVpZ2h0PSI0NTAiIGZpbGw9IiM1YTJmNjMiLz4KPHJlY3Qgd2lkdGg9IjgwMCIgaGVpZ2h0PSI0NTAiIGZpbGw9InVybCgjZG90cykiIG9wYWNpdHk9IjAuMTUiLz4KPGRlZnM+PHBhdHRlcm4gaWQ9ImRvdHMiIHdpZHRoPSIyOCIgaGVpZ2h0PSIyOCIgcGF0dGVyblVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+PGNpcmNsZSBjeD0iNCIgY3k9IjQiIHI9IjIiIGZpbGw9IiNmZmZmZmYiLz48L3BhdHRlcm4+PC9kZWZzPgo8dGV4dCB4PSI0MDAiIHk9IjIxNSIgZm9udC1mYW1pbHk9IlZlcmRhbmEiIGZvbnQtc2l6ZT0iMjYiIGZpbGw9IiNmZmZmZmYiIHRleHQtYW5jaG9yPSJtaWRkbGUiIG9wYWNpdHk9IjAuODUiPlNDUkVFTlNIT1QgNTwvdGV4dD4KPHRleHQgeD0iNDAwIiB5PSIyNTAiIGZvbnQtZmFtaWx5PSJWZXJkYW5hIiBmb250LXNpemU9IjE0IiBmaWxsPSIjZmZmZmZmIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBvcGFjaXR5PSIwLjYiPmRyb3AgeW91ciBjYXB0dXJlIGluIC9hc3NldHMvaGZmLzwvdGV4dD4KPC9zdmc+" alt=""></div>
+    <div class="thumb" onclick="setGallery(5)"><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA4MDAgNDUwIj4KPHJlY3Qgd2lkdGg9IjgwMCIgaGVpZ2h0PSI0NTAiIGZpbGw9IiMyZjVhNjMiLz4KPHJlY3Qgd2lkdGg9IjgwMCIgaGVpZ2h0PSI0NTAiIGZpbGw9InVybCgjZG90cykiIG9wYWNpdHk9IjAuMTUiLz4KPGRlZnM+PHBhdHRlcm4gaWQ9ImRvdHMiIHdpZHRoPSIyOCIgaGVpZ2h0PSIyOCIgcGF0dGVyblVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+PGNpcmNsZSBjeD0iNCIgY3k9IjQiIHI9IjIiIGZpbGw9IiNmZmZmZmYiLz48L3BhdHRlcm4+PC9kZWZzPgo8dGV4dCB4PSI0MDAiIHk9IjIxNSIgZm9udC1mYW1pbHk9IlZlcmRhbmEiIGZvbnQtc2l6ZT0iMjYiIGZpbGw9IiNmZmZmZmYiIHRleHQtYW5jaG9yPSJtaWRkbGUiIG9wYWNpdHk9IjAuODUiPlNDUkVFTlNIT1QgNjwvdGV4dD4KPHRleHQgeD0iNDAwIiB5PSIyNTAiIGZvbnQtZmFtaWx5PSJWZXJkYW5hIiBmb250LXNpemU9IjE0IiBmaWxsPSIjZmZmZmZmIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBvcGFjaXR5PSIwLjYiPmRyb3AgeW91ciBjYXB0dXJlIGluIC9hc3NldHMvaGZmLzwvdGV4dD4KPC9zdmc+" alt=""></div>
+  </div>
+</section>
+
+<!-- ============ DETAILS: everything else, consolidated ============ -->
+<section id="details">
+  <div class="section-head"><h2>Details</h2><span class="idx mono">003</span></div>
+  <p class="section-sub">Platform, support, and what the loop actually feels like.</p>
+
+  <div class="platform-tabs" role="tablist">
+    <button class="ptab active" onclick="setPlatform('pc', this)">PC · Steam</button>
+    <button class="ptab" onclick="setPlatform('xbox', this)">Xbox One / Series X|S</button>
+    <button class="ptab" onclick="setPlatform('ps5', this)">PlayStation 4 / 5</button>
+  </div>
+
+  <div class="details-layout">
+    <div class="data-card">
+      <div class="data-row">
+        <span class="label">Controller</span>
+        <span class="value good" id="dat-controller">Full Support</span>
+      </div>
+      <div class="data-row">
+        <span class="label">Crossplay</span>
+        <span class="value" id="dat-crossplay">All platforms</span>
+      </div>
+      <div class="data-row">
+        <span class="label">Co-op players</span>
+        <span class="value accent" id="dat-players">Up to 8</span>
+      </div>
+      <div class="data-row">
+        <span class="label">Dedicated servers</span>
+        <span class="value" id="dat-servers">Peer-to-peer</span>
+      </div>
+    </div>
+    <div class="data-card quick-facts">
+      <div class="data-row"><span class="label">Genre</span><span class="value">Physics puzzle platformer</span></div>
+      <div class="data-row"><span class="label">Developer</span><span class="value">No Brakes Games</span></div>
+      <div class="data-row"><span class="label">Publisher</span><span class="value">Curve Games</span></div>
+      <div class="data-row"><span class="label">Release</span><span class="value">July 22, 2016</span></div>
+    </div>
+  </div>
+
+  <div class="details-layout" style="grid-template-columns:1fr 1fr;">
+    <div>
+      <div class="loop-list">
+        <div class="loop-item">
+          <span class="loop-dot"></span>
+          <div><h3>Wobble</h3></div>
+        </div>
+        <div class="loop-item">
+          <span class="loop-dot"></span>
+          <div><h3>Solve</h3></div>
+        </div>
+        <div class="loop-item">
+          <span class="loop-dot"></span>
+          <div><h3>Explore</h3></div>
+        </div>
+        <div class="loop-item">
+          <span class="loop-dot"></span>
+          <div><h3>Laugh</h3></div>
+        </div>
+      </div>
+    </div>
+    <div class="desc-text">
+      <div class="clip" id="descClip">
+        <p>You control Bob, a physics-driven ragdoll with no fixed shape or gravity script to save him — every grab, climb, and fall is simulated live, which is exactly why so much of the game is funnier than it means to be.</p>
+        <p>Levels are open-ended dreamscapes with multiple solutions to each puzzle, and the free Workshop adds thousands of community-made levels on top of the base game. It's best with friends, but the physics chaos holds up solo too.</p>
+      </div>
+      <button class="read-more" id="readMoreBtn" onclick="toggleClip()">
+        <span class="txt">Read more</span><span class="chev">⌄</span>
+      </button>
+    </div>
+  </div>
+</section>
+
+<div class="hazard-strip"></div>
+
+<footer>
+  <div class="brand"><div class="bolt"></div>HUMAN: FALL FLAT — DREAM LOG</div>
+  Fan-made reference layout · Not an official No Brakes Games or Curve Games product
+</footer>
+
+<script>
+  const galleryImgs = Array.from(document.querySelectorAll('#thumbStrip .thumb img')).map(i => i.getAttribute('src'));
+  let galIndex = 0;
+  document.getElementById('galleryTotal').textContent = galleryImgs.length;
+
+  function setGallery(i){
+    galIndex = (i + galleryImgs.length) % galleryImgs.length;
+    document.getElementById('mainImg').style.opacity = 0;
+    setTimeout(() => {
+      document.getElementById('mainImg').setAttribute('src', galleryImgs[galIndex]);
+      document.getElementById('mainImg').style.opacity = 1;
+    }, 120);
+    document.getElementById('galleryCount').textContent = galIndex + 1;
+    document.querySelectorAll('#thumbStrip .thumb').forEach((t, idx) => {
+      t.classList.toggle('active', idx === galIndex);
+    });
+  }
+  function shiftGallery(dir){ setGallery(galIndex + dir); }
+
+  let wishlisted = false;
+  function toggleWishlist(){
+    wishlisted = !wishlisted;
+    const btn = document.getElementById('wishlistBtn');
+    const label = document.getElementById('wishlistLabel');
+    btn.classList.toggle('saved', wishlisted);
+    label.textContent = wishlisted ? 'Wishlisted' : 'Add to Wishlist';
+  }
+
+  const platformData = {
+    pc: {
+      controller: 'Full Support',
+      crossplay: 'All platforms',
+      players: 'Up to 8',
+      servers: 'Peer-to-peer'
+    },
+    xbox: {
+      controller: 'Native',
+      crossplay: 'All platforms',
+      players: 'Up to 8',
+      servers: 'Peer-to-peer'
+    },
+    ps5: {
+      controller: 'Native',
+      crossplay: 'All platforms',
+      players: 'Up to 8',
+      servers: 'Peer-to-peer'
+    }
+  };
+
+  function setPlatform(key, btnEl){
+    document.querySelectorAll('.ptab').forEach(b => b.classList.remove('active'));
+    btnEl.classList.add('active');
+    const d = platformData[key];
+    document.getElementById('dat-controller').textContent = d.controller;
+    document.getElementById('dat-crossplay').textContent = d.crossplay;
+    document.getElementById('dat-players').textContent = d.players;
+    document.getElementById('dat-servers').textContent = d.servers;
+  }
+
+  function toggleClip(){
+    const clip = document.getElementById('descClip');
+    const btn = document.getElementById('readMoreBtn');
+    const open = clip.classList.toggle('open');
+    btn.classList.toggle('open', open);
+    btn.querySelector('.txt').textContent = open ? 'Read less' : 'Read more';
+  }
+
+  const sections = ['gallery','details'].map(id => document.getElementById(id));
+  const navLinks = Array.from(document.querySelectorAll('nav.links a'));
+  const navObs = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if(e.isIntersecting){
+        navLinks.forEach(l => l.classList.remove('active'));
+        const match = navLinks.find(l => l.getAttribute('href') === '#' + e.target.id);
+        if(match) match.classList.add('active');
+      }
+    });
+  }, {rootMargin:'-40% 0px -50% 0px'});
+  sections.forEach(s => navObs.observe(s));
+</script>
+
+</body>
+</html>

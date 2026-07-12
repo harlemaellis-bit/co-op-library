@@ -1,0 +1,697 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Satisfactory — FICSIT Field Dossier</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Barlow:wght@400;500;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  @font-face{
+    font-family:'Satisfontory';
+    src:url('data:font/otf;base64,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/AyLBV3///1VVf//2Kqr///tqqv//99VVWn//99VVWn//++qq2OLXQj9zfgdB7mL/wAnVVX/ABBVVf8AIKqr/wAgqqv/ACCqq/8AIKqr/wAQVVX/ACdVVYu5CPdaB4vBeLllsWWxXZ5Viwj7J/vqFfcQ9xD7EAcOZvfm+bQV+9X7bvdlBvcV924V+6L+fPdui/ei+nwFDnn4F/m0FftMigb//86qq4f//9XVVf//6yqraP//2lVVaP//2lVV///ugAD//9Qqq4tZCPtuB4v//+9VVY///+3VVpP//+xVVZP//+xVVf8ACaqr///wKqv/AAtVVX////Sqq///8VVV///2VVV4g///6Kqrg///6Kqrh3aL///tVVUI/AH4HQe5i/8AJ1VV/wAQVVX/ACCqq/8AIKqr/wAgqqv/ACCqq/8AEFVV/wAnVVWLuQj3jgeLmf///NVVm///+aqrnf//+aqrnf//+Cqq/wAOVVX///aqq/8ACqqr/wAJVVWX/wAH1Vb/AA+qq/8ABlVV/wATVVX/AAZVVf8AE1VV/wADKqv/ABFVVov/AA9VVQj4HQf79/2vFfcq9yr7Kgf7KvhMFfcq9yr7KgcOdvgw+bQV+3MGXYv//9iqq///76qr///fVVX//99VVf//31VV///fVVX//++qq///2Kqri10I+7wHi1WeXbFlsWW5eMGLCPcn+xD7ewZL+2737osFuf8AAqqr/wAnVVX/ABJVVf8AIKqrrf8AIKqrrf8AEFVVs4u5CPkjB4v/AC6qq///71VVs///3qqr/wAhVVX//96qq/8AIVVVY/8AEKqr///RVVWLCFv8TBX7EPdy9xAGDvwOpffvFSAK/H4EIAoO/A+k+EAVIAr8ugT3WvtIi/hK+1qLBQ53+D35tBX7iAZfi///2oAA///wgABsbGxs///wgAD//9qAAItfCPtZ92/3HfcQ+0IH///QqquD///Xqqr//+gqq///3qqr///YVVX//96qq///2FVV///vVVX//9Qqq4tbCPsr92/3Hwf/AC9VVZH/AChVVqH/ACFVVbH/ACFVVbH/ABCqq/8AKqqri/8AL1VVCPeTB4u3///wgAD/ACWAAGyqbKr//9qAAP8AD4AAX4sI+3v+fBX3b/dI+28GDvb5XvtcFSMKDviW95EVJAr7pft/FSUKDnf41/hRFSYKDnb4Mfm0FScK+0D9ohX4yPcM/MgHDpn3hfjaFSgK93/3EBUpCg6Z94X5tBUqCvv//SYVKwoOd/jX+FEVLAoOdvgx+bQVLQoO+/qi+1wVIgoOLPey+bQVLgr8e/58FS8KDqL7XBUiCvh//LcVMAoOfqL7XBUiCveh/aIVMQoO9133xftcFfdu+V4G+27HBfff93YVMgoOcfgt+bQVIQr8Fv58FSIKDnr4Nvm0FTMK+0X9ohU0Cg52+DH5tBU1Cg7C+NudFTYK/DcWNAoO+Jb3kRU3Cg56+D35tBU4Cg73VffG+1wV9275ngb7bmkF+7KxFfma9279mgYOevg2+bQVOQoO9viE+bQVOgr9TRY7Cg73Xvib+bQV+279Xgb3bk8Fy/maFTwKDqD4Lvm0FT0K+6X96xU+Cg7pnPm0FT8K93sWQAoObffv+bQV+9z7bvcoBvgs924VQQoO9vle+1wVIwoO+Jb3kRUkCvul+38VJQoOd/jX+FEVJgoOdvgx+bQVJwr7QP2iFfjI9wz8yAcOmfeF+NoVKAr3f/cQFSkKDpn3hfm0FSoK+//9JhUrCg53+Nf4URUsCg52+DH5tBUtCg77+qL7XBUiCg4s97L5tBUuCvx7/nwVLwoOovtcFSIK+H/8txUwCg5+ovtcFSIK96H9ohUxCg73XffF+1wV9275Xgb7bscF99/3dhUyCg5x+C35tBUhCvwW/nwVIgoOevg2+bQVMwr7Rf2iFTQKDnb4Mfm0FTUKDsL4250VNgr8NxY0Cg74lveRFTcKDnr4Pfm0FTgKDvdV98b7XBX3bvmeBvtuaQX7srEV+Zr3bv2aBg56+Db5tBU5Cg72+IT5tBU6Cv1NFjsKDvde+Jv5tBX7bv1eBvduTwXL+ZoVPAoOoPgu+bQVPQr7pf3rFT4KDumc+bQVPwr3exZACg5t9+/5tBX73Ptu9ygG+Cz3bhVBCg79Bg77uQ748BT5BhX7XIv6fIsGiwwKHAAUEwAiAgABAAkAUgBaAIABTAIPAoMCvgLfAuoDAAMLA4oD1AQJBBQFgwWOBdUGSgZSBpwHFAiCCRUJkQmfCawJ8goQChwKLwo7ClL3Wvda+1oGC/sAi1P7bvcDi4v9ovdui4v51wWL/wAtVVX//+/VVf8AJtVW///fqqv/ACBVVf//36qr/wAgVVX//9kqqv8AECqr///SqquLCAv3bvp8+24GC/tu+nxgi/tDi2CL+27+fPdui/cW+Oq++39Oi0b7bvdGi6v7JQUL/wANVVWX/wALKqv/AA8qq5T/ABJVVZT/ABJVVf8ABoAA/wARKquPm4+b/wAC1VX/ABDVVf8AAaqr/wARqqv/AAGqq/8AEaqrjJf/AABVVf8ABlVV/wAAVVX/AAZVVf8AACqr/wAE1VaL/wADVVUI920Hi/8AJKqrfv8AHyqqcf8AGaqrcf8AGaqrbP8ADNVVZ4sI/Dz+fPjA95IGpweL/wASqqv///qqq/8AGdVV///1VVWs///1VVWs///vqqv/AB8qq3X/AB1VVQgL+Mj3DPsXB4yDBf8AAVVV///7VVX////VVv//+aqr///+VVWD///+VVWD///9Kqv///fVVYf///eqq4f///eqq4P///gqqn////iqq3////iqq3z///qqqnn///yqqwht+24F/wAOqquL/wAM1VX///8qq5b///5VVZb///5VVf8ACyqr///81Vb/AAtVVf//+1VV/wALVVX///tVVf8ACKqr///41VaR///2VVWR///2VVWO///zgACL///wqqsIVgcL9/f8GQddi///2Kqr///vqqv//99VVf//31VV///fVVX//99VVf//76qr///YqquLXQj91fgZB7mL/wAnVVX/ABBVVf8AIKqr/wAgqqv/ACCqq/8AIKqr/wAQVVX/ACdVVYu5CPdQ+277HfsM+Mj3DPsdBwv8Gv58+MD51waL/wAtVVX//+/VVf8AJtVW///fqqv/ACBVVf//36qr/wAgVVX//9jVVf8AECqrXYsIC/fdi773bvwQi/sUizGLi/585Yv3FIv33Yu+9278EIsFC7b3bvt/i3H7bgUL+xSLMYuL/nz3bouL+aL33Yu+924FC/dui7b3bvt/iwUL9/f8GQddi///2Kqr///vqqv//99VVf//31VV///fVVX//99VVf//76qr///YqquLXQj91fgZB7mL/wAnVVX/ABBVVf8AIKqr/wAgqqv/ACCqq/8AIKqr/wAQVVX/ACdVVYu5CPgd+6IHYftu6YuL+xD7DIuL+Mj3DIuL+x0FC1f8TPsM+Ez7bv5892736vcM++r3bvnXBov/AC1VVf//79VV/wAm1Vb//9+qq/8AIFVV///fqqv/ACBVVf//2NVV/wAQKqtdiwgL/ny/B7mL/wAnKqv/ABBVVf8AIFVV/wAgqqv/ACBVVf8AIKqr/wAQKqv/ACdVVYu5CPnVBwv3bou29277bosFC/8ADVVVl/8ACyqr/wAPKquU/wASVVWU/wASVVX/AAaAAP8AESqrj5uPm/8AAtVV/wAQ1VX/AAGqq/8AEaqr/wABqqv/ABGqq4yX/wAAVVX/AAZVVf8AAFVV/wAGVVX/AAAqq/8ABNVWi/8AA1VVCPfx+2778QeL///1VVX///8qq///9tVW///+VVX///hVVf///lVV///4VVWI///3Kqv///uqq4H///uqq4H///gqqv//99VV///0qqv///mqq///9Kqr///5qqt9///71VX//+9VVYkIbftuBf8ADqqri/8ADNVV////KquW///+VVWW///+VVX/AAsqq////NVW/wALVVX///tVVf8AC1VV///7VVX/AAiqq///+NVWkf//9lVVkf//9lVVjv//84AAi///8KqrCPuj9273kgenB4v/ABKqq///+qqr/wAZ1VX///VVVaz///VVVaz//++qq/8AHyqrdf8AHVVVCAtg+273wou2924FC/z5/nz3bvmi9+r9ovdu+dcGi/8ALVVV///v1VX/ACbVVv//36qr/wAgVVX//9+qq/8AIFVV///ZKqr/ABAqq///0qqriwgL/B/91waL///Sqqv/ABAqq///2Sqq/wAgVVX//9+qq/8AIFVV///fqqv/ACbVVv//79VV/wAtVVWLCPgf+dcGi/8ALVVV///v1VX/ACbVVv//36qr/wAgVVX//9+qq/8AIFVV///ZKqr/ABAqq///0qqriwgL+Mj3EPzIBwv8Gv589275ovcM+3JQBmD7bvfUi4v4gQWL/wAtVVX//+/VVf8AJtVW///fqqv/ACBVVf//36qr/wAgVVX//9jVVf8AECqrXYsIC/j9B4v/AC1VVf//79VV/wAm1Vb//9+qq/8AIFVV///fqqv/ACBVVf//2Sqq/wAQKqv//9Kqq4sI/B/91waL///Sqqv/ABAqq///2Sqq/wAgVVX//9+qq/8AIFVV///fqqv/ACbVVv//79VV/wAtVVWLCPhs924GC/8ADVVVl/8ACyqr/wAPKquU/wASVVWU/wASVVX/AAaAAP8AESqrj5uPm/8AAtVV/wAQ1VX/AAGqq/8AEaqr/wABqqv/ABGqq4yX/wAAVVX/AAZVVf8AAFVV/wAGVVX/AAAqq/8ABNVWi/8AA1VVCPfx/MD+fPdu+aL3DPsXB4yDBf8AAVVV///7VVX////VVv//+aqr///+VVWD///+VVWD///9Kqv///fVVYf///eqq4f///eqq4P///gqqn////iqq3////iqq3z///qqqnn///yqqwht+24F/wAOqquL/wAM1VX///8qq5b///5VVZb///5VVf8ACyqr///81Vb/AAtVVf//+1VV/wALVVX///tVVf8ACKqr///41VaR///2VVWR///2VVWO///zgACL///wqqsI+6P3bveSB6cHi/8AEqqr///6qqv/ABnVVf//9VVVrP//9VVVrP//76qr/wAfKqt1/wAdVVUIC/uIBv//1Kqri///2tVV///wgABsbGxs///wgAD//9rVVYv//9Sqqwj7kgeLVZ5dsWWxZbl4wYsI9yf7Q/sQ9x37bvv3+MT4KgaMB4vDd7tjs2Oz///Pqquf///HVVWLCPsd9z/3EPsd9273WQaL/wArVVX///CAAP8AJSqrbKpsqv//2tVV/wAPgAD//9Sqq4sIC1b9ovsQ+aL7bv3XBov//9Kqq/8AECqr///ZKqr/ACBVVf//36qr/wAgVVX//9+qq/8AJtVW///v1VX/AC1VVYsI+B/51waL/wAtVVX//+/VVf8AJtVW///fqqv/ACBVVf//36qr/wAgVVX//9kqqv8AECqr///SqquLCAv7EPzE9xj8Hfdm+k0FC/du/nz3bov7bvp8BQv9ovvq+aL7bv3XB4v//9Kqq/8AECqr///ZKqr/ACBVVf//36qr/wAgVVX//9+qq/8AJtVW///v1VX/AC1VVYsI+Pn6fAYLNPtzM/dz+26L91n8iPtZ/Ij3bov3WfiI91j4iAULwvsl926L+1j4iAUL93/81Yv8O/dui4v4O/t3+NUFCzb7dtz75vd7+MgFC/tui/vm/nz3UIupi/fii4/3bvuciwULAAABAAAADAAAABYAHgACAAEAAQBEAAEABAAAAAIAAAABAAAAAQAAAAAAAAABAAAAANWkmNsAAAAA10ps/AAAAADXZeDcAWwAIQD4ABcCYAAZAXEAEAJeABcCWwAUAlwAFwJZABYCXAAZAk0AEQJgABgCXQAWAPgAGgD3ABkCXgAWAt0AEQJcABcCXgAXAl0AFwKAABcCgAAXAl4AFwJdABcBDAAXAhMAEQJcABcCZQAXAzsAFwJYABcCYQAXAl0AFwKpABcCXAAXAmEAFwMzABQCYQAXAt0AEQM8ABcChwARAtAAEQJUABMC3QARAlwAFwJeABcCXQAXAoAAFwKAABcCXgAXAl0AFwEMABcCEwARAlwAFwJlABcDOwAXAlgAFwJhABcCXQAXAqkAFwJcABcCYQAXAzMAFAJhABcC3QARAzwAFwKHABEC0AARAlQAEwAAAAABTQAA') format('opentype');
+    font-weight:normal;
+    font-style:normal;
+  }
+  :root{
+    --bg:            #101316;
+    --surface:         #171c22;
+    --surface-hover:   #1c222a;
+    --border:          #262e36;
+    --orange:        #ee8b1f;
+    --orange-soft:   #f2a94d;
+    --hazard:        #ffc530;
+    --steel:         #5fa2c9;
+    --text:          #ece7dd;
+    --text-dim:      #9aa2aa;
+    --text-faint:    #636a71;
+    --good:          #7dd694;
+    --radius:        14px;
+  }
+
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:
+      radial-gradient(ellipse 900px 500px at 12% -8%, rgba(238,139,31,0.07), transparent),
+      radial-gradient(ellipse 700px 500px at 100% 8%, rgba(95,162,201,0.06), transparent),
+      var(--bg);
+    color:var(--text);
+    font-family:'Barlow', sans-serif;
+    font-size:16px;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+
+  h1,h2,h3, .stencil{
+    font-family:'Satisfontory', 'Oswald', sans-serif;
+    text-transform:uppercase;
+    letter-spacing:0.04em;
+  }
+  .mono{ font-family:'Satisfontory', 'Space Mono', monospace; }
+  a{ color:inherit; text-decoration:none; }
+  img{ max-width:100%; display:block; }
+  ::selection{ background:var(--orange); color:#101316; }
+  a:focus-visible, button:focus-visible{ outline:2px solid var(--orange); outline-offset:3px; }
+
+  /* ============ HAZARD STRIP — used twice only: under the title, and near the footer ============ */
+  .hazard-strip{
+    height:8px;
+    width:100%;
+    background:repeating-linear-gradient(
+      -45deg,
+      var(--hazard) 0 16px,
+      #14171a 16px 32px
+    );
+    background-size:200% 100%;
+    animation: crawl 6s linear infinite;
+  }
+  @media (prefers-reduced-motion: reduce){
+    .hazard-strip{ animation:none; }
+  }
+  @keyframes crawl{
+    0%{ background-position:0 0; }
+    100%{ background-position:-90.5px 0; }
+  }
+
+  /* ============ NAV ============ */
+  header.nav{
+    position:sticky; top:0; z-index:50;
+    background:rgba(16,19,22,0.88);
+    backdrop-filter:blur(8px);
+    border-bottom:1px solid var(--border);
+    display:flex; align-items:center; justify-content:space-between;
+    padding:14px 32px;
+  }
+  .brand{
+    display:flex; align-items:center; gap:10px;
+    font-family:'Oswald', sans-serif;
+    font-weight:600; letter-spacing:0.12em;
+    font-size:13px;
+  }
+  .brand .bolt{
+    width:18px; height:18px;
+    border:2px solid var(--orange);
+    transform:rotate(45deg);
+    position:relative; flex-shrink:0;
+  }
+  .brand .bolt::after{ content:''; position:absolute; inset:3px; border:2px solid var(--orange); }
+  nav.links{ display:flex; gap:24px; font-size:12px; letter-spacing:0.06em; }
+  nav.links a{
+    color:var(--text-dim); text-transform:uppercase; font-weight:500;
+    padding-bottom:4px; border-bottom:2px solid transparent;
+    transition:color .2s, border-color .2s;
+  }
+  nav.links a:hover, nav.links a.active{ color:var(--orange); border-color:var(--orange); }
+
+  /* ============ HERO — tightened, title reachable immediately ============ */
+  .hero{
+    position:relative;
+    padding:44px 32px 40px;
+    display:flex; flex-direction:column; justify-content:flex-end;
+    min-height:46vh;
+    background:
+      linear-gradient(180deg, rgba(16,19,22,0.25) 0%, rgba(16,19,22,0.55) 60%, var(--bg) 100%),
+      url('images/satisfactory-hero.jpg') center 32% / cover no-repeat;
+    background-color:#241c14;
+  }
+  .hero-eyebrow{
+    display:flex; align-items:center; gap:10px;
+    color:var(--hazard);
+    font-family:'Space Mono', monospace;
+    font-size:11px; letter-spacing:0.16em;
+    margin-bottom:14px;
+  }
+  .hero-eyebrow::before{ content:''; width:22px; height:1px; background:var(--hazard); }
+  .hero h1{
+    font-size:clamp(42px, 7.5vw, 84px);
+    line-height:0.92;
+    color:var(--text);
+    text-shadow:0 4px 24px rgba(0,0,0,0.55);
+    margin-bottom:10px;
+  }
+  .hero h1 span{ color:var(--orange); }
+  .hero-tagline{
+    font-size:clamp(14px,1.8vw,16px);
+    color:var(--text-dim);
+    max-width:540px;
+    margin-bottom:20px;
+  }
+  .tag-row{ display:flex; flex-wrap:wrap; gap:8px; margin-bottom:22px; }
+  .tag-pill{
+    font-family:'Space Mono', monospace;
+    font-size:10.5px; letter-spacing:0.05em;
+    color:var(--text-dim);
+    border:1px solid var(--border);
+    padding:6px 12px;
+    border-radius:20px;
+    background:rgba(23,28,34,0.7);
+  }
+  .cta-row{ display:flex; gap:12px; flex-wrap:wrap; }
+  .btn{
+    font-family:'Oswald', sans-serif;
+    font-weight:600; letter-spacing:0.06em; text-transform:uppercase;
+    font-size:13px;
+    padding:13px 24px;
+    border-radius:24px;
+    border:1px solid transparent;
+    cursor:pointer;
+    display:inline-flex; align-items:center; gap:9px;
+    transition:transform .15s ease, background .2s, color .2s, border-color .2s;
+  }
+  .btn:active{ transform:translateY(1px) scale(0.98); }
+  .btn-primary{ background:var(--orange); color:#1a1300; }
+  .btn-primary:hover{ background:var(--orange-soft); }
+  .btn-ghost{ background:transparent; color:var(--text); border-color:var(--border); }
+  .btn-ghost:hover{ border-color:var(--orange); color:var(--orange); }
+  .btn-ghost.saved{ border-color:var(--good); color:var(--good); }
+  .btn-ghost .pip{ width:7px; height:7px; border-radius:50%; background:currentColor; }
+
+  /* ============ SECTION SHELL ============ */
+  section{ padding:56px 32px; max-width:1120px; margin:0 auto; }
+  section + section{ border-top:1px solid var(--border); }
+  .section-head{
+    display:flex; align-items:baseline; justify-content:space-between;
+    gap:24px; margin-bottom:8px; flex-wrap:wrap;
+  }
+  .section-head h2{ font-size:clamp(22px,2.8vw,30px); }
+  .section-head .idx{ font-family:'Space Mono', monospace; color:var(--text-faint); font-size:12px; }
+  .section-sub{ color:var(--text-dim); max-width:600px; margin-bottom:28px; font-size:14.5px;}
+
+  /* ============ GALLERY ============ */
+  .gallery-main{
+    position:relative;
+    border:1px solid var(--border);
+    border-radius:var(--radius);
+    overflow:hidden;
+    aspect-ratio:16/9;
+    background:#171c22;
+  }
+  .gallery-main img{ width:100%; height:100%; object-fit:cover; transition:opacity .25s ease; }
+  .gallery-nav-btn{
+    position:absolute; top:50%; transform:translateY(-50%);
+    width:42px; height:42px; border-radius:50%;
+    background:rgba(16,19,22,0.7);
+    border:1px solid var(--border);
+    color:var(--text);
+    display:flex; align-items:center; justify-content:center;
+    cursor:pointer; font-size:18px;
+    transition:background .2s, border-color .2s;
+    backdrop-filter:blur(4px);
+  }
+  .gallery-nav-btn:hover{ background:var(--orange); color:#1a1300; border-color:var(--orange); }
+  .gallery-nav-btn.prev{ left:14px; }
+  .gallery-nav-btn.next{ right:14px; }
+  .gallery-counter{
+    position:absolute; bottom:14px; right:14px;
+    font-family:'Space Mono', monospace; font-size:11px;
+    background:rgba(16,19,22,0.75); border:1px solid var(--border);
+    padding:5px 10px; border-radius:20px; color:var(--orange-soft);
+  }
+  .thumb-strip{ display:grid; grid-template-columns:repeat(6,1fr); gap:8px; margin-top:12px; }
+  .thumb{
+    aspect-ratio:16/10; overflow:hidden; border-radius:8px;
+    border:2px solid transparent; cursor:pointer; background:#171c22;
+    opacity:0.5; transition:opacity .2s, border-color .2s;
+  }
+  .thumb img{ width:100%; height:100%; object-fit:cover; }
+  .thumb:hover{ opacity:0.85; }
+  .thumb.active{ opacity:1; border-color:var(--orange); }
+
+  /* ============ DETAILS — consolidated: platform tabs + data + overview + features ============ */
+  .platform-tabs{ display:flex; gap:8px; margin-bottom:24px; flex-wrap:wrap; }
+  .ptab{
+    font-family:'Space Mono', monospace; font-size:11.5px; letter-spacing:0.04em;
+    padding:9px 16px; border:1px solid var(--border); color:var(--text-dim);
+    background:var(--surface); cursor:pointer; border-radius:20px;
+    transition:all .2s;
+  }
+  .ptab.active{ color:#0c1720; background:var(--steel); border-color:var(--steel); }
+  .ptab:hover:not(.active){ border-color:var(--steel); color:var(--steel); }
+
+  .details-layout{ display:grid; grid-template-columns:1fr 1fr; gap:14px; margin-bottom:36px; }
+  .data-card{
+    background:var(--surface); border:1px solid var(--border); border-radius:var(--radius);
+    padding:22px 24px;
+  }
+  .data-row{
+    display:flex; align-items:baseline; justify-content:space-between; gap:16px;
+    padding:11px 0; border-bottom:1px solid var(--border);
+  }
+  .data-row:last-child{ border-bottom:none; }
+  .data-row .label{
+    font-family:'Space Mono', monospace; font-size:11.5px; color:var(--text-faint);
+    letter-spacing:0.04em; text-transform:uppercase; flex-shrink:0;
+  }
+  .data-row .value{ text-align:right; font-size:14px; font-weight:500; }
+  .data-row .value.good{ color:var(--good); }
+  .data-row .value.accent{ color:var(--orange-soft); }
+  .data-row .note{ display:block; font-weight:400; font-size:12px; color:var(--text-faint); margin-top:2px; }
+
+  .quick-facts{
+    display:flex; flex-direction:column; gap:0;
+  }
+
+  /* core loop as a compact tag list rather than a heavy card grid */
+  .loop-list{ display:flex; flex-direction:column; gap:0; }
+  .loop-item{
+    display:flex; gap:16px; padding:14px 0; border-bottom:1px solid var(--border);
+  }
+  .loop-item:last-child{ border-bottom:none; }
+  .loop-dot{
+    width:8px; height:8px; border-radius:50%; background:var(--orange);
+    margin-top:7px; flex-shrink:0;
+  }
+  .loop-item h3{ font-size:14.5px; text-transform:none; letter-spacing:0; font-family:'Barlow',sans-serif; font-weight:600; margin-bottom:3px; }
+  .loop-item p{ color:var(--text-dim); font-size:13.5px; }
+
+  /* overview */
+  .desc-text p{ color:var(--text-dim); margin-bottom:14px; font-size:14.5px; }
+  .desc-text .clip{ max-height:78px; overflow:hidden; position:relative; transition:max-height .35s ease; }
+  .desc-text .clip.open{ max-height:600px; }
+  .desc-text .clip:not(.open)::after{
+    content:''; position:absolute; left:0; right:0; bottom:0; height:40px;
+    background:linear-gradient(180deg, transparent, var(--bg));
+  }
+  .read-more{
+    margin-top:10px; background:none; border:none; color:var(--steel);
+    font-family:'Space Mono', monospace; font-size:11.5px; letter-spacing:0.05em;
+    cursor:pointer; text-transform:uppercase; padding:0;
+    display:flex; align-items:center; gap:6px;
+  }
+  .read-more:hover{ color:var(--orange); }
+  .read-more .chev{ transition:transform .25s; }
+  .read-more.open .chev{ transform:rotate(180deg); }
+
+  .cta-row{ margin-top:22px; }
+
+  footer{
+    padding:32px 32px 48px; text-align:center;
+    color:var(--text-faint); font-size:12px; font-family:'Space Mono', monospace;
+    letter-spacing:0.05em;
+  }
+  footer .brand{ justify-content:center; margin-bottom:12px; }
+
+  @media (max-width:760px){
+    nav.links{ display:none; }
+    .thumb-strip{ grid-template-columns:repeat(3,1fr); }
+    .details-layout{ grid-template-columns:1fr; }
+  }
+
+  /* ============ Room for the theme.js settings button, top-left ============ */
+  header.nav{ padding-left:72px; }
+  @media (max-width:520px){ header.nav{ padding-left:64px; } }
+
+  /* ============ Back to library link ============ */
+  .back-link{
+    display:inline-flex;
+    align-items:center;
+    gap:7px;
+    font-family:'Space Mono', monospace;
+    font-size:11px;
+    font-weight:600;
+    letter-spacing:0.04em;
+    color:var(--text-dim);
+    background:var(--surface);
+    border:1px solid var(--border);
+    padding:7px 13px;
+    border-radius:20px;
+    text-decoration:none;
+    transition: all 0.15s ease;
+  }
+  .back-link:hover{ color:var(--text); border-color:var(--text-dim); }
+
+  /* ============ Language switch, mirrors the library's lang-switch ============ */
+  .lang-switch{
+    display:flex;
+    gap:8px;
+    margin-left:auto;
+  }
+  .lang-btn{
+    display:flex;
+    align-items:center;
+    gap:7px;
+    font-family:'Space Mono', monospace;
+    font-size:11px;
+    font-weight:600;
+    letter-spacing:0.04em;
+    color:var(--text-dim);
+    background:var(--surface);
+    border:1px solid var(--border);
+    padding:7px 12px;
+    border-radius:20px;
+    cursor:pointer;
+    transition: all 0.15s ease;
+  }
+  .lang-btn .flag{ font-size:14px; line-height:1; }
+  .lang-btn:hover{ color:var(--text); border-color:var(--text-dim); }
+  .lang-btn.active{
+    color:var(--bg);
+    background:var(--text);
+    border-color:var(--text);
+  }
+  .nav-controls{ display:flex; align-items:center; gap:16px; }
+  @media (max-width:520px){ .back-link span.txt{ display:none; } }
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <div class="brand">
+    <div class="bolt"></div>
+    FICSIT™ FIELD DOSSIER
+  </div>
+  <nav class="links">
+    <a href="#gallery" class="active" id="nav-gallery">Gallery</a>
+    <a href="#details" id="nav-details">Details</a>
+  </nav>
+  <div class="nav-controls">
+    <a class="back-link" href="coop-library.html"><span>←</span><span class="txt" id="backLinkTxt">Back to Library</span></a>
+    <div class="lang-switch">
+      <button class="lang-btn active" data-lang="en" id="lang-en" aria-pressed="true"><span class="flag">🇬🇧</span>EN</button>
+      <button class="lang-btn" data-lang="fr" id="lang-fr" aria-pressed="false"><span class="flag">🇫🇷</span>FR</button>
+    </div>
+  </div>
+</header>
+
+<!-- Hero background image is embedded below -->
+<section class="hero">
+  <div class="hero-eyebrow mono" id="heroEyebrow">FICSIT INC. · EMPLOYEE ORIENTATION FILE 001</div>
+  <h1>SATIS<span>FACTORY</span></h1>
+  <p class="hero-tagline" id="heroTagline">A first-person open-world factory building game with a dash of exploration and combat, set on an alien planet just waiting to be exploited.</p>
+  <div class="tag-row">
+    <span class="tag-pill" id="tag-0">FACTORY BUILDER</span>
+    <span class="tag-pill" id="tag-1">OPEN WORLD</span>
+    <span class="tag-pill" id="tag-2">SURVIVAL</span>
+    <span class="tag-pill" id="tag-3">CO-OP</span>
+  </div>
+  <div class="cta-row">
+    <button class="btn btn-primary" id="steamBtn" onclick="window.open('https://store.steampowered.com/app/526870/Satisfactory/','_blank')">View on Steam</button>
+    <button class="btn btn-ghost" id="wishlistBtn" onclick="toggleWishlist()">
+      <span class="pip"></span><span id="wishlistLabel">Add to Wishlist</span>
+    </button>
+  </div>
+</section>
+
+<div class="hazard-strip"></div>
+
+<!-- ============ GALLERY ============ -->
+<section id="gallery">
+  <div class="section-head"><h2 id="galleryHeading">Screenshots</h2><span class="idx mono">002</span></div>
+
+  <div class="gallery-main">
+    <img id="mainImg" src="images/satisfactory-1.jpg" alt="Satisfactory screenshot">
+    <button class="gallery-nav-btn prev" onclick="shiftGallery(-1)" aria-label="Previous screenshot">‹</button>
+    <button class="gallery-nav-btn next" onclick="shiftGallery(1)" aria-label="Next screenshot">›</button>
+    <div class="gallery-counter mono"><span id="galleryCount">1</span> / <span id="galleryTotal">6</span></div>
+  </div>
+
+  <div class="thumb-strip" id="thumbStrip">
+    <div class="thumb active" onclick="setGallery(0)"><img src="images/satisfactory-1.jpg" alt=""></div>
+    <div class="thumb" onclick="setGallery(1)"><img src="images/satisfactory-2.jpg" alt=""></div>
+    <div class="thumb" onclick="setGallery(2)"><img src="images/satisfactory-3.jpg" alt=""></div>
+    <div class="thumb" onclick="setGallery(3)"><img src="images/satisfactory-4.jpg" alt=""></div>
+    <div class="thumb" onclick="setGallery(4)"><img src="images/satisfactory-5.jpg" alt=""></div>
+    <div class="thumb" onclick="setGallery(5)"><img src="images/satisfactory-6.jpg" alt=""></div>
+  </div>
+</section>
+
+<!-- ============ DETAILS: everything else, consolidated ============ -->
+<section id="details">
+  <div class="section-head"><h2 id="detailsHeading">Details</h2><span class="idx mono">003</span></div>
+  <p class="section-sub" id="detailsSub">Platform, support, and what the loop actually feels like.</p>
+
+  <div class="platform-tabs" role="tablist">
+    <button class="ptab active" onclick="setPlatform('pc', this)">PC · Steam / Epic</button>
+    <button class="ptab" onclick="setPlatform('xbox', this)">Xbox Series X|S</button>
+    <button class="ptab" onclick="setPlatform('ps5', this)">PlayStation 5</button>
+  </div>
+
+  <div class="details-layout">
+    <div class="data-card">
+      <div class="data-row">
+        <span class="label" id="lbl-controller">Controller</span>
+        <span class="value good" id="dat-controller">Full Support</span>
+      </div>
+      <div class="data-row">
+        <span class="label" id="lbl-crossplay">Crossplay</span>
+        <span class="value" id="dat-crossplay">PC pool only</span>
+      </div>
+      <div class="data-row">
+        <span class="label" id="lbl-players">Co-op players</span>
+        <span class="value accent" id="dat-players">Up to 4</span>
+      </div>
+      <div class="data-row">
+        <span class="label" id="lbl-servers">Dedicated servers</span>
+        <span class="value" id="dat-servers">Supported</span>
+      </div>
+    </div>
+    <div class="data-card quick-facts">
+      <div class="data-row"><span class="label" id="lbl-genre">Genre</span><span class="value" id="val-genre">Factory sim / survival</span></div>
+      <div class="data-row"><span class="label" id="lbl-developer">Developer</span><span class="value">Coffee Stain Studios</span></div>
+      <div class="data-row"><span class="label" id="lbl-engine">Engine</span><span class="value">Unreal Engine 5</span></div>
+      <div class="data-row"><span class="label" id="lbl-onepoint">1.0 release</span><span class="value">Sept 10, 2024</span></div>
+    </div>
+  </div>
+
+  <div class="details-layout" style="grid-template-columns:1fr 1fr;">
+    <div>
+      <div class="loop-list">
+        <div class="loop-item">
+          <span class="loop-dot"></span>
+          <div><h3 id="loop-0">Automate</h3></div>
+        </div>
+        <div class="loop-item">
+          <span class="loop-dot"></span>
+          <div><h3 id="loop-1">Build</h3></div>
+        </div>
+        <div class="loop-item">
+          <span class="loop-dot"></span>
+          <div><h3 id="loop-2">Explore</h3></div>
+        </div>
+        <div class="loop-item">
+          <span class="loop-dot"></span>
+          <div><h3 id="loop-3">Create</h3></div>
+        </div>
+      </div>
+    </div>
+    <div class="desc-text">
+      <div class="clip" id="descClip">
+        <p id="desc-p0">You are dropped onto planet MASSAGE-2(A-B)b as a Pioneer working for FICSIT Inc., tasked with establishing automated supply chains for an interstellar project of unclear purpose. What starts as a single smelter and a handful of conveyor belts tends to spiral into a continent-spanning industrial complex.</p>
+        <p id="desc-p1">There's no fixed objective beyond FICSIT's ever-expanding project milestones — how you get there is up to you. The game left Early Access in September 2024, then arrived on Xbox Series X|S and PS5 in November 2025 with console-to-console crossplay.</p>
+      </div>
+      <button class="read-more" id="readMoreBtn" onclick="toggleClip()">
+        <span class="txt" id="readMoreTxt">Read more</span><span class="chev">⌄</span>
+      </button>
+    </div>
+  </div>
+</section>
+
+<div class="hazard-strip"></div>
+
+<footer>
+  <div class="brand"><div class="bolt"></div>SATISFACTORY — FICSIT FIELD DOSSIER</div>
+  <span id="footerTxt">Fan-made reference layout · Not an official FICSIT Inc. or Coffee Stain Studios product</span>
+</footer>
+
+<script src="theme.js"></script>
+<script>
+  const galleryImgs = Array.from(document.querySelectorAll('#thumbStrip .thumb img')).map(i => i.getAttribute('src'));
+  let galIndex = 0;
+  document.getElementById('galleryTotal').textContent = galleryImgs.length;
+
+  function setGallery(i){
+    galIndex = (i + galleryImgs.length) % galleryImgs.length;
+    document.getElementById('mainImg').style.opacity = 0;
+    setTimeout(() => {
+      document.getElementById('mainImg').setAttribute('src', galleryImgs[galIndex]);
+      document.getElementById('mainImg').style.opacity = 1;
+    }, 120);
+    document.getElementById('galleryCount').textContent = galIndex + 1;
+    document.querySelectorAll('#thumbStrip .thumb').forEach((t, idx) => {
+      t.classList.toggle('active', idx === galIndex);
+    });
+  }
+  function shiftGallery(dir){ setGallery(galIndex + dir); }
+
+  let wishlisted = false;
+  function toggleWishlist(){
+    wishlisted = !wishlisted;
+    const btn = document.getElementById('wishlistBtn');
+    btn.classList.toggle('saved', wishlisted);
+    updateWishlistLabel();
+  }
+  function updateWishlistLabel(){
+    const t = i18n[currentLang];
+    document.getElementById('wishlistLabel').textContent = wishlisted ? t.wishlisted : t.wishlist;
+  }
+
+  // --- Platform data, EN/FR ---
+  const platformData = {
+    en: {
+      pc:   { controller: 'Full Support', crossplay: 'PC pool only', players: 'Up to 4 (config-editable)', servers: 'Supported' },
+      xbox: { controller: 'Native', crossplay: 'Xbox ↔ PlayStation', players: 'Up to 4', servers: 'Not available' },
+      ps5:  { controller: 'Native + Haptics', crossplay: 'PlayStation ↔ Xbox', players: 'Up to 4', servers: 'Not available' }
+    },
+    fr: {
+      pc:   { controller: 'Support complet', crossplay: 'Pool PC uniquement', players: "Jusqu'à 4 (modifiable)", servers: 'Pris en charge' },
+      xbox: { controller: 'Natif', crossplay: 'Xbox ↔ PlayStation', players: "Jusqu'à 4", servers: 'Non disponible' },
+      ps5:  { controller: 'Natif + retour haptique', crossplay: 'PlayStation ↔ Xbox', players: "Jusqu'à 4", servers: 'Non disponible' }
+    }
+  };
+  let currentPlatform = 'pc';
+
+  function setPlatform(key, btnEl){
+    currentPlatform = key;
+    document.querySelectorAll('.ptab').forEach(b => b.classList.remove('active'));
+    btnEl.classList.add('active');
+    const d = platformData[currentLang][key];
+    document.getElementById('dat-controller').textContent = d.controller;
+    document.getElementById('dat-crossplay').textContent = d.crossplay;
+    document.getElementById('dat-players').textContent = d.players;
+    document.getElementById('dat-servers').textContent = d.servers;
+  }
+
+  function toggleClip(){
+    const clip = document.getElementById('descClip');
+    const btn = document.getElementById('readMoreBtn');
+    const open = clip.classList.toggle('open');
+    btn.classList.toggle('open', open);
+    document.getElementById('readMoreTxt').textContent = open ? i18n[currentLang].readLess : i18n[currentLang].readMore;
+  }
+
+  const sections = ['gallery','details'].map(id => document.getElementById(id));
+  const navLinks = Array.from(document.querySelectorAll('nav.links a'));
+  const navObs = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if(e.isIntersecting){
+        navLinks.forEach(l => l.classList.remove('active'));
+        const match = navLinks.find(l => l.getAttribute('href') === '#' + e.target.id);
+        if(match) match.classList.add('active');
+      }
+    });
+  }, {rootMargin:'-40% 0px -50% 0px'});
+  sections.forEach(s => navObs.observe(s));
+
+  /* =========================================================
+   * i18n — EN/FR, mirrors the switcher on coop-library.html
+   * ========================================================= */
+  const i18n = {
+    en: {
+      navGallery: 'Gallery',
+      navDetails: 'Details',
+      backLink: 'Back to Library',
+      heroEyebrow: 'FICSIT INC. · EMPLOYEE ORIENTATION FILE 001',
+      heroTagline: 'A first-person open-world factory building game with a dash of exploration and combat, set on an alien planet just waiting to be exploited.',
+      tags: ['FACTORY BUILDER', 'OPEN WORLD', 'SURVIVAL', 'CO-OP'],
+      steamBtn: 'View on Steam',
+      wishlist: 'Add to Wishlist',
+      wishlisted: 'Wishlisted',
+      galleryHeading: 'Screenshots',
+      detailsHeading: 'Details',
+      detailsSub: 'Platform, support, and what the loop actually feels like.',
+      lblController: 'Controller',
+      lblCrossplay: 'Crossplay',
+      lblPlayers: 'Co-op players',
+      lblServers: 'Dedicated servers',
+      lblGenre: 'Genre',
+      lblDeveloper: 'Developer',
+      lblEngine: 'Engine',
+      lblOnePoint: '1.0 release',
+      valGenre: 'Factory sim / survival',
+      loop: ['Automate', 'Build', 'Explore', 'Create'],
+      descP0: 'You are dropped onto planet MASSAGE-2(A-B)b as a Pioneer working for FICSIT Inc., tasked with establishing automated supply chains for an interstellar project of unclear purpose. What starts as a single smelter and a handful of conveyor belts tends to spiral into a continent-spanning industrial complex.',
+      descP1: "There's no fixed objective beyond FICSIT's ever-expanding project milestones — how you get there is up to you. The game left Early Access in September 2024, then arrived on Xbox Series X|S and PS5 in November 2025 with console-to-console crossplay.",
+      readMore: 'Read more',
+      readLess: 'Read less',
+      footer: 'Fan-made reference layout · Not an official FICSIT Inc. or Coffee Stain Studios product'
+    },
+    fr: {
+      navGallery: 'Galerie',
+      navDetails: 'Détails',
+      backLink: 'Retour à la bibliothèque',
+      heroEyebrow: "FICSIT INC. · DOSSIER D'ORIENTATION EMPLOYÉ 001",
+      heroTagline: "Un jeu de construction d'usines en vue à la première personne, en monde ouvert, avec un peu d'exploration et de combat, sur une planète extraterrestre qui n'attend que d'être exploitée.",
+      tags: ["CONSTRUCTION D'USINES", 'MONDE OUVERT', 'SURVIE', 'COOP'],
+      steamBtn: 'Voir sur Steam',
+      wishlist: 'Ajouter à la liste de souhaits',
+      wishlisted: 'Dans la liste de souhaits',
+      galleryHeading: "Captures d'écran",
+      detailsHeading: 'Détails',
+      detailsSub: "Plateformes, support, et ce que la boucle de jeu donne vraiment.",
+      lblController: 'Manette',
+      lblCrossplay: 'Crossplay',
+      lblPlayers: 'Joueurs en coop',
+      lblServers: 'Serveurs dédiés',
+      lblGenre: 'Genre',
+      lblDeveloper: 'Développeur',
+      lblEngine: 'Moteur',
+      lblOnePoint: 'Sortie 1.0',
+      valGenre: "Simulation d'usine / survie",
+      loop: ['Automatiser', 'Construire', 'Explorer', 'Créer'],
+      descP0: "Vous êtes largué sur la planète MASSAGE-2(A-B)b en tant que Pionnier au service de FICSIT Inc., chargé de mettre en place des chaînes d'approvisionnement automatisées pour un projet interstellaire au but flou. Ce qui commence par un simple four et quelques tapis roulants finit souvent par s'étendre en un complexe industriel à l'échelle d'un continent.",
+      descP1: "Il n'y a pas d'objectif fixe au-delà des jalons toujours plus nombreux du projet FICSIT — la façon d'y arriver vous appartient. Le jeu est sorti d'accès anticipé en septembre 2024, puis est arrivé sur Xbox Series X|S et PS5 en novembre 2025 avec un crossplay console à console.",
+      readMore: 'Lire la suite',
+      readLess: 'Réduire',
+      footer: "Mise en page fan-made · N'est pas un produit officiel de FICSIT Inc. ou Coffee Stain Studios"
+    }
+  };
+
+  let currentLang = 'en';
+
+  function applyTranslations(){
+    const t = i18n[currentLang];
+    document.getElementById('nav-gallery').textContent = t.navGallery;
+    document.getElementById('nav-details').textContent = t.navDetails;
+    document.getElementById('backLinkTxt').textContent = t.backLink;
+    document.getElementById('heroEyebrow').textContent = t.heroEyebrow;
+    document.getElementById('heroTagline').textContent = t.heroTagline;
+    t.tags.forEach((txt, i) => { document.getElementById('tag-' + i).textContent = txt; });
+    document.getElementById('steamBtn').textContent = t.steamBtn;
+    updateWishlistLabel();
+    document.getElementById('galleryHeading').textContent = t.galleryHeading;
+    document.getElementById('detailsHeading').textContent = t.detailsHeading;
+    document.getElementById('detailsSub').textContent = t.detailsSub;
+    document.getElementById('lbl-controller').textContent = t.lblController;
+    document.getElementById('lbl-crossplay').textContent = t.lblCrossplay;
+    document.getElementById('lbl-players').textContent = t.lblPlayers;
+    document.getElementById('lbl-servers').textContent = t.lblServers;
+    document.getElementById('lbl-genre').textContent = t.lblGenre;
+    document.getElementById('lbl-developer').textContent = t.lblDeveloper;
+    document.getElementById('lbl-engine').textContent = t.lblEngine;
+    document.getElementById('lbl-onepoint').textContent = t.lblOnePoint;
+    document.getElementById('val-genre').textContent = t.valGenre;
+    t.loop.forEach((txt, i) => { document.getElementById('loop-' + i).textContent = txt; });
+    document.getElementById('desc-p0').textContent = t.descP0;
+    document.getElementById('desc-p1').textContent = t.descP1;
+    document.getElementById('footerTxt').textContent = t.footer;
+
+    const clipOpen = document.getElementById('descClip').classList.contains('open');
+    document.getElementById('readMoreTxt').textContent = clipOpen ? t.readLess : t.readMore;
+
+    // Re-apply the platform data table in the new language, keeping the active tab.
+    const d = platformData[currentLang][currentPlatform];
+    document.getElementById('dat-controller').textContent = d.controller;
+    document.getElementById('dat-crossplay').textContent = d.crossplay;
+    document.getElementById('dat-players').textContent = d.players;
+    document.getElementById('dat-servers').textContent = d.servers;
+
+    document.getElementById('lang-en').classList.toggle('active', currentLang === 'en');
+    document.getElementById('lang-fr').classList.toggle('active', currentLang === 'fr');
+    document.getElementById('lang-en').setAttribute('aria-pressed', currentLang === 'en' ? 'true' : 'false');
+    document.getElementById('lang-fr').setAttribute('aria-pressed', currentLang === 'fr' ? 'true' : 'false');
+  }
+
+  document.querySelectorAll('.lang-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      currentLang = btn.dataset.lang;
+      applyTranslations();
+    });
+  });
+
+  applyTranslations();
+</script>
+
+</body>
+</html>

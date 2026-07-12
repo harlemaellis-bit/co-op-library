@@ -650,7 +650,11 @@ function render(){
     `;
     card.addEventListener('click', (e) => {
       if(e.target.closest('a')) return;
-      window.open(steamUrl, '_blank', 'noopener');
+      if(g.appid){
+        window.location.href = `info.html?game=${g.appid}`;
+      } else {
+        window.open(steamUrl, '_blank', 'noopener');
+      }
     });
     grid.appendChild(card);
   });

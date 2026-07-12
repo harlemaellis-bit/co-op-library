@@ -1,0 +1,406 @@
+{
+  "526870": {
+    "pageTitle": "Satisfactory — FICSIT Field Dossier",
+    "headerBrand": "FICSIT™ FIELD DOSSIER",
+    "footerBrand": "SATISFACTORY — FICSIT FIELD DOSSIER",
+    "brandIcon": "bolt",
+    "backLink": "coop-library.html",
+    "steamUrl": "https://store.steampowered.com/app/526870/Satisfactory/",
+    "heroImage": "images/satisfactory-hero.jpg",
+    "gallery": [
+      "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA4MDAgNDUwIj4KPHJlY3Qgd2lkdGg9IjgwMCIgaGVpZ2h0PSI0NTAiIGZpbGw9IiMzYTJmNjMiLz4KPHJlY3Qgd2lkdGg9IjgwMCIgaGVpZ2h0PSI0NTAiIGZpbGw9InVybCgjZG90cykiIG9wYWNpdHk9IjAuMTUiLz4KPGRlZnM+PHBhdHRlcm4gaWQ9ImRvdHMiIHdpZHRoPSIyOCIgaGVpZ2h0PSIyOCIgcGF0dGVyblVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+PGNpcmNsZSBjeD0iNCIgY3k9IjQiIHI9IjIiIGZpbGw9IiNmZmZmZmYiLz48L3BhdHRlcm4+PC9kZWZzPgo8dGV4dCB4PSI0MDAiIHk9IjIxNSIgZm9udC1mYW1pbHk9IlZlcmRhbmEiIGZvbnQtc2l6ZT0iMjYiIGZpbGw9IiNmZmZmZmYiIHRleHQtYW5jaG9yPSJtaWRkbGUiIG9wYWNpdHk9IjAuODUiPlNDUkVFTlNIT1QgMTwvdGV4dD4KPHRleHQgeD0iNDAwIiB5PSIyNTAiIGZvbnQtZmFtaWx5PSJWZXJkYW5hIiBmb250LXNpemU9IjE0IiBmaWxsPSIjZmZmZmZmIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBvcGFjaXR5PSIwLjYiPmRyb3AgeW91ciBjYXB0dXJlIGluIC9hc3NldHMvaGZmLzwvdGV4dD4KPC9zdmc+",
+      "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA4MDAgNDUwIj4KPHJlY3Qgd2lkdGg9IjgwMCIgaGVpZ2h0PSI0NTAiIGZpbGw9IiMyZjRhNjMiLz4KPHJlY3Qgd2lkdGg9IjgwMCIgaGVpZ2h0PSI0NTAiIGZpbGw9InVybCgjZG90cykiIG9wYWNpdHk9IjAuMTUiLz4KPGRlZnM+PHBhdHRlcm4gaWQ9ImRvdHMiIHdpZHRoPSIyOCIgaGVpZ2h0PSIyOCIgcGF0dGVyblVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+PGNpcmNsZSBjeD0iNCIgY3k9IjQiIHI9IjIiIGZpbGw9IiNmZmZmZmYiLz48L3BhdHRlcm4+PC9kZWZzPgo8dGV4dCB4PSI0MDAiIHk9IjIxNSIgZm9udC1mYW1pbHk9IlZlcmRhbmEiIGZvbnQtc2l6ZT0iMjYiIGZpbGw9IiNmZmZmZmYiIHRleHQtYW5jaG9yPSJtaWRkbGUiIG9wYWNpdHk9IjAuODUiPlNDUkVFTlNIT1QgMjwvdGV4dD4KPHRleHQgeD0iNDAwIiB5PSIyNTAiIGZvbnQtZmFtaWx5PSJWZXJkYW5hIiBmb250LXNpemU9IjE0IiBmaWxsPSIjZmZmZmZmIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBvcGFjaXR5PSIwLjYiPmRyb3AgeW91ciBjYXB0dXJlIGluIC9hc3NldHMvaGZmLzwvdGV4dD4KPC9zdmc+",
+      "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA4MDAgNDUwIj4KPHJlY3Qgd2lkdGg9IjgwMCIgaGVpZ2h0PSI0NTAiIGZpbGw9IiM2MzQzMmYiLz4KPHJlY3Qgd2lkdGg9IjgwMCIgaGVpZ2h0PSI0NTAiIGZpbGw9InVybCgjZG90cykiIG9wYWNpdHk9IjAuMTUiLz4KPGRlZnM+PHBhdHRlcm4gaWQ9ImRvdHMiIHdpZHRoPSIyOCIgaGVpZ2h0PSIyOCIgcGF0dGVyblVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+PGNpcmNsZSBjeD0iNCIgY3k9IjQiIHI9IjIiIGZpbGw9IiNmZmZmZmYiLz48L3BhdHRlcm4+PC9kZWZzPgo8dGV4dCB4PSI0MDAiIHk9IjIxNSIgZm9udC1mYW1pbHk9IlZlcmRhbmEiIGZvbnQtc2l6ZT0iMjYiIGZpbGw9IiNmZmZmZmYiIHRleHQtYW5jaG9yPSJtaWRkbGUiIG9wYWNpdHk9IjAuODUiPlNDUkVFTlNIT1QgMzwvdGV4dD4KPHRleHQgeD0iNDAwIiB5PSIyNTAiIGZvbnQtZmFtaWx5PSJWZXJkYW5hIiBmb250LXNpemU9IjE0IiBmaWxsPSIjZmZmZmZmIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBvcGFjaXR5PSIwLjYiPmRyb3AgeW91ciBjYXB0dXJlIGluIC9hc3NldHMvaGZmLzwvdGV4dD4KPC9zdmc+",
+      "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA4MDAgNDUwIj4KPHJlY3Qgd2lkdGg9IjgwMCIgaGVpZ2h0PSI0NTAiIGZpbGw9IiMyZjYzNTAiLz4KPHJlY3Qgd2lkdGg9IjgwMCIgaGVpZ2h0PSI0NTAiIGZpbGw9InVybCgjZG90cykiIG9wYWNpdHk9IjAuMTUiLz4KPGRlZnM+PHBhdHRlcm4gaWQ9ImRvdHMiIHdpZHRoPSIyOCIgaGVpZ2h0PSIyOCIgcGF0dGVyblVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+PGNpcmNsZSBjeD0iNCIgY3k9IjQiIHI9IjIiIGZpbGw9IiNmZmZmZmYiLz48L3BhdHRlcm4+PC9kZWZzPgo8dGV4dCB4PSI0MDAiIHk9IjIxNSIgZm9udC1mYW1pbHk9IlZlcmRhbmEiIGZvbnQtc2l6ZT0iMjYiIGZpbGw9IiNmZmZmZmYiIHRleHQtYW5jaG9yPSJtaWRkbGUiIG9wYWNpdHk9IjAuODUiPlNDUkVFTlNIT1QgNDwvdGV4dD4KPHRleHQgeD0iNDAwIiB5PSIyNTAiIGZvbnQtZmFtaWx5PSJWZXJkYW5hIiBmb250LXNpemU9IjE0IiBmaWxsPSIjZmZmZmZmIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBvcGFjaXR5PSIwLjYiPmRyb3AgeW91ciBjYXB0dXJlIGluIC9hc3NldHMvaGZmLzwvdGV4dD4KPC9zdmc+",
+      "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA4MDAgNDUwIj4KPHJlY3Qgd2lkdGg9IjgwMCIgaGVpZ2h0PSI0NTAiIGZpbGw9IiM1YTJmNjMiLz4KPHJlY3Qgd2lkdGg9IjgwMCIgaGVpZ2h0PSI0NTAiIGZpbGw9InVybCgjZG90cykiIG9wYWNpdHk9IjAuMTUiLz4KPGRlZnM+PHBhdHRlcm4gaWQ9ImRvdHMiIHdpZHRoPSIyOCIgaGVpZ2h0PSIyOCIgcGF0dGVyblVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+PGNpcmNsZSBjeD0iNCIgY3k9IjQiIHI9IjIiIGZpbGw9IiNmZmZmZmYiLz48L3BhdHRlcm4+PC9kZWZzPgo8dGV4dCB4PSI0MDAiIHk9IjIxNSIgZm9udC1mYW1pbHk9IlZlcmRhbmEiIGZvbnQtc2l6ZT0iMjYiIGZpbGw9IiNmZmZmZmYiIHRleHQtYW5jaG9yPSJtaWRkbGUiIG9wYWNpdHk9IjAuODUiPlNDUkVFTlNIT1QgNTwvdGV4dD4KPHRleHQgeD0iNDAwIiB5PSIyNTAiIGZvbnQtZmFtaWx5PSJWZXJkYW5hIiBmb250LXNpemU9IjE0IiBmaWxsPSIjZmZmZmZmIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBvcGFjaXR5PSIwLjYiPmRyb3AgeW91ciBjYXB0dXJlIGluIC9hc3NldHMvaGZmLzwvdGV4dD4KPC9zdmc+",
+      "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA4MDAgNDUwIj4KPHJlY3Qgd2lkdGg9IjgwMCIgaGVpZ2h0PSI0NTAiIGZpbGw9IiMyZjVhNjMiLz4KPHJlY3Qgd2lkdGg9IjgwMCIgaGVpZ2h0PSI0NTAiIGZpbGw9InVybCgjZG90cykiIG9wYWNpdHk9IjAuMTUiLz4KPGRlZnM+PHBhdHRlcm4gaWQ9ImRvdHMiIHdpZHRoPSIyOCIgaGVpZ2h0PSIyOCIgcGF0dGVyblVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+PGNpcmNsZSBjeD0iNCIgY3k9IjQiIHI9IjIiIGZpbGw9IiNmZmZmZmYiLz48L3BhdHRlcm4+PC9kZWZzPgo8dGV4dCB4PSI0MDAiIHk9IjIxNSIgZm9udC1mYW1pbHk9IlZlcmRhbmEiIGZvbnQtc2l6ZT0iMjYiIGZpbGw9IiNmZmZmZmYiIHRleHQtYW5jaG9yPSJtaWRkbGUiIG9wYWNpdHk9IjAuODUiPlNDUkVFTlNIT1QgNjwvdGV4dD4KPHRleHQgeD0iNDAwIiB5PSIyNTAiIGZvbnQtZmFtaWx5PSJWZXJkYW5hIiBmb250LXNpemU9IjE0IiBmaWxsPSIjZmZmZmZmIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBvcGFjaXR5PSIwLjYiPmRyb3AgeW91ciBjYXB0dXJlIGluIC9hc3NldHMvaGZmLzwvdGV4dD4KPC9zdmc+"
+    ],
+    "theme": {
+      "accent": "#ee8b1f",
+      "accentSoft": "#f2a94d",
+      "accent2": "#5fa2c9",
+      "hazardA": "#ffc530",
+      "hazardB": "#14171a",
+      "hazardAngle": "-45deg",
+      "fontDisplay": "Oswald",
+      "fontBody": "Barlow",
+      "fontMono": "Space Mono"
+    },
+    "platforms": [
+      {
+        "key": "pc",
+        "label": "PC · Steam / Epic"
+      },
+      {
+        "key": "xbox",
+        "label": "Xbox Series X|S"
+      },
+      {
+        "key": "ps5",
+        "label": "PlayStation 5"
+      }
+    ],
+    "platformData": {
+      "en": {
+        "pc": {
+          "controller": "Full Support",
+          "crossplay": "PC pool only",
+          "players": "Up to 4 (config-editable)",
+          "servers": "Supported"
+        },
+        "xbox": {
+          "controller": "Native",
+          "crossplay": "Xbox ↔ PlayStation",
+          "players": "Up to 4",
+          "servers": "Not available"
+        },
+        "ps5": {
+          "controller": "Native + Haptics",
+          "crossplay": "PlayStation ↔ Xbox",
+          "players": "Up to 4",
+          "servers": "Not available"
+        }
+      },
+      "fr": {
+        "pc": {
+          "controller": "Support complet",
+          "crossplay": "Pool PC uniquement",
+          "players": "Jusqu'à 4 (modifiable)",
+          "servers": "Pris en charge"
+        },
+        "xbox": {
+          "controller": "Natif",
+          "crossplay": "Xbox ↔ PlayStation",
+          "players": "Jusqu'à 4",
+          "servers": "Non disponible"
+        },
+        "ps5": {
+          "controller": "Natif + retour haptique",
+          "crossplay": "PlayStation ↔ Xbox",
+          "players": "Jusqu'à 4",
+          "servers": "Non disponible"
+        }
+      }
+    },
+    "quickFacts": {
+      "en": [
+        {
+          "label": "Genre",
+          "value": "Factory sim / survival"
+        },
+        {
+          "label": "Developer",
+          "value": "Coffee Stain Studios"
+        },
+        {
+          "label": "Engine",
+          "value": "Unreal Engine 5"
+        },
+        {
+          "label": "1.0 release",
+          "value": "Sept 10, 2024"
+        }
+      ],
+      "fr": [
+        {
+          "label": "Genre",
+          "value": "Simulation d'usine / survie"
+        },
+        {
+          "label": "Développeur",
+          "value": "Coffee Stain Studios"
+        },
+        {
+          "label": "Moteur",
+          "value": "Unreal Engine 5"
+        },
+        {
+          "label": "Sortie 1.0",
+          "value": "10 sept. 2024"
+        }
+      ]
+    },
+    "loop": {
+      "en": [
+        "Automate",
+        "Build",
+        "Explore",
+        "Create"
+      ],
+      "fr": [
+        "Automatiser",
+        "Construire",
+        "Explorer",
+        "Créer"
+      ]
+    },
+    "i18n": {
+      "en": {
+        "navGallery": "Gallery",
+        "navDetails": "Details",
+        "backLink": "Back to Library",
+        "heroEyebrow": "FICSIT INC. · EMPLOYEE ORIENTATION FILE 001",
+        "titleMain": "SATIS",
+        "titleAccent": "FACTORY",
+        "heroTagline": "A first-person open-world factory building game with a dash of exploration and combat, set on an alien planet just waiting to be exploited.",
+        "tags": [
+          "FACTORY BUILDER",
+          "OPEN WORLD",
+          "SURVIVAL",
+          "CO-OP"
+        ],
+        "steamBtn": "View on Steam",
+        "wishlist": "Add to Wishlist",
+        "wishlisted": "Wishlisted",
+        "galleryHeading": "Screenshots",
+        "detailsHeading": "Details",
+        "detailsSub": "Platform, support, and what the loop actually feels like.",
+        "lblController": "Controller",
+        "lblCrossplay": "Crossplay",
+        "lblPlayers": "Co-op players",
+        "lblServers": "Dedicated servers",
+        "descP": [
+          "You are dropped onto planet MASSAGE-2(A-B)b as a Pioneer working for FICSIT Inc., tasked with establishing automated supply chains for an interstellar project of unclear purpose. What starts as a single smelter and a handful of conveyor belts tends to spiral into a continent-spanning industrial complex.",
+          "There's no fixed objective beyond FICSIT's ever-expanding project milestones — how you get there is up to you. The game left Early Access in September 2024, then arrived on Xbox Series X|S and PS5 in November 2025 with console-to-console crossplay."
+        ],
+        "readMore": "Read more",
+        "readLess": "Read less",
+        "footer": "Fan-made reference layout · Not an official FICSIT Inc. or Coffee Stain Studios product"
+      },
+      "fr": {
+        "navGallery": "Galerie",
+        "navDetails": "Détails",
+        "backLink": "Retour à la bibliothèque",
+        "heroEyebrow": "FICSIT INC. · DOSSIER D'ORIENTATION EMPLOYÉ 001",
+        "titleMain": "SATIS",
+        "titleAccent": "FACTORY",
+        "heroTagline": "Un jeu de construction d'usines en vue à la première personne, en monde ouvert, avec un peu d'exploration et de combat, sur une planète extraterrestre qui n'attend que d'être exploitée.",
+        "tags": [
+          "CONSTRUCTION D'USINES",
+          "MONDE OUVERT",
+          "SURVIE",
+          "COOP"
+        ],
+        "steamBtn": "Voir sur Steam",
+        "wishlist": "Ajouter à la liste de souhaits",
+        "wishlisted": "Dans la liste de souhaits",
+        "galleryHeading": "Captures d'écran",
+        "detailsHeading": "Détails",
+        "detailsSub": "Plateformes, support, et ce que la boucle de jeu donne vraiment.",
+        "lblController": "Manette",
+        "lblCrossplay": "Crossplay",
+        "lblPlayers": "Joueurs en coop",
+        "lblServers": "Serveurs dédiés",
+        "descP": [
+          "Vous êtes largué sur la planète MASSAGE-2(A-B)b en tant que Pionnier au service de FICSIT Inc., chargé de mettre en place des chaînes d'approvisionnement automatisées pour un projet interstellaire au but flou. Ce qui commence par un simple four et quelques tapis roulants finit souvent par s'étendre en un complexe industriel à l'échelle d'un continent.",
+          "Il n'y a pas d'objectif fixe au-delà des jalons toujours plus nombreux du projet FICSIT — la façon d'y arriver vous appartient. Le jeu est sorti d'accès anticipé en septembre 2024, puis est arrivé sur Xbox Series X|S et PS5 en novembre 2025 avec un crossplay console à console."
+        ],
+        "readMore": "Lire la suite",
+        "readLess": "Réduire",
+        "footer": "Mise en page fan-made · N'est pas un produit officiel de FICSIT Inc. ou Coffee Stain Studios"
+      }
+    }
+  },
+  "477160": {
+    "pageTitle": "Human: Fall Flat — Dream Log",
+    "headerBrand": "HUMAN: FALL FLAT — DREAM LOG",
+    "footerBrand": "HUMAN: FALL FLAT — DREAM LOG",
+    "brandIcon": "dot",
+    "backLink": "coop-library.html",
+    "steamUrl": "https://store.steampowered.com/app/477160/Human_Fall_Flat/",
+    "heroImage": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMjAwIDcwMCI+CjxkZWZzPgo8bGluZWFyR3JhZGllbnQgaWQ9InNreSIgeDE9IjAiIHkxPSIwIiB4Mj0iMCIgeTI9IjEiPgo8c3RvcCBvZmZzZXQ9IjAlIiBzdG9wLWNvbG9yPSIjZmY5YTY4Ii8+CjxzdG9wIG9mZnNldD0iNDUlIiBzdG9wLWNvbG9yPSIjZmY2YjhhIi8+CjxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0iIzNhMmY2MyIvPgo8L2xpbmVhckdyYWRpZW50Pgo8L2RlZnM+CjxyZWN0IHdpZHRoPSIxMjAwIiBoZWlnaHQ9IjcwMCIgZmlsbD0idXJsKCNza3kpIi8+CjxjaXJjbGUgY3g9IjIyMCIgY3k9IjE1MCIgcj0iNzAiIGZpbGw9IiNmZmZmZmYiIG9wYWNpdHk9IjAuMTIiLz4KPGNpcmNsZSBjeD0iOTgwIiBjeT0iMjIwIiByPSI0MCIgZmlsbD0iI2ZmZmZmZiIgb3BhY2l0eT0iMC4xIi8+CjxjaXJjbGUgY3g9IjYwMCIgY3k9IjQ1MCIgcj0iMTEwIiBmaWxsPSIjZmZmZmZmIiBvcGFjaXR5PSIwLjA4Ii8+Cjx0ZXh0IHg9IjYwMCIgeT0iNjAwIiBmb250LWZhbWlseT0iVmVyZGFuYSIgZm9udC1zaXplPSIyMiIgZmlsbD0iI2ZmZmZmZiIgdGV4dC1hbmNob3I9Im1pZGRsZSIgb3BhY2l0eT0iMC41NSI+SEVSTyBJTUFHRSDigJQgZHJvcCAvYXNzZXRzL2hmZi9oZXJvLmpwZyBoZXJlPC90ZXh0Pgo8L3N2Zz4=",
+    "gallery": [
+      "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA4MDAgNDUwIj4KPHJlY3Qgd2lkdGg9IjgwMCIgaGVpZ2h0PSI0NTAiIGZpbGw9IiMzYTJmNjMiLz4KPHJlY3Qgd2lkdGg9IjgwMCIgaGVpZ2h0PSI0NTAiIGZpbGw9InVybCgjZG90cykiIG9wYWNpdHk9IjAuMTUiLz4KPGRlZnM+PHBhdHRlcm4gaWQ9ImRvdHMiIHdpZHRoPSIyOCIgaGVpZ2h0PSIyOCIgcGF0dGVyblVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+PGNpcmNsZSBjeD0iNCIgY3k9IjQiIHI9IjIiIGZpbGw9IiNmZmZmZmYiLz48L3BhdHRlcm4+PC9kZWZzPgo8dGV4dCB4PSI0MDAiIHk9IjIxNSIgZm9udC1mYW1pbHk9IlZlcmRhbmEiIGZvbnQtc2l6ZT0iMjYiIGZpbGw9IiNmZmZmZmYiIHRleHQtYW5jaG9yPSJtaWRkbGUiIG9wYWNpdHk9IjAuODUiPlNDUkVFTlNIT1QgMTwvdGV4dD4KPHRleHQgeD0iNDAwIiB5PSIyNTAiIGZvbnQtZmFtaWx5PSJWZXJkYW5hIiBmb250LXNpemU9IjE0IiBmaWxsPSIjZmZmZmZmIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBvcGFjaXR5PSIwLjYiPmRyb3AgeW91ciBjYXB0dXJlIGluIC9hc3NldHMvaGZmLzwvdGV4dD4KPC9zdmc+",
+      "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA4MDAgNDUwIj4KPHJlY3Qgd2lkdGg9IjgwMCIgaGVpZ2h0PSI0NTAiIGZpbGw9IiMyZjRhNjMiLz4KPHJlY3Qgd2lkdGg9IjgwMCIgaGVpZ2h0PSI0NTAiIGZpbGw9InVybCgjZG90cykiIG9wYWNpdHk9IjAuMTUiLz4KPGRlZnM+PHBhdHRlcm4gaWQ9ImRvdHMiIHdpZHRoPSIyOCIgaGVpZ2h0PSIyOCIgcGF0dGVyblVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+PGNpcmNsZSBjeD0iNCIgY3k9IjQiIHI9IjIiIGZpbGw9IiNmZmZmZmYiLz48L3BhdHRlcm4+PC9kZWZzPgo8dGV4dCB4PSI0MDAiIHk9IjIxNSIgZm9udC1mYW1pbHk9IlZlcmRhbmEiIGZvbnQtc2l6ZT0iMjYiIGZpbGw9IiNmZmZmZmYiIHRleHQtYW5jaG9yPSJtaWRkbGUiIG9wYWNpdHk9IjAuODUiPlNDUkVFTlNIT1QgMjwvdGV4dD4KPHRleHQgeD0iNDAwIiB5PSIyNTAiIGZvbnQtZmFtaWx5PSJWZXJkYW5hIiBmb250LXNpemU9IjE0IiBmaWxsPSIjZmZmZmZmIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBvcGFjaXR5PSIwLjYiPmRyb3AgeW91ciBjYXB0dXJlIGluIC9hc3NldHMvaGZmLzwvdGV4dD4KPC9zdmc+",
+      "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA4MDAgNDUwIj4KPHJlY3Qgd2lkdGg9IjgwMCIgaGVpZ2h0PSI0NTAiIGZpbGw9IiM2MzQzMmYiLz4KPHJlY3Qgd2lkdGg9IjgwMCIgaGVpZ2h0PSI0NTAiIGZpbGw9InVybCgjZG90cykiIG9wYWNpdHk9IjAuMTUiLz4KPGRlZnM+PHBhdHRlcm4gaWQ9ImRvdHMiIHdpZHRoPSIyOCIgaGVpZ2h0PSIyOCIgcGF0dGVyblVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+PGNpcmNsZSBjeD0iNCIgY3k9IjQiIHI9IjIiIGZpbGw9IiNmZmZmZmYiLz48L3BhdHRlcm4+PC9kZWZzPgo8dGV4dCB4PSI0MDAiIHk9IjIxNSIgZm9udC1mYW1pbHk9IlZlcmRhbmEiIGZvbnQtc2l6ZT0iMjYiIGZpbGw9IiNmZmZmZmYiIHRleHQtYW5jaG9yPSJtaWRkbGUiIG9wYWNpdHk9IjAuODUiPlNDUkVFTlNIT1QgMzwvdGV4dD4KPHRleHQgeD0iNDAwIiB5PSIyNTAiIGZvbnQtZmFtaWx5PSJWZXJkYW5hIiBmb250LXNpemU9IjE0IiBmaWxsPSIjZmZmZmZmIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBvcGFjaXR5PSIwLjYiPmRyb3AgeW91ciBjYXB0dXJlIGluIC9hc3NldHMvaGZmLzwvdGV4dD4KPC9zdmc+",
+      "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA4MDAgNDUwIj4KPHJlY3Qgd2lkdGg9IjgwMCIgaGVpZ2h0PSI0NTAiIGZpbGw9IiMyZjYzNTAiLz4KPHJlY3Qgd2lkdGg9IjgwMCIgaGVpZ2h0PSI0NTAiIGZpbGw9InVybCgjZG90cykiIG9wYWNpdHk9IjAuMTUiLz4KPGRlZnM+PHBhdHRlcm4gaWQ9ImRvdHMiIHdpZHRoPSIyOCIgaGVpZ2h0PSIyOCIgcGF0dGVyblVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+PGNpcmNsZSBjeD0iNCIgY3k9IjQiIHI9IjIiIGZpbGw9IiNmZmZmZmYiLz48L3BhdHRlcm4+PC9kZWZzPgo8dGV4dCB4PSI0MDAiIHk9IjIxNSIgZm9udC1mYW1pbHk9IlZlcmRhbmEiIGZvbnQtc2l6ZT0iMjYiIGZpbGw9IiNmZmZmZmYiIHRleHQtYW5jaG9yPSJtaWRkbGUiIG9wYWNpdHk9IjAuODUiPlNDUkVFTlNIT1QgNDwvdGV4dD4KPHRleHQgeD0iNDAwIiB5PSIyNTAiIGZvbnQtZmFtaWx5PSJWZXJkYW5hIiBmb250LXNpemU9IjE0IiBmaWxsPSIjZmZmZmZmIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBvcGFjaXR5PSIwLjYiPmRyb3AgeW91ciBjYXB0dXJlIGluIC9hc3NldHMvaGZmLzwvdGV4dD4KPC9zdmc+",
+      "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA4MDAgNDUwIj4KPHJlY3Qgd2lkdGg9IjgwMCIgaGVpZ2h0PSI0NTAiIGZpbGw9IiM1YTJmNjMiLz4KPHJlY3Qgd2lkdGg9IjgwMCIgaGVpZ2h0PSI0NTAiIGZpbGw9InVybCgjZG90cykiIG9wYWNpdHk9IjAuMTUiLz4KPGRlZnM+PHBhdHRlcm4gaWQ9ImRvdHMiIHdpZHRoPSIyOCIgaGVpZ2h0PSIyOCIgcGF0dGVyblVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+PGNpcmNsZSBjeD0iNCIgY3k9IjQiIHI9IjIiIGZpbGw9IiNmZmZmZmYiLz48L3BhdHRlcm4+PC9kZWZzPgo8dGV4dCB4PSI0MDAiIHk9IjIxNSIgZm9udC1mYW1pbHk9IlZlcmRhbmEiIGZvbnQtc2l6ZT0iMjYiIGZpbGw9IiNmZmZmZmYiIHRleHQtYW5jaG9yPSJtaWRkbGUiIG9wYWNpdHk9IjAuODUiPlNDUkVFTlNIT1QgNTwvdGV4dD4KPHRleHQgeD0iNDAwIiB5PSIyNTAiIGZvbnQtZmFtaWx5PSJWZXJkYW5hIiBmb250LXNpemU9IjE0IiBmaWxsPSIjZmZmZmZmIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBvcGFjaXR5PSIwLjYiPmRyb3AgeW91ciBjYXB0dXJlIGluIC9hc3NldHMvaGZmLzwvdGV4dD4KPC9zdmc+",
+      "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA4MDAgNDUwIj4KPHJlY3Qgd2lkdGg9IjgwMCIgaGVpZ2h0PSI0NTAiIGZpbGw9IiMyZjVhNjMiLz4KPHJlY3Qgd2lkdGg9IjgwMCIgaGVpZ2h0PSI0NTAiIGZpbGw9InVybCgjZG90cykiIG9wYWNpdHk9IjAuMTUiLz4KPGRlZnM+PHBhdHRlcm4gaWQ9ImRvdHMiIHdpZHRoPSIyOCIgaGVpZ2h0PSIyOCIgcGF0dGVyblVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+PGNpcmNsZSBjeD0iNCIgY3k9IjQiIHI9IjIiIGZpbGw9IiNmZmZmZmYiLz48L3BhdHRlcm4+PC9kZWZzPgo8dGV4dCB4PSI0MDAiIHk9IjIxNSIgZm9udC1mYW1pbHk9IlZlcmRhbmEiIGZvbnQtc2l6ZT0iMjYiIGZpbGw9IiNmZmZmZmYiIHRleHQtYW5jaG9yPSJtaWRkbGUiIG9wYWNpdHk9IjAuODUiPlNDUkVFTlNIT1QgNjwvdGV4dD4KPHRleHQgeD0iNDAwIiB5PSIyNTAiIGZvbnQtZmFtaWx5PSJWZXJkYW5hIiBmb250LXNpemU9IjE0IiBmaWxsPSIjZmZmZmZmIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBvcGFjaXR5PSIwLjYiPmRyb3AgeW91ciBjYXB0dXJlIGluIC9hc3NldHMvaGZmLzwvdGV4dD4KPC9zdmc+"
+    ],
+    "theme": {
+      "accent": "#ff6b57",
+      "accentSoft": "#ff9a86",
+      "accent2": "#6fd6ff",
+      "hazardA": "#ff6b57",
+      "hazardB": "#6fd6ff",
+      "hazardAngle": "90deg",
+      "fontDisplay": "Baloo 2",
+      "fontBody": "Nunito",
+      "fontMono": "Baloo 2"
+    },
+    "platforms": [
+      {
+        "key": "pc",
+        "label": "PC · Steam"
+      },
+      {
+        "key": "xbox",
+        "label": "Xbox One / Series X|S"
+      },
+      {
+        "key": "ps5",
+        "label": "PlayStation 4 / 5"
+      }
+    ],
+    "platformData": {
+      "en": {
+        "pc": {
+          "controller": "Full Support",
+          "crossplay": "All platforms",
+          "players": "Up to 8",
+          "servers": "Peer-to-peer"
+        },
+        "xbox": {
+          "controller": "Native",
+          "crossplay": "All platforms",
+          "players": "Up to 8",
+          "servers": "Peer-to-peer"
+        },
+        "ps5": {
+          "controller": "Native",
+          "crossplay": "All platforms",
+          "players": "Up to 8",
+          "servers": "Peer-to-peer"
+        }
+      },
+      "fr": {
+        "pc": {
+          "controller": "Support complet",
+          "crossplay": "Toutes plateformes",
+          "players": "Jusqu'à 8",
+          "servers": "Pair à pair"
+        },
+        "xbox": {
+          "controller": "Natif",
+          "crossplay": "Toutes plateformes",
+          "players": "Jusqu'à 8",
+          "servers": "Pair à pair"
+        },
+        "ps5": {
+          "controller": "Natif",
+          "crossplay": "Toutes plateformes",
+          "players": "Jusqu'à 8",
+          "servers": "Pair à pair"
+        }
+      }
+    },
+    "quickFacts": {
+      "en": [
+        {
+          "label": "Genre",
+          "value": "Physics puzzle platformer"
+        },
+        {
+          "label": "Developer",
+          "value": "No Brakes Games"
+        },
+        {
+          "label": "Publisher",
+          "value": "Curve Games"
+        },
+        {
+          "label": "Release",
+          "value": "July 22, 2016"
+        }
+      ],
+      "fr": [
+        {
+          "label": "Genre",
+          "value": "Plateforme-puzzle physique"
+        },
+        {
+          "label": "Développeur",
+          "value": "No Brakes Games"
+        },
+        {
+          "label": "Éditeur",
+          "value": "Curve Games"
+        },
+        {
+          "label": "Sortie",
+          "value": "22 juillet 2016"
+        }
+      ]
+    },
+    "loop": {
+      "en": [
+        "Wobble",
+        "Solve",
+        "Explore",
+        "Laugh"
+      ],
+      "fr": [
+        "Vaciller",
+        "Résoudre",
+        "Explorer",
+        "Rire"
+      ]
+    },
+    "i18n": {
+      "en": {
+        "navGallery": "Gallery",
+        "navDetails": "Details",
+        "backLink": "Back to Library",
+        "heroEyebrow": "NO BRAKES GAMES · FLOATING DREAMSCAPE 01",
+        "titleMain": "HUMAN",
+        "titleAccent": ": FALL FLAT",
+        "heroTagline": "A hilarious, light-hearted physics platformer where wobbly rag-doll humans solve puzzles across floating dreamscapes, solo or with up to 8 friends.",
+        "tags": [
+          "PHYSICS PUZZLE",
+          "PLATFORMER",
+          "FUNNY",
+          "CO-OP"
+        ],
+        "steamBtn": "View on Steam",
+        "wishlist": "Add to Wishlist",
+        "wishlisted": "Wishlisted",
+        "galleryHeading": "Screenshots",
+        "detailsHeading": "Details",
+        "detailsSub": "Platform, support, and what the loop actually feels like.",
+        "lblController": "Controller",
+        "lblCrossplay": "Crossplay",
+        "lblPlayers": "Co-op players",
+        "lblServers": "Dedicated servers",
+        "descP": [
+          "You control Bob, a physics-driven ragdoll with no fixed shape or gravity script to save him — every grab, climb, and fall is simulated live, which is exactly why so much of the game is funnier than it means to be.",
+          "Levels are open-ended dreamscapes with multiple solutions to each puzzle, and the free Workshop adds thousands of community-made levels on top of the base game. It's best with friends, but the physics chaos holds up solo too."
+        ],
+        "readMore": "Read more",
+        "readLess": "Read less",
+        "footer": "Fan-made reference layout · Not an official No Brakes Games or Curve Games product"
+      },
+      "fr": {
+        "navGallery": "Galerie",
+        "navDetails": "Détails",
+        "backLink": "Retour à la bibliothèque",
+        "heroEyebrow": "NO BRAKES GAMES · RÊVERIE FLOTTANTE 01",
+        "titleMain": "HUMAN",
+        "titleAccent": " : FALL FLAT",
+        "heroTagline": "Un plateforme-puzzle physique hilarant et léger où des pantins articulés résolvent des énigmes à travers des rêveries flottantes, seul ou jusqu'à 8 amis.",
+        "tags": [
+          "PUZZLE PHYSIQUE",
+          "PLATEFORME",
+          "DRÔLE",
+          "COOP"
+        ],
+        "steamBtn": "Voir sur Steam",
+        "wishlist": "Ajouter à la liste de souhaits",
+        "wishlisted": "Dans la liste de souhaits",
+        "galleryHeading": "Captures d'écran",
+        "detailsHeading": "Détails",
+        "detailsSub": "Plateformes, support, et ce que la boucle de jeu donne vraiment.",
+        "lblController": "Manette",
+        "lblCrossplay": "Crossplay",
+        "lblPlayers": "Joueurs en coop",
+        "lblServers": "Serveurs dédiés",
+        "descP": [
+          "Vous contrôlez Bob, un pantin articulé régi par la physique, sans forme fixe ni script de gravité pour le sauver — chaque prise, chaque escalade et chaque chute est simulée en direct, ce qui explique pourquoi le jeu est souvent plus drôle qu'il ne le voudrait.",
+          "Les niveaux sont des rêveries ouvertes avec plusieurs solutions à chaque énigme, et le Workshop gratuit ajoute des milliers de niveaux créés par la communauté. C'est meilleur entre amis, mais le chaos physique fonctionne aussi très bien en solo."
+        ],
+        "readMore": "Lire la suite",
+        "readLess": "Réduire",
+        "footer": "Mise en page fan-made · N'est pas un produit officiel de No Brakes Games ou Curve Games"
+      }
+    }
+  }
+}
