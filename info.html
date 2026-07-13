@@ -145,23 +145,32 @@
     background:rgba(23,28,34,0.7);
   }
   .cta-row{ display:flex; gap:12px; flex-wrap:wrap; }
+  /* Buttons deliberately DON'T use var(--font-display) — that's what made
+     "View on Steam" render in a different font on every game page (Oswald
+     here, Baloo 2 there, ...). Shantell Sans is fixed so the two CTAs look
+     and feel identical no matter which game's theme is active; only the
+     accent color (and its auto-darkened shadow, via color-mix) changes. */
   .btn{
-    font-family:var(--font-display);
-    font-weight:600; letter-spacing:0.06em; text-transform:uppercase;
-    font-size:13px;
+    font-family:'Shantell Sans', cursive;
+    font-weight:700;
+    font-size:15px;
     padding:13px 24px;
-    border-radius:24px;
-    border:1px solid transparent;
+    border-radius:100px;
+    border:2px solid transparent;
     cursor:pointer;
     display:inline-flex; align-items:center; gap:9px;
-    transition:transform .15s ease, background .2s, color .2s, border-color .2s;
+    transition:transform .18s ease, background .2s, color .2s, border-color .2s, box-shadow .2s;
   }
   .btn:active{ transform:translateY(1px) scale(0.98); }
-  .btn-primary{ background:var(--accent); color:#1a1300; }
-  .btn-primary:hover{ background:var(--accent-soft); }
+  .btn-primary{
+    background:var(--accent); color:#1a1300;
+    box-shadow:0 6px 0 color-mix(in srgb, var(--accent) 65%, black);
+  }
+  .btn-primary:hover{ transform:translateY(-2px); box-shadow:0 8px 0 color-mix(in srgb, var(--accent) 65%, black); }
+  .btn-primary:active{ box-shadow:0 3px 0 color-mix(in srgb, var(--accent) 65%, black); transform:translateY(3px); }
   .btn-ghost{ background:transparent; color:var(--text); border-color:var(--border); }
-  .btn-ghost:hover{ border-color:var(--accent); color:var(--accent); }
-  .btn-ghost.saved{ border-color:var(--good); color:var(--good); }
+  .btn-ghost:hover{ border-color:var(--good); color:var(--good); }
+  .btn-ghost.saved{ border-color:var(--good); color:var(--good); background:color-mix(in srgb, var(--good) 12%, transparent); }
   .btn-ghost .pip{ width:7px; height:7px; border-radius:50%; background:currentColor; }
 
   /* ============ SECTION SHELL ============ */
@@ -432,8 +441,12 @@
     'Barlow': '400;500;600',
     'Space Mono': '400;700',
     'Baloo 2': '500;600;700;800',
-    'Nunito': '400;600;700;800'
+    'Nunito': '400;600;700;800',
+    'Shantell Sans': '600;700'
   };
+  // The two CTA buttons are always set in Shantell Sans (see .btn CSS), so
+  // it has to load on every game page regardless of that game's own theme.
+  const ALWAYS_LOAD_FONTS = ['Shantell Sans'];
   function loadGoogleFonts(families){
     const unique = [...new Set(families)];
     const parts = unique.map(f => `family=${f.replace(/ /g,'+')}:wght@${FONT_WEIGHTS[f] || '400;600;700'}`);
@@ -483,7 +496,7 @@
     if(th.fontDisplay) root.setProperty('--font-display', `'${th.fontDisplay}', sans-serif`);
     if(th.fontBody) root.setProperty('--font-body', `'${th.fontBody}', sans-serif`);
     if(th.fontMono) root.setProperty('--font-mono', `'${th.fontMono}', monospace`);
-    loadGoogleFonts([th.fontDisplay, th.fontBody, th.fontMono].filter(Boolean));
+    loadGoogleFonts([th.fontDisplay, th.fontBody, th.fontMono, ...ALWAYS_LOAD_FONTS].filter(Boolean));
 
     // Hero background image
     document.getElementById('heroSection').style.backgroundImage =

@@ -8,9 +8,12 @@ it fits together:
 games.json          <- you edit this to add/remove games (must match appids used in coop-library.html)
 fetch-prices.js      <- reads games.json, calls IsThereAnyDeal, writes prices.json
 prices.json           <- generated file, loaded by the page (never edit by hand)
+game-info.json        <- per-game detail pages: theme, gallery, i18n (EN/FR), platform data — you hand-edit most of this
+fetch-game-info.js    <- refreshes each game's `gallery` field in game-info.json from the Steam appdetails API
 coop-library.html      <- the main library page (grid of games, filters)
+info.html               <- one reusable game-details page for every game, driven by game-info.json (?game=<appid>)
 price-history.html      <- the chart page, deep-linked as price-history.html?appid=NNNN
-netlify.toml          <- tells Netlify to run fetch-prices.js on every deploy
+netlify.toml          <- tells Netlify to run fetch-prices.js + fetch-game-info.js on every deploy
 netlify/functions/scheduled-refresh.js <- pings a build hook once a day
 ```
 
@@ -20,6 +23,29 @@ netlify/functions/scheduled-refresh.js <- pings a build hook once a day
 If you want `coop-library.html` to be the page visitors land on first,
 rename it to `index.html` (or add a Netlify redirect from `/` to
 `/coop-library.html`).
+
+## Game details pages
+
+There's one HTML file for every game's detail page: `info.html`. It reads
+`?game=<appid>` from the URL and pulls that game's entry out of
+`game-info.json` — theme colors/fonts, hero image, gallery, platform info,
+English + French copy, all of it. To add a details page for a new game, add
+an entry to `game-info.json` keyed by its Steam appid (copy an existing
+entry as a starting point) and link to `info.html?game=<appid>`. No new
+HTML file needed.
+
+Screenshots in `gallery` are the one part of that file meant to be
+machine-generated rather than hand-typed: `fetch-game-info.js` calls
+Steam's public appdetails API for every appid already in `game-info.json`
+and overwrites `gallery` with real, full-size screenshots (up to 8). It
+runs automatically as part of the Netlify build (see `netlify.toml`), same
+as the price fetch. It never touches theme, i18n, or platform data — only
+`gallery`, and `heroImage` if that field is empty. If you've hand-picked a
+gallery for a game and don't want it overwritten on the next deploy, add
+`"lockGallery": true` to that game's entry.
+
+To test it locally: `node fetch-game-info.js` (no API key needed, unlike
+the price fetch — Steam's appdetails endpoint is public).
 
 ## One-time setup
 
