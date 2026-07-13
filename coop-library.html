@@ -327,6 +327,20 @@
   .m-1to4 .port.filled{ background:var(--oneto4); }
 
   .m-2to4 .mode-tag{ background:var(--twoto4-dim); color:var(--twoto4); }
+
+  .extra-tags{ display:flex; gap:6px; flex-wrap:wrap; }
+  .extra-tag{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:10px;
+    letter-spacing:0.03em;
+    padding:3px 8px;
+    border-radius:5px;
+    font-weight:600;
+    background:var(--surface);
+    border:1px solid var(--border);
+    color:var(--text-dim);
+    white-space:nowrap;
+  }
   .m-2to4 .port.filled{ background:var(--twoto4); }
 
   .empty{
@@ -392,6 +406,7 @@
       <button class="chip" data-filter-type="mode" data-value="1to3" data-t="mode-1to3" aria-pressed="false">1–3P</button>
       <button class="chip" data-filter-type="mode" data-value="1to4" data-t="mode-1to4" aria-pressed="false">1–4P</button>
       <button class="chip" data-filter-type="mode" data-value="2to4" data-t="mode-2to4" aria-pressed="false">2–4P</button>
+      <button class="chip" data-filter-type="mode" data-value="plus4" data-t="mode-plus4" aria-pressed="false">4+ players</button>
     </div>
     <div class="filter-row">
       <span class="filter-label" id="t-filter-budget">Budget</span>
@@ -400,6 +415,10 @@
       <button class="chip" data-filter-type="price" data-value="10" data-t="price-10" aria-pressed="false">Under €10</button>
       <button class="chip" data-filter-type="price" data-value="20" data-t="price-20" aria-pressed="false">Under €20</button>
       <button class="chip" data-filter-type="price" data-value="20plus" data-t="price-20plus" aria-pressed="false">Over €20</button>
+    </div>
+    <div class="filter-row">
+      <span class="filter-label" id="t-filter-tags">Extra</span>
+      <button class="chip" data-filter-type="tag" data-value="couch" data-t="tag-couch" aria-pressed="false">🛋️ Couch / Split-screen</button>
     </div>
   </div>
 
@@ -420,65 +439,66 @@
 <script src="theme.js"></script>
 <script>
 const games = [
-  { name:"It Takes Two", appid:1426210, price:"~€21 (sale), ~€35 base", tier:"20plus", mode:"only2", players:2, note:"Friend's Pass — only one of you needs to buy it.", note_fr:"Pass ami — un seul de vous doit l'acheter." },
-  { name:"A Way Out", appid:1222700, price:"~€20–30", tier:"20plus", mode:"only2", players:2, note:"Friend's Pass — exclusively co-op prison break.", note_fr:"Pass ami — évasion de prison, exclusivement coopératif." },
-  { name:"Split Fiction", appid:2001120, price:"~€33 (sale), ~€50 base", tier:"20plus", mode:"only2", players:2, note:"Friend's Pass — only one of you needs to buy it, from the It Takes Two team.", note_fr:"Pass ami — un seul de vous doit l'acheter, par l'équipe de It Takes Two." },
+  { name:"It Takes Two", appid:1426210, price:"~€21 (sale), ~€35 base", tier:"20plus", mode:"only2", players:2, couch:true, note:"Friend's Pass — only one of you needs to buy it.", note_fr:"Pass ami — un seul de vous doit l'acheter." },
+  { name:"A Way Out", appid:1222700, price:"~€20–30", tier:"20plus", mode:"only2", players:2, couch:true, note:"Friend's Pass — exclusively co-op prison break.", note_fr:"Pass ami — évasion de prison, exclusivement coopératif." },
+  { name:"Split Fiction", appid:2001120, price:"~€33 (sale), ~€50 base", tier:"20plus", mode:"only2", players:2, couch:true, note:"Friend's Pass — only one of you needs to buy it, from the It Takes Two team.", note_fr:"Pass ami — un seul de vous doit l'acheter, par l'équipe de It Takes Two." },
 
   { name:"Arc Raiders", appid:1808500, price:"~€40", tier:"20plus", mode:"1to3", players:3, solo:false, note:"Extraction shooter, PvE and PvP mixed.", note_fr:"Jeu de tir d'extraction, mélange PvE et PvP." },
   { name:"Remnant 2", appid:1282100, price:"~€9 (sale), ~€50 base", tier:"10", mode:"1to3", players:3, solo:true, note:"Souls-like third-person shooter — solo or co-op with up to 2 friends.", note_fr:"TPS façon souls-like — solo ou coop jusqu'à 2 amis." },
   { name:"Aliens: Fireteam Elite", appid:1549970, price:"~€6 (sale), ~€30 base", tier:"5", mode:"1to3", players:3, solo:true, note:"Co-op survival shooter in the Alien universe, bots fill empty slots.", note_fr:"Jeu de tir coopératif de survie dans l'univers Alien, des bots remplacent les places vides." },
   { name:"Hunt: Showdown 1896", appid:594650, price:"~€12 (sale), ~€30 base", tier:"10", mode:"1to3", players:3, solo:true, note:"Extraction shooter — solo, duo, or trio bounty hunting.", note_fr:"Jeu de tir d'extraction — chasse aux primes en solo, duo ou trio." },
 
-  { name:"Castle Crashers", appid:204360, price:"Under €5 (sale)", tier:"5", mode:"1to4", players:4, solo:true, note:"Brawler/RPG hybrid, local or online.", note_fr:"Hybride bagarre/RPG, en local ou en ligne." },
-  { name:"Moving Out", appid:996770, price:"Under €5 (sale)", tier:"5", mode:"1to4", players:4, solo:true, note:"Physics-based moving-company chaos.", note_fr:"Chaos physique d'entreprise de déménagement." },
+  { name:"Castle Crashers", appid:204360, price:"Under €5 (sale)", tier:"5", mode:"1to4", players:4, solo:true, couch:true, note:"Brawler/RPG hybrid, local or online.", note_fr:"Hybride bagarre/RPG, en local ou en ligne." },
+  { name:"Moving Out", appid:996770, price:"Under €5 (sale)", tier:"5", mode:"1to4", players:4, solo:true, couch:true, note:"Physics-based moving-company chaos.", note_fr:"Chaos physique d'entreprise de déménagement." },
   { name:"Risk of Rain 2", appid:632360, price:"~€4–5 (sale)", tier:"5", mode:"1to4", players:4, solo:true, note:"Roguelike shooter, base price higher off-sale.", note_fr:"Jeu de tir roguelike, prix de base plus élevé hors soldes." },
-  { name:"Witch It", appid:559650, price:"€5", tier:"5", mode:"1to4", players:8, solo:false, note:"Prop-hunt style hide and seek, scales past 4.", note_fr:"Cache-cache façon prop-hunt, jouable à plus de 4." },
-  { name:"Lethal Company", appid:1966720, price:"€10", tier:"10", mode:"1to4", players:4, solo:true, note:"Horror scavenging on abandoned moons.", note_fr:"Collecte d'objets horrifique sur des lunes abandonnées." },
+  { name:"Witch It", appid:559650, price:"€5", tier:"5", mode:"1to4", players:8, solo:false, plus4:true, note:"Prop-hunt style hide and seek, scales past 4.", note_fr:"Cache-cache façon prop-hunt, jouable à plus de 4." },
+  { name:"Lethal Company", appid:1966720, price:"€10", tier:"10", mode:"1to4", players:4, solo:true, plus4:true, note:"Horror scavenging on abandoned moons.", note_fr:"Collecte d'objets horrifique sur des lunes abandonnées." },
   { name:"PEAK", appid:3527290, img1:"https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3527290/31bac6b2eccf09b368f5e95ce510bae2baf3cfcd/header.jpg?t=1775581133", price:"~€8", tier:"10", mode:"1to4", players:4, solo:true, note:"Cooperative mountain climbing chaos.", note_fr:"Chaos coopératif d'escalade en montagne." },
-  { name:"Human: Fall Flat", appid:477160, price:"€8", tier:"10", mode:"1to4", players:8, solo:true, note:"Physics puzzle-platformer, scales past 4.", note_fr:"Plateforme-puzzle physique, jouable à plus de 4." },
+  { name:"Human: Fall Flat", appid:477160, price:"€8", tier:"10", mode:"1to4", players:8, solo:true, couch:true, note:"Physics puzzle-platformer, scales past 4.", note_fr:"Plateforme-puzzle physique, jouable à plus de 4." },
   { name:"Borderlands 3", appid:397540, price:"~€6 (sale)", tier:"10", mode:"1to4", players:4, solo:true, note:"90% off its €60 base right now — loot shooter.", note_fr:"90% de réduction sur son prix de base de 60€ — loot shooter." },
-  { name:"Palworld", appid:1623730, price:"~€21 (sale), €30 base — exiting EA today", tier:"20plus", mode:"1to4", players:4, solo:true, note:"Creature-collecting survival crafting, hits 1.0 on July 10, 2026.", note_fr:"Survie et artisanat avec collecte de créatures, sortie en version 1.0 le 10 juillet 2026." },
-  { name:"Satisfactory", appid:526870, price:"~€28 (sale), ~€40 base — price rose at 1.0", tier:"20plus", mode:"1to4", players:4, solo:true, note:"Factory building, price increased when it left Early Access.", note_fr:"Construction d'usines, le prix a augmenté à la sortie de l'accès anticipé." },
-  { name:"Subnautica 2", appid:1962700, price:"~€30 (Early Access)", tier:"20plus", mode:"1to4", players:4, solo:true, note:"Underwater survival, Early Access since May 2026, price rises at 1.0.", note_fr:"Survie sous-marine, en accès anticipé depuis mai 2026, le prix augmentera à la version 1.0." },
-  { name:"Outbound", appid:2681030, price:"€24.99", tier:"20plus", mode:"1to4", players:4, solo:true, note:"Cozy camper-van survival and building, up to 4 players.", note_fr:"Survie et construction cosy en camping-car, jusqu'à 4 joueurs." },
-  { name:"Solarpunk", appid:1805110, price:"€22.99", tier:"20plus", mode:"1to4", players:4, solo:true, note:"Floating-island survival crafting, solo or 4-player co-op.", note_fr:"Survie et artisanat sur îles flottantes, solo ou coop à 4." },
-  { name:"Stranded Deep", appid:313120, price:"~€10 (sale), ~€20 base", tier:"10", mode:"1to4", players:4, solo:true, note:"Plane-crash survival, solo or online/split-screen co-op.", note_fr:"Survie après un crash d'avion, solo ou coop en ligne/écran partagé." },
-  { name:"Sons Of The Forest", appid:1326470, price:"~€30", tier:"20plus", mode:"1to4", players:8, solo:true, note:"Survival horror in a mutant-filled forest, solo or online co-op.", note_fr:"Survie horrifique dans une forêt de mutants, solo ou coop en ligne." },
-  { name:"Grounded", appid:962130, price:"~€20 (sale), ~€40 base", tier:"20plus", mode:"1to4", players:4, solo:true, note:"Shrunk-to-ant-size survival, up to 4-player co-op. Currently on the free \"Fully Yoked\" 1.4 update.", note_fr:"Survie miniature façon fourmi, coop jusqu'à 4 joueurs. Inclut la mise à jour gratuite « Fully Yoked » 1.4." },
-  { name:"Raft", appid:648800, price:"~€20", tier:"20plus", mode:"1to4", players:4, solo:true, note:"Ocean raft survival building, solo or co-op.", note_fr:"Survie et construction sur un radeau en mer, solo ou coop." },
+  { name:"Palworld", appid:1623730, price:"~€21 (sale), €30 base — exiting EA today", tier:"20plus", mode:"1to4", players:4, solo:true, plus4:true, note:"Creature-collecting survival crafting, hits 1.0 on July 10, 2026.", note_fr:"Survie et artisanat avec collecte de créatures, sortie en version 1.0 le 10 juillet 2026." },
+  { name:"Satisfactory", appid:526870, price:"~€28 (sale), ~€40 base — price rose at 1.0", tier:"20plus", mode:"1to4", players:4, solo:true, plus4:true, note:"Factory building, price increased when it left Early Access.", note_fr:"Construction d'usines, le prix a augmenté à la sortie de l'accès anticipé." },
+  { name:"Subnautica 2", appid:1962700, price:"~€30 (Early Access)", tier:"20plus", mode:"1to4", players:4, solo:true, plus4:true, note:"Underwater survival, Early Access since May 2026, price rises at 1.0.", note_fr:"Survie sous-marine, en accès anticipé depuis mai 2026, le prix augmentera à la version 1.0." },
+  { name:"Outbound", appid:2681030, price:"€24.99", tier:"20plus", mode:"1to4", players:4, solo:true, plus4:true, note:"Cozy camper-van survival and building, up to 4 players.", note_fr:"Survie et construction cosy en camping-car, jusqu'à 4 joueurs." },
+  { name:"Solarpunk", appid:1805110, price:"€22.99", tier:"20plus", mode:"1to4", players:4, solo:true, plus4:true, note:"Floating-island survival crafting, solo or 4-player co-op.", note_fr:"Survie et artisanat sur îles flottantes, solo ou coop à 4." },
+  { name:"Stranded Deep", appid:313120, price:"~€10 (sale), ~€20 base", tier:"10", mode:"1to4", players:4, solo:true, plus4:true, note:"Plane-crash survival, solo or online/split-screen co-op.", note_fr:"Survie après un crash d'avion, solo ou coop en ligne/écran partagé." },
+  { name:"Sons Of The Forest", appid:1326470, price:"~€30", tier:"20plus", mode:"1to4", players:8, solo:true, plus4:true, note:"Survival horror in a mutant-filled forest, solo or online co-op.", note_fr:"Survie horrifique dans une forêt de mutants, solo ou coop en ligne." },
+  { name:"The Forest", appid:242760, price:"~€4 (sale), ~€20 base", tier:"5", mode:"1to4", players:8, solo:true, plus4:true, note:"The original survival horror on a mutant-infested island — Sons of the Forest's predecessor, up to 8 players.", note_fr:"L'horreur de survie originale sur une île infestée de mutants — le prédécesseur de Sons of the Forest, jusqu'à 8 joueurs." },
+  { name:"Grounded", appid:962130, price:"~€20 (sale), ~€40 base", tier:"20plus", mode:"1to4", players:4, solo:true, plus4:true, note:"Shrunk-to-ant-size survival, up to 4-player co-op. Currently on the free \"Fully Yoked\" 1.4 update.", note_fr:"Survie miniature façon fourmi, coop jusqu'à 4 joueurs. Inclut la mise à jour gratuite « Fully Yoked » 1.4." },
+  { name:"Raft", appid:648800, price:"~€20", tier:"20plus", mode:"1to4", players:4, solo:true, plus4:true, note:"Ocean raft survival building, solo or co-op.", note_fr:"Survie et construction sur un radeau en mer, solo ou coop." },
   { name:"Left 4 Dead 2", appid:550, price:"~€8", tier:"10", mode:"1to4", players:4, solo:true, note:"Zombie horde co-op campaign, bots fill empty slots.", note_fr:"Campagne coopérative contre des zombies, des bots remplacent les places vides." },
   { name:"Minecraft: Java & Bedrock", noSteam:true, buyUrl:"https://www.minecraft.net/en-us/store/minecraft-java-bedrock-edition-pc", price:"~€29.95 (Java + Bedrock)", tier:"20plus", mode:"1to4", players:8, solo:true, note:"Sandbox building/survival; Realms support far more than 4. Not sold on Steam.", note_fr:"Bac à sable de construction/survie ; les Realms supportent bien plus de 4 joueurs. Non vendu sur Steam." },
-  { name:"Halo 3 (MCC)", appid:976730, price:"~€10 (sale), ~€40 base", tier:"10", mode:"1to4", players:4, solo:true, note:"Halo 3 campaign co-op, included in the Master Chief Collection bundle.", note_fr:"Campagne coopérative de Halo 3, incluse dans le pack Master Chief Collection." },
-  { name:"ARK: Survival Evolved", appid:346110, price:"~€9 (sale), ~€15 base", tier:"10", mode:"1to4", players:4, solo:true, note:"Dinosaur survival and taming — the original Evolved version, not Ascended.", note_fr:"Survie et domestication de dinosaures — la version Evolved originale, pas Ascended." },
-  { name:"Dead Island 2", appid:934700, price:"~€20–30 (sale), ~€60 base", tier:"20plus", mode:"1to4", players:4, solo:true, note:"Zombie loot shooter, up to 3-player co-op.", note_fr:"Loot shooter zombie, coop jusqu'à 3 joueurs." },
-  { name:"Terraria", appid:105600, price:"~€7", tier:"10", mode:"1to4", players:8, solo:true, note:"2D sandbox survival and building, up to 8 players.", note_fr:"Survie et construction en 2D, jusqu'à 8 joueurs." },
-  { name:"Destiny 2", appid:1085660, price:"Free (F2P base game)", tier:"5", mode:"1to4", players:6, solo:true, note:"Free-to-play looter shooter; fireteams scale up to 6 for raids.", note_fr:"Looter shooter free-to-play ; équipes jusqu'à 6 pour les raids." },
+  { name:"Halo 3 (MCC)", appid:976730, price:"~€10 (sale), ~€40 base", tier:"10", mode:"1to4", players:4, solo:true, couch:true, note:"Halo 3 campaign co-op, included in the Master Chief Collection bundle.", note_fr:"Campagne coopérative de Halo 3, incluse dans le pack Master Chief Collection." },
+  { name:"ARK: Survival Evolved", appid:346110, price:"~€9 (sale), ~€15 base", tier:"10", mode:"1to4", players:4, solo:true, plus4:true, note:"Dinosaur survival and taming — the original Evolved version, not Ascended.", note_fr:"Survie et domestication de dinosaures — la version Evolved originale, pas Ascended." },
+  { name:"Dead Island 2", appid:934700, price:"~€20–30 (sale), ~€60 base", tier:"20plus", mode:"1to3", players:3, solo:true, note:"Zombie loot shooter, up to 3-player co-op.", note_fr:"Loot shooter zombie, coop jusqu'à 3 joueurs." },
+  { name:"Terraria", appid:105600, price:"~€7", tier:"10", mode:"1to4", players:8, solo:true, plus4:true, note:"2D sandbox survival and building, up to 8 players.", note_fr:"Survie et construction en 2D, jusqu'à 8 joueurs." },
+  { name:"Destiny 2", appid:1085660, price:"Free (F2P base game)", tier:"5", mode:"1to4", players:6, solo:true, plus4:true, note:"Free-to-play looter shooter; fireteams scale up to 6 for raids.", note_fr:"Looter shooter free-to-play ; équipes jusqu'à 6 pour les raids." },
 
   { name:"Unrailed!", appid:1016920, price:"€5", tier:"5", mode:"2to4", players:4, note:"Hectic group train-track routing.", note_fr:"Construction frénétique de voies ferrées en groupe." },
   { name:"Content Warning", appid:2881650, price:"€8", tier:"10", mode:"2to4", players:4, note:"Horror found-footage filming for views.", note_fr:"Tournage horrifique found-footage pour des vues." },
   { name:"Pratfall", appid:4244510, img1:"https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/4244510/aa5134d11626034935daa974478c834d03d73f54/header.jpg?t=1780503325", price:"~€8", tier:"10", mode:"2to4", players:4, note:"Session-based party co-op.", note_fr:"Jeu de fête coopératif par sessions." },
   { name:"RV There Yet?", appid:3949040, img1:"https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3949040/cae24b4ed7f4531be51f0d63f785b7d253f92dc3/header.jpg?t=1778071815", price:"€8", tier:"10", mode:"2to4", players:4, note:"Drive a broken-down RV home without wrecking it — or your friendships.", note_fr:"Ramenez un camping-car cassé à la maison sans le détruire — ni vos amitiés." },
-  { name:"Overcooked! 2", appid:728880, price:"€20 base, ~€5 on sale", tier:"5", mode:"2to4", players:4, note:"Frenetic kitchen management.", note_fr:"Gestion de cuisine frénétique." },
+  { name:"Overcooked! 2", appid:728880, price:"€20 base, ~€5 on sale", tier:"5", mode:"2to4", players:4, couch:true, note:"Frenetic kitchen management.", note_fr:"Gestion de cuisine frénétique." },
 
   { name:"We Were Here Forever", appid:1341290, price:"~€9 (sale), ~€18 base", tier:"10", mode:"only2", players:2, note:"Walkie-talkie puzzle escape — no solo mode, both need a copy.", note_fr:"Puzzle-évasion en talkie-walkie — pas de mode solo, chacun doit avoir une copie." },
   { name:"The Past Within", appid:1515210, price:"~€3 (sale), ~€6 base", tier:"5", mode:"only2", players:2, note:"Rusty Lake's asymmetric puzzle — one in the past, one in the future. No friend's pass, both need a copy.", note_fr:"Puzzle asymétrique de Rusty Lake — l'un dans le passé, l'autre dans le futur. Pas de pass ami, chacun doit avoir une copie." },
   { name:"Portal 2", appid:620, price:"~€3 (sale), ~€9 base", tier:"5", mode:"only2", players:2, note:"Legendary puzzle-platformer — the co-op campaign is separate from the (also great) single-player story.", note_fr:"Puzzle-plateforme légendaire — la campagne coop est distincte de la campagne solo (tout aussi excellente)." },
-  { name:"Unravel Two", appid:1225570, price:"~€5 (sale), ~€20 base", tier:"10", mode:"only2", players:2, note:"Cozy physics-platformer — playable solo switching between both yarn characters, or with a friend.", note_fr:"Plateforme physique tout doux — jouable seul en alternant les deux personnages, ou à deux." },
+  { name:"Unravel Two", appid:1225570, price:"~€5 (sale), ~€20 base", tier:"10", mode:"only2", players:2, couch:true, note:"Cozy physics-platformer — playable solo switching between both yarn characters, or with a friend.", note_fr:"Plateforme physique tout doux — jouable seul en alternant les deux personnages, ou à deux." },
 
   { name:"Borderlands 4", appid:1285190, price:"~€32 (sale), ~€70 base", tier:"20plus", mode:"1to4", players:4, solo:true, note:"The newest entry in the loot-shooter series, still full price.", note_fr:"Le petit dernier de la série de loot shooters, encore à prix fort." },
   { name:"Phasmophobia", appid:739630, price:"~€7 (sale), ~€14 base", tier:"10", mode:"1to4", players:4, solo:true, note:"Ghost-hunting horror — gear up and investigate haunted locations together.", note_fr:"Horreur de chasse aux fantômes — équipez-vous et enquêtez ensemble sur des lieux hantés." },
   { name:"Deep Rock Galactic", appid:548430, price:"~€10 (sale), ~€28 base", tier:"10", mode:"1to4", players:4, solo:true, note:"Dwarven space-miner FPS built around 4 complementary classes.", note_fr:"FPS de nains mineurs de l'espace, pensé pour 4 classes complémentaires." },
   { name:"Helldivers 2", appid:553850, price:"~€30 (sale), ~€40 base", tier:"20plus", mode:"1to4", players:4, solo:true, note:"Chaotic satirical co-op shooter — friendly fire is always on.", note_fr:"Jeu de tir coopératif satirique et chaotique — le tir ami est toujours activé." },
-  { name:"Don't Starve Together", appid:322330, price:"~€4 (sale), ~€14 base", tier:"5", mode:"1to4", players:6, solo:true, note:"Tim Burton-esque wilderness survival, servers can host more than 4.", note_fr:"Survie en pleine nature façon Tim Burton, les serveurs peuvent accueillir plus de 4 joueurs." },
-  { name:"Bigfoot", appid:509980, price:"~€19", tier:"20", mode:"1to4", players:5, solo:true, note:"Survival horror hunt — hunters vs. an AI or player-controlled Bigfoot, up to 5 online.", note_fr:"Horreur de survie — chasseurs contre un Bigfoot contrôlé par l'IA ou un joueur, jusqu'à 5 en ligne." },
+  { name:"Don't Starve Together", appid:322330, price:"~€4 (sale), ~€14 base", tier:"5", mode:"1to4", players:6, solo:true, plus4:true, note:"Tim Burton-esque wilderness survival, servers can host more than 4.", note_fr:"Survie en pleine nature façon Tim Burton, les serveurs peuvent accueillir plus de 4 joueurs." },
+  { name:"Bigfoot", appid:509980, price:"~€19", tier:"20", mode:"1to4", players:5, solo:true, plus4:true, note:"Survival horror hunt — hunters vs. an AI or player-controlled Bigfoot, up to 5 online.", note_fr:"Horreur de survie — chasseurs contre un Bigfoot contrôlé par l'IA ou un joueur, jusqu'à 5 en ligne." },
   { name:"Green Hell", appid:815370, price:"~€2 (sale), ~€24 base", tier:"5", mode:"1to4", players:4, solo:true, note:"Amazon rainforest survival, playable solo or with friends.", note_fr:"Survie dans la forêt amazonienne, jouable seul ou entre amis." },
-  { name:"Hand Simulator", appid:657200, price:"~€3", tier:"5", mode:"1to4", players:8, solo:true, note:"Goofy physics sandbox — fishing, chess, cow-milking, and more, scales past 4.", note_fr:"Bac à sable physique loufoque — pêche, échecs, traite de vache et plus, jouable à plus de 4." },
-  { name:"Among Us", appid:945360, price:"~€3", tier:"5", mode:"1to4", players:15, note:"Social-deduction party classic, 4–15 players — crewmates vs. impostors.", note_fr:"Classique du jeu de déduction sociale, 4 à 15 joueurs — équipage contre imposteurs." },
-  { name:"Garry's Mod", appid:4000, price:"~€5 (sale), ~€10 base", tier:"5", mode:"1to4", players:16, solo:true, note:"Physics sandbox — build anything, scales way past 4 with friends.", note_fr:"Bac à sable physique — construisez ce que vous voulez, jouable à bien plus de 4 avec des amis." },
+  { name:"Hand Simulator", appid:657200, price:"~€3", tier:"5", mode:"1to4", players:8, solo:true, plus4:true, note:"Goofy physics sandbox — fishing, chess, cow-milking, and more, scales past 4.", note_fr:"Bac à sable physique loufoque — pêche, échecs, traite de vache et plus, jouable à plus de 4." },
+  { name:"Among Us", appid:945360, price:"~€3", tier:"5", mode:"1to4", players:15, plus4:true, note:"Social-deduction party classic, 4–15 players — crewmates vs. impostors.", note_fr:"Classique du jeu de déduction sociale, 4 à 15 joueurs — équipage contre imposteurs." },
+  { name:"Garry's Mod", appid:4000, price:"~€5 (sale), ~€10 base", tier:"5", mode:"1to4", players:16, solo:true, plus4:true, note:"Physics sandbox — build anything, scales way past 4 with friends.", note_fr:"Bac à sable physique — construisez ce que vous voulez, jouable à bien plus de 4 avec des amis." },
   { name:"Sea of Thieves", appid:1172620, price:"~€14 (sale), ~€37 base", tier:"20", mode:"1to4", players:4, solo:true, note:"Open-world pirate sandbox — crews of up to 4, multiple crews share the same server.", note_fr:"Bac à sable de pirates en monde ouvert — équipages jusqu'à 4, plusieurs équipages partagent le même serveur." },
-  { name:"Project Winter", appid:774861, price:"~€9", tier:"10", mode:"2to4", players:8, note:"Social-deception survival — cooperate to escape, but traitors are hiding among you. Scales up to 8.", note_fr:"Survie et déduction sociale — coopérez pour vous échapper, mais des traîtres se cachent parmi vous. Jusqu'à 8 joueurs." },
-  { name:"Party Animals", appid:1260320, price:"~€10 (sale), ~€20 base", tier:"10", mode:"2to4", players:8, note:"Physics brawler with fuzzy animals — couch or online, some modes scale up to 8.", note_fr:"Bagarre physique avec des animaux tout doux — canapé ou en ligne, certains modes montent jusqu'à 8." },
-  { name:"Gang Beasts", appid:285900, price:"~€9 (sale), ~€17 base", tier:"10", mode:"2to4", players:8, note:"Silly gelatinous-character brawler in Beef City — couch or online, up to 8.", note_fr:"Bagarre loufoque de personnages gélatineux à Beef City — canapé ou en ligne, jusqu'à 8." },
+  { name:"Project Winter", appid:774861, price:"~€9", tier:"10", mode:"2to4", players:8, plus4:true, note:"Social-deception survival — cooperate to escape, but traitors are hiding among you. Scales up to 8.", note_fr:"Survie et déduction sociale — coopérez pour vous échapper, mais des traîtres se cachent parmi vous. Jusqu'à 8 joueurs." },
+  { name:"Party Animals", appid:1260320, price:"~€10 (sale), ~€20 base", tier:"10", mode:"2to4", players:8, couch:true, plus4:true, note:"Physics brawler with fuzzy animals — couch or online, some modes scale up to 8.", note_fr:"Bagarre physique avec des animaux tout doux — canapé ou en ligne, certains modes montent jusqu'à 8." },
+  { name:"Gang Beasts", appid:285900, price:"~€9 (sale), ~€17 base", tier:"10", mode:"2to4", players:8, couch:true, plus4:true, note:"Silly gelatinous-character brawler in Beef City — couch or online, up to 8.", note_fr:"Bagarre loufoque de personnages gélatineux à Beef City — canapé ou en ligne, jusqu'à 8." },
 ];
 
 const modeLabels = {
@@ -497,11 +517,15 @@ const i18n = {
     legend2to4: "2–4 players (no solo)",
     filterSquad: "Squad size",
     filterBudget: "Budget",
+    filterTags: "Extra",
+    tagCouch: "🛋️ Couch / Split-screen",
+    tagPlus4: "4+ players",
     modeAll: "All",
     modeOnly2: "Only 2P",
     mode1to3: "1–3P",
     mode1to4: "1–4P",
     mode2to4: "2–4P",
+    modePlus4: "4+ players",
     priceAll: "All",
     price5: "Under €5",
     price10: "Under €10",
@@ -525,11 +549,15 @@ const i18n = {
     legend2to4: "2 à 4 joueurs (pas de solo)",
     filterSquad: "Taille d'équipe",
     filterBudget: "Budget",
+    filterTags: "En plus",
+    tagCouch: "🛋️ Canapé / écran partagé",
+    tagPlus4: "4+ joueurs",
     modeAll: "Tous",
     modeOnly2: "2J uniq.",
     mode1to3: "1-3J",
     mode1to4: "1-4J",
     mode2to4: "2-4J",
+    modePlus4: "4+ joueurs",
     priceAll: "Tous",
     price5: "Moins de 5€",
     price10: "Moins de 10€",
@@ -547,6 +575,7 @@ const i18n = {
 
 let activeMode = "all";
 let activePrice = "all";
+let activeTags = new Set();
 let currentLang = "en";
 
 function renderPorts(game){
@@ -583,6 +612,7 @@ function applyStaticTranslations(){
   document.getElementById("t-legend-2to4").textContent = t.legend2to4;
   document.getElementById("t-filter-squad").textContent = t.filterSquad;
   document.getElementById("t-filter-budget").textContent = t.filterBudget;
+  document.getElementById("t-filter-tags").textContent = t.filterTags;
   document.getElementById("t-games-word").textContent = t.gamesWord;
   document.getElementById("empty").textContent = t.emptyText;
   document.getElementById("t-foot-1").textContent = t.foot1;
@@ -591,8 +621,9 @@ function applyStaticTranslations(){
   document.getElementById("t-foot-4").textContent = t.foot4;
 
   const directMap = {
-    "mode-all": t.modeAll, "mode-only2": t.modeOnly2, "mode-1to3": t.mode1to3, "mode-1to4": t.mode1to4, "mode-2to4": t.mode2to4,
-    "price-all": t.priceAll, "price-5": t.price5, "price-10": t.price10, "price-20": t.price20, "price-20plus": t.price20plus
+    "mode-all": t.modeAll, "mode-only2": t.modeOnly2, "mode-1to3": t.mode1to3, "mode-1to4": t.mode1to4, "mode-2to4": t.mode2to4, "mode-plus4": t.modePlus4,
+    "price-all": t.priceAll, "price-5": t.price5, "price-10": t.price10, "price-20": t.price20, "price-20plus": t.price20plus,
+    "tag-couch": t.tagCouch
   };
   document.querySelectorAll('.chip[data-t]').forEach(chip => {
     chip.textContent = directMap[chip.dataset.t];
@@ -611,9 +642,11 @@ function render(){
   grid.innerHTML = "";
 
   const filtered = games.filter(g => {
-    const modeMatch = activeMode === "all" || g.mode === activeMode;
+    const modeMatch = activeMode === "all"
+      || (activeMode === "plus4" ? g.plus4 === true : g.mode === activeMode);
     const priceMatch = activePrice === "all" || g.tier === activePrice;
-    return modeMatch && priceMatch;
+    const tagMatch = !activeTags.has("couch") || g.couch;
+    return modeMatch && priceMatch && tagMatch;
   });
 
   document.getElementById("count-num").textContent = filtered.length;
@@ -654,6 +687,12 @@ function render(){
       : `<a class="card-link" href="${steamDbUrl}" target="_blank" rel="noopener">${t.priceHistoryLink}</a>`);
     const linksRow = priceHistoryLink ? `<div class="card-links">${priceHistoryLink}</div>` : "";
 
+    const extraBadges = [
+      g.couch ? `<span class="extra-tag">${t.tagCouch}</span>` : "",
+      g.plus4 ? `<span class="extra-tag">${t.tagPlus4}</span>` : ""
+    ].join("");
+    const extraTagsRow = extraBadges ? `<div class="extra-tags">${extraBadges}</div>` : "";
+
     card.innerHTML = `
       ${thumbHtml}
       <div class="card-top">
@@ -661,6 +700,7 @@ function render(){
         <div class="price-tag">${g.price}</div>
       </div>
       <div class="note">${noteText}</div>
+      ${extraTagsRow}
       ${linksRow}
       <div class="card-bottom">
         <div class="ports">${renderPorts(g)}</div>
@@ -683,6 +723,15 @@ document.querySelectorAll('.chip').forEach(chip => {
   chip.addEventListener('click', () => {
     const type = chip.dataset.filterType;
     const value = chip.dataset.value;
+
+    if(type === "tag"){
+      const isActive = chip.classList.toggle('active');
+      chip.setAttribute('aria-pressed', isActive ? 'true' : 'false');
+      if(isActive) activeTags.add(value); else activeTags.delete(value);
+      render();
+      return;
+    }
+
     document.querySelectorAll(`.chip[data-filter-type="${type}"]`).forEach(c => {
       c.classList.remove('active');
       c.setAttribute('aria-pressed', 'false');
