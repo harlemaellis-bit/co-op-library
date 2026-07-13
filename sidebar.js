@@ -32,7 +32,7 @@
   const isHome = file === "" || file === "coop-library.html" || file === "index.html";
   const isFav = file === "favorites.html";
 
-  const COLLAPSED = 76;
+  const COLLAPSED = 96;
   const EXPANDED = 250;
   const THRESHOLD = (COLLAPSED + EXPANDED) / 2;
   const EXPANDED_KEY = "coopRailExpanded";
@@ -86,11 +86,22 @@
     .coop-rail.dragging{ transition:none; }
 
     .coop-rail-brand{
-      display:flex; align-items:center; gap:12px;
-      padding:0 18px 18px 18px;
+      display:flex; align-items:center; gap:10px;
+      padding:0 14px 18px 14px;
       margin-bottom:6px;
       border-bottom:1px solid var(--border, #2a3044);
       white-space:nowrap; overflow:hidden; flex-shrink:0;
+    }
+    .coop-rail-menu-btn{
+      flex:0 0 auto; width:26px; height:26px; border-radius:50%;
+      display:flex; align-items:center; justify-content:center;
+      background:none; border:1px solid var(--border, #2a3044);
+      color:var(--text-dim, #9aa0b8); cursor:pointer; padding:0;
+      transition: background 0.15s ease, color 0.15s ease, border-color 0.15s ease;
+    }
+    .coop-rail-menu-btn:hover{
+      background:color-mix(in srgb, var(--surface-hover, #212639) 75%, transparent);
+      color:var(--text, #eef1f7); border-color:var(--text-faint, #5e6478);
     }
     .coop-rail-brand-mark{
       flex:0 0 auto; width:32px; height:32px; border-radius:50%;
@@ -98,13 +109,18 @@
       display:flex; align-items:center; justify-content:center;
       font-family:'Press Start 2P', monospace;
       font-size:10px; color:#0e1016;
+      text-decoration:none; cursor:pointer;
+      transition: filter 0.15s ease;
     }
+    .coop-rail-brand-mark:hover{ filter:brightness(1.12); }
     .coop-rail-brand-text{
       font-family:'Press Start 2P', monospace;
       font-size:11px; line-height:1.5; color:var(--text, #eef1f7);
+      text-decoration:none;
       opacity:0; transform:translateX(-6px);
-      transition: opacity 0.22s ease, transform 0.22s ease;
+      transition: opacity 0.22s ease, transform 0.22s ease, color 0.15s ease;
     }
+    .coop-rail-brand-text:hover{ color:var(--rail-accent-2); }
     .coop-rail.expanded .coop-rail-brand-text{ opacity:1; transform:none; }
 
     nav.coop-rail-nav{
@@ -320,8 +336,11 @@
     rail.className = "coop-rail" + (getSavedExpanded() ? " expanded" : "");
     rail.innerHTML = `
       <div class="coop-rail-brand">
-        <div class="coop-rail-brand-mark">CO</div>
-        <div class="coop-rail-brand-text">CO-OP<br>LIBRARY</div>
+        <button type="button" class="coop-rail-menu-btn" id="coopRailMenuBtn" aria-label="Expand or collapse the sidebar" title="Expand or collapse the sidebar">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+        </button>
+        <a class="coop-rail-brand-mark" href="coop-library.html" aria-label="Co-op Library home">CO</a>
+        <a class="coop-rail-brand-text" href="coop-library.html">CO-OP<br>LIBRARY</a>
       </div>
 
       <nav class="coop-rail-nav">
@@ -376,6 +395,12 @@
       setExpanded(!rail.classList.contains("expanded"));
     });
 
+    const menuBtn = document.getElementById("coopRailMenuBtn");
+    menuBtn.addEventListener("click", (e) => {
+      e.stopPropagation();
+      setExpanded(!rail.classList.contains("expanded"));
+    });
+
     function onDragStart(clientX) {
       dragging = true;
       startX = clientX;
@@ -422,10 +447,19 @@
     // item so it lights up (active pill + accent bar) exactly while the
     // panel is visible, then clears the moment it's dismissed — by
     // outside click, Escape, or clicking Settings again.
+    //
+    // Only one item should ever look "active" at a time. Home/Favorites
+    // get their active state baked in at build time based on the current
+    // page (see isHome/isFav above), so while Settings is open we need to
+    // temporarily switch that page item's highlight off, then switch it
+    // back on the moment Settings closes.
+    const pageActiveItem = rail.querySelector(".coop-rail-item.active:not(#coopRailSettings)");
     const themePanel = document.querySelector(".theme-panel");
     if (themePanel) {
       const syncSettingsActive = () => {
-        settingsBtn.classList.toggle("active", themePanel.classList.contains("open"));
+        const isOpen = themePanel.classList.contains("open");
+        settingsBtn.classList.toggle("active", isOpen);
+        if (pageActiveItem) pageActiveItem.classList.toggle("active", !isOpen);
       };
       new MutationObserver(syncSettingsActive).observe(themePanel, {
         attributes: true,
