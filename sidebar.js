@@ -1,21 +1,14 @@
 /**
  * sidebar.js
  * -----------------------------------------------------------------
- * Site-wide collapsible left nav rail (redesign).
- *
- *   Click the menu icon (☰) in the header to expand/collapse. Rail
- *   remembers the state you leave it in.
- *
- *   Collapsed: icon + tiny label, stacked. Expanded: icon + full
- *   label, side by side. Same DOM, just a flex-direction flip, so
- *   there's one motion instead of two separate layouts swapping.
+ * Site-wide left nav rail — collapsed icon strip that expands into
+ * a full panel on click (design supplied by user).
  *
  *   Logo      -> coop-library.html   (always, click anywhere on it)
  *   Home      -> coop-library.html
  *   Favorites -> favorites.html (clicking the row navigates there);
  *                the chevron on that row instead opens/closes a
- *                dropdown of every game you've favorited, each one
- *                linking straight to its info page.
+ *                dropdown of every game you've favorited.
  *   Settings  -> opens the existing theme.js panel
  *
  * Fully self-contained — include after theme.js and favorites.js:
@@ -23,11 +16,6 @@
  *   <script src="theme.js"></script>
  *   <script src="favorites.js"></script>
  *   <script src="sidebar.js"></script>
- *
- * It reuses theme.js's existing settings panel (no changes needed
- * to theme.js) — it just hides theme.js's own little gear button
- * and re-triggers it from the rail's gear icon instead, and nudges
- * the panel's position to open next to the rail.
  * -----------------------------------------------------------------
  */
 (function () {
@@ -35,292 +23,398 @@
   const isHome = file === "" || file === "coop-library.html" || file === "index.html";
   const isFav = file === "favorites.html";
 
-  const COLLAPSED = 76;
-  const EXPANDED = 240;
+  const RAIL_WIDTH = 80;
+  const PANEL_WIDTH = 240;
   const EXPANDED_KEY = "coopRailExpanded";
   const FAV_OPEN_KEY = "coopRailFavOpen";
 
-  function getSavedExpanded() {
+  function getSaved(key) {
     try {
-      return localStorage.getItem(EXPANDED_KEY) === "1";
+      return localStorage.getItem(key) === "1";
     } catch (e) {
       return false;
     }
   }
-
-  function saveExpanded(isExpanded) {
+  function saveFlag(key, val) {
     try {
-      localStorage.setItem(EXPANDED_KEY, isExpanded ? "1" : "0");
+      localStorage.setItem(key, val ? "1" : "0");
     } catch (e) {
       /* ignore — e.g. storage disabled */
     }
   }
 
-  function getSavedFavOpen() {
-    try {
-      return localStorage.getItem(FAV_OPEN_KEY) === "1";
-    } catch (e) {
-      return false;
-    }
-  }
-
-  function saveFavOpen(isOpen) {
-    try {
-      localStorage.setItem(FAV_OPEN_KEY, isOpen ? "1" : "0");
-    } catch (e) {
-      /* ignore */
-    }
-  }
-
   const STYLE = `
+    @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500&display=swap");
+
     /* Reclaim the space the old floating gear button used to reserve,
        and hide that button — the rail's own gear icon replaces it. */
-    body{ padding-top:32px !important; padding-left:${COLLAPSED + 30}px !important; }
+    body{ padding-top:24px !important; padding-left:${RAIL_WIDTH + 16}px !important; }
     .theme-menu-btn{ display:none !important; }
-    .theme-panel{ top:16px !important; left:${COLLAPSED + 40}px !important; }
+    .theme-panel{ top:16px !important; left:${RAIL_WIDTH + 16}px !important; }
 
-    .coop-rail{
-      --rail-accent: var(--twoto4, #5b9dff);
-      --rail-heart: var(--only2, #ff6b81);
-      position:fixed; top:14px; left:14px; bottom:14px;
-      width:${COLLAPSED}px;
-      z-index:950;
-      display:flex;
-      flex-direction:column;
-      background: var(--surface, #1b1f2e);
-      border:1px solid var(--border, #2a3044);
-      border-radius:20px;
-      padding:14px 10px;
-      box-shadow:0 8px 28px rgba(0,0,0,0.28);
-      overflow:hidden;
-      transition: width 0.26s cubic-bezier(.4,0,.2,1), padding 0.26s cubic-bezier(.4,0,.2,1);
-      font-family:'Space Grotesk', sans-serif;
-    }
-    .coop-rail.expanded{
-      width:${EXPANDED}px;
-      padding:14px 12px;
-      box-shadow:14px 12px 38px rgba(0,0,0,0.35);
-    }
+    .coop-sidebar{
+      --bg: #0f0f0f;
+      --panel: #000000;
+      --hover: #272727;
+      --active: #333333;
+      --text: #ffffff;
+      --text-dim: #aaaaaa;
+      --accent: #3ea6ff;
 
-    /* ---------- Header: menu toggle + logo ---------- */
+      --rail-width: ${RAIL_WIDTH}px;
+      --panel-width: ${PANEL_WIDTH}px;
 
-    .coop-rail-header{
-      display:flex; align-items:center;
-      height:40px; flex-shrink:0;
-      margin-bottom:10px;
-      gap:6px;
-    }
+      --t-fast: 0.15s ease;
+      --t-panel: 0.28s cubic-bezier(0.4, 0, 0.2, 1);
+      --t-panel-delay: 0.08s;
 
-    .coop-rail-menu-btn{
-      flex:0 0 auto; width:36px; height:36px; border-radius:10px;
-      display:flex; align-items:center; justify-content:center;
-      background:none; border:none;
-      color:var(--text-dim, #9aa0b8); cursor:pointer; padding:0;
-      transition: background 0.15s ease, color 0.15s ease;
+      position: fixed;
+      top: 0; left: 0; bottom: 0;
+      width: var(--rail-width);
+      z-index: 950;
+      background-color: var(--bg);
+      padding: 12px 8px;
+      display: flex;
+      flex-direction: column;
+      flex-shrink: 0;
+      overflow: hidden;
+      font-family: "Roboto", sans-serif;
+      box-shadow: 0 0 0 rgba(0,0,0,0);
+      transition: width var(--t-panel), background-color var(--t-panel), box-shadow var(--t-panel);
     }
-    .coop-rail-menu-btn:hover{
-      background:var(--surface-hover, #212639);
-      color:var(--text, #eef1f7);
-    }
-    .coop-rail-menu-btn svg{ width:18px; height:18px; flex-shrink:0; }
-
-    .coop-rail-logo{
-      display:flex; align-items:center; gap:9px;
-      text-decoration:none; cursor:pointer;
-      overflow:hidden; min-width:0;
-      border-radius:10px;
-      padding:2px 4px;
-      transition: background 0.15s ease;
-    }
-    .coop-rail-logo:hover{ background:var(--surface-hover, #212639); }
-
-    .coop-rail-logo-mark{
-      flex:0 0 auto; width:26px; height:26px; border-radius:8px;
-      display:flex; align-items:center; justify-content:center;
-      background:var(--bg, #0e1016);
-      border:1px solid var(--border, #2a3044);
-      font-family:'Press Start 2P', monospace;
-      font-size:9px; color:var(--rail-accent);
+    .coop-sidebar *,
+    .coop-sidebar *::before,
+    .coop-sidebar *::after{
+      margin: 0; padding: 0; box-sizing: border-box;
     }
 
-    .coop-rail-logo-label{
-      font-family:'IBM Plex Mono', monospace;
-      font-size:12px; font-weight:600; letter-spacing:0.02em;
-      color:var(--text, #eef1f7);
-      white-space:nowrap;
-      max-width:0; opacity:0; overflow:hidden;
-      transition: max-width 0.26s cubic-bezier(.4,0,.2,1), opacity 0.2s ease;
-    }
-    .coop-rail.expanded .coop-rail-logo-label{
-      max-width:160px; opacity:1;
-      transition-delay:0.05s;
+    .coop-sidebar.expanded {
+      width: var(--panel-width);
+      padding: 12px 12px;
+      background-color: var(--panel);
+      box-shadow: 8px 0 24px rgba(0,0,0,0.4);
     }
 
-    /* ---------- Nav ---------- */
-
-    nav.coop-rail-nav{
-      display:flex; flex-direction:column; gap:4px;
-      overflow-y:auto; overflow-x:hidden;
-      flex:1; min-height:0;
+    .coop-sidebar .sidebar-header {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 40px;
+      margin-bottom: 12px;
+      flex-shrink: 0;
     }
-    nav.coop-rail-nav::-webkit-scrollbar{ width:5px; }
-    nav.coop-rail-nav::-webkit-scrollbar-track{ background:transparent; }
-    nav.coop-rail-nav::-webkit-scrollbar-thumb{ background:var(--text-faint, #5e6478); border-radius:3px; }
-
-    .coop-rail-item{
-      position:relative;
-      display:flex; flex-direction:column; align-items:center; justify-content:center;
-      gap:3px;
-      height:54px; width:100%;
-      border-radius:12px;
-      color:var(--text-dim, #9aa0b8);
-      cursor:pointer; background:none; border:none;
-      text-decoration:none;
-      font-family:'Space Grotesk', sans-serif;
-      font-weight:600;
-      flex-shrink:0;
-      transition: background 0.15s ease, color 0.15s ease, flex-direction 0.15s ease;
-    }
-    .coop-rail.expanded .coop-rail-item{
-      flex-direction:row; justify-content:flex-start; gap:12px;
-      height:42px; padding:0 10px;
+    .coop-sidebar.expanded .sidebar-header {
+      justify-content: flex-start;
     }
 
-    .coop-rail-item:hover{ background:var(--surface-hover, #212639); color:var(--text, #eef1f7); }
-    .coop-rail-item.active{
-      color:var(--text, #eef1f7);
-      background: var(--surface-hover, #212639);
+    .coop-sidebar .icon-btn {
+      width: 40px;
+      height: 40px;
+      min-width: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      cursor: pointer;
+      border: none;
+      background: none;
+      color: var(--text);
+      transition: background-color var(--t-fast);
     }
-    .coop-rail-item.active::before{
-      content:""; position:absolute; left:6px; right:6px; top:-1px; height:3px;
-      border-radius:0 0 4px 4px;
-      background: var(--rail-accent);
+    .coop-sidebar .icon-btn:hover {
+      background-color: var(--hover);
     }
-    .coop-rail.expanded .coop-rail-item.active::before{
-      content:""; position:absolute; left:-1px; right:auto; top:8px; bottom:8px; width:3px; height:auto;
-      border-radius:4px;
-    }
-
-    .coop-rail-item .icon{
-      flex:0 0 auto; width:20px; height:20px;
-      display:flex; align-items:center; justify-content:center;
-    }
-    .coop-rail-item .icon svg{ width:19px; height:19px; }
-
-    .rail-label{
-      font-size:9.5px;
-      font-family:'IBM Plex Mono', monospace;
-      letter-spacing:0.02em;
-      white-space:nowrap;
-    }
-    .coop-rail.expanded .rail-label{ display:none; }
-
-    .nav-label{
-      font-size:13.5px;
-      white-space:nowrap;
-      max-width:0; opacity:0; overflow:hidden;
-      transition: max-width 0.26s cubic-bezier(.4,0,.2,1), opacity 0.2s ease;
-    }
-    .coop-rail.expanded .nav-label{
-      max-width:140px; opacity:1;
-      transition-delay:0.05s;
+    .coop-sidebar .icon-btn svg {
+      width: 22px;
+      height: 22px;
+      flex-shrink: 0;
     }
 
-    .coop-rail-badge{
-      margin-left:auto; min-width:17px; height:17px; padding:0 5px;
-      border-radius:9px; background:var(--rail-heart);
-      color:#1b0508;
-      font-family:'IBM Plex Mono', monospace;
-      font-size:9.5px; font-weight:700;
-      display:none; align-items:center; justify-content:center;
-      flex-shrink:0;
+    .coop-sidebar .sidebar-brand{
+      display: flex;
+      align-items: center;
+      text-decoration: none;
+      cursor: pointer;
+      overflow: hidden;
+      min-width: 0;
+      border-radius: 8px;
     }
-    .coop-rail.expanded .coop-rail-badge{ display:flex; }
+    .coop-sidebar .sidebar-brand:hover .logo-mark{ filter: brightness(1.15); }
 
-    /* ---------- Favorites row + chevron + dropdown ---------- */
-
-    .coop-rail-fav-row{ position:relative; flex-shrink:0; }
-
-    .coop-rail-chevron-btn{
-      position:absolute; right:6px; top:50%; transform:translateY(-50%);
-      width:22px; height:22px; border-radius:6px;
-      display:none; align-items:center; justify-content:center;
-      background:none; border:none; color:var(--text-faint, #5e6478); cursor:pointer;
-      transition: background 0.15s ease, color 0.15s ease;
+    .coop-sidebar .logo-mark {
+      width: 28px;
+      height: 28px;
+      min-width: 0;
+      border-radius: 50%;
+      background-color: var(--hover);
+      color: var(--text);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 11px;
+      font-weight: 500;
+      flex-shrink: 0;
+      margin-left: 4px;
+      opacity: 0;
+      overflow: hidden;
+      transition: width var(--t-panel), opacity var(--t-panel), margin-left var(--t-panel);
     }
-    .coop-rail-chevron-btn:hover{ background:var(--surface, #1b1f2e); color:var(--text, #eef1f7); }
-    .coop-rail.expanded .coop-rail-chevron-btn{ display:flex; }
-    .coop-rail-chevron-btn svg{
-      width:14px; height:14px;
-      transition: transform 0.18s ease;
+    .coop-sidebar.expanded .logo-mark {
+      width: 28px;
+      opacity: 1;
+      transition-delay: var(--t-panel-delay);
     }
-    .coop-rail-fav-row.open .coop-rail-chevron-btn svg{ transform:rotate(180deg); }
-
-    .coop-rail-following{
-      overflow:hidden; max-height:0; opacity:0;
-      transition: max-height 0.26s cubic-bezier(.4,0,.2,1), opacity 0.2s ease;
-    }
-    .coop-rail-fav-row.open + .coop-rail-following{
-      max-height:240px; overflow-y:auto; opacity:1;
-    }
-    .coop-rail:not(.expanded) .coop-rail-following{
-      max-height:0 !important; opacity:0 !important;
-    }
-    .coop-rail-following::-webkit-scrollbar{ width:5px; }
-    .coop-rail-following::-webkit-scrollbar-track{ background:transparent; }
-    .coop-rail-following::-webkit-scrollbar-thumb{ background:var(--text-faint, #5e6478); border-radius:3px; }
-
-    .coop-rail-follow-item{
-      display:flex; align-items:center; gap:10px;
-      padding:7px 8px 7px 14px;
-      margin:1px 0;
-      border-radius:10px;
-      color:var(--text-dim, #9aa0b8);
-      text-decoration:none;
-      font-size:12px;
-      white-space:nowrap;
-      transition: background 0.15s ease, color 0.15s ease;
-    }
-    .coop-rail-follow-item:hover{ background:var(--surface-hover, #212639); color:var(--text, #eef1f7); }
-    .coop-rail-follow-thumb{
-      width:34px; height:22px; border-radius:6px;
-      object-fit:cover; object-position:center; flex-shrink:0;
-      background:var(--bg-alt, #151824);
-      border:1px solid var(--border, #2a3044);
-    }
-    .coop-rail-follow-thumb-fallback{
-      width:34px; height:22px; border-radius:6px; flex-shrink:0;
-      display:flex; align-items:center; justify-content:center;
-      background:var(--bg-alt, #151824);
-      border:1px solid var(--border, #2a3044);
-      font-family:'Press Start 2P', monospace; font-size:8px;
-      color:var(--text-faint, #5e6478);
-    }
-    .coop-rail-follow-name{ overflow:hidden; text-overflow:ellipsis; }
-    .coop-rail-empty{
-      padding:8px 14px 14px; font-size:11px; line-height:1.5;
-      color:var(--text-faint, #5e6478); white-space:normal;
+    .coop-sidebar:not(.expanded) .logo-mark {
+      width: 0;
+      margin-left: 0;
     }
 
-    @media (max-width:640px){
-      body{ padding-left:24px !important; padding-bottom:78px !important; }
-      .coop-rail{
-        top:auto; bottom:0; left:0; right:0; height:64px; width:100% !important;
-        flex-direction:row; align-items:center; justify-content:space-around;
-        padding:0 6px; border:none; border-top:1px solid var(--border, #2a3044);
-        border-radius:18px 18px 0 0;
-        box-shadow:0 -8px 24px rgba(0,0,0,0.3);
+    .coop-sidebar .brand-label {
+      font-size: 14px;
+      font-weight: 500;
+      white-space: nowrap;
+      margin-left: 8px;
+      max-width: 0;
+      opacity: 0;
+      overflow: hidden;
+      color: var(--text);
+      transition: max-width var(--t-panel), opacity var(--t-panel);
+    }
+    .coop-sidebar.expanded .brand-label {
+      max-width: 160px;
+      opacity: 1;
+      transition-delay: var(--t-panel-delay);
+    }
+
+    /* ---------- Nav items ---------- */
+
+    .coop-sidebar .sidebar-nav {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      overflow-y: auto;
+      overflow-x: hidden;
+    }
+    .coop-sidebar .sidebar-nav::-webkit-scrollbar{ width: 5px; }
+    .coop-sidebar .sidebar-nav::-webkit-scrollbar-track{ background: transparent; }
+    .coop-sidebar .sidebar-nav::-webkit-scrollbar-thumb{ background: var(--hover); border-radius: 3px; }
+
+    .coop-sidebar .nav-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 56px;
+      border-radius: 10px;
+      cursor: pointer;
+      color: var(--text);
+      text-decoration: none;
+      background: none;
+      border: none;
+      width: 100%;
+      font-family: "Roboto", sans-serif;
+      position: relative;
+      flex-shrink: 0;
+      transition: background-color var(--t-fast), flex-direction var(--t-fast);
+    }
+    .coop-sidebar.expanded .nav-item {
+      flex-direction: row;
+      justify-content: flex-start;
+      height: 44px;
+      padding: 0 4px;
+    }
+
+    .coop-sidebar .nav-item:hover {
+      background-color: var(--hover);
+    }
+    .coop-sidebar .nav-item.active {
+      background-color: var(--active);
+    }
+
+    .coop-sidebar .nav-icon {
+      width: 40px;
+      min-width: 40px;
+      height: 24px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      color: var(--text);
+    }
+    .coop-sidebar.expanded .nav-icon {
+      width: 40px;
+      height: 40px;
+    }
+    .coop-sidebar .nav-icon svg {
+      width: 22px;
+      height: 22px;
+    }
+
+    .coop-sidebar .rail-label {
+      font-size: 10px;
+      color: var(--text-dim);
+      margin-top: 4px;
+      white-space: nowrap;
+      transition: opacity var(--t-fast);
+    }
+    .coop-sidebar.expanded .rail-label {
+      display: none;
+    }
+
+    .coop-sidebar .nav-label {
+      font-size: 14px;
+      white-space: nowrap;
+      max-width: 0;
+      opacity: 0;
+      overflow: hidden;
+      transition: max-width var(--t-panel), opacity var(--t-panel);
+    }
+    .coop-sidebar.expanded .nav-label {
+      max-width: 160px;
+      opacity: 1;
+      margin-left: 4px;
+      transition-delay: var(--t-panel-delay);
+    }
+
+    .coop-sidebar .nav-badge{
+      margin-left: auto;
+      margin-right: 8px;
+      min-width: 17px; height: 17px; padding: 0 5px;
+      border-radius: 9px;
+      background: var(--accent);
+      color: #06131f;
+      font-size: 10px; font-weight: 700;
+      display: none;
+      align-items: center; justify-content: center;
+      flex-shrink: 0;
+    }
+    .coop-sidebar.expanded .nav-badge{ display: flex; }
+
+    .coop-sidebar .chevron-btn{
+      display: none;
+      align-items: center;
+      justify-content: center;
+      width: 24px;
+      height: 24px;
+      margin-left: auto;
+      margin-right: 4px;
+      flex-shrink: 0;
+      background: none;
+      border: none;
+      border-radius: 6px;
+      color: var(--text-dim);
+      cursor: pointer;
+    }
+    .coop-sidebar .chevron-btn:hover{ background: var(--active); color: var(--text); }
+    .coop-sidebar.expanded .chevron-btn{ display: flex; }
+    .coop-sidebar .chevron {
+      width: 16px;
+      height: 16px;
+      flex-shrink: 0;
+      transition: transform var(--t-fast);
+    }
+    .coop-sidebar #favoritesToggle.open .chevron {
+      transform: rotate(180deg);
+    }
+
+    /* ---------- Favorites / subscriptions list ---------- */
+
+    .coop-sidebar .favorites-list {
+      overflow: hidden;
+      max-height: 0;
+      opacity: 0;
+      flex-shrink: 0;
+      transition: max-height var(--t-panel), opacity var(--t-panel);
+    }
+    .coop-sidebar .favorites-list.open {
+      max-height: 280px;
+      overflow-y: auto;
+      opacity: 1;
+    }
+    .coop-sidebar:not(.expanded) .favorites-list {
+      max-height: 0 !important;
+      opacity: 0 !important;
+    }
+    .coop-sidebar .favorites-list::-webkit-scrollbar{ width: 5px; }
+    .coop-sidebar .favorites-list::-webkit-scrollbar-track{ background: transparent; }
+    .coop-sidebar .favorites-list::-webkit-scrollbar-thumb{ background: var(--hover); border-radius: 3px; }
+
+    .coop-sidebar .favorite-row {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      height: 40px;
+      padding: 0 8px 0 12px;
+      border-radius: 10px;
+      cursor: pointer;
+      text-decoration: none;
+      font-size: 13px;
+      color: var(--text-dim);
+      transition: background-color var(--t-fast);
+    }
+    .coop-sidebar .favorite-row:hover {
+      background-color: var(--hover);
+      color: var(--text);
+    }
+    .coop-sidebar .favorite-row .avatar {
+      position: relative;
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      background-color: #3f3f3f;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 11px;
+      flex-shrink: 0;
+      overflow: hidden;
+      color: var(--text);
+    }
+    .coop-sidebar .favorite-row .avatar img{
+      width: 100%; height: 100%; object-fit: cover;
+    }
+    .coop-sidebar .favorite-row span.name {
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+    .coop-sidebar .favorites-empty{
+      padding: 8px 12px 12px;
+      font-size: 11.5px;
+      line-height: 1.5;
+      color: var(--text-dim);
+      white-space: normal;
+    }
+
+    @media (max-width: 640px) {
+      body{ padding-left: 16px !important; padding-bottom: 74px !important; }
+      .coop-sidebar{
+        top: auto; bottom: 0; left: 0; right: 0;
+        width: 100% !important;
+        height: 62px;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-around;
+        padding: 0 4px;
+        background-color: var(--bg);
       }
-      .coop-rail-header, .coop-rail-following{ display:none; }
-      nav.coop-rail-nav{ flex-direction:row; padding:0; gap:0; width:100%; justify-content:space-around; overflow:visible; }
-      .coop-rail-item{
-        flex-direction:column; gap:2px; width:auto; height:auto; padding:8px 12px;
-        font-size:9.5px; text-align:center; border-radius:14px;
+      .coop-sidebar .sidebar-header, .coop-sidebar .favorites-list { display: none; }
+      .coop-sidebar .sidebar-nav{
+        flex-direction: row;
+        overflow: visible;
+        width: 100%;
+        justify-content: space-around;
+        gap: 0;
       }
-      .coop-rail-item.active::before{ left:10px; right:10px; top:-1px; bottom:auto; height:3px; border-radius:0 0 4px 4px; }
-      .coop-rail-badge{ display:flex; position:absolute; top:2px; right:4px; }
-      .coop-rail-chevron-btn{ display:none !important; }
-      .theme-panel{ top:auto !important; bottom:76px !important; left:16px !important; }
+      .coop-sidebar .nav-item{
+        width: auto;
+        height: auto;
+        padding: 8px 14px;
+        flex-direction: column;
+        gap: 3px;
+      }
+      .coop-sidebar .chevron-btn{ display: none !important; }
+      .theme-panel{ top: auto !important; bottom: 74px !important; left: 16px !important; }
     }
   `;
 
@@ -340,9 +434,9 @@
     }
   }
 
-  function renderFollowing() {
-    const list = document.getElementById("coopRailFollowing");
-    const badge = document.getElementById("coopRailBadge");
+  function renderFavorites() {
+    const list = document.getElementById("favoritesList");
+    const badge = document.getElementById("favoritesBadge");
     if (!list) return;
     const favorites = getFavorites();
 
@@ -352,111 +446,125 @@
     }
 
     if (favorites.length === 0) {
-      list.innerHTML = `<div class="coop-rail-empty">Heart a game from its info page and it'll show up here.</div>`;
+      list.innerHTML = `<div class="favorites-empty">Heart a game from its info page and it'll show up here.</div>`;
       return;
     }
 
     list.innerHTML = favorites.map(g => {
       const name = (g.name || "Untitled").replace(/</g, "&lt;");
       const url = g.infoUrl || g.steamUrl || "favorites.html";
-      const thumb = g.img
-        ? `<img class="coop-rail-follow-thumb" src="${g.img}" alt="" loading="lazy" onerror="this.outerHTML='<div class=&quot;coop-rail-follow-thumb-fallback&quot;>${name.charAt(0)}</div>'">`
-        : `<div class="coop-rail-follow-thumb-fallback">${name.charAt(0)}</div>`;
-      return `<a class="coop-rail-follow-item" href="${url}">${thumb}<span class="coop-rail-follow-name">${name}</span></a>`;
+      const avatar = g.img
+        ? `<img src="${g.img}" alt="" loading="lazy" onerror="this.parentElement.textContent='${name.charAt(0)}'">`
+        : name.charAt(0);
+      return `
+        <a class="favorite-row" href="${url}">
+          <span class="avatar">${avatar}</span>
+          <span class="name">${name}</span>
+        </a>`;
     }).join("");
   }
 
   function build() {
-    const rail = document.createElement("div");
-    rail.className = "coop-rail" + (getSavedExpanded() ? " expanded" : "");
-    rail.innerHTML = `
-      <div class="coop-rail-header">
-        <button type="button" class="coop-rail-menu-btn" id="coopRailMenuBtn" aria-label="Expand or collapse the sidebar" title="Expand or collapse the sidebar">
+    const sidebar = document.createElement("aside");
+    sidebar.className = "coop-sidebar" + (getSaved(EXPANDED_KEY) ? " expanded" : "");
+    sidebar.id = "sidebar";
+    sidebar.innerHTML = `
+      <div class="sidebar-header">
+        <button class="icon-btn" id="menuBtn" aria-label="Toggle menu">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
         </button>
-        <a class="coop-rail-logo" href="coop-library.html" aria-label="Co-op Library home">
-          <span class="coop-rail-logo-mark">CL</span>
-          <span class="coop-rail-logo-label">Co-op Library</span>
+        <a class="sidebar-brand" href="coop-library.html" aria-label="Co-op Library home">
+          <span class="logo-mark">CL</span>
+          <span class="brand-label">Co-op Library</span>
         </a>
       </div>
 
-      <nav class="coop-rail-nav">
-        <a class="coop-rail-item${isHome ? " active" : ""}" href="coop-library.html" data-page="home">
-          <span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 10.5 12 3l9 7.5"/><path d="M5 9.5V20a1 1 0 0 0 1 1h4v-6h4v6h4a1 1 0 0 0 1-1V9.5"/></svg></span>
+      <nav class="sidebar-nav">
+        <a class="nav-item${isHome ? " active" : ""}" href="coop-library.html" data-page="home">
+          <span class="nav-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 10.5 12 3l9 7.5"/><path d="M5 9.5V20a1 1 0 0 0 1 1h4v-6h4v6h4a1 1 0 0 0 1-1V9.5"/></svg>
+          </span>
           <span class="rail-label">Home</span>
           <span class="nav-label">Home</span>
         </a>
 
-        <a class="coop-rail-item coop-rail-fav-row${isFav ? " active" : ""}" href="favorites.html" data-page="favorites" id="coopRailFavRow">
-          <span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.6l-1-1a5.5 5.5 0 0 0-7.8 7.8l1 1L12 21l7.8-7.8 1-1a5.5 5.5 0 0 0 0-7.8z"/></svg></span>
-          <span class="rail-label">Favorites</span>
-          <span class="nav-label">Favorites</span>
-          <span class="coop-rail-badge" id="coopRailBadge">0</span>
-          <button type="button" class="coop-rail-chevron-btn" id="coopRailChevronBtn" aria-label="Show favorited games" title="Show favorited games">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
-          </button>
-        </a>
-        <div class="coop-rail-following" id="coopRailFollowing"></div>
-
-        <button type="button" class="coop-rail-item" id="coopRailSettings">
-          <span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg></span>
+        <button type="button" class="nav-item" id="settingsBtn">
+          <span class="nav-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+          </span>
           <span class="rail-label">Settings</span>
           <span class="nav-label">Settings</span>
         </button>
+
+        <a class="nav-item${isFav ? " active" : ""}" href="favorites.html" id="favoritesToggle" data-page="favorites">
+          <span class="nav-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.6l-1-1a5.5 5.5 0 0 0-7.8 7.8l1 1L12 21l7.8-7.8 1-1a5.5 5.5 0 0 0 0-7.8z"/></svg>
+          </span>
+          <span class="rail-label">Favorites</span>
+          <span class="nav-label">Favorites</span>
+          <span class="nav-badge" id="favoritesBadge">0</span>
+          <button type="button" class="chevron-btn" id="favoritesChevronBtn" aria-label="Show favorited games" title="Show favorited games">
+            <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+          </button>
+        </a>
+
+        <div class="favorites-list" id="favoritesList">
+          <!-- populated below -->
+        </div>
       </nav>
     `;
-    document.body.appendChild(rail);
+    document.body.appendChild(sidebar);
 
-    const menuBtn = document.getElementById("coopRailMenuBtn");
-    const favRow = document.getElementById("coopRailFavRow");
-    const chevronBtn = document.getElementById("coopRailChevronBtn");
+    const menuBtn = document.getElementById("menuBtn");
+    const favoritesToggle = document.getElementById("favoritesToggle");
+    const favoritesChevronBtn = document.getElementById("favoritesChevronBtn");
+    const favoritesList = document.getElementById("favoritesList");
 
     function setExpanded(isExpanded) {
-      rail.classList.toggle("expanded", isExpanded);
-      saveExpanded(isExpanded);
+      sidebar.classList.toggle("expanded", isExpanded);
+      saveFlag(EXPANDED_KEY, isExpanded);
     }
 
-    menuBtn.addEventListener("click", (e) => {
-      e.stopPropagation();
-      setExpanded(!rail.classList.contains("expanded"));
+    menuBtn.addEventListener("click", function () {
+      setExpanded(!sidebar.classList.contains("expanded"));
     });
 
-    // Favorites row is a real link to favorites.html — clicking the
-    // row itself (icon or label) navigates there, same as Home. The
-    // chevron is the one exception: it opens/closes the dropdown of
-    // favorited games in place, without leaving the page.
-    if (getSavedFavOpen()) favRow.classList.add("open");
+    // The Favorites row is a real link to favorites.html — clicking the
+    // icon or label navigates there, same as Home. The chevron is the
+    // one exception: it opens/closes the dropdown of favorited games
+    // in place, without leaving the page.
+    if (getSaved(FAV_OPEN_KEY)) {
+      favoritesToggle.classList.add("open");
+      favoritesList.classList.add("open");
+    }
 
-    chevronBtn.addEventListener("click", (e) => {
+    favoritesChevronBtn.addEventListener("click", function (e) {
       e.preventDefault();
       e.stopPropagation();
-      // The dropdown only has room to show itself once the rail is
-      // expanded, so opening it also expands the rail.
-      if (!rail.classList.contains("expanded")) {
+      // Opening favorites should also expand the sidebar, since the
+      // list only has room to show itself in the expanded layout.
+      if (!sidebar.classList.contains("expanded")) {
         setExpanded(true);
       }
-      const isOpen = favRow.classList.toggle("open");
-      saveFavOpen(isOpen);
+      const isOpen = favoritesToggle.classList.toggle("open");
+      favoritesList.classList.toggle("open", isOpen);
+      saveFlag(FAV_OPEN_KEY, isOpen);
     });
 
-    const settingsBtn = document.getElementById("coopRailSettings");
-    settingsBtn.addEventListener("click", (e) => {
+    const settingsBtn = document.getElementById("settingsBtn");
+    settingsBtn.addEventListener("click", function (e) {
       e.stopPropagation();
       const originalBtn = document.querySelector(".theme-menu-btn");
       if (originalBtn) originalBtn.click();
     });
 
-    // Mirror the real theme-panel's open/closed state onto the Settings
-    // item so it lights up (active pill + accent bar) exactly while the
-    // panel is visible, then clears the moment it's dismissed — by
-    // outside click, Escape, or clicking Settings again.
-    //
-    // Only one item should ever look "active" at a time. Home/Favorites
-    // get their active state baked in at build time based on the current
-    // page (see isHome/isFav above), so while Settings is open we need to
-    // temporarily switch that page item's highlight off, then switch it
-    // back on the moment Settings closes.
-    const pageActiveItem = rail.querySelector(".coop-rail-item.active:not(#coopRailSettings)");
+    // Mirror the real theme-panel's open/closed state onto Settings so
+    // it lights up (active pill) exactly while the panel is visible,
+    // then clears the moment it's dismissed. Only one item should ever
+    // look "active" — Home/Favorites get their active state baked in
+    // at build time based on the current page, so while Settings is
+    // open we temporarily switch that page item's highlight off.
+    const pageActiveItem = sidebar.querySelector(".nav-item.active:not(#settingsBtn)");
     const themePanel = document.querySelector(".theme-panel");
     if (themePanel) {
       const syncSettingsActive = () => {
@@ -471,12 +579,12 @@
       syncSettingsActive();
     }
 
-    renderFollowing();
+    renderFavorites();
   }
 
-  window.addEventListener("coopFavoritesChanged", renderFollowing);
+  window.addEventListener("coopFavoritesChanged", renderFavorites);
   window.addEventListener("storage", (e) => {
-    if (e.key === "coopLibraryFavorites") renderFollowing();
+    if (e.key === "coopLibraryFavorites") renderFavorites();
   });
 
   function init() {
