@@ -172,6 +172,8 @@
   .btn-ghost:hover{ border-color:var(--good); color:var(--good); }
   .btn-ghost.saved{ border-color:var(--good); color:var(--good); background:color-mix(in srgb, var(--good) 12%, transparent); }
   .btn-ghost .pip{ width:7px; height:7px; border-radius:50%; background:currentColor; }
+  .btn-ghost .heart-icon{ font-size:16px; line-height:1; transition:transform .18s ease; }
+  .btn-ghost.saved .heart-icon{ transform:scale(1.12); }
 
   /* ============ SECTION SHELL ============ */
   section{ padding:56px 32px; max-width:1120px; margin:0 auto; }
@@ -362,7 +364,7 @@
   <div class="cta-row">
     <button class="btn btn-primary" id="steamBtn"></button>
     <button class="btn btn-ghost" id="wishlistBtn" onclick="toggleWishlist()">
-      <span class="pip"></span><span id="wishlistLabel"></span>
+      <span class="heart-icon" id="wishlistHeart">♡</span><span id="wishlistLabel"></span>
     </button>
   </div>
 </section>
@@ -435,6 +437,8 @@
 </div><!-- #page -->
 
 <script src="theme.js"></script>
+<script src="favorites.js"></script>
+<script src="sidebar.js"></script>
 <script>
   const FONT_WEIGHTS = {
     'Oswald': '400;500;600;700',
@@ -516,6 +520,13 @@
     // Steam button
     document.getElementById('steamBtn').onclick = () => window.open(game.steamUrl, '_blank');
 
+    // Wishlist — restore saved state from favorites.js storage
+    if(window.CoopFavorites){
+      wishlisted = window.CoopFavorites.isFavorite(gameKey);
+      document.getElementById('wishlistBtn').classList.toggle('saved', wishlisted);
+      document.getElementById('wishlistHeart').textContent = wishlisted ? '♥' : '♡';
+    }
+
     // Gallery
     document.getElementById('mainImg').setAttribute('src', game.gallery[0]);
     document.getElementById('galleryTotal').textContent = game.gallery.length;
@@ -571,8 +582,20 @@
   function shiftGallery(dir){ setGallery((window._galIndex || 0) + dir); }
 
   function toggleWishlist(){
-    wishlisted = !wishlisted;
+    if(window.CoopFavorites && game){
+      wishlisted = window.CoopFavorites.toggle({
+        id: gameKey,
+        name: `${game.i18n.en.titleMain}${game.i18n.en.titleAccent}`,
+        tagline: game.i18n.en.heroTagline,
+        img: game.heroImage,
+        steamUrl: game.steamUrl,
+        infoUrl: `info.html?game=${gameKey}`
+      });
+    } else {
+      wishlisted = !wishlisted;
+    }
     document.getElementById('wishlistBtn').classList.toggle('saved', wishlisted);
+    document.getElementById('wishlistHeart').textContent = wishlisted ? '♥' : '♡';
     updateWishlistLabel();
   }
   function updateWishlistLabel(){

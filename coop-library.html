@@ -170,6 +170,16 @@
     border-color:var(--text);
   }
 
+  .chip.chip-disabled{
+    opacity:0.32;
+    filter:grayscale(0.7);
+    cursor:not-allowed;
+    pointer-events:none;
+    color:var(--text-faint);
+    background:repeating-linear-gradient(45deg, var(--surface) 0 6px, var(--bg) 6px 12px);
+    border-color:var(--border);
+  }
+
   .count{
     font-family:'IBM Plex Mono', monospace;
     font-size:12px;
@@ -437,6 +447,8 @@
 </div>
 
 <script src="theme.js"></script>
+<script src="favorites.js"></script>
+<script src="sidebar.js"></script>
 <script>
 const games = [
   { name:"It Takes Two", appid:1426210, price:"~€21 (sale), ~€35 base", tier:"20plus", mode:"only2", players:2, couch:true, note:"Friend's Pass — only one of you needs to buy it.", note_fr:"Pass ami — un seul de vous doit l'acheter." },
@@ -635,6 +647,49 @@ function applyStaticTranslations(){
   document.getElementById("lang-fr").setAttribute("aria-pressed", currentLang === "fr" ? "true" : "false");
 }
 
+function computeAvailability(){
+  // For each chip, checks whether swapping *just that chip's own category*
+  // into the current selection (keeping the other categories as they are)
+  // would match at least one game. If not, the chip gets grayed out so you
+  // can't wander into a combination with zero results. The currently-active
+  // chip in each row is always left clickable so you can back out of it.
+  document.querySelectorAll('.chip[data-filter-type="mode"]').forEach(chip => {
+    const value = chip.dataset.value;
+    if(value === "all" || chip.classList.contains("active")){ chip.classList.remove("chip-disabled"); return; }
+    const hasMatch = games.some(g => {
+      const modeMatch = value === "plus4" ? g.plus4 === true : g.mode === value;
+      const priceMatch = activePrice === "all" || g.tier === activePrice;
+      const tagMatch = !activeTags.has("couch") || g.couch;
+      return modeMatch && priceMatch && tagMatch;
+    });
+    chip.classList.toggle("chip-disabled", !hasMatch);
+  });
+
+  document.querySelectorAll('.chip[data-filter-type="price"]').forEach(chip => {
+    const value = chip.dataset.value;
+    if(value === "all" || chip.classList.contains("active")){ chip.classList.remove("chip-disabled"); return; }
+    const hasMatch = games.some(g => {
+      const modeMatch = activeMode === "all" || (activeMode === "plus4" ? g.plus4 === true : g.mode === activeMode);
+      const priceMatch = g.tier === value;
+      const tagMatch = !activeTags.has("couch") || g.couch;
+      return modeMatch && priceMatch && tagMatch;
+    });
+    chip.classList.toggle("chip-disabled", !hasMatch);
+  });
+
+  document.querySelectorAll('.chip[data-filter-type="tag"]').forEach(chip => {
+    const value = chip.dataset.value;
+    if(chip.classList.contains("active")){ chip.classList.remove("chip-disabled"); return; }
+    const hasMatch = games.some(g => {
+      const modeMatch = activeMode === "all" || (activeMode === "plus4" ? g.plus4 === true : g.mode === activeMode);
+      const priceMatch = activePrice === "all" || g.tier === activePrice;
+      const tagMatch = value === "couch" ? g.couch : true;
+      return modeMatch && priceMatch && tagMatch;
+    });
+    chip.classList.toggle("chip-disabled", !hasMatch);
+  });
+}
+
 function render(){
   const grid = document.getElementById("grid");
   const empty = document.getElementById("empty");
@@ -653,6 +708,7 @@ function render(){
 
   if(filtered.length === 0){
     empty.style.display = "block";
+    computeAvailability();
     return;
   }
   empty.style.display = "none";
@@ -717,6 +773,8 @@ function render(){
     });
     grid.appendChild(card);
   });
+
+  computeAvailability();
 }
 
 document.querySelectorAll('.chip').forEach(chip => {
