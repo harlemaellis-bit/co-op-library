@@ -79,11 +79,13 @@ async function main() {
         console.warn(`    Steam returned no screenshots for ${appid}, leaving existing gallery as-is`);
       }
 
-      // Only fill this in if nothing's there yet — several entries already
-      // use a hand-picked hero shot that looks better than Steam's default
-      // header image, and that choice should win.
-      if (!entry.heroImage && data.header_image) {
-        entry.heroImage = data.header_image;
+      // Only fill this in if nothing's there yet. Deliberately using the
+      // first real screenshot, not data.header_image — Steam's header image
+      // is a branded poster/packshot (logo + tagline on a mostly-empty
+      // background), which reads as staged rather than "in the game," and
+      // that's exactly the look this hero band should avoid.
+      if (!entry.heroImage && screenshots.length) {
+        entry.heroImage = screenshots[0];
       }
 
       updated++;
