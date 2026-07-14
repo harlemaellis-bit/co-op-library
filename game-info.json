@@ -1,8 +1,8 @@
 {
   "526870": {
-    "pageTitle": "Satisfactory \u2014 FICSIT Field Dossier",
-    "headerBrand": "FICSIT\u2122 FIELD DOSSIER",
-    "footerBrand": "SATISFACTORY \u2014 FICSIT FIELD DOSSIER",
+    "pageTitle": "Satisfactory — FICSIT Field Dossier",
+    "headerBrand": "FICSIT™ FIELD DOSSIER",
+    "footerBrand": "SATISFACTORY — FICSIT FIELD DOSSIER",
     "brandIcon": "bolt",
     "backLink": "coop-library.html",
     "steamUrl": "https://store.steampowered.com/app/526870/Satisfactory/",
@@ -30,7 +30,7 @@
     "platforms": [
       {
         "key": "pc",
-        "label": "PC \u00b7 Steam / Epic"
+        "label": "PC · Steam / Epic"
       },
       {
         "key": "xbox",
@@ -51,13 +51,13 @@
         },
         "xbox": {
           "controller": "Native",
-          "crossplay": "Xbox \u2194 PlayStation",
+          "crossplay": "Xbox ↔ PlayStation",
           "players": "Up to 4",
           "servers": "Not available"
         },
         "ps5": {
           "controller": "Native + Haptics",
-          "crossplay": "PlayStation \u2194 Xbox",
+          "crossplay": "PlayStation ↔ Xbox",
           "players": "Up to 4",
           "servers": "Not available"
         }
@@ -66,19 +66,19 @@
         "pc": {
           "controller": "Support complet",
           "crossplay": "Pool PC uniquement",
-          "players": "Jusqu'\u00e0 4 (modifiable)",
+          "players": "Jusqu'à 4 (modifiable)",
           "servers": "Pris en charge"
         },
         "xbox": {
           "controller": "Natif",
-          "crossplay": "Xbox \u2194 PlayStation",
-          "players": "Jusqu'\u00e0 4",
+          "crossplay": "Xbox ↔ PlayStation",
+          "players": "Jusqu'à 4",
           "servers": "Non disponible"
         },
         "ps5": {
           "controller": "Natif + retour haptique",
-          "crossplay": "PlayStation \u2194 Xbox",
-          "players": "Jusqu'\u00e0 4",
+          "crossplay": "PlayStation ↔ Xbox",
+          "players": "Jusqu'à 4",
           "servers": "Non disponible"
         }
       }
@@ -108,7 +108,7 @@
           "value": "Simulation d'usine / survie"
         },
         {
-          "label": "D\u00e9veloppeur",
+          "label": "Développeur",
           "value": "Coffee Stain Studios"
         },
         {
@@ -132,7 +132,7 @@
         "Automatiser",
         "Construire",
         "Explorer",
-        "Cr\u00e9er"
+        "Créer"
       ]
     },
     "i18n": {
@@ -140,7 +140,7 @@
         "navGallery": "Gallery",
         "navDetails": "Details",
         "backLink": "Back to Library",
-        "heroEyebrow": "FICSIT INC. \u00b7 EMPLOYEE ORIENTATION FILE 001",
+        "heroEyebrow": "FICSIT INC. · EMPLOYEE ORIENTATION FILE 001",
         "titleMain": "SATIS",
         "titleAccent": "FACTORY",
         "heroTagline": "A first-person open-world factory building game with a dash of exploration and combat, set on an alien planet just waiting to be exploited.",
@@ -162,20 +162,20 @@
         "lblServers": "Dedicated servers",
         "descP": [
           "You are dropped onto planet MASSAGE-2(A-B)b as a Pioneer working for FICSIT Inc., tasked with establishing automated supply chains for an interstellar project of unclear purpose. What starts as a single smelter and a handful of conveyor belts tends to spiral into a continent-spanning industrial complex.",
-          "There's no fixed objective beyond FICSIT's ever-expanding project milestones \u2014 how you get there is up to you. The game left Early Access in September 2024, then arrived on Xbox Series X|S and PS5 in November 2025 with console-to-console crossplay."
+          "There's no fixed objective beyond FICSIT's ever-expanding project milestones — how you get there is up to you. The game left Early Access in September 2024, then arrived on Xbox Series X|S and PS5 in November 2025 with console-to-console crossplay."
         ],
         "readMore": "Read more",
         "readLess": "Read less",
-        "footer": "Fan-made reference layout \u00b7 Not an official FICSIT Inc. or Coffee Stain Studios product"
+        "footer": "Fan-made reference layout · Not an official FICSIT Inc. or Coffee Stain Studios product"
       },
       "fr": {
         "navGallery": "Galerie",
-        "navDetails": "D\u00e9tails",
-        "backLink": "Retour \u00e0 la biblioth\u00e8que",
-        "heroEyebrow": "FICSIT INC. \u00b7 DOSSIER D'ORIENTATION EMPLOY\u00c9 001",
+        "navDetails": "Détails",
+        "backLink": "Retour à la bibliothèque",
+        "heroEyebrow": "FICSIT INC. · DOSSIER D'ORIENTATION EMPLOYÉ 001",
         "titleMain": "SATIS",
         "titleAccent": "FACTORY",
-        "heroTagline": "Un jeu de construction d'usines en vue \u00e0 la premi\u00e8re personne, en monde ouvert, avec un peu d'exploration et de combat, sur une plan\u00e8te extraterrestre qui n'attend que d'\u00eatre exploit\u00e9e.",
+        "heroTagline": "Un jeu de construction d'usines en vue à la première personne, en monde ouvert, avec un peu d'exploration et de combat, sur une planète extraterrestre qui n'attend que d'être exploitée.",
         "tags": [
           "CONSTRUCTION D'USINES",
           "MONDE OUVERT",
@@ -183,29 +183,29 @@
           "COOP"
         ],
         "steamBtn": "Voir sur Steam",
-        "wishlist": "Ajouter \u00e0 la liste de souhaits",
+        "wishlist": "Ajouter à la liste de souhaits",
         "wishlisted": "Dans la liste de souhaits",
-        "galleryHeading": "Captures d'\u00e9cran",
-        "detailsHeading": "D\u00e9tails",
+        "galleryHeading": "Captures d'écran",
+        "detailsHeading": "Détails",
         "detailsSub": "Plateformes, support, et ce que la boucle de jeu donne vraiment.",
         "lblController": "Manette",
         "lblCrossplay": "Crossplay",
         "lblPlayers": "Joueurs en coop",
-        "lblServers": "Serveurs d\u00e9di\u00e9s",
+        "lblServers": "Serveurs dédiés",
         "descP": [
-          "Vous \u00eates largu\u00e9 sur la plan\u00e8te MASSAGE-2(A-B)b en tant que Pionnier au service de FICSIT Inc., charg\u00e9 de mettre en place des cha\u00eenes d'approvisionnement automatis\u00e9es pour un projet interstellaire au but flou. Ce qui commence par un simple four et quelques tapis roulants finit souvent par s'\u00e9tendre en un complexe industriel \u00e0 l'\u00e9chelle d'un continent.",
-          "Il n'y a pas d'objectif fixe au-del\u00e0 des jalons toujours plus nombreux du projet FICSIT \u2014 la fa\u00e7on d'y arriver vous appartient. Le jeu est sorti d'acc\u00e8s anticip\u00e9 en septembre 2024, puis est arriv\u00e9 sur Xbox Series X|S et PS5 en novembre 2025 avec un crossplay console \u00e0 console."
+          "Vous êtes largué sur la planète MASSAGE-2(A-B)b en tant que Pionnier au service de FICSIT Inc., chargé de mettre en place des chaînes d'approvisionnement automatisées pour un projet interstellaire au but flou. Ce qui commence par un simple four et quelques tapis roulants finit souvent par s'étendre en un complexe industriel à l'échelle d'un continent.",
+          "Il n'y a pas d'objectif fixe au-delà des jalons toujours plus nombreux du projet FICSIT — la façon d'y arriver vous appartient. Le jeu est sorti d'accès anticipé en septembre 2024, puis est arrivé sur Xbox Series X|S et PS5 en novembre 2025 avec un crossplay console à console."
         ],
         "readMore": "Lire la suite",
-        "readLess": "R\u00e9duire",
-        "footer": "Mise en page fan-made \u00b7 N'est pas un produit officiel de FICSIT Inc. ou Coffee Stain Studios"
+        "readLess": "Réduire",
+        "footer": "Mise en page fan-made · N'est pas un produit officiel de FICSIT Inc. ou Coffee Stain Studios"
       }
     }
   },
   "477160": {
-    "pageTitle": "Human: Fall Flat \u2014 Dream Log",
-    "headerBrand": "HUMAN: FALL FLAT \u2014 DREAM LOG",
-    "footerBrand": "HUMAN: FALL FLAT \u2014 DREAM LOG",
+    "pageTitle": "Human: Fall Flat — Dream Log",
+    "headerBrand": "HUMAN: FALL FLAT — DREAM LOG",
+    "footerBrand": "HUMAN: FALL FLAT — DREAM LOG",
     "brandIcon": "dot",
     "backLink": "coop-library.html",
     "steamUrl": "https://store.steampowered.com/app/477160/Human_Fall_Flat/",
@@ -232,7 +232,7 @@
     "platforms": [
       {
         "key": "pc",
-        "label": "PC \u00b7 Steam"
+        "label": "PC · Steam"
       },
       {
         "key": "xbox",
@@ -241,6 +241,10 @@
       {
         "key": "ps5",
         "label": "PlayStation 4 / 5"
+      },
+      {
+        "key": "switch",
+        "label": "Nintendo Switch"
       }
     ],
     "platformData": {
@@ -262,26 +266,38 @@
           "crossplay": "All platforms",
           "players": "Up to 8",
           "servers": "Peer-to-peer"
+        },
+        "switch": {
+          "controller": "Native",
+          "crossplay": "Switch only",
+          "players": "Up to 8",
+          "servers": "Peer-to-peer"
         }
       },
       "fr": {
         "pc": {
           "controller": "Support complet",
           "crossplay": "Toutes plateformes",
-          "players": "Jusqu'\u00e0 8",
-          "servers": "Pair \u00e0 pair"
+          "players": "Jusqu'à 8",
+          "servers": "Pair à pair"
         },
         "xbox": {
           "controller": "Natif",
           "crossplay": "Toutes plateformes",
-          "players": "Jusqu'\u00e0 8",
-          "servers": "Pair \u00e0 pair"
+          "players": "Jusqu'à 8",
+          "servers": "Pair à pair"
         },
         "ps5": {
           "controller": "Natif",
           "crossplay": "Toutes plateformes",
-          "players": "Jusqu'\u00e0 8",
-          "servers": "Pair \u00e0 pair"
+          "players": "Jusqu'à 8",
+          "servers": "Pair à pair"
+        },
+        "switch": {
+          "controller": "Natif",
+          "crossplay": "Switch uniquement",
+          "players": "Jusqu'à 8",
+          "servers": "Pair à pair"
         }
       }
     },
@@ -310,11 +326,11 @@
           "value": "Plateforme-puzzle physique"
         },
         {
-          "label": "D\u00e9veloppeur",
+          "label": "Développeur",
           "value": "No Brakes Games"
         },
         {
-          "label": "\u00c9diteur",
+          "label": "Éditeur",
           "value": "Curve Games"
         },
         {
@@ -332,7 +348,7 @@
       ],
       "fr": [
         "Vaciller",
-        "R\u00e9soudre",
+        "Résoudre",
         "Explorer",
         "Rire"
       ]
@@ -342,7 +358,7 @@
         "navGallery": "Gallery",
         "navDetails": "Details",
         "backLink": "Back to Library",
-        "heroEyebrow": "NO BRAKES GAMES \u00b7 FLOATING DREAMSCAPE 01",
+        "heroEyebrow": "NO BRAKES GAMES · FLOATING DREAMSCAPE 01",
         "titleMain": "HUMAN",
         "titleAccent": ": FALL FLAT",
         "heroTagline": "A hilarious, light-hearted physics platformer where wobbly rag-doll humans solve puzzles across floating dreamscapes, solo or with up to 8 friends.",
@@ -363,44 +379,44 @@
         "lblPlayers": "Co-op players",
         "lblServers": "Dedicated servers",
         "descP": [
-          "You control Bob, a physics-driven ragdoll with no fixed shape or gravity script to save him \u2014 every grab, climb, and fall is simulated live, which is exactly why so much of the game is funnier than it means to be.",
+          "You control Bob, a physics-driven ragdoll with no fixed shape or gravity script to save him — every grab, climb, and fall is simulated live, which is exactly why so much of the game is funnier than it means to be.",
           "Levels are open-ended dreamscapes with multiple solutions to each puzzle, and the free Workshop adds thousands of community-made levels on top of the base game. It's best with friends, but the physics chaos holds up solo too."
         ],
         "readMore": "Read more",
         "readLess": "Read less",
-        "footer": "Fan-made reference layout \u00b7 Not an official No Brakes Games or Curve Games product"
+        "footer": "Fan-made reference layout · Not an official No Brakes Games or Curve Games product"
       },
       "fr": {
         "navGallery": "Galerie",
-        "navDetails": "D\u00e9tails",
-        "backLink": "Retour \u00e0 la biblioth\u00e8que",
-        "heroEyebrow": "NO BRAKES GAMES \u00b7 R\u00caVERIE FLOTTANTE 01",
+        "navDetails": "Détails",
+        "backLink": "Retour à la bibliothèque",
+        "heroEyebrow": "NO BRAKES GAMES · RÊVERIE FLOTTANTE 01",
         "titleMain": "HUMAN",
         "titleAccent": " : FALL FLAT",
-        "heroTagline": "Un plateforme-puzzle physique hilarant et l\u00e9ger o\u00f9 des pantins articul\u00e9s r\u00e9solvent des \u00e9nigmes \u00e0 travers des r\u00eaveries flottantes, seul ou jusqu'\u00e0 8 amis.",
+        "heroTagline": "Un plateforme-puzzle physique hilarant et léger où des pantins articulés résolvent des énigmes à travers des rêveries flottantes, seul ou jusqu'à 8 amis.",
         "tags": [
           "PUZZLE PHYSIQUE",
           "PLATEFORME",
-          "DR\u00d4LE",
+          "DRÔLE",
           "COOP"
         ],
         "steamBtn": "Voir sur Steam",
-        "wishlist": "Ajouter \u00e0 la liste de souhaits",
+        "wishlist": "Ajouter à la liste de souhaits",
         "wishlisted": "Dans la liste de souhaits",
-        "galleryHeading": "Captures d'\u00e9cran",
-        "detailsHeading": "D\u00e9tails",
+        "galleryHeading": "Captures d'écran",
+        "detailsHeading": "Détails",
         "detailsSub": "Plateformes, support, et ce que la boucle de jeu donne vraiment.",
         "lblController": "Manette",
         "lblCrossplay": "Crossplay",
         "lblPlayers": "Joueurs en coop",
-        "lblServers": "Serveurs d\u00e9di\u00e9s",
+        "lblServers": "Serveurs dédiés",
         "descP": [
-          "Vous contr\u00f4lez Bob, un pantin articul\u00e9 r\u00e9gi par la physique, sans forme fixe ni script de gravit\u00e9 pour le sauver \u2014 chaque prise, chaque escalade et chaque chute est simul\u00e9e en direct, ce qui explique pourquoi le jeu est souvent plus dr\u00f4le qu'il ne le voudrait.",
-          "Les niveaux sont des r\u00eaveries ouvertes avec plusieurs solutions \u00e0 chaque \u00e9nigme, et le Workshop gratuit ajoute des milliers de niveaux cr\u00e9\u00e9s par la communaut\u00e9. C'est meilleur entre amis, mais le chaos physique fonctionne aussi tr\u00e8s bien en solo."
+          "Vous contrôlez Bob, un pantin articulé régi par la physique, sans forme fixe ni script de gravité pour le sauver — chaque prise, chaque escalade et chaque chute est simulée en direct, ce qui explique pourquoi le jeu est souvent plus drôle qu'il ne le voudrait.",
+          "Les niveaux sont des rêveries ouvertes avec plusieurs solutions à chaque énigme, et le Workshop gratuit ajoute des milliers de niveaux créés par la communauté. C'est meilleur entre amis, mais le chaos physique fonctionne aussi très bien en solo."
         ],
         "readMore": "Lire la suite",
-        "readLess": "R\u00e9duire",
-        "footer": "Mise en page fan-made \u00b7 N'est pas un produit officiel de No Brakes Games ou Curve Games"
+        "readLess": "Réduire",
+        "footer": "Mise en page fan-made · N'est pas un produit officiel de No Brakes Games ou Curve Games"
       }
     }
   }
