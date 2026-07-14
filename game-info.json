@@ -209,11 +209,14 @@
     "brandIcon": "dot",
     "backLink": "coop-library.html",
     "steamUrl": "https://store.steampowered.com/app/477160/Human_Fall_Flat/",
-    "heroImage": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/477160/bbb9101c968138ddf0e0f6061cbe50ed1cd6f044/library_hero.jpg",
+    "heroImage": "https://image.api.playstation.com/vulcan/img/rnd/202011/0614/IzgZInxLm5mhKWBE51s4LjBm.jpg",
     "gallery": [
       "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/477160/ss_56e2f54bc55f4c925955e8e58c52922699244dd5.1920x1080.jpg?t=1781193705",
       "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/257298228/ddb074b5280fed525a9ead54c2c47f69fe86e095/movie_full.jpg",
-      "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/257220934/40d57f257e6ddc41098c033bf7cfcb8f822ad449/movie_full.jpg"
+      "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/257220934/40d57f257e6ddc41098c033bf7cfcb8f822ad449/movie_full.jpg",
+      "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/257175671/3fd38ef5d186d319b77b85877d815b818f4c2f39/movie_full.jpg",
+      "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/257113846/8be50e3f7bf6840177e62333ff704d132fecc278/movie_full.jpg",
+      "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/257076768/99a08234a818bf2468aa81bc48fe98db7e62c425/movie_full.jpg"
     ],
     "theme": {
       "accent": "#ff6b57",

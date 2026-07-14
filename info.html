@@ -23,6 +23,9 @@
     --good:          #7dd694;
     --radius:        14px;
     --hero-scrim:    #0b0d10; /* fixed dark vignette for the hero image — stays the same in light theme so the image doesn't wash out */
+    --hero-text:     #f2efe9; /* fixed light text for content sitting on the hero image, independent of site theme */
+    --hero-text-dim: #c7cdd4;
+    --hero-border:   rgba(255,255,255,0.22);
     --font-display:  'Oswald', sans-serif;
     --font-body:     'Barlow', sans-serif;
     --font-mono:     'Space Mono', monospace;
@@ -124,14 +127,14 @@
   .hero h1{
     font-size:clamp(42px, 7.5vw, 84px);
     line-height:0.92;
-    color:var(--text);
+    color:var(--hero-text);
     text-shadow:0 4px 24px rgba(0,0,0,0.55);
     margin-bottom:10px;
   }
   .hero h1 span{ color:var(--accent); }
   .hero-tagline{
     font-size:clamp(14px,1.8vw,16px);
-    color:var(--text-dim);
+    color:var(--hero-text-dim);
     max-width:540px;
     margin-bottom:20px;
   }
@@ -139,8 +142,8 @@
   .tag-pill{
     font-family:var(--font-mono);
     font-size:10.5px; letter-spacing:0.05em;
-    color:var(--text-dim);
-    border:1px solid var(--border);
+    color:var(--hero-text-dim);
+    border:1px solid var(--hero-border);
     padding:6px 12px;
     border-radius:20px;
     background:rgba(23,28,34,0.7);
@@ -503,9 +506,12 @@
     if(th.fontMono) root.setProperty('--font-mono', `'${th.fontMono}', monospace`);
     loadGoogleFonts([th.fontDisplay, th.fontBody, th.fontMono, ...ALWAYS_LOAD_FONTS].filter(Boolean));
 
-    // Hero background image
+    // Hero background image — falls back to Steam's CDN library_hero art by
+    // appid (same no-API trick coop-library.html uses for card thumbnails)
+    // whenever a game entry doesn't set its own heroImage.
+    const heroImg = game.heroImage || `https://cdn.akamai.steamstatic.com/steam/apps/${gameKey}/library_hero.jpg`;
     document.getElementById('heroSection').style.backgroundImage =
-      `linear-gradient(180deg, color-mix(in srgb, var(--hero-scrim) 25%, transparent) 0%, color-mix(in srgb, var(--hero-scrim) 55%, transparent) 60%, var(--hero-scrim) 100%), url('${game.heroImage}')`;
+      `linear-gradient(180deg, color-mix(in srgb, var(--hero-scrim) 25%, transparent) 0%, color-mix(in srgb, var(--hero-scrim) 55%, transparent) 60%, var(--hero-scrim) 100%), url('${heroImg}')`;
     document.getElementById('heroSection').style.backgroundSize = 'cover';
     document.getElementById('heroSection').style.backgroundPosition = 'center 32%';
 
