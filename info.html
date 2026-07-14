@@ -116,14 +116,6 @@
       linear-gradient(180deg, color-mix(in srgb, var(--hero-scrim) 25%, transparent) 0%, color-mix(in srgb, var(--hero-scrim) 55%, transparent) 60%, var(--hero-scrim) 100%),
       var(--hero-scrim) center 32% / cover no-repeat;
   }
-  .hero-eyebrow{
-    display:flex; align-items:center; gap:10px;
-    color:var(--hazard-a);
-    font-family:var(--font-mono);
-    font-size:11px; letter-spacing:0.16em;
-    margin-bottom:14px;
-  }
-  .hero-eyebrow::before{ content:''; width:22px; height:1px; background:var(--hazard-a); }
   .hero h1{
     font-size:clamp(42px, 7.5vw, 84px);
     line-height:0.92;
@@ -361,7 +353,6 @@
 </header>
 
 <section class="hero" id="heroSection">
-  <div class="hero-eyebrow mono" id="heroEyebrow"></div>
   <h1 id="heroTitle"></h1>
   <p class="hero-tagline" id="heroTagline"></p>
   <div class="tag-row" id="tagRow"></div>
@@ -623,9 +614,6 @@
     document.getElementById('nav-gallery').textContent = t.navGallery;
     document.getElementById('nav-details').textContent = t.navDetails;
     document.getElementById('backLinkTxt').textContent = t.backLink;
-    const eyebrowEl = document.getElementById('heroEyebrow');
-    eyebrowEl.textContent = t.heroEyebrow || '';
-    eyebrowEl.style.display = t.heroEyebrow ? '' : 'none';
     document.getElementById('heroTitle').innerHTML = `${t.titleMain}<span>${t.titleAccent}</span>`;
     document.getElementById('heroTagline').textContent = t.heroTagline;
     document.getElementById('tagRow').innerHTML = t.tags.map(tag => `<span class="tag-pill">${tag}</span>`).join('');
