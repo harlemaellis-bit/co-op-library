@@ -204,8 +204,8 @@
     position:absolute; top:50%; transform:translateY(-50%);
     width:42px; height:42px; border-radius:50%;
     background:rgba(16,19,22,0.7);
-    border:1px solid var(--border);
-    color:var(--text);
+    border:none;
+    color:#fff;
     display:flex; align-items:center; justify-content:center;
     cursor:pointer; font-size:18px;
     transition:background .2s, border-color .2s;
@@ -623,7 +623,9 @@
     document.getElementById('nav-gallery').textContent = t.navGallery;
     document.getElementById('nav-details').textContent = t.navDetails;
     document.getElementById('backLinkTxt').textContent = t.backLink;
-    document.getElementById('heroEyebrow').textContent = t.heroEyebrow;
+    const eyebrowEl = document.getElementById('heroEyebrow');
+    eyebrowEl.textContent = t.heroEyebrow || '';
+    eyebrowEl.style.display = t.heroEyebrow ? '' : 'none';
     document.getElementById('heroTitle').innerHTML = `${t.titleMain}<span>${t.titleAccent}</span>`;
     document.getElementById('heroTagline').textContent = t.heroTagline;
     document.getElementById('tagRow').innerHTML = t.tags.map(tag => `<span class="tag-pill">${tag}</span>`).join('');

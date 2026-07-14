@@ -155,7 +155,7 @@
         "wishlisted": "Wishlisted",
         "galleryHeading": "Screenshots",
         "detailsHeading": "Details",
-        "detailsSub": "Platform, support, and what the loop actually feels like.",
+        "detailsSub": "Platforms and cross-play capabilities.",
         "lblController": "Controller",
         "lblCrossplay": "Crossplay",
         "lblPlayers": "Co-op players",
@@ -187,7 +187,7 @@
         "wishlisted": "Dans la liste de souhaits",
         "galleryHeading": "Captures d'écran",
         "detailsHeading": "Détails",
-        "detailsSub": "Plateformes, support, et ce que la boucle de jeu donne vraiment.",
+        "detailsSub": "Plateformes et compatibilité multiplateforme.",
         "lblController": "Manette",
         "lblCrossplay": "Crossplay",
         "lblPlayers": "Joueurs en coop",
@@ -204,8 +204,8 @@
   },
   "477160": {
     "pageTitle": "Human: Fall Flat — Dream Log",
-    "headerBrand": "HUMAN: FALL FLAT — DREAM LOG",
-    "footerBrand": "HUMAN: FALL FLAT — DREAM LOG",
+    "headerBrand": "HUMAN: FALL FLAT",
+    "footerBrand": "HUMAN: FALL FLAT",
     "brandIcon": "dot",
     "backLink": "coop-library.html",
     "steamUrl": "https://store.steampowered.com/app/477160/Human_Fall_Flat/",
@@ -235,12 +235,20 @@
         "label": "PC · Steam"
       },
       {
-        "key": "xbox",
-        "label": "Xbox One / Series X|S"
+        "key": "xboxone",
+        "label": "Xbox One"
+      },
+      {
+        "key": "xboxseries",
+        "label": "Xbox Series X|S"
+      },
+      {
+        "key": "ps4",
+        "label": "PlayStation 4"
       },
       {
         "key": "ps5",
-        "label": "PlayStation 4 / 5"
+        "label": "PlayStation 5"
       },
       {
         "key": "switch",
@@ -255,7 +263,19 @@
           "players": "Up to 8",
           "servers": "Peer-to-peer"
         },
-        "xbox": {
+        "xboxone": {
+          "controller": "Native",
+          "crossplay": "All platforms",
+          "players": "Up to 8",
+          "servers": "Peer-to-peer"
+        },
+        "xboxseries": {
+          "controller": "Native",
+          "crossplay": "All platforms",
+          "players": "Up to 8",
+          "servers": "Peer-to-peer"
+        },
+        "ps4": {
           "controller": "Native",
           "crossplay": "All platforms",
           "players": "Up to 8",
@@ -281,7 +301,19 @@
           "players": "Jusqu'à 8",
           "servers": "Pair à pair"
         },
-        "xbox": {
+        "xboxone": {
+          "controller": "Natif",
+          "crossplay": "Toutes plateformes",
+          "players": "Jusqu'à 8",
+          "servers": "Pair à pair"
+        },
+        "xboxseries": {
+          "controller": "Natif",
+          "crossplay": "Toutes plateformes",
+          "players": "Jusqu'à 8",
+          "servers": "Pair à pair"
+        },
+        "ps4": {
           "controller": "Natif",
           "crossplay": "Toutes plateformes",
           "players": "Jusqu'à 8",
@@ -358,7 +390,7 @@
         "navGallery": "Gallery",
         "navDetails": "Details",
         "backLink": "Back to Library",
-        "heroEyebrow": "NO BRAKES GAMES · FLOATING DREAMSCAPE 01",
+        "heroEyebrow": "",
         "titleMain": "HUMAN",
         "titleAccent": ": FALL FLAT",
         "heroTagline": "A hilarious, light-hearted physics platformer where wobbly rag-doll humans solve puzzles across floating dreamscapes, solo or with up to 8 friends.",
@@ -373,7 +405,7 @@
         "wishlisted": "Wishlisted",
         "galleryHeading": "Screenshots",
         "detailsHeading": "Details",
-        "detailsSub": "Platform, support, and what the loop actually feels like.",
+        "detailsSub": "Platforms and cross-play capabilities.",
         "lblController": "Controller",
         "lblCrossplay": "Crossplay",
         "lblPlayers": "Co-op players",
@@ -390,7 +422,7 @@
         "navGallery": "Galerie",
         "navDetails": "Détails",
         "backLink": "Retour à la bibliothèque",
-        "heroEyebrow": "NO BRAKES GAMES · RÊVERIE FLOTTANTE 01",
+        "heroEyebrow": "",
         "titleMain": "HUMAN",
         "titleAccent": " : FALL FLAT",
         "heroTagline": "Un plateforme-puzzle physique hilarant et léger où des pantins articulés résolvent des énigmes à travers des rêveries flottantes, seul ou jusqu'à 8 amis.",
@@ -405,7 +437,7 @@
         "wishlisted": "Dans la liste de souhaits",
         "galleryHeading": "Captures d'écran",
         "detailsHeading": "Détails",
-        "detailsSub": "Plateformes, support, et ce que la boucle de jeu donne vraiment.",
+        "detailsSub": "Plateformes et compatibilité multiplateforme.",
         "lblController": "Manette",
         "lblCrossplay": "Crossplay",
         "lblPlayers": "Joueurs en coop",
