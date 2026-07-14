@@ -209,11 +209,13 @@
     "brandIcon": "dot",
     "backLink": "coop-library.html",
     "steamUrl": "https://store.steampowered.com/app/477160/Human_Fall_Flat/",
-    "heroImage": "https://placehold.co/1920x1080/13161f/ee8b1f?text=Add+real+Human%3A+Fall+Flat+hero+image",
+    "heroImage": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/477160/extras/f64fff1a32571320ef52a592f13edd2c.avif?t=1781193705",
     "gallery": [
       "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/477160/ss_56e2f54bc55f4c925955e8e58c52922699244dd5.1920x1080.jpg?t=1781193705",
-      "https://placehold.co/1920x1080/1b1f2e/9aa0b8?text=Add+real+Human%3A+Fall+Flat+screenshot",
-      "https://placehold.co/1920x1080/1b1f2e/9aa0b8?text=Add+real+Human%3A+Fall+Flat+screenshot"
+      "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/477160/extras/783822b3b454e9d9078ae46ff5f099e8.avif?t=1781193705",
+      "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/477160/extras/a036ce0bc3add9de1ec02e6f32bc96aa.avif?t=1781193705",
+      "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/477160/extras/691e3ef15f53d5a52d0b8c91c361a115.avif?t=1781193705",
+      "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/477160/extras/a7892b7b498fe18b0683dfe1fe581b66.avif?t=1781193705"
     ],
     "theme": {
       "accent": "#ff6b57",

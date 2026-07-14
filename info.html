@@ -109,7 +109,7 @@
     display:flex; flex-direction:column; justify-content:flex-end;
     min-height:46vh;
     background:
-      linear-gradient(180deg, color-mix(in srgb, var(--bg) 25%, transparent) 0%, color-mix(in srgb, var(--bg) 55%, transparent) 60%, var(--bg) 100%),
+      linear-gradient(180deg, rgba(0,0,0,0.15) 0%, rgba(0,0,0,0.6) 60%, var(--bg) 100%),
       var(--bg) center 32% / cover no-repeat;
   }
   .hero-eyebrow{
@@ -504,7 +504,7 @@
 
     // Hero background image
     document.getElementById('heroSection').style.backgroundImage =
-      `linear-gradient(180deg, color-mix(in srgb, var(--bg) 25%, transparent) 0%, color-mix(in srgb, var(--bg) 55%, transparent) 60%, var(--bg) 100%), url('${game.heroImage}')`;
+      `linear-gradient(180deg, rgba(0,0,0,0.15) 0%, rgba(0,0,0,0.6) 60%, var(--bg) 100%), url('${game.heroImage}')`;
     document.getElementById('heroSection').style.backgroundSize = 'cover';
     document.getElementById('heroSection').style.backgroundPosition = 'center 32%';
 
