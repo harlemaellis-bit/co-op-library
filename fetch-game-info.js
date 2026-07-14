@@ -1,10 +1,18 @@
 /**
  * fetch-game-info.js
  * -----------------------------------------------------------------
- * Refreshes the `gallery` (screenshots) for every game already listed
- * in game-info.json, straight from Steam's appdetails API. Everything
- * else in game-info.json (theme, i18n, platform labels, quick facts)
- * is hand-written and left alone — this script only touches images.
+ * Fills in `heroImage` for any game listed in game-info.json that
+ * doesn't already have one, straight from Steam's appdetails API.
+ * Everything else in game-info.json (theme, i18n, platform labels,
+ * quick facts, and the `gallery` screenshots) is hand-written and
+ * left alone — this script only touches heroImage, and only when
+ * it's missing.
+ *
+ * The gallery is 100% manual now: this script never reads or writes
+ * `entry.gallery`. Add screenshot URLs to a game's "gallery" array
+ * in game-info.json yourself and they'll stay exactly as you left
+ * them, forever — no lockGallery flag needed, since there's nothing
+ * left to lock.
  *
  * Why this has to run here and not in info.html:
  * store.steampowered.com/api/appdetails doesn't send CORS headers, so
@@ -16,11 +24,6 @@
  * Run manually:   node fetch-game-info.js
  * Run on Netlify:  wired into the build command in netlify.toml,
  *                  runs automatically on every deploy.
- *
- * Per-game opt-out: add "lockGallery": true to a game's entry in
- * game-info.json and this script will skip its screenshots (useful
- * once you've hand-picked a gallery you like and don't want it
- * overwritten on the next deploy).
  * -----------------------------------------------------------------
  */
 
@@ -28,7 +31,6 @@ const fs = require("fs");
 const path = require("path");
 
 const STEAM_ENDPOINT = "https://store.steampowered.com/api/appdetails";
-const MAX_SCREENSHOTS = 8;
 const REQUEST_DELAY_MS = 1200; // Steam rate-limits this endpoint hard — stay polite
 
 function sleep(ms) {
@@ -49,7 +51,9 @@ async function main() {
   const gameInfo = JSON.parse(fs.readFileSync(infoPath, "utf8"));
   const appids = Object.keys(gameInfo);
 
-  console.log(`Refreshing screenshots for ${appids.length} game(s)...`);
+  const needHero = appids.filter(appid => !gameInfo[appid].heroImage);
+
+  console.log(`${appids.length} game(s) total, ${needHero.length} missing a heroImage.`);
 
   let updated = 0;
   let skipped = 0;
@@ -58,37 +62,30 @@ async function main() {
   for (const appid of appids) {
     const entry = gameInfo[appid];
 
-    if (entry.lockGallery) {
-      console.log(`  - ${appid}: skipped (lockGallery: true)`);
+    if (entry.heroImage) {
       skipped++;
       continue;
     }
 
     try {
-      console.log(`  - ${appid}: fetching from Steam...`);
+      console.log(`  - ${appid}: fetching from Steam for heroImage...`);
       const data = await fetchGameDetails(appid);
 
-      const screenshots = (data.screenshots || [])
+      // Deliberately using the first real screenshot, not data.header_image —
+      // Steam's header image is a branded poster/packshot (logo + tagline on
+      // a mostly-empty background), which reads as staged rather than
+      // "in the game," and that's exactly the look this hero band should
+      // avoid.
+      const firstScreenshot = (data.screenshots || [])
         .map(s => s.path_full)
-        .filter(Boolean)
-        .slice(0, MAX_SCREENSHOTS);
+        .filter(Boolean)[0];
 
-      if (screenshots.length) {
-        entry.gallery = screenshots;
+      if (firstScreenshot) {
+        entry.heroImage = firstScreenshot;
+        updated++;
       } else {
-        console.warn(`    Steam returned no screenshots for ${appid}, leaving existing gallery as-is`);
+        console.warn(`    Steam returned no screenshots for ${appid}, leaving heroImage unset`);
       }
-
-      // Only fill this in if nothing's there yet. Deliberately using the
-      // first real screenshot, not data.header_image — Steam's header image
-      // is a branded poster/packshot (logo + tagline on a mostly-empty
-      // background), which reads as staged rather than "in the game," and
-      // that's exactly the look this hero band should avoid.
-      if (!entry.heroImage && screenshots.length) {
-        entry.heroImage = screenshots[0];
-      }
-
-      updated++;
     } catch (err) {
       console.error(`    Failed for ${appid}: ${err.message}`);
       failed++;
@@ -99,7 +96,7 @@ async function main() {
 
   fs.writeFileSync(infoPath, JSON.stringify(gameInfo, null, 2) + "\n");
   console.log(`\nWrote ${infoPath}`);
-  console.log(`${updated} updated, ${skipped} skipped, ${failed} failed.`);
+  console.log(`${updated} heroImage(s) added, ${skipped} already had one, ${failed} failed.`);
 }
 
 main().catch(err => {

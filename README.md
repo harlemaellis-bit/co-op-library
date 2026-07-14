@@ -34,15 +34,15 @@ an entry to `game-info.json` keyed by its Steam appid (copy an existing
 entry as a starting point) and link to `info.html?game=<appid>`. No new
 HTML file needed.
 
-Screenshots in `gallery` are the one part of that file meant to be
-machine-generated rather than hand-typed: `fetch-game-info.js` calls
-Steam's public appdetails API for every appid already in `game-info.json`
-and overwrites `gallery` with real, full-size screenshots (up to 8). It
-runs automatically as part of the Netlify build (see `netlify.toml`), same
-as the price fetch. It never touches theme, i18n, or platform data — only
-`gallery`, and `heroImage` if that field is empty. If you've hand-picked a
-gallery for a game and don't want it overwritten on the next deploy, add
-`"lockGallery": true` to that game's entry.
+`gallery` is fully hand-typed — add the screenshot URLs yourself and they
+stay exactly as you left them. The one thing that's machine-generated is
+`heroImage`: `fetch-game-info.js` calls Steam's public appdetails API for
+any appid in `game-info.json` whose `heroImage` is still empty, and fills
+it in with that game's first real screenshot. It runs automatically as
+part of the Netlify build (see `netlify.toml`), same as the price fetch.
+It never touches theme, i18n, platform data, or `gallery` — and it skips
+any game that already has a `heroImage` set, so once you've picked one
+you like it's never overwritten.
 
 To test it locally: `node fetch-game-info.js` (no API key needed, unlike
 the price fetch — Steam's appdetails endpoint is public).
