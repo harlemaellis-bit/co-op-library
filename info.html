@@ -22,6 +22,7 @@
     --text-faint:    #636a71;
     --good:          #7dd694;
     --radius:        14px;
+    --hero-scrim:    #0b0d10; /* fixed dark vignette for the hero image — stays the same in light theme so the image doesn't wash out */
     --font-display:  'Oswald', sans-serif;
     --font-body:     'Barlow', sans-serif;
     --font-mono:     'Space Mono', monospace;
@@ -109,8 +110,8 @@
     display:flex; flex-direction:column; justify-content:flex-end;
     min-height:46vh;
     background:
-      linear-gradient(180deg, color-mix(in srgb, var(--bg) 25%, transparent) 0%, color-mix(in srgb, var(--bg) 55%, transparent) 60%, var(--bg) 100%),
-      var(--bg) center 32% / cover no-repeat;
+      linear-gradient(180deg, color-mix(in srgb, var(--hero-scrim) 25%, transparent) 0%, color-mix(in srgb, var(--hero-scrim) 55%, transparent) 60%, var(--hero-scrim) 100%),
+      var(--hero-scrim) center 32% / cover no-repeat;
   }
   .hero-eyebrow{
     display:flex; align-items:center; gap:10px;
@@ -504,7 +505,7 @@
 
     // Hero background image
     document.getElementById('heroSection').style.backgroundImage =
-      `linear-gradient(180deg, color-mix(in srgb, var(--bg) 25%, transparent) 0%, color-mix(in srgb, var(--bg) 55%, transparent) 60%, var(--bg) 100%), url('${game.heroImage}')`;
+      `linear-gradient(180deg, color-mix(in srgb, var(--hero-scrim) 25%, transparent) 0%, color-mix(in srgb, var(--hero-scrim) 55%, transparent) 60%, var(--hero-scrim) 100%), url('${game.heroImage}')`;
     document.getElementById('heroSection').style.backgroundSize = 'cover';
     document.getElementById('heroSection').style.backgroundPosition = 'center 32%';
 
