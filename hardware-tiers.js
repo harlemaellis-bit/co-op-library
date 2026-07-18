@@ -283,6 +283,60 @@
     return "exceeds-recommended";
   }
 
+  /**
+   * Gives a 0-100 "how full is this tier" percentage for a component that
+   * has already been given a status by statusForComponent() above. This is
+   * for the circular gauge in the UI: it does NOT mean "how good is this
+   * part overall" — it means "how far through its *current* tier is it".
+   *
+   *   below-minimum:     0% = nowhere close to the minimum, 100% = right on
+   *                       the edge of clearing it. Scaled against minScore
+   *                       (or recScore if minimum isn't known) as the ceiling.
+   *   meets-minimum:      0% = just barely cleared minimum, 100% = about to
+   *                       roll into above-minimum (minScore*1.1).
+   *   above-minimum:      0% = just past the meets-minimum band, 100% = right
+   *                       at the recommended requirement (or, if recommended
+   *                       isn't known, an open-ended cap at 2x that floor).
+   *   meets-recommended:  0% = just cleared recommended, 100% = about to
+   *                       roll into exceeds-recommended (recScore*1.25).
+   *   exceeds-recommended: 0% = just past that, 100% = double the recommended
+   *                       score — there's no real ceiling here, so this is a
+   *                       generous cap rather than a hard boundary.
+   *
+   * Same math works for RAM (myScore/minScore/recScore are GB, not 0-100
+   * scores) since it's all ratios.
+   */
+  function fillForComponent(myScore, minScore, recScore, status) {
+    if (myScore == null || !status) return null;
+    const clampPct = v => Math.max(0, Math.min(100, Math.round(v * 100)));
+
+    switch (status) {
+      case "below-minimum": {
+        const ceiling = minScore != null ? minScore : recScore;
+        return ceiling ? clampPct(myScore / ceiling) : 0;
+      }
+      case "meets-minimum": {
+        const lo = minScore, hi = minScore * 1.1;
+        return clampPct((myScore - lo) / (hi - lo));
+      }
+      case "above-minimum": {
+        const lo = minScore * 1.1;
+        const hi = recScore != null ? recScore : lo * 2;
+        return clampPct((myScore - lo) / (hi - lo));
+      }
+      case "meets-recommended": {
+        const lo = recScore, hi = recScore * 1.25;
+        return clampPct((myScore - lo) / (hi - lo));
+      }
+      case "exceeds-recommended": {
+        const lo = recScore * 1.25, hi = recScore * 2;
+        return clampPct((myScore - lo) / (hi - lo));
+      }
+      default:
+        return null;
+    }
+  }
+
   // Picks which alternative (of a possibly brand-split requirement list) to
   // compare a visitor's part against: same brand first, since that's an
   // apples-to-apples comparison Steam intended as one option; otherwise the
@@ -331,6 +385,10 @@
     const gpuStatus = statusForComponent(my.gpuScore, minGpu && minGpu.score, recGpu && recGpu.score);
     const ramStatus = statusForComponent(my.ramGB, min.ramGB, rec.ramGB);
 
+    const cpuFill = fillForComponent(my.cpuScore, minCpu && minCpu.score, recCpu && recCpu.score, cpuStatus);
+    const gpuFill = fillForComponent(my.gpuScore, minGpu && minGpu.score, recGpu && recGpu.score, gpuStatus);
+    const ramFill = fillForComponent(my.ramGB, min.ramGB, rec.ramGB, ramStatus);
+
     const known = [cpuStatus, gpuStatus, ramStatus].filter(Boolean);
     const overall = known.length
       ? known.reduce((worst, s) => (SEVERITY[s] < SEVERITY[worst] ? s : worst))
@@ -365,9 +423,9 @@
     return {
       overall,
       components: {
-        cpu: { status: cpuStatus, myScore: my.cpuScore ?? null, minScore: minCpu ? minCpu.score : null, recScore: recCpu ? recCpu.score : null, minName: minCpu ? minCpu.name : null, recName: recCpu ? recCpu.name : null },
-        gpu: { status: gpuStatus, myScore: my.gpuScore ?? null, minScore: minGpu ? minGpu.score : null, recScore: recGpu ? recGpu.score : null, minName: minGpu ? minGpu.name : null, recName: recGpu ? recGpu.name : null },
-        ram: { status: ramStatus, myGB: my.ramGB ?? null, minGB: min.ramGB ?? null, recGB: rec.ramGB ?? null }
+        cpu: { status: cpuStatus, fill: cpuFill, myScore: my.cpuScore ?? null, minScore: minCpu ? minCpu.score : null, recScore: recCpu ? recCpu.score : null, minName: minCpu ? minCpu.name : null, recName: recCpu ? recCpu.name : null },
+        gpu: { status: gpuStatus, fill: gpuFill, myScore: my.gpuScore ?? null, minScore: minGpu ? minGpu.score : null, recScore: recGpu ? recGpu.score : null, minName: minGpu ? minGpu.name : null, recName: recGpu ? recGpu.name : null },
+        ram: { status: ramStatus, fill: ramFill, myGB: my.ramGB ?? null, minGB: min.ramGB ?? null, recGB: rec.ramGB ?? null }
       },
       storage: {
         requiredGB: storageGB != null ? storageGB : null,
@@ -382,7 +440,7 @@
   const api = {
     CPUS, GPUS, tierFor, scoreForName, findComponent,
     brandOf, brandFromText, splitAlternatives, matchAlternatives,
-    statusForComponent, pickAlternative, evaluate
+    statusForComponent, fillForComponent, pickAlternative, evaluate
   };
   if (typeof module !== "undefined" && module.exports) module.exports = api;
   else root.HardwareTiers = api;

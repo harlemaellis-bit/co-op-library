@@ -297,6 +297,14 @@
   .calc-tab:hover:not(.active){ border-color:var(--accent2); color:var(--accent2); }
   .calc-panel[hidden]{ display:none; }
 
+  .specs-tier{ margin-bottom:20px; }
+  .specs-tier:last-child{ margin-bottom:0; }
+  .specs-tier-title{
+    font-family:var(--font-mono); font-size:11.5px; text-transform:uppercase;
+    letter-spacing:0.05em; color:var(--text-dim); margin-bottom:10px;
+  }
+  .spec-value{ color:var(--text); font-size:13.5px; text-align:right; }
+
   .cyri-badge-row{ display:flex; align-items:center; gap:14px; flex-wrap:wrap; margin-bottom:22px; }
   .cyri-badge{
     font-family:var(--font-display); text-transform:uppercase; letter-spacing:0.05em;
@@ -325,6 +333,31 @@
   .cyri-component-label{
     font-family:var(--font-mono); font-size:12.5px; text-transform:uppercase;
     letter-spacing:0.04em; color:var(--text-dim);
+  }
+
+  /* Circular "battery" gauge: outline track + colored arc showing how far
+     through the current tier (below-minimum / meets-minimum / etc.) this
+     component is. Not how good the part is overall — just progress within
+     the tier it's already landed in. */
+  .cyri-component-right{ display:flex; align-items:center; gap:12px; }
+  .cyri-ring{ display:block; flex-shrink:0; }
+  .cyri-ring-track{ fill:none; stroke:var(--border); stroke-width:4; }
+  .cyri-ring-fill{
+    fill:none; stroke-width:4; stroke-linecap:round;
+    transition:stroke-dashoffset .6s ease;
+  }
+  .cyri-ring-fill.below-minimum{ stroke:var(--bad); }
+  .cyri-ring-fill.meets-minimum,
+  .cyri-ring-fill.above-minimum{ stroke:var(--warn); }
+  .cyri-ring-fill.meets-recommended,
+  .cyri-ring-fill.exceeds-recommended{ stroke:var(--good); }
+  .cyri-ring-fill.not-listed{ stroke:var(--border); }
+  .cyri-ring-text{
+    font-family:var(--font-mono); font-size:10.5px; font-weight:600;
+    fill:var(--text-dim); text-anchor:middle; dominant-baseline:central;
+  }
+  .cyri-gauge-hint{
+    color:var(--text-faint); font-size:12px; margin:-10px 0 16px;
   }
 
   .cyri-storage{
@@ -519,27 +552,14 @@
 <!-- ============ CAN YOU RUN IT? ============ -->
 <section id="calculator">
   <div class="section-head"><h2 id="calcHeading">Can You Run It?</h2><span class="idx mono">004</span></div>
-  <p class="section-sub" id="calcSub">Checked against a Razer Blade Pro 17 — i7-10875H, RTX 3060 Laptop, 16GB RAM.</p>
 
   <div class="calc-tabs" role="tablist">
-    <button class="calc-tab active" data-tab="overview" id="calc-tab-overview">Overview</button>
-    <button class="calc-tab" data-tab="check" id="calc-tab-check">Check Your Specs</button>
-  </div>
-
-  <!-- OVERVIEW PANEL — precomputed against the site owner's own specs -->
-  <div class="calc-panel" id="calc-panel-overview">
-    <div class="cyri-badge-row">
-      <span class="cyri-badge" id="cyriBadge">—</span>
-      <span class="cyri-badge-note" id="cyriBadgeNote"></span>
-    </div>
-    <div class="cyri-components" id="cyriComponents"></div>
-    <div class="cyri-balance" id="cyriBalance"></div>
-    <div class="cyri-priority" id="cyriPriority"></div>
-    <div class="cyri-storage" id="cyriStorage"></div>
+    <button class="calc-tab active" data-tab="check" id="calc-tab-check">Check Your Specs</button>
+    <button class="calc-tab" data-tab="specs" id="calc-tab-specs">Specs</button>
   </div>
 
   <!-- CHECK YOUR SPECS PANEL — visitor picks their own hardware -->
-  <div class="calc-panel" id="calc-panel-check" hidden>
+  <div class="calc-panel" id="calc-panel-check">
     <div class="check-form">
       <div class="field">
         <div class="field-label">Processor</div>
@@ -570,6 +590,9 @@
     <button class="btn btn-primary" id="check-btn">Check My Specs</button>
     <div id="check-result"></div>
   </div>
+
+  <!-- SPECS PANEL — Steam's listed minimum/recommended requirements -->
+  <div class="calc-panel" id="calc-panel-specs" hidden></div>
 </section>
 
 <div class="hazard-strip"></div>
@@ -610,8 +633,8 @@
     en: {
       navCalculator: 'Can You Run It?',
       calcHeading: 'Can You Run It?',
-      calcSub: 'Checked against a Razer Blade Pro 17 — i7-10875H, RTX 3060 Laptop, 16GB RAM.',
-      tabOverview: 'Overview', tabCheck: 'Check Your Specs',
+      tabSpecs: 'Specs', tabCheck: 'Check Your Specs',
+      specsMinimum: 'Minimum', specsRecommended: 'Recommended',
       badge: {
         'not-listed': 'Not Listed', 'below-minimum': 'Below Minimum',
         'meets-minimum': 'Meets Minimum', 'above-minimum': 'Above Minimum',
@@ -625,10 +648,10 @@
         'meets-recommended': "Clears the recommended spec.",
         'exceeds-recommended': "Comfortably above the recommended spec."
       },
-      leanCpu: 'This game leans more on the <strong>CPU</strong> than the GPU — the processor is the bigger constraint here.',
-      leanGpu: 'This game leans more on the <strong>GPU</strong> than the CPU — the graphics card is the bigger constraint here.',
-      leanBalanced: 'CPU and GPU load are fairly <strong>balanced</strong> for this game.',
-      leanUnknown: "Not enough matched requirement data to judge CPU/GPU balance for this game.",
+      leanCpu: 'This game leans more on the <strong>chip</strong> than the graphics card — the chip is the bigger constraint here.',
+      leanGpu: 'This game leans more on the <strong>graphics card</strong> than the chip — the graphics card is the bigger constraint here.',
+      leanBalanced: 'Chip and graphics card load are fairly <strong>balanced</strong> for this game.',
+      leanUnknown: "Not enough matched requirement data to judge chip/graphics card balance for this game.",
       priorityCpu: 'CPU upgrade would help most here.',
       priorityGpu: 'GPU upgrade would help most here.',
       priorityRam: 'RAM is below what this game asks for.',
@@ -644,13 +667,14 @@
         exceeds: 'An NVMe SSD exceeds the recommended storage speed.'
       },
       checkBtn: 'Check My Specs',
-      checkPickBoth: 'Pick a processor and graphics card first.'
+      checkPickBoth: 'Pick a processor and graphics card first.',
+      gaugeHint: 'The ring shows progress within the current tier — not overall power. A full ring means it\'s about to cross into the next tier up.'
     },
     fr: {
       navCalculator: 'Compatible ?',
       calcHeading: 'Compatible ?',
-      calcSub: 'Comparé à un Razer Blade Pro 17 — i7-10875H, RTX 3060 portable, 16 Go de RAM.',
-      tabOverview: 'Aperçu', tabCheck: 'Vérifier votre config',
+      tabSpecs: 'Config. requise', tabCheck: 'Vérifier votre config',
+      specsMinimum: 'Minimum', specsRecommended: 'Recommandé',
       badge: {
         'not-listed': 'Non renseigné', 'below-minimum': 'Sous le minimum',
         'meets-minimum': 'Minimum atteint', 'above-minimum': 'Au-dessus du minimum',
@@ -666,8 +690,8 @@
       },
       leanCpu: 'Ce jeu sollicite davantage le <strong>processeur</strong> que la carte graphique — c\'est la contrainte principale ici.',
       leanGpu: 'Ce jeu sollicite davantage la <strong>carte graphique</strong> que le processeur — c\'est la contrainte principale ici.',
-      leanBalanced: 'La charge CPU et GPU est plutôt <strong>équilibrée</strong> pour ce jeu.',
-      leanUnknown: "Pas assez de données appariées pour juger de l'équilibre CPU/GPU sur ce jeu.",
+      leanBalanced: 'La charge du processeur et de la carte graphique est plutôt <strong>équilibrée</strong> pour ce jeu.',
+      leanUnknown: "Pas assez de données appariées pour juger de l'équilibre processeur/carte graphique sur ce jeu.",
       priorityCpu: 'Une mise à niveau du CPU aiderait le plus ici.',
       priorityGpu: 'Une mise à niveau du GPU aiderait le plus ici.',
       priorityRam: 'La RAM est en dessous de ce que demande ce jeu.',
@@ -683,7 +707,8 @@
         exceeds: 'Un SSD NVMe dépasse la vitesse de stockage recommandée.'
       },
       checkBtn: 'Vérifier ma config',
-      checkPickBoth: "Choisissez d'abord un processeur et une carte graphique."
+      checkPickBoth: "Choisissez d'abord un processeur et une carte graphique.",
+      gaugeHint: "L'anneau indique la progression dans le palier actuel — pas la puissance globale. Un anneau plein signifie que le composant est sur le point de passer au palier suivant."
     }
   };
 
@@ -826,7 +851,7 @@
         document.querySelectorAll('.calc-tab').forEach(b=>b.classList.remove('active'));
         btn.classList.add('active');
         const tab = btn.dataset.tab;
-        document.getElementById('calc-panel-overview').hidden = tab !== 'overview';
+        document.getElementById('calc-panel-specs').hidden = tab !== 'specs';
         document.getElementById('calc-panel-check').hidden = tab !== 'check';
       });
     });
@@ -845,8 +870,7 @@
   function renderCalculator(){
     const t = CALC_I18N[currentLang];
     document.getElementById('calcHeading').textContent = t.calcHeading;
-    document.getElementById('calcSub').textContent = t.calcSub;
-    document.getElementById('calc-tab-overview').textContent = t.tabOverview;
+    document.getElementById('calc-tab-specs').textContent = t.tabSpecs;
     document.getElementById('calc-tab-check').textContent = t.tabCheck;
     document.getElementById('check-btn').textContent = t.checkBtn;
     document.querySelector('#calc-panel-check .field:nth-child(1) .field-label').textContent = t.lblProcessor;
@@ -856,52 +880,93 @@
     const storageSel = document.getElementById('check-storage');
     [...storageSel.options].forEach(opt => { opt.textContent = t.storageOptions[opt.value]; });
 
-    renderOverviewResult(game.canYouRunIt, t);
+    renderSpecsPanel(game.canYouRunIt, t);
 
     // Re-render any already-shown "Check Your Specs" result in the new language
     if(document.getElementById('check-result').innerHTML.trim()) runCheck();
   }
 
-  function renderOverviewResult(cyri, t){
-    const badgeEl = document.getElementById('cyriBadge');
-    const noteEl = document.getElementById('cyriBadgeNote');
-    const componentsEl = document.getElementById('cyriComponents');
-    const balanceEl = document.getElementById('cyriBalance');
-    const priorityEl = document.getElementById('cyriPriority');
-    const storageEl = document.getElementById('cyriStorage');
-
-    const my = cyri && cyri.mySpecs;
-    const badgeKey = (my && my.overall) || 'not-listed';
-    badgeEl.className = 'cyri-badge ' + badgeKey;
-    badgeEl.textContent = t.badge[badgeKey];
-    noteEl.textContent = t.badgeNote[badgeKey];
-
-    componentsEl.innerHTML = renderComponentRows(my && my.components, t);
-
-    if(!my || !my.lean) balanceEl.innerHTML = t.leanUnknown;
-    else if(my.lean === 'cpu') balanceEl.innerHTML = t.leanCpu;
-    else if(my.lean === 'gpu') balanceEl.innerHTML = t.leanGpu;
-    else balanceEl.innerHTML = t.leanBalanced;
-
-    priorityEl.innerHTML = renderPriorityList(my && my.priorities, t);
-    storageEl.innerHTML = renderStorageBlock(my && my.storage, t);
+  function escapeHtml(str){
+    return String(str).replace(/[&<>"']/g, c => ({
+      '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;'
+    }[c]));
   }
 
-  // CPU/GPU/RAM each get their own status badge — storage is deliberately
-  // left out here since it's shown separately below and never affects
-  // whether the game "runs".
+  // Steam's raw minimum/recommended requirement text, shown as-is (not
+  // matched against hardware-tiers.js — that matching only feeds the
+  // Check Your Specs comparison, this panel is just the plain listing).
+  function renderSpecsPanel(cyri, t){
+    const panel = document.getElementById('calc-panel-specs');
+    const req = cyri && cyri.requirements;
+    const min = req && req.minimum;
+    const rec = req && req.recommended;
+
+    if(!min && !rec){
+      panel.innerHTML = `<p class="section-sub">${t.badgeNote['not-listed']}</p>`;
+      return;
+    }
+
+    const tierBlock = (tier, title) => {
+      if(!tier || !tier.raw) return '';
+      const rows = [
+        { label: t.lblProcessor, value: tier.raw.cpu },
+        { label: t.lblGraphics, value: tier.raw.gpu },
+        { label: t.lblRam, value: tier.raw.memory }
+      ].filter(r => r.value);
+      if(!rows.length) return '';
+      return `<div class="specs-tier">
+        <div class="specs-tier-title">${title}</div>
+        <div class="cyri-components">
+          ${rows.map(r => `<div class="cyri-component-row">
+            <span class="cyri-component-label">${r.label}</span>
+            <span class="spec-value">${escapeHtml(r.value)}</span>
+          </div>`).join('')}
+        </div>
+      </div>`;
+    };
+
+    const html = tierBlock(min, t.specsMinimum) + tierBlock(rec, t.specsRecommended);
+    panel.innerHTML = html || `<p class="section-sub">${t.badgeNote['not-listed']}</p>`;
+  }
+
+  // Circular "battery" gauge: an outline ring whose arc fills up to show
+  // how far through its current tier a component is (0% = just entered
+  // that tier, 100% = about to roll into the next one). Purely a visual
+  // supplement to the text badge, not a replacement for it.
+  function renderGauge(status, fill){
+    const key = status || 'not-listed';
+    const pct = (status && fill != null) ? fill : 0;
+    const r = 16, c = 2 * Math.PI * r;
+    const offset = c - (pct / 100) * c;
+    return `<svg class="cyri-ring" width="40" height="40" viewBox="0 0 40 40" aria-hidden="true">
+      <circle class="cyri-ring-track" cx="20" cy="20" r="${r}"></circle>
+      <circle class="cyri-ring-fill ${key}" cx="20" cy="20" r="${r}"
+        stroke-dasharray="${c.toFixed(2)}" stroke-dashoffset="${offset.toFixed(2)}"
+        transform="rotate(-90 20 20)"></circle>
+      <text class="cyri-ring-text" x="20" y="21">${status ? pct + '%' : '—'}</text>
+    </svg>`;
+  }
+
+  // CPU/GPU/RAM each get their own status badge plus a fill gauge —
+  // storage is deliberately left out here since it's shown separately
+  // below and never affects whether the game "runs".
   function renderComponentRows(components, t){
     const rows = [
-      { label: t.lblProcessor, status: components && components.cpu && components.cpu.status },
-      { label: t.lblGraphics,  status: components && components.gpu && components.gpu.status },
-      { label: t.lblRam,       status: components && components.ram && components.ram.status }
+      { label: t.lblProcessor, data: components && components.cpu },
+      { label: t.lblGraphics,  data: components && components.gpu },
+      { label: t.lblRam,       data: components && components.ram }
     ];
     return rows.map(r => {
-      const key = r.status || 'not-listed';
-      const label = r.status ? t.badge[key] : t.componentNotListed;
+      const status = r.data && r.data.status;
+      const fill = r.data && r.data.fill;
+      const key = status || 'not-listed';
+      const label = status ? t.badge[key] : t.componentNotListed;
       return `<div class="cyri-component-row">
         <span class="cyri-component-label">${r.label}</span>
-        <span class="cyri-badge small ${key}">${label}</span>
+        <div class="cyri-component-right">
+          ${renderGauge(status, fill)}
+          <span class="cyri-badge small ${key}">${label}</span>
+        </div>
       </div>`;
     }).join('');
   }
@@ -956,10 +1021,19 @@
         <span class="cyri-badge ${result.overall}">${t.badge[result.overall]}</span>
         <span class="cyri-badge-note">${t.badgeNote[result.overall]}</span>
       </div>
+      <p class="cyri-gauge-hint">${t.gaugeHint}</p>
       <div class="cyri-components">${renderComponentRows(result.components, t)}</div>
+      <div class="cyri-balance">${renderLeanText(result.lean, t)}</div>
       <div class="cyri-priority">${renderPriorityList(result.priorities, t)}</div>
       <div class="cyri-storage">${renderStorageBlock(result.storage, t)}</div>
     `;
+  }
+
+  function renderLeanText(lean, t){
+    if(!lean) return t.leanUnknown;
+    if(lean === 'cpu') return t.leanCpu;
+    if(lean === 'gpu') return t.leanGpu;
+    return t.leanBalanced;
   }
 
   // Gallery nav
