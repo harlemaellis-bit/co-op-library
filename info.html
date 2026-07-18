@@ -21,6 +21,8 @@
     --text-dim:      #9aa2aa;
     --text-faint:    #636a71;
     --good:          #7dd694;
+    --warn:          #f0b429;
+    --bad:           #f5514f;
     --radius:        14px;
     --hero-scrim:    #0b0d10; /* fixed dark vignette for the hero image — stays the same in light theme so the image doesn't wash out */
     --hero-text:     #f2efe9; /* fixed light text for content sitting on the hero image, independent of site theme */
@@ -74,7 +76,12 @@
   }
   @keyframes crawl{
     0%{ background-position:0 0; }
-    100%{ background-position:-90.5px 0; }
+    /* -90.5px is the seamless loop distance for the default -45deg stripe
+       angle (two stripe-periods projected onto the x-axis). Games whose
+       theme overrides --hazard-angle need a different distance or the loop
+       visibly jumps — --hazard-crawl is computed per-game in JS (see
+       initPage() in the script below) and falls back to -90.5px here. */
+    100%{ background-position:var(--hazard-crawl, -90.5px) 0; }
   }
 
   /* ============ NAV ============ */
@@ -278,6 +285,90 @@
 
   .cta-row{ margin-top:22px; }
 
+  /* ============ CAN YOU RUN IT? ============ */
+  .calc-tabs{ display:flex; gap:8px; margin-bottom:24px; }
+  .calc-tab{
+    font-family:var(--font-mono); font-size:11.5px; letter-spacing:0.04em; text-transform:uppercase;
+    padding:9px 16px; border:1px solid var(--border); color:var(--text-dim);
+    background:var(--surface); cursor:pointer; border-radius:20px;
+    transition:all .2s;
+  }
+  .calc-tab.active{ color:#0c1720; background:var(--accent2); border-color:var(--accent2); }
+  .calc-tab:hover:not(.active){ border-color:var(--accent2); color:var(--accent2); }
+  .calc-panel[hidden]{ display:none; }
+
+  .cyri-badge-row{ display:flex; align-items:center; gap:14px; flex-wrap:wrap; margin-bottom:22px; }
+  .cyri-badge{
+    font-family:var(--font-display); text-transform:uppercase; letter-spacing:0.05em;
+    font-size:15px; font-weight:600; padding:10px 20px; border-radius:10px;
+    border:1px solid var(--border); background:var(--surface); color:var(--text-dim);
+  }
+  .cyri-badge.below-minimum{ color:var(--bad); border-color:var(--bad); background:color-mix(in srgb, var(--bad) 12%, transparent); }
+  .cyri-badge.meets-minimum{ color:var(--warn); border-color:var(--warn); background:color-mix(in srgb, var(--warn) 12%, transparent); }
+  .cyri-badge.above-minimum{ color:var(--warn); border-color:var(--warn); background:color-mix(in srgb, var(--warn) 8%, transparent); }
+  .cyri-badge.meets-recommended{ color:var(--good); border-color:var(--good); background:color-mix(in srgb, var(--good) 12%, transparent); }
+  .cyri-badge.exceeds-recommended{ color:var(--good); border-color:var(--good); background:color-mix(in srgb, var(--good) 18%, transparent); }
+  .cyri-badge.not-listed{ color:var(--text-faint); }
+  .cyri-badge-note{ color:var(--text-dim); font-size:13.5px; }
+
+  .cyri-badge.small{ font-size:12px; padding:6px 12px; border-radius:8px; }
+
+  .cyri-components{
+    background:var(--surface); border:1px solid var(--border); border-radius:var(--radius);
+    padding:4px 22px; margin-bottom:20px;
+  }
+  .cyri-component-row{
+    display:flex; align-items:center; justify-content:space-between; gap:14px;
+    padding:14px 0; border-bottom:1px solid var(--border);
+  }
+  .cyri-component-row:last-child{ border-bottom:none; }
+  .cyri-component-label{
+    font-family:var(--font-mono); font-size:12.5px; text-transform:uppercase;
+    letter-spacing:0.04em; color:var(--text-dim);
+  }
+
+  .cyri-storage{
+    background:var(--surface); border:1px solid var(--border); border-radius:var(--radius);
+    padding:18px 22px; margin-top:20px; font-size:13.5px; color:var(--text-dim);
+    display:flex; flex-direction:column; gap:6px;
+  }
+  .cyri-storage strong{ color:var(--text); }
+
+  .cyri-balance{
+    background:var(--surface); border:1px solid var(--border); border-radius:var(--radius);
+    padding:20px 22px; margin-bottom:20px; font-size:14px; color:var(--text-dim);
+  }
+  .cyri-balance strong{ color:var(--text); }
+
+  .cyri-priority{ display:flex; flex-direction:column; gap:0; }
+  .priority-row{
+    display:flex; align-items:baseline; gap:14px; padding:13px 0; border-bottom:1px solid var(--border);
+  }
+  .priority-row:last-child{ border-bottom:none; }
+  .priority-badge{
+    font-family:var(--font-mono); font-size:10.5px; text-transform:uppercase; letter-spacing:0.04em;
+    padding:4px 10px; border-radius:20px; flex-shrink:0;
+  }
+  .priority-badge.critical{ background:color-mix(in srgb, var(--bad) 18%, transparent); color:var(--bad); }
+  .priority-badge.high{ background:color-mix(in srgb, var(--warn) 18%, transparent); color:var(--warn); }
+  .priority-badge.optimal{ background:color-mix(in srgb, var(--good) 18%, transparent); color:var(--good); }
+  .priority-row-text{ font-size:14px; color:var(--text-dim); }
+
+  .check-form{ display:grid; grid-template-columns:repeat(4, 1fr); gap:14px; margin-bottom:20px; }
+  @media (max-width:980px){
+    .check-form{ grid-template-columns:1fr 1fr; }
+  }
+  .check-form select{
+    width:100%; background:var(--field-bg, var(--surface)); border:1px solid var(--border);
+    border-radius:8px; padding:11px 12px; font-size:14px; color:var(--text); font-family:var(--font-body);
+  }
+  #check-result{ margin-top:24px; }
+  #check-result:empty{ display:none; }
+
+  @media (max-width:760px){
+    .check-form{ grid-template-columns:1fr; }
+  }
+
   footer{
     padding:32px 32px 48px; text-align:center;
     color:var(--text-faint); font-size:12px; font-family:var(--font-mono);
@@ -342,6 +433,7 @@
   <nav class="links">
     <a href="#gallery" class="active" id="nav-gallery">Gallery</a>
     <a href="#details" id="nav-details">Details</a>
+    <a href="#calculator" id="nav-calculator">Can You Run It?</a>
   </nav>
   <div class="nav-controls">
     <a class="back-link" id="backLinkA" href="coop-library.html"><span>←</span><span class="txt" id="backLinkTxt">Back to Library</span></a>
@@ -424,6 +516,64 @@
 
 <div class="hazard-strip"></div>
 
+<!-- ============ CAN YOU RUN IT? ============ -->
+<section id="calculator">
+  <div class="section-head"><h2 id="calcHeading">Can You Run It?</h2><span class="idx mono">004</span></div>
+  <p class="section-sub" id="calcSub">Checked against a Razer Blade Pro 17 — i7-10875H, RTX 3060 Laptop, 16GB RAM.</p>
+
+  <div class="calc-tabs" role="tablist">
+    <button class="calc-tab active" data-tab="overview" id="calc-tab-overview">Overview</button>
+    <button class="calc-tab" data-tab="check" id="calc-tab-check">Check Your Specs</button>
+  </div>
+
+  <!-- OVERVIEW PANEL — precomputed against the site owner's own specs -->
+  <div class="calc-panel" id="calc-panel-overview">
+    <div class="cyri-badge-row">
+      <span class="cyri-badge" id="cyriBadge">—</span>
+      <span class="cyri-badge-note" id="cyriBadgeNote"></span>
+    </div>
+    <div class="cyri-components" id="cyriComponents"></div>
+    <div class="cyri-balance" id="cyriBalance"></div>
+    <div class="cyri-priority" id="cyriPriority"></div>
+    <div class="cyri-storage" id="cyriStorage"></div>
+  </div>
+
+  <!-- CHECK YOUR SPECS PANEL — visitor picks their own hardware -->
+  <div class="calc-panel" id="calc-panel-check" hidden>
+    <div class="check-form">
+      <div class="field">
+        <div class="field-label">Processor</div>
+        <select class="field-control" id="check-cpu"></select>
+      </div>
+      <div class="field">
+        <div class="field-label">Graphics Card</div>
+        <select class="field-control" id="check-gpu"></select>
+      </div>
+      <div class="field">
+        <div class="field-label">RAM</div>
+        <select class="field-control" id="check-ram">
+          <option value="8">8 GB</option>
+          <option value="16" selected>16 GB</option>
+          <option value="32">32 GB</option>
+          <option value="64">64 GB</option>
+        </select>
+      </div>
+      <div class="field">
+        <div class="field-label" id="lblStorage">Storage Type</div>
+        <select class="field-control" id="check-storage">
+          <option value="hdd">HDD</option>
+          <option value="ssd" selected>SATA SSD</option>
+          <option value="nvme">NVMe SSD</option>
+        </select>
+      </div>
+    </div>
+    <button class="btn btn-primary" id="check-btn">Check My Specs</button>
+    <div id="check-result"></div>
+  </div>
+</section>
+
+<div class="hazard-strip"></div>
+
 <footer>
   <div class="brand"><div class="brand-icon bolt" id="footerBrandIcon"></div><span id="footerBrand"></span></div>
   <span id="footerTxt"></span>
@@ -434,6 +584,7 @@
 <script src="theme.js"></script>
 <script src="favorites.js"></script>
 <script src="sidebar.js"></script>
+<script src="hardware-tiers.js"></script>
 <script>
   const FONT_WEIGHTS = {
     'Oswald': '400;500;600;700',
@@ -454,6 +605,87 @@
     link.href = `https://fonts.googleapis.com/css2?${parts.join('&')}&display=swap`;
     document.head.appendChild(link);
   }
+
+  const CALC_I18N = {
+    en: {
+      navCalculator: 'Can You Run It?',
+      calcHeading: 'Can You Run It?',
+      calcSub: 'Checked against a Razer Blade Pro 17 — i7-10875H, RTX 3060 Laptop, 16GB RAM.',
+      tabOverview: 'Overview', tabCheck: 'Check Your Specs',
+      badge: {
+        'not-listed': 'Not Listed', 'below-minimum': 'Below Minimum',
+        'meets-minimum': 'Meets Minimum', 'above-minimum': 'Above Minimum',
+        'meets-recommended': 'Meets Recommended', 'exceeds-recommended': 'Exceeds Recommended'
+      },
+      badgeNote: {
+        'not-listed': "Steam doesn't list requirements for this game.",
+        'below-minimum': "Falls short of the listed minimum spec.",
+        'meets-minimum': "Clears the minimum spec, but not by much.",
+        'above-minimum': "Comfortably past minimum, but short of the recommended spec.",
+        'meets-recommended': "Clears the recommended spec.",
+        'exceeds-recommended': "Comfortably above the recommended spec."
+      },
+      leanCpu: 'This game leans more on the <strong>CPU</strong> than the GPU — the processor is the bigger constraint here.',
+      leanGpu: 'This game leans more on the <strong>GPU</strong> than the CPU — the graphics card is the bigger constraint here.',
+      leanBalanced: 'CPU and GPU load are fairly <strong>balanced</strong> for this game.',
+      leanUnknown: "Not enough matched requirement data to judge CPU/GPU balance for this game.",
+      priorityCpu: 'CPU upgrade would help most here.',
+      priorityGpu: 'GPU upgrade would help most here.',
+      priorityRam: 'RAM is below what this game asks for.',
+      priorityOptimal: 'No upgrades needed for this game.',
+      lblProcessor: 'Processor', lblGraphics: 'Graphics Card', lblRam: 'RAM', lblStorage: 'Storage Type',
+      componentNotListed: 'Not listed',
+      storageOptions: { hdd: 'HDD', ssd: 'SATA SSD', nvme: 'NVMe SSD' },
+      storageCapacity: gb => `Requires ${gb} GB of storage — keep at least ${gb} GB free to install this game.`,
+      storageCapacityUnknown: "Steam doesn't list a storage requirement for this game.",
+      storageTier: {
+        works: 'An HDD will work, but expect slower load times.',
+        meets: 'A SATA SSD meets the recommended storage speed.',
+        exceeds: 'An NVMe SSD exceeds the recommended storage speed.'
+      },
+      checkBtn: 'Check My Specs',
+      checkPickBoth: 'Pick a processor and graphics card first.'
+    },
+    fr: {
+      navCalculator: 'Compatible ?',
+      calcHeading: 'Compatible ?',
+      calcSub: 'Comparé à un Razer Blade Pro 17 — i7-10875H, RTX 3060 portable, 16 Go de RAM.',
+      tabOverview: 'Aperçu', tabCheck: 'Vérifier votre config',
+      badge: {
+        'not-listed': 'Non renseigné', 'below-minimum': 'Sous le minimum',
+        'meets-minimum': 'Minimum atteint', 'above-minimum': 'Au-dessus du minimum',
+        'meets-recommended': 'Recommandé atteint', 'exceeds-recommended': 'Au-delà du recommandé'
+      },
+      badgeNote: {
+        'not-listed': "Steam ne liste pas de configuration requise pour ce jeu.",
+        'below-minimum': "En dessous de la configuration minimale indiquée.",
+        'meets-minimum': "Atteint le minimum, mais de justesse.",
+        'above-minimum': "Bien au-dessus du minimum, mais sous la configuration recommandée.",
+        'meets-recommended': "Atteint la configuration recommandée.",
+        'exceeds-recommended': "Largement au-dessus du recommandé."
+      },
+      leanCpu: 'Ce jeu sollicite davantage le <strong>processeur</strong> que la carte graphique — c\'est la contrainte principale ici.',
+      leanGpu: 'Ce jeu sollicite davantage la <strong>carte graphique</strong> que le processeur — c\'est la contrainte principale ici.',
+      leanBalanced: 'La charge CPU et GPU est plutôt <strong>équilibrée</strong> pour ce jeu.',
+      leanUnknown: "Pas assez de données appariées pour juger de l'équilibre CPU/GPU sur ce jeu.",
+      priorityCpu: 'Une mise à niveau du CPU aiderait le plus ici.',
+      priorityGpu: 'Une mise à niveau du GPU aiderait le plus ici.',
+      priorityRam: 'La RAM est en dessous de ce que demande ce jeu.',
+      priorityOptimal: 'Aucune mise à niveau nécessaire pour ce jeu.',
+      lblProcessor: 'Processeur', lblGraphics: 'Carte graphique', lblRam: 'RAM', lblStorage: 'Type de stockage',
+      componentNotListed: 'Non renseigné',
+      storageOptions: { hdd: 'Disque dur (HDD)', ssd: 'SSD SATA', nvme: 'SSD NVMe' },
+      storageCapacity: gb => `Nécessite ${gb} Go de stockage — gardez au moins ${gb} Go libres pour installer ce jeu.`,
+      storageCapacityUnknown: "Steam ne précise pas d'espace de stockage requis pour ce jeu.",
+      storageTier: {
+        works: 'Un HDD fonctionnera, mais les temps de chargement seront plus longs.',
+        meets: 'Un SSD SATA atteint la vitesse de stockage recommandée.',
+        exceeds: 'Un SSD NVMe dépasse la vitesse de stockage recommandée.'
+      },
+      checkBtn: 'Vérifier ma config',
+      checkPickBoth: "Choisissez d'abord un processeur et une carte graphique."
+    }
+  };
 
   let currentLang = 'en';
   let currentPlatform = null;
@@ -492,6 +724,27 @@
     if(th.hazardA) root.setProperty('--hazard-a', th.hazardA);
     if(th.hazardB) root.setProperty('--hazard-b', th.hazardB);
     if(th.hazardAngle) root.setProperty('--hazard-angle', th.hazardAngle);
+    // The .hazard-strip marching-stripe animation moves background-position
+    // along the x-axis only. How far it needs to travel for the diagonal
+    // stripe pattern to line back up seamlessly depends on the stripe
+    // angle (32px stripe period, projected onto x via 1/sin(angle)) — it's
+    // NOT a fixed number once a game's theme changes --hazard-angle away
+    // from the -45deg default, so recompute it per-game rather than reuse
+    // the CSS's hardcoded fallback.
+    (function(){
+      const angleDeg = th.hazardAngle ? parseFloat(th.hazardAngle) : -45;
+      const rad = angleDeg * Math.PI / 180;
+      const sin = Math.sin(rad);
+      if (Math.abs(sin) > 0.001) {
+        const stripePeriod = 32; // px — matches the 16px+16px repeating-linear-gradient bands
+        const distance = (stripePeriod / sin) * 2; // 2 periods, same convention as the -45deg default
+        root.setProperty('--hazard-crawl', `${distance}px`);
+      } else {
+        // angle is horizontal (0/180deg) — an x-only translation can never
+        // realign a gradient running along the x-axis, so don't animate.
+        root.setProperty('--hazard-crawl', '0px');
+      }
+    })();
     if(th.fontDisplay) root.setProperty('--font-display', `'${th.fontDisplay}', sans-serif`);
     if(th.fontBody) root.setProperty('--font-body', `'${th.fontBody}', sans-serif`);
     if(th.fontMono) root.setProperty('--font-mono', `'${th.fontMono}', monospace`);
@@ -537,6 +790,8 @@
     currentPlatform = game.platforms[0].key;
     renderPlatformTabs();
 
+    initCalculator();
+
     applyTranslations();
     document.getElementById('page').classList.add('ready');
   }
@@ -561,6 +816,150 @@
     document.getElementById('dat-crossplay').textContent = d.crossplay;
     document.getElementById('dat-players').textContent = d.players;
     document.getElementById('dat-servers').textContent = d.servers;
+  }
+
+  // ============ CAN YOU RUN IT? ============
+  function initCalculator(){
+    populateCheckSelects();
+    document.querySelectorAll('.calc-tab').forEach(btn=>{
+      btn.addEventListener('click', ()=>{
+        document.querySelectorAll('.calc-tab').forEach(b=>b.classList.remove('active'));
+        btn.classList.add('active');
+        const tab = btn.dataset.tab;
+        document.getElementById('calc-panel-overview').hidden = tab !== 'overview';
+        document.getElementById('calc-panel-check').hidden = tab !== 'check';
+      });
+    });
+    document.getElementById('check-btn').addEventListener('click', runCheck);
+  }
+
+  function populateCheckSelects(){
+    const cpuSel = document.getElementById('check-cpu');
+    const gpuSel = document.getElementById('check-gpu');
+    cpuSel.innerHTML = '<option value="" disabled selected>—</option>' +
+      HardwareTiers.CPUS.map(c => `<option value="${c[0]}">${c[0]}</option>`).join('');
+    gpuSel.innerHTML = '<option value="" disabled selected>—</option>' +
+      HardwareTiers.GPUS.map(g => `<option value="${g[0]}">${g[0]}</option>`).join('');
+  }
+
+  function renderCalculator(){
+    const t = CALC_I18N[currentLang];
+    document.getElementById('calcHeading').textContent = t.calcHeading;
+    document.getElementById('calcSub').textContent = t.calcSub;
+    document.getElementById('calc-tab-overview').textContent = t.tabOverview;
+    document.getElementById('calc-tab-check').textContent = t.tabCheck;
+    document.getElementById('check-btn').textContent = t.checkBtn;
+    document.querySelector('#calc-panel-check .field:nth-child(1) .field-label').textContent = t.lblProcessor;
+    document.querySelector('#calc-panel-check .field:nth-child(2) .field-label').textContent = t.lblGraphics;
+    document.querySelector('#calc-panel-check .field:nth-child(3) .field-label').textContent = t.lblRam;
+    document.getElementById('lblStorage').textContent = t.lblStorage;
+    const storageSel = document.getElementById('check-storage');
+    [...storageSel.options].forEach(opt => { opt.textContent = t.storageOptions[opt.value]; });
+
+    renderOverviewResult(game.canYouRunIt, t);
+
+    // Re-render any already-shown "Check Your Specs" result in the new language
+    if(document.getElementById('check-result').innerHTML.trim()) runCheck();
+  }
+
+  function renderOverviewResult(cyri, t){
+    const badgeEl = document.getElementById('cyriBadge');
+    const noteEl = document.getElementById('cyriBadgeNote');
+    const componentsEl = document.getElementById('cyriComponents');
+    const balanceEl = document.getElementById('cyriBalance');
+    const priorityEl = document.getElementById('cyriPriority');
+    const storageEl = document.getElementById('cyriStorage');
+
+    const my = cyri && cyri.mySpecs;
+    const badgeKey = (my && my.overall) || 'not-listed';
+    badgeEl.className = 'cyri-badge ' + badgeKey;
+    badgeEl.textContent = t.badge[badgeKey];
+    noteEl.textContent = t.badgeNote[badgeKey];
+
+    componentsEl.innerHTML = renderComponentRows(my && my.components, t);
+
+    if(!my || !my.lean) balanceEl.innerHTML = t.leanUnknown;
+    else if(my.lean === 'cpu') balanceEl.innerHTML = t.leanCpu;
+    else if(my.lean === 'gpu') balanceEl.innerHTML = t.leanGpu;
+    else balanceEl.innerHTML = t.leanBalanced;
+
+    priorityEl.innerHTML = renderPriorityList(my && my.priorities, t);
+    storageEl.innerHTML = renderStorageBlock(my && my.storage, t);
+  }
+
+  // CPU/GPU/RAM each get their own status badge — storage is deliberately
+  // left out here since it's shown separately below and never affects
+  // whether the game "runs".
+  function renderComponentRows(components, t){
+    const rows = [
+      { label: t.lblProcessor, status: components && components.cpu && components.cpu.status },
+      { label: t.lblGraphics,  status: components && components.gpu && components.gpu.status },
+      { label: t.lblRam,       status: components && components.ram && components.ram.status }
+    ];
+    return rows.map(r => {
+      const key = r.status || 'not-listed';
+      const label = r.status ? t.badge[key] : t.componentNotListed;
+      return `<div class="cyri-component-row">
+        <span class="cyri-component-label">${r.label}</span>
+        <span class="cyri-badge small ${key}">${label}</span>
+      </div>`;
+    }).join('');
+  }
+
+  // Storage capacity (how much space this game needs) and storage-type
+  // speed (HDD/SSD/NVMe) are both informational — neither one changes the
+  // overall badge above.
+  function renderStorageBlock(storage, t){
+    if(!storage) return '';
+    const capacityLine = storage.requiredGB != null
+      ? t.storageCapacity(storage.requiredGB)
+      : t.storageCapacityUnknown;
+    const tierLine = storage.tier ? t.storageTier[storage.tier] : '';
+    return `<div>${capacityLine}</div>${tierLine ? `<div>${tierLine}</div>` : ''}`;
+  }
+
+  function renderPriorityList(priorities, t){
+    if(!priorities || !priorities.length){
+      return `<div class="priority-row"><span class="priority-badge optimal">✓</span><span class="priority-row-text">${t.priorityOptimal}</span></div>`;
+    }
+    const labelFor = { cpu: t.priorityCpu, gpu: t.priorityGpu, ram: t.priorityRam };
+    return priorities.map(p =>
+      `<div class="priority-row"><span class="priority-badge ${p.severity}">${p.severity}</span><span class="priority-row-text">${labelFor[p.component]}</span></div>`
+    ).join('');
+  }
+
+  function runCheck(){
+    const t = CALC_I18N[currentLang];
+    const cpuName = document.getElementById('check-cpu').value;
+    const gpuName = document.getElementById('check-gpu').value;
+    const ramGB = Number(document.getElementById('check-ram').value);
+    const storageType = document.getElementById('check-storage').value;
+    const resultEl = document.getElementById('check-result');
+
+    if(!cpuName || !gpuName){
+      resultEl.innerHTML = `<p class="section-sub">${t.checkPickBoth}</p>`;
+      return;
+    }
+
+    const cpu = HardwareTiers.scoreForName(cpuName, HardwareTiers.CPUS);
+    const gpu = HardwareTiers.scoreForName(gpuName, HardwareTiers.GPUS);
+    const requirements = (game.canYouRunIt && game.canYouRunIt.requirements) || {};
+    const my = {
+      cpuScore: cpu.score, cpuBrand: HardwareTiers.brandOf(cpu.name),
+      gpuScore: gpu.score, gpuBrand: HardwareTiers.brandOf(gpu.name),
+      ramGB, storageType
+    };
+    const result = HardwareTiers.evaluate(my, requirements);
+
+    resultEl.innerHTML = `
+      <div class="cyri-badge-row">
+        <span class="cyri-badge ${result.overall}">${t.badge[result.overall]}</span>
+        <span class="cyri-badge-note">${t.badgeNote[result.overall]}</span>
+      </div>
+      <div class="cyri-components">${renderComponentRows(result.components, t)}</div>
+      <div class="cyri-priority">${renderPriorityList(result.priorities, t)}</div>
+      <div class="cyri-storage">${renderStorageBlock(result.storage, t)}</div>
+    `;
   }
 
   // Gallery nav
@@ -613,6 +1012,7 @@
     const t = game.i18n[currentLang];
     document.getElementById('nav-gallery').textContent = t.navGallery;
     document.getElementById('nav-details').textContent = t.navDetails;
+    document.getElementById('nav-calculator').textContent = CALC_I18N[currentLang].navCalculator;
     document.getElementById('backLinkTxt').textContent = t.backLink;
     document.getElementById('heroTitle').innerHTML = `${t.titleMain}<span>${t.titleAccent}</span>`;
     document.getElementById('heroTagline').textContent = t.heroTagline;
@@ -651,6 +1051,8 @@
     document.getElementById('lang-fr').classList.toggle('active', currentLang === 'fr');
     document.getElementById('lang-en').setAttribute('aria-pressed', currentLang === 'en' ? 'true' : 'false');
     document.getElementById('lang-fr').setAttribute('aria-pressed', currentLang === 'fr' ? 'true' : 'false');
+
+    renderCalculator();
   }
 
   document.querySelectorAll('.lang-btn').forEach(btn => {
@@ -660,7 +1062,7 @@
     });
   });
 
-  const sections = ['gallery','details'].map(id => document.getElementById(id));
+  const sections = ['gallery','details','calculator'].map(id => document.getElementById(id));
   const navLinks = Array.from(document.querySelectorAll('nav.links a'));
   const navObs = new IntersectionObserver((entries) => {
     entries.forEach(e => {

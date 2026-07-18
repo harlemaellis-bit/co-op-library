@@ -213,6 +213,55 @@
         "readLess": "Réduire",
         "footer": "Mise en page fan-made · N'est pas un produit officiel de The Behemoth"
       }
+    },
+    "canYouRunIt": {
+      "requirements": {
+        "minimum": {
+          "raw": {
+            "cpu": "Intel Core i5-4460",
+            "gpu": "NVIDIA GeForce GTX 1060 6GB",
+            "memory": "8 GB RAM"
+          },
+          "cpuName": null,
+          "cpuScore": null,
+          "gpuName": "NVIDIA GeForce GTX 1060 6GB",
+          "gpuScore": 9.5,
+          "ramGB": 8
+        },
+        "recommended": {
+          "raw": {
+            "cpu": "AMD Ryzen 5 5600X",
+            "gpu": "NVIDIA GeForce RTX 3070",
+            "memory": "16 GB RAM"
+          },
+          "cpuName": "AMD Ryzen 5 5600X",
+          "cpuScore": 51.9,
+          "gpuName": "NVIDIA GeForce RTX 3070",
+          "gpuScore": 42.8,
+          "ramGB": 16
+        }
+      },
+      "mySpecs": {
+        "badge": "meets-minimum",
+        "meetsMin": true,
+        "meetsRec": false,
+        "cpuGap": -11.899999999999999,
+        "gpuGap": -22.799999999999997,
+        "ramGap": 0,
+        "lean": "gpu",
+        "priorities": [
+          {
+            "component": "gpu",
+            "severity": "critical",
+            "gap": -22.799999999999997
+          },
+          {
+            "component": "cpu",
+            "severity": "high",
+            "gap": -11.899999999999999
+          }
+        ]
+      }
     }
   },
   "477160": {
