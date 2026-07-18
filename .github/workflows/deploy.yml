@@ -24,6 +24,10 @@ jobs:
         env:
           ITAD_API_KEY: ${{ secrets.ITAD_API_KEY }}
         run: node fetch-prices.js
+      - name: Fetch latest game info
+        run: node fetch-game-info.js
+      - name: Fetch latest system requirements
+        run: node fetch-spec-requirements.js
       - uses: actions/upload-pages-artifact@v3
         with:
           path: .
