@@ -720,6 +720,22 @@
   const params = new URLSearchParams(window.location.search);
   const gameKey = params.get('game');
 
+  // A handful of games use a custom Steam CDN path (odd hash/timestamp)
+  // instead of the plain default — same overrides coop-library.html's
+  // card grid uses for these appids (its `img1` field). Keeping this list
+  // in sync with that one is enough since header.jpg is the small,
+  // library-card-sized image (not the big library_hero.jpg banner).
+  const LIBRARY_CARD_IMG_OVERRIDES = {
+    '3527290': 'https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3527290/31bac6b2eccf09b368f5e95ce510bae2baf3cfcd/header.jpg?t=1775581133',
+    '4244510': 'https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/4244510/aa5134d11626034935daa974478c834d03d73f54/header.jpg?t=1780503325',
+    '3949040': 'https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3949040/cae24b4ed7f4531be51f0d63f785b7d253f92dc3/header.jpg?t=1778071815'
+  };
+  // Small thumbnail image for a game, for use anywhere a compact cover
+  // (favorites dropdown, etc.) is needed rather than the big hero banner.
+  function libraryCardImage(appid){
+    return LIBRARY_CARD_IMG_OVERRIDES[appid] || `https://cdn.akamai.steamstatic.com/steam/apps/${appid}/header.jpg`;
+  }
+
   fetch('game-info.json')
     .then(r => r.json())
     .then(data => {
@@ -1058,7 +1074,7 @@
         id: gameKey,
         name: `${game.i18n.en.titleMain}${game.i18n.en.titleAccent}`,
         tagline: game.i18n.en.heroTagline,
-        img: game.heroImage,
+        img: game.heroImage || libraryCardImage(gameKey),
         steamUrl: game.steamUrl,
         infoUrl: `info.html?game=${gameKey}`
       });

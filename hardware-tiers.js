@@ -18,6 +18,7 @@
   const CPUS = [
     // -- Core i9 / Core Ultra 9 --
     ["Intel Core i9 14900K",78.2,3.2],["Intel Core i9 13900K",76.8,3.0],["Intel Core Ultra 9 285K",71.8,3.7],
+    ["Intel Core i9 12900K",71.0,3.2],
     // -- Core i9 / Core Ultra 9 (Laptop) --
     ["Intel Core Ultra 9 285HX (Laptop)",76.0,2.8],["Intel Core Ultra 9 275HX (Laptop)",73.0,2.7],
     ["Intel Core i9 14900HX (Laptop)",72.0,2.2],["Intel Core i9 13980HX (Laptop)",66.0,2.2],
@@ -42,6 +43,7 @@
     ["AMD Ryzen 7 9850X3D",100,4.7],["AMD Ryzen 7 9800X3D",97,4.7],["AMD Ryzen 7 7800X3D",85.6,4.2],
     ["AMD Ryzen 7 7900X3D",77.1,4.4],["AMD Ryzen 7 5800X3D",72.5,3.4],["AMD Ryzen 7 7700X",70.6,4.5],
     ["AMD Ryzen 7 7700",66.2,3.8],["AMD Ryzen 7 5800X",54.5,3.8],["AMD Ryzen 7 5700X",53.4,3.4],
+    ["AMD Ryzen 7 9700X",75.0,5.5],["AMD Ryzen 7 5700X3D",71.0,4.1],
     // -- Ryzen 7 (Laptop) --
     ["AMD Ryzen 7 7745HX (Laptop)",52.0,3.6],["AMD Ryzen 7 8845HS (Laptop)",48.0,3.8],
     ["AMD Ryzen 7 5800H (Laptop)",40.0,3.2],["AMD Ryzen 7 6800H (Laptop)",38.0,3.2],
@@ -50,15 +52,21 @@
     ["Intel Core Ultra 5 250K Plus",73.3,4.2],["Intel Core i5 14600K",72.8,3.5],
     ["Intel Core i5 13600K",70.9,3.5],["Intel Core Ultra 5 245K",67.1,4.2],
     ["Intel Core Ultra 5 225",62.5,3.3],["Intel Core i5 12600K",60.8,3.7],
-    ["Intel Core i5 14400",58.0,2.5],["Intel Core i5 12400",51.2,2.5],
+    ["Intel Core i5 14400",58.0,2.5],["Intel Core i5 12400",51.2,2.5],["Intel Core i5 12400F",51.2,2.5],
+    ["Intel Core i5 11600K",46.0,3.9],["Intel Core i5 11400",42.0,2.6],
     // -- Core i5 / Core Ultra 5 (Laptop) --
     ["Intel Core i5 12500H (Laptop)",43.0,2.5],["Intel Core i5 11400H (Laptop)",37.0,2.7],
     ["Intel Core i5 10300H (Laptop)",30.0,2.5],
+    // -- Core i3 / Pentium --
+    ["Intel Core i3 13100",37.0,3.4],["Intel Core i3 12100",34.0,3.3],["Intel Pentium Gold G6400",8.0,4.0],
     // -- Ryzen 5 --
     ["AMD Ryzen 5 7600X3D",80.6,4.1],["AMD Ryzen 5 9600X",72.6,3.9],
     ["AMD Ryzen 5 7600X",67.3,4.7],["AMD Ryzen 5 7600",61.2,3.8],["AMD Ryzen 5 5600X",51.9,3.7],
+    ["AMD Ryzen 5 7500F",58.0,4.9],["AMD Ryzen 5 5600",49.5,3.5],["AMD Ryzen 5 5500",40.0,3.7],
     // -- Ryzen 5 (Laptop) --
     ["AMD Ryzen 5 5600H (Laptop)",32.0,3.3],["AMD Ryzen 5 4600H (Laptop)",24.0,3.0],
+    // -- Ryzen 3 --
+    ["AMD Ryzen 3 3300X",42.0,4.3],["AMD Ryzen 3 3100",36.0,3.9],
     // -- Legacy / older (2013-2019, common in old Steam minimum specs) --
     ["AMD Ryzen 7 3700X",48.0,4.4],["AMD Ryzen 5 3600",45.0,4.2],
     ["Intel Core i7 8700K",44.0,4.7],["Intel Core i7 8700",40.0,4.6],["Intel Core i5 8400",34.0,4.0],
@@ -118,7 +126,8 @@
     ["NVIDIA GeForce RTX 3080 Ti",58.7,12],["NVIDIA GeForce RTX 3080",54.8,10],
     ["NVIDIA GeForce RTX 3070 Ti",46.4,8],["NVIDIA GeForce RTX 3070",42.8,8],
     ["NVIDIA GeForce RTX 3060 Ti",36.4,8],["NVIDIA GeForce RTX 3060 12GB",30.2,12],
-    ["NVIDIA GeForce RTX 3050",21.9,8],
+    ["NVIDIA GeForce RTX 3060 8GB",29.5,8],
+    ["NVIDIA GeForce RTX 3050",21.9,8],["NVIDIA GeForce RTX 3050 6GB",17.0,6],
     // -- NVIDIA GeForce RTX 30-series (Laptop) --
     ["NVIDIA GeForce RTX 3080 Ti Laptop",44.0,16],["NVIDIA GeForce RTX 3080 Laptop",38.5,16],
     ["NVIDIA GeForce RTX 3070 Ti Laptop",33.0,8],["NVIDIA GeForce RTX 3070 Laptop",27.0,8],
@@ -132,6 +141,7 @@
     ["NVIDIA GeForce GTX 1080 Ti",27.0,11],["NVIDIA GeForce GTX 1080",20.0,8],
     ["NVIDIA GeForce GTX 1070 Ti",18.0,8],["NVIDIA GeForce GTX 1070",16.0,8],
     ["NVIDIA GeForce GTX 1660 Ti",14.5,6],["NVIDIA GeForce GTX 1660 Super",14.0,6],
+    ["NVIDIA GeForce GTX 1660",13.0,6],
     ["NVIDIA GeForce GTX 1060 6GB",9.5,6],
     // -- AMD Radeon RX 9000-series --
     ["AMD Radeon RX 9070 XT",76.9,16],["AMD Radeon RX 9070",69.1,16],
@@ -143,24 +153,27 @@
     ["AMD Radeon RX 7600 XT",50.1,16],["AMD Radeon RX 7600",34.3,8],
     // -- AMD Radeon RX 5000-series --
     ["AMD Radeon RX 5700 XT",42.0,8],["AMD Radeon RX 5700",38.0,8],
-    ["AMD Radeon RX 5600 XT",33.0,6],["AMD Radeon RX 5500 XT",22.0,8],
+    ["AMD Radeon RX 5600 XT",33.0,6],["AMD Radeon RX 5500 XT",22.0,8],["AMD Radeon RX 5500",19.0,4],
     // -- AMD Radeon RX 6000-series --
     ["AMD Radeon RX 6950 XT",60.5,16],["AMD Radeon RX 6900 XT",57.4,16],
     ["AMD Radeon RX 6800 XT",54.9,16],["AMD Radeon RX 6750 XT",40.8,12],
     ["AMD Radeon RX 6700 XT",38.9,12],["AMD Radeon RX 6650 XT",31.5,8],
     ["AMD Radeon RX 6600 XT",30.8,8],["AMD Radeon RX 6600",25.5,8],
+    ["AMD Radeon RX 6500 XT",14.0,4],["AMD Radeon RX 6400",10.0,4],
     // -- Intel Arc --
     ["Intel Arc B580",35.1,12],["Intel Arc B570",31.1,10],
+    ["Intel Arc A770",28.0,16],["Intel Arc A750",24.0,8],
     // -- Legacy / older (2013-2019, common in old Steam minimum specs) --
     ["AMD Radeon RX 590",11.5,8],["AMD Radeon RX 580",9.8,8],["AMD Radeon RX 480",9.2,8],
+    ["AMD Radeon RX Vega 64",11.0,8],["AMD Radeon RX Vega 56",10.0,8],
     ["AMD Radeon RX 570",8.6,8],["AMD Radeon RX 470",8.1,4],
-    ["NVIDIA GeForce GTX 1650",7.6,4],["AMD Radeon R9 390",6.2,8],
+    ["NVIDIA GeForce GTX 1650",7.6,4],["NVIDIA GeForce GTX 1630",2.0,4],["AMD Radeon R9 390",6.2,8],
     ["NVIDIA GeForce GTX 970",11.0,4],["NVIDIA GeForce GTX 960",5.2,2],
     ["AMD Radeon R9 285",5.0,2],["AMD Radeon R9 270X",5.5,2],["AMD Radeon R9 380",4.6,4],
     ["NVIDIA GeForce GTX 1050 Ti",4.3,4],["NVIDIA GeForce GTX 950",4.0,2],
     ["NVIDIA GeForce GTX 760",5.5,2],["NVIDIA GeForce GTX 680",5.0,2],
     ["NVIDIA GeForce GTX 660",3.6,2],["NVIDIA GeForce GTX 1050",3.3,2],
-    ["NVIDIA GeForce GTX 750 Ti",2.4,2],["NVIDIA GeForce GTX 750",2.1,1],
+    ["NVIDIA GeForce GTX 750 Ti",2.4,2],["NVIDIA GeForce GTX 750",2.1,1],["NVIDIA GeForce GT 1030",1.0,2],
     ["Intel Arc A380",6.0,6],
     // -- Very old / low-end (2007-2013) --
     ["AMD Radeon HD 7970",4.8,3],["AMD Radeon HD 7870",4.0,2],
@@ -263,6 +276,23 @@
       .replace(/\s+/g, " ");
   }
 
+  // Steam sometimes states a memory size in MB instead of GB — VRAM on
+  // older GPU requirements especially (e.g. "GeForce GT 740 (2048 MB)"),
+  // but also occasionally RAM/storage on old games. Shared by both the
+  // GPU-capacity disambiguation in findComponent() below and by
+  // fetch-spec-requirements.js for RAM/storage, so every caller reads
+  // MB the same way and normalizes to GB. Returns null if no size is found.
+  function parseSizeToGB(text) {
+    if (!text) return null;
+    const match = text.match(/(\d+(?:\.\d+)?)\s*(gb|mb)\b/i);
+    if (!match) return null;
+    const value = Number(match[1]);
+    const unit = match[2].toLowerCase();
+    const gb = unit === "mb" ? value / 1024 : value;
+    // Round to 2 decimals so e.g. 1024 MB -> 1 GB instead of 1.000000001.
+    return Math.round(gb * 100) / 100;
+  }
+
   /**
    * Best-effort match of a Steam requirement string (e.g. "Intel Core
    * i5-9600K or better", "AMD Ryzen 5 3600") against our known component
@@ -277,15 +307,21 @@
    *
    * GPU capacity variants (e.g. "RTX 4060 Ti 8GB" / "RTX 4060 Ti 16GB") are
    * grouped by their capacity-stripped name ("RTX 4060 Ti"). Steam requirement
-   * text almost never states VRAM capacity, so a bare "RTX 4060 Ti" mention
-   * would otherwise fail to match either capacity entry and silently fall
-   * through to the unrelated, weaker "RTX 4060" (no Ti) card instead of
-   * returning null. When that happens, this instead matches the family and
-   * picks its highest-scoring member — safer to assume the more demanding
-   * variant than to understate what a game actually needs — and flags the
-   * result as "matched-capacity-assumed" rather than "matched" so callers
-   * can tell the capacity was inferred, not stated. A requirement that DOES
-   * state capacity still matches its exact entry directly, unaffected.
+   * text usually doesn't state VRAM capacity right next to the model name
+   * itself, so a bare "RTX 4060 Ti" mention would otherwise fail to match
+   * either capacity entry and silently fall through to the unrelated,
+   * weaker "RTX 4060" (no Ti) card instead of returning null. When that
+   * happens, this checks the requirement text for a stated VRAM size
+   * (parseSizeToGB() above — handles both "8GB" and older-game "2048 MB"
+   * phrasing) and picks whichever capacity variant is closest to it. If no
+   * size is stated anywhere in the text, it falls back to the
+   * highest-scoring member — safer to assume the more demanding variant
+   * than to understate what a game actually needs. Either way the result is
+   * flagged "matched-capacity-assumed" rather than "matched" whenever the
+   * pick was a guess (no size found) rather than backed by a stated size,
+   * so callers can tell the two apart. A requirement that names the exact
+   * capacity-suffixed entry still matches it directly via the exact-hit
+   * path above, unaffected by any of this.
    */
   function findComponent(text, list) {
     if (!text) return null;
@@ -317,9 +353,21 @@
       }
       const isFamily = members.length > 1 || members.some(m => m.key !== stripped);
       if (!exactHits.length && isFamily && stripped.length >= 3 && paddedHay.includes(` ${stripped} `)) {
-        const top = members.reduce((a, b) => (b.entry[1] > a.entry[1] ? b : a));
+        const statedVramGB = parseSizeToGB(text);
+        let top, ambiguous;
+        if (statedVramGB != null) {
+          // Pick whichever capacity variant's vramGB (entry[2]) is closest
+          // to the size actually stated in the requirement text.
+          top = members.reduce((a, b) =>
+            Math.abs(b.entry[2] - statedVramGB) < Math.abs(a.entry[2] - statedVramGB) ? b : a
+          );
+          ambiguous = false;
+        } else {
+          top = members.reduce((a, b) => (b.entry[1] > a.entry[1] ? b : a));
+          ambiguous = true;
+        }
         if (!best || stripped.length > best.matchLen) {
-          best = { entry: top.entry, matchLen: stripped.length, ambiguous: true };
+          best = { entry: top.entry, matchLen: stripped.length, ambiguous };
         }
       }
     }
@@ -567,7 +615,8 @@
   const api = {
     CPUS, GPUS, tierFor, scoreForName, findComponent,
     brandOf, brandFromText, splitAlternatives, matchAlternatives,
-    statusForComponent, fillForComponent, pickAlternative, evaluate
+    statusForComponent, fillForComponent, pickAlternative, evaluate,
+    parseSizeToGB
   };
   if (typeof module !== "undefined" && module.exports) module.exports = api;
   else root.HardwareTiers = api;
