@@ -36,6 +36,24 @@
 
   .wrap{ max-width:1180px; margin:0 auto; }
 
+  .top-controls{
+    display:flex;
+    justify-content:flex-end;
+    margin-bottom:20px;
+  }
+  .lang-switch{ display:flex; gap:8px; }
+  .lang-btn{
+    display:flex; align-items:center; gap:7px;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:11px; font-weight:600; letter-spacing:0.04em;
+    color:var(--text-dim); background:var(--surface); border:1px solid var(--border);
+    padding:7px 13px; border-radius:20px; cursor:pointer;
+    transition: all 0.15s ease;
+  }
+  .lang-btn .flag{ font-size:15px; line-height:1; }
+  .lang-btn:hover{ color:var(--text); border-color:var(--text-faint); }
+  .lang-btn.active{ color:var(--bg); background:var(--text); border-color:var(--text); }
+
   .back-link{
     display:inline-flex; align-items:center; gap:7px;
     font-family:'IBM Plex Mono', monospace; font-size:11px; font-weight:600; letter-spacing:0.04em;
@@ -166,21 +184,28 @@
 <body>
 <div class="wrap">
 
-  <a class="back-link" href="coop-library.html"><span>←</span><span>Back to Library</span></a>
+  <div class="top-controls">
+    <div class="lang-switch">
+      <button class="lang-btn" data-lang="en" id="lang-en" aria-pressed="false"><span class="flag">🇬🇧</span>EN</button>
+      <button class="lang-btn" data-lang="fr" id="lang-fr" aria-pressed="false"><span class="flag">🇫🇷</span>FR</button>
+    </div>
+  </div>
+
+  <a class="back-link" href="coop-library.html" id="t-back"><span>←</span><span id="t-back-label">Back to Library</span></a>
 
   <header>
-    <div class="eyebrow">Wishlist</div>
-    <h1>FAVORITES</h1>
-    <p class="sub">Games you've saved from their info page. Click the heart on any game's dossier to add or remove it here.</p>
+    <div class="eyebrow" id="t-eyebrow">Wishlist</div>
+    <h1 id="t-title">FAVORITES</h1>
+    <p class="sub" id="t-sub">Games you've saved from their info page. Click the heart on any game's dossier to add or remove it here.</p>
   </header>
 
-  <div class="count"><span id="count-num">0</span> <span>saved</span></div>
+  <div class="count"><span id="count-num">0</span> <span id="t-saved">saved</span></div>
 
   <div class="grid" id="grid"></div>
 
   <div class="empty" id="empty">
     <div class="big">♡</div>
-    <p>No favorites yet. Open a game's info page and tap the heart next to "Add to Wishlist" to save it here.</p>
+    <p id="t-empty">No favorites yet. Open a game's info page and tap the heart next to "Add to Wishlist" to save it here.</p>
   </div>
 
 </div>
@@ -189,9 +214,54 @@
 <script src="favorites.js"></script>
 <script src="sidebar.js"></script>
 <script>
+const i18n = {
+  en: {
+    back: "Back to Library",
+    eyebrow: "Wishlist",
+    title: "FAVORITES",
+    sub: "Games you've saved from their info page. Click the heart on any game's dossier to add or remove it here.",
+    saved: "saved",
+    emptyText: 'No favorites yet. Open a game\'s info page and tap the heart next to "Add to Wishlist" to save it here.',
+    view: "View",
+    steam: "Steam ↗",
+    removeLabel: "Remove from favorites",
+    untitled: "Untitled"
+  },
+  fr: {
+    back: "Retour à la bibliothèque",
+    eyebrow: "Liste de souhaits",
+    title: "FAVORIS",
+    sub: "Les jeux que vous avez enregistrés depuis leur fiche. Cliquez sur le cœur de la fiche d'un jeu pour l'ajouter ou le retirer d'ici.",
+    saved: "enregistrés",
+    emptyText: "Aucun favori pour l'instant. Ouvrez la fiche d'un jeu et appuyez sur le cœur à côté de « Ajouter à la liste de souhaits » pour l'enregistrer ici.",
+    view: "Voir",
+    steam: "Steam ↗",
+    removeLabel: "Retirer des favoris",
+    untitled: "Sans titre"
+  }
+};
+
+let currentLang = window.CoopLang ? window.CoopLang.get() : "en";
+
+function applyStaticTranslations(){
+  const t = i18n[currentLang];
+  document.documentElement.lang = currentLang;
+  document.getElementById("t-back-label").textContent = t.back;
+  document.getElementById("t-eyebrow").textContent = t.eyebrow;
+  document.getElementById("t-title").textContent = t.title;
+  document.getElementById("t-sub").textContent = t.sub;
+  document.getElementById("t-saved").textContent = t.saved;
+  document.getElementById("t-empty").textContent = t.emptyText;
+  document.getElementById("lang-en").classList.toggle("active", currentLang === "en");
+  document.getElementById("lang-fr").classList.toggle("active", currentLang === "fr");
+  document.getElementById("lang-en").setAttribute("aria-pressed", currentLang === "en" ? "true" : "false");
+  document.getElementById("lang-fr").setAttribute("aria-pressed", currentLang === "fr" ? "true" : "false");
+}
+
 function render(){
   const grid = document.getElementById("grid");
   const empty = document.getElementById("empty");
+  const t = i18n[currentLang];
   const favorites = window.CoopFavorites ? window.CoopFavorites.getAll() : [];
 
   grid.innerHTML = "";
@@ -216,13 +286,13 @@ function render(){
     card.innerHTML = `
       ${thumbHtml}
       <div class="card-top">
-        <div class="name">${g.name || "Untitled"}</div>
-        <button class="remove-btn" title="Remove from favorites" aria-label="Remove from favorites">♥</button>
+        <div class="name">${g.name || t.untitled}</div>
+        <button class="remove-btn" title="${t.removeLabel}" aria-label="${t.removeLabel}">♥</button>
       </div>
       <div class="note">${g.tagline || ""}</div>
       <div class="card-bottom">
-        <a class="card-link-btn primary" href="${viewUrl}">View</a>
-        ${g.steamUrl ? `<a class="card-link-btn" href="${g.steamUrl}" target="_blank" rel="noopener">Steam ↗</a>` : ""}
+        <a class="card-link-btn primary" href="${viewUrl}">${t.view}</a>
+        ${g.steamUrl ? `<a class="card-link-btn" href="${g.steamUrl}" target="_blank" rel="noopener">${t.steam}</a>` : ""}
       </div>
     `;
     card.querySelector(".remove-btn").addEventListener("click", () => {
@@ -233,7 +303,23 @@ function render(){
   });
 }
 
+document.querySelectorAll('.lang-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    currentLang = btn.dataset.lang;
+    if(window.CoopLang) window.CoopLang.set(currentLang);
+    applyStaticTranslations();
+    render();
+  });
+});
+
 window.addEventListener("coopFavoritesChanged", render);
+window.addEventListener("coopLangChanged", () => {
+  currentLang = window.CoopLang.get();
+  applyStaticTranslations();
+  render();
+});
+
+applyStaticTranslations();
 render();
 </script>
 </body>

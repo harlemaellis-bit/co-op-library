@@ -666,6 +666,7 @@
         meets: 'A SATA SSD meets the recommended storage speed.',
         exceeds: 'An NVMe SSD exceeds the recommended storage speed.'
       },
+      storageTierSsdRequired: "This game's Steam page explicitly requires an SSD — an HDD may not just be slower, it may not run properly at all.",
       checkBtn: 'Check My Specs',
       checkPickBoth: 'Pick a processor and graphics card first.',
       gaugeHint: 'The ring shows progress within the current tier — not overall power. A full ring means it\'s about to cross into the next tier up.'
@@ -706,13 +707,14 @@
         meets: 'Un SSD SATA atteint la vitesse de stockage recommandée.',
         exceeds: 'Un SSD NVMe dépasse la vitesse de stockage recommandée.'
       },
+      storageTierSsdRequired: "La fiche Steam de ce jeu exige explicitement un SSD — un HDD risque non seulement d'être plus lent, mais aussi de ne pas fonctionner correctement.",
       checkBtn: 'Vérifier ma config',
       checkPickBoth: "Choisissez d'abord un processeur et une carte graphique.",
       gaugeHint: "L'anneau indique la progression dans le palier actuel — pas la puissance globale. Un anneau plein signifie que le composant est sur le point de passer au palier suivant."
     }
   };
 
-  let currentLang = 'en';
+  let currentLang = window.CoopLang ? window.CoopLang.get() : 'en';
   let currentPlatform = null;
   let game = null;
   let wishlisted = false;
@@ -874,13 +876,23 @@
     document.getElementById('check-btn').addEventListener('click', runCheck);
   }
 
+  // The underlying hardware names (option value, used for matching against
+  // HardwareTiers) always stay in their original English form — only the
+  // displayed "(Laptop)" qualifier is localized.
+  function hardwareDisplayName(name){
+    return currentLang === 'fr' ? name.replace(/\(Laptop\)/g, '(Portable)') : name;
+  }
+
   function populateCheckSelects(){
     const cpuSel = document.getElementById('check-cpu');
     const gpuSel = document.getElementById('check-gpu');
-    cpuSel.innerHTML = '<option value="" disabled selected>—</option>' +
-      HardwareTiers.CPUS.map(c => `<option value="${c[0]}">${c[0]}</option>`).join('');
-    gpuSel.innerHTML = '<option value="" disabled selected>—</option>' +
-      HardwareTiers.GPUS.map(g => `<option value="${g[0]}">${g[0]}</option>`).join('');
+    // Preserve whatever's already selected when rebuilding on a language switch.
+    const prevCpu = cpuSel.value;
+    const prevGpu = gpuSel.value;
+    cpuSel.innerHTML = `<option value="" disabled${prevCpu ? '' : ' selected'}>—</option>` +
+      HardwareTiers.CPUS.map(c => `<option value="${c[0]}"${c[0] === prevCpu ? ' selected' : ''}>${hardwareDisplayName(c[0])}</option>`).join('');
+    gpuSel.innerHTML = `<option value="" disabled${prevGpu ? '' : ' selected'}>—</option>` +
+      HardwareTiers.GPUS.map(g => `<option value="${g[0]}"${g[0] === prevGpu ? ' selected' : ''}>${hardwareDisplayName(g[0])}</option>`).join('');
   }
 
   function renderCalculator(){
@@ -895,6 +907,7 @@
     document.getElementById('lblStorage').textContent = t.lblStorage;
     const storageSel = document.getElementById('check-storage');
     [...storageSel.options].forEach(opt => { opt.textContent = t.storageOptions[opt.value]; });
+    populateCheckSelects();
 
     renderSpecsPanel(game.canYouRunIt, t);
 
@@ -995,7 +1008,12 @@
     const capacityLine = storage.requiredGB != null
       ? t.storageCapacity(storage.requiredGB)
       : t.storageCapacityUnknown;
-    const tierLine = storage.tier ? t.storageTier[storage.tier] : '';
+    // Almost all games just get the generic per-type note. The exception is
+    // an HDD visitor on a game whose Steam page explicitly calls out an SSD
+    // requirement — that's not just "slower", so swap in a sharper warning.
+    const tierLine = (storage.tier === 'works' && storage.ssdRequired)
+      ? t.storageTierSsdRequired
+      : (storage.tier ? t.storageTier[storage.tier] : '');
     return `<div>${capacityLine}</div>${tierLine ? `<div>${tierLine}</div>` : ''}`;
   }
 
@@ -1074,7 +1092,7 @@
         id: gameKey,
         name: `${game.i18n.en.titleMain}${game.i18n.en.titleAccent}`,
         tagline: game.i18n.en.heroTagline,
-        img: game.heroImage || libraryCardImage(gameKey),
+        img: libraryCardImage(gameKey),
         steamUrl: game.steamUrl,
         infoUrl: `info.html?game=${gameKey}`
       });
@@ -1100,6 +1118,7 @@
 
   function applyTranslations(){
     const t = game.i18n[currentLang];
+    document.documentElement.lang = currentLang;
     document.getElementById('nav-gallery').textContent = t.navGallery;
     document.getElementById('nav-details').textContent = t.navDetails;
     document.getElementById('nav-calculator').textContent = CALC_I18N[currentLang].navCalculator;
@@ -1148,6 +1167,7 @@
   document.querySelectorAll('.lang-btn').forEach(btn => {
     btn.addEventListener('click', () => {
       currentLang = btn.dataset.lang;
+      if(window.CoopLang) window.CoopLang.set(currentLang);
       if(game) applyTranslations();
     });
   });

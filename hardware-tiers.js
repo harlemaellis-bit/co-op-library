@@ -418,6 +418,21 @@
   // CPU/GPU/RAM-driven overall result.
   const STORAGE_TIER = { hdd: "works", ssd: "meets", nvme: "exceeds" };
 
+  // Most games' Steam storage line is just a capacity ("50 GB available
+  // space") with nothing about drive speed, so the generic HDD "works but
+  // slower" note above is the right call almost every time. A minority of
+  // games explicitly call out that an SSD is required (e.g. "Requires a
+  // SSD", "SSD required", "Solid State Drive (SSD) Required") — usually
+  // because the game streams assets aggressively enough that an HDD isn't
+  // just slower, it can actually fail to keep up. This sniffs the raw
+  // Steam storage text for that explicit callout so the UI can bump the
+  // HDD note into a stronger warning specifically for those games, rather
+  // than always giving the same generic "works but slower" line.
+  const SSD_REQUIRED_PATTERN = /\bssd\b[^.\n]{0,40}\brequired\b|\brequire[sd]?\b[^.\n]{0,40}\bssd\b|solid[- ]state[^.\n]{0,40}\brequired\b/i;
+  function storageExplicitlyRequiresSSD(rawStorageText) {
+    return !!(rawStorageText && SSD_REQUIRED_PATTERN.test(rawStorageText));
+  }
+
   /**
    * Gives a single component (CPU, GPU, or RAM) one of 5 statuses by
    * comparing `myScore` against that component's minimum/recommended
@@ -594,6 +609,9 @@
     priorities.sort((a, b) => a.gap - b.gap);
 
     const storageGB = min.storageGB != null ? min.storageGB : rec.storageGB;
+    const minStorageText = min.raw && min.raw.storage;
+    const recStorageText = rec.raw && rec.raw.storage;
+    const ssdRequired = storageExplicitlyRequiresSSD(minStorageText) || storageExplicitlyRequiresSSD(recStorageText);
 
     return {
       overall,
@@ -605,7 +623,11 @@
       storage: {
         requiredGB: storageGB != null ? storageGB : null,
         type: my.storageType || null,
-        tier: my.storageType ? STORAGE_TIER[my.storageType] : null
+        tier: my.storageType ? STORAGE_TIER[my.storageType] : null,
+        // true only when the game's own Steam page explicitly calls out an
+        // SSD requirement in its storage line — lets the UI sharpen the HDD
+        // note for that minority of games instead of the generic one.
+        ssdRequired
       },
       lean,
       priorities
@@ -616,7 +638,7 @@
     CPUS, GPUS, tierFor, scoreForName, findComponent,
     brandOf, brandFromText, splitAlternatives, matchAlternatives,
     statusForComponent, fillForComponent, pickAlternative, evaluate,
-    parseSizeToGB
+    parseSizeToGB, storageExplicitlyRequiresSSD
   };
   if (typeof module !== "undefined" && module.exports) module.exports = api;
   else root.HardwareTiers = api;

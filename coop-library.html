@@ -588,7 +588,7 @@ const i18n = {
 let activeMode = "all";
 let activePrice = "all";
 let activeTags = new Set();
-let currentLang = "en";
+let currentLang = window.CoopLang ? window.CoopLang.get() : "en";
 
 function renderPorts(game){
   const total = 4;
@@ -615,6 +615,7 @@ window.handleImgError = handleImgError;
 
 function applyStaticTranslations(){
   const t = i18n[currentLang];
+  document.documentElement.lang = currentLang;
   document.getElementById("t-eyebrow").textContent = t.eyebrow;
   document.getElementById("t-title").innerHTML = t.title;
   document.getElementById("t-sub").textContent = t.sub;
@@ -805,6 +806,7 @@ document.querySelectorAll('.chip').forEach(chip => {
 document.querySelectorAll('.lang-btn').forEach(btn => {
   btn.addEventListener('click', () => {
     currentLang = btn.dataset.lang;
+    if(window.CoopLang) window.CoopLang.set(currentLang);
     applyStaticTranslations();
     render();
   });

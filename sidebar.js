@@ -28,6 +28,30 @@
   const EXPANDED_KEY = "coopRailExpanded";
   const FAV_OPEN_KEY = "coopRailFavOpen";
 
+  const SIDEBAR_I18N = {
+    en: {
+      toggleMenu: "Toggle menu",
+      brandHome: "Co-op Library home",
+      home: "Home",
+      settings: "Settings",
+      favorites: "Favorites",
+      showFavorites: "Show favorited games",
+      favoritesEmpty: "Heart a game from its info page and it'll show up here."
+    },
+    fr: {
+      toggleMenu: "Afficher/masquer le menu",
+      brandHome: "Accueil de Co-op Library",
+      home: "Accueil",
+      settings: "Paramètres",
+      favorites: "Favoris",
+      showFavorites: "Afficher les jeux favoris",
+      favoritesEmpty: "Ajoutez un jeu depuis sa fiche pour le voir apparaître ici."
+    }
+  };
+  function sidebarLang() {
+    return window.CoopLang ? window.CoopLang.get() : "en";
+  }
+
   function getSaved(key) {
     try {
       return localStorage.getItem(key) === "1";
@@ -53,8 +77,8 @@
     .theme-panel{ top:16px !important; left:${RAIL_WIDTH + 16}px !important; }
 
     .coop-sidebar{
-      --bg: #0f0f0f;
-      --panel: #000000;
+      --bg: rgba(15,15,15,0.82);
+      --panel: rgba(0,0,0,0.82);
       --hover: #272727;
       --active: #333333;
       --text: #ffffff;
@@ -73,6 +97,8 @@
       width: var(--rail-width);
       z-index: 950;
       background-color: var(--bg);
+      -webkit-backdrop-filter: blur(14px);
+      backdrop-filter: blur(14px);
       padding: 12px 8px;
       display: flex;
       flex-direction: column;
@@ -358,14 +384,14 @@
     }
     .coop-sidebar .favorite-row .avatar {
       position: relative;
-      width: 24px;
-      height: 24px;
-      border-radius: 50%;
+      width: 38px;
+      height: 18px;
+      border-radius: 5px;
       background-color: #3f3f3f;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 11px;
+      font-size: 10px;
       flex-shrink: 0;
       overflow: hidden;
       color: var(--text);
@@ -446,7 +472,7 @@
     }
 
     if (favorites.length === 0) {
-      list.innerHTML = `<div class="favorites-empty">Heart a game from its info page and it'll show up here.</div>`;
+      list.innerHTML = `<div class="favorites-empty">${SIDEBAR_I18N[sidebarLang()].favoritesEmpty}</div>`;
       return;
     }
 
@@ -465,15 +491,16 @@
   }
 
   function build() {
+    const t = SIDEBAR_I18N[sidebarLang()];
     const sidebar = document.createElement("aside");
     sidebar.className = "coop-sidebar" + (getSaved(EXPANDED_KEY) ? " expanded" : "");
     sidebar.id = "sidebar";
     sidebar.innerHTML = `
       <div class="sidebar-header">
-        <button class="icon-btn" id="menuBtn" aria-label="Toggle menu">
+        <button class="icon-btn" id="menuBtn" aria-label="${t.toggleMenu}">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
         </button>
-        <a class="sidebar-brand" href="coop-library.html" aria-label="Co-op Library home">
+        <a class="sidebar-brand" href="coop-library.html" aria-label="${t.brandHome}">
           <span class="logo-mark">CL</span>
           <span class="brand-label">Co-op Library</span>
         </a>
@@ -484,26 +511,26 @@
           <span class="nav-icon">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 10.5 12 3l9 7.5"/><path d="M5 9.5V20a1 1 0 0 0 1 1h4v-6h4v6h4a1 1 0 0 0 1-1V9.5"/></svg>
           </span>
-          <span class="rail-label">Home</span>
-          <span class="nav-label">Home</span>
+          <span class="rail-label" data-sidebar-t="home">${t.home}</span>
+          <span class="nav-label" data-sidebar-t="home">${t.home}</span>
         </a>
 
         <button type="button" class="nav-item" id="settingsBtn">
           <span class="nav-icon">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
           </span>
-          <span class="rail-label">Settings</span>
-          <span class="nav-label">Settings</span>
+          <span class="rail-label" data-sidebar-t="settings">${t.settings}</span>
+          <span class="nav-label" data-sidebar-t="settings">${t.settings}</span>
         </button>
 
         <a class="nav-item${isFav ? " active" : ""}" href="favorites.html" id="favoritesToggle" data-page="favorites">
           <span class="nav-icon">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.6l-1-1a5.5 5.5 0 0 0-7.8 7.8l1 1L12 21l7.8-7.8 1-1a5.5 5.5 0 0 0 0-7.8z"/></svg>
           </span>
-          <span class="rail-label">Favorites</span>
-          <span class="nav-label">Favorites</span>
+          <span class="rail-label" data-sidebar-t="favorites">${t.favorites}</span>
+          <span class="nav-label" data-sidebar-t="favorites">${t.favorites}</span>
           <span class="nav-badge" id="favoritesBadge">0</span>
-          <button type="button" class="chevron-btn" id="favoritesChevronBtn" aria-label="Show favorited games" title="Show favorited games">
+          <button type="button" class="chevron-btn" id="favoritesChevronBtn" aria-label="${t.showFavorites}" title="${t.showFavorites}">
             <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
           </button>
         </a>
@@ -582,9 +609,30 @@
     renderFavorites();
   }
 
+  function retranslateSidebar() {
+    const sidebar = document.getElementById("sidebar");
+    if (!sidebar) return;
+    const t = SIDEBAR_I18N[sidebarLang()];
+    const menuBtn = document.getElementById("menuBtn");
+    if (menuBtn) menuBtn.setAttribute("aria-label", t.toggleMenu);
+    const brand = sidebar.querySelector(".sidebar-brand");
+    if (brand) brand.setAttribute("aria-label", t.brandHome);
+    sidebar.querySelectorAll('[data-sidebar-t]').forEach(el => {
+      el.textContent = t[el.dataset.sidebarT];
+    });
+    const chevronBtn = document.getElementById("favoritesChevronBtn");
+    if (chevronBtn) {
+      chevronBtn.setAttribute("aria-label", t.showFavorites);
+      chevronBtn.setAttribute("title", t.showFavorites);
+    }
+    renderFavorites();
+  }
+
   window.addEventListener("coopFavoritesChanged", renderFavorites);
+  window.addEventListener("coopLangChanged", retranslateSidebar);
   window.addEventListener("storage", (e) => {
     if (e.key === "coopLibraryFavorites") renderFavorites();
+    if (e.key === "coopLibraryLang") retranslateSidebar();
   });
 
   function init() {

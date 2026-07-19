@@ -23,6 +23,33 @@
  * across pages and future visits.
  * -----------------------------------------------------------------
  */
+
+/**
+ * window.CoopLang — tiny site-wide language-persistence helper.
+ * Any page with an EN/FR toggle calls CoopLang.set("fr") when the
+ * user picks a language; any page (including this one, via
+ * sidebar.js) calls CoopLang.get() on load to pick up whatever was
+ * last chosen, so the language sticks even after navigating to a
+ * different page. Fires "coopLangChanged" so already-loaded UI
+ * (like the sidebar) can update immediately without a reload.
+ */
+(function () {
+  const KEY = "coopLibraryLang";
+  function get() {
+    try {
+      const v = localStorage.getItem(KEY);
+      return (v === "fr" || v === "en") ? v : "en";
+    } catch (e) {
+      return "en";
+    }
+  }
+  function set(lang) {
+    try { localStorage.setItem(KEY, lang); } catch (e) {}
+    window.dispatchEvent(new CustomEvent("coopLangChanged", { detail: { lang } }));
+  }
+  window.CoopLang = { get, set };
+})();
+
 (function () {
   const THEMES = {
     dark: {
