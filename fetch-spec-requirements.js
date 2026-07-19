@@ -94,16 +94,29 @@ function parseRequirementBlock(html) {
   // visitor's own CPU/GPU brand at comparison time.
   const cpu = HardwareTiers.matchAlternatives(cpuText, HardwareTiers.CPUS);
   const gpu = HardwareTiers.matchAlternatives(gpuText, HardwareTiers.GPUS);
-  const ramMatch = memText.match(/(\d+(?:\.\d+)?)\s*gb/i);
-  const storageMatch = storageText.match(/(\d+(?:\.\d+)?)\s*gb/i);
 
   return {
     raw: { cpu: cpuText, gpu: gpuText, memory: memText, storage: storageText },
     cpu,
     gpu,
-    ramGB: ramMatch ? Number(ramMatch[1]) : null,
-    storageGB: storageMatch ? Number(storageMatch[1]) : null
+    ramGB: parseSizeToGB(memText),
+    storageGB: parseSizeToGB(storageText)
   };
+}
+
+// Steam sometimes lists memory/storage in MB instead of GB (older games,
+// e.g. "1024 MB RAM"). Match both units and normalize to GB so the rest of
+// the pipeline (and the RAM dropdown on the info page, which is GB-based)
+// always has a comparable number instead of null.
+function parseSizeToGB(text) {
+  if (!text) return null;
+  const match = text.match(/(\d+(?:\.\d+)?)\s*(gb|mb)\b/i);
+  if (!match) return null;
+  const value = Number(match[1]);
+  const unit = match[2].toLowerCase();
+  const gb = unit === "mb" ? value / 1024 : value;
+  // Round to 2 decimals so e.g. 1024 MB -> 1 GB instead of 1.000000001.
+  return Math.round(gb * 100) / 100;
 }
 
 async function main() {
