@@ -1,0 +1,4136 @@
+{
+  "204360": {
+    "pageTitle": "Castle Crashers — Kingdom Chronicle",
+    "headerBrand": "CASTLE CRASHERS",
+    "footerBrand": "CASTLE CRASHERS",
+    "brandIcon": "dot",
+    "backLink": "coop-library.html",
+    "steamUrl": "https://store.steampowered.com/app/204360/Castle_Crashers/",
+    "heroImage": "",
+    "gallery": [
+      "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA4MDAgNDUwIj4KPHJlY3Qgd2lkdGg9IjgwMCIgaGVpZ2h0PSI0NTAiIGZpbGw9IiMzYTJmNjMiLz4KPHJlY3Qgd2lkdGg9IjgwMCIgaGVpZ2h0PSI0NTAiIGZpbGw9InVybCgjZG90cykiIG9wYWNpdHk9IjAuMTUiLz4KPGRlZnM+PHBhdHRlcm4gaWQ9ImRvdHMiIHdpZHRoPSIyOCIgaGVpZ2h0PSIyOCIgcGF0dGVyblVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+PGNpcmNsZSBjeD0iNCIgY3k9IjQiIHI9IjIiIGZpbGw9IiNmZmZmZmYiLz48L3BhdHRlcm4+PC9kZWZzPgo8dGV4dCB4PSI0MDAiIHk9IjIxNSIgZm9udC1mYW1pbHk9IlZlcmRhbmEiIGZvbnQtc2l6ZT0iMjYiIGZpbGw9IiNmZmZmZmYiIHRleHQtYW5jaG9yPSJtaWRkbGUiIG9wYWNpdHk9IjAuODUiPlNDUkVFTlNIT1QgMTwvdGV4dD4KPHRleHQgeD0iNDAwIiB5PSIyNTAiIGZvbnQtZmFtaWx5PSJWZXJkYW5hIiBmb250LXNpemU9IjE0IiBmaWxsPSIjZmZmZmZmIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBvcGFjaXR5PSIwLjYiPmRyb3AgeW91ciBjYXB0dXJlIGluIC9hc3NldHMvaGZmLzwvdGV4dD4KPC9zdmc+",
+      "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA4MDAgNDUwIj4KPHJlY3Qgd2lkdGg9IjgwMCIgaGVpZ2h0PSI0NTAiIGZpbGw9IiMyZjRhNjMiLz4KPHJlY3Qgd2lkdGg9IjgwMCIgaGVpZ2h0PSI0NTAiIGZpbGw9InVybCgjZG90cykiIG9wYWNpdHk9IjAuMTUiLz4KPGRlZnM+PHBhdHRlcm4gaWQ9ImRvdHMiIHdpZHRoPSIyOCIgaGVpZ2h0PSIyOCIgcGF0dGVyblVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+PGNpcmNsZSBjeD0iNCIgY3k9IjQiIHI9IjIiIGZpbGw9IiNmZmZmZmYiLz48L3BhdHRlcm4+PC9kZWZzPgo8dGV4dCB4PSI0MDAiIHk9IjIxNSIgZm9udC1mYW1pbHk9IlZlcmRhbmEiIGZvbnQtc2l6ZT0iMjYiIGZpbGw9IiNmZmZmZmYiIHRleHQtYW5jaG9yPSJtaWRkbGUiIG9wYWNpdHk9IjAuODUiPlNDUkVFTlNIT1QgMjwvdGV4dD4KPHRleHQgeD0iNDAwIiB5PSIyNTAiIGZvbnQtZmFtaWx5PSJWZXJkYW5hIiBmb250LXNpemU9IjE0IiBmaWxsPSIjZmZmZmZmIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBvcGFjaXR5PSIwLjYiPmRyb3AgeW91ciBjYXB0dXJlIGluIC9hc3NldHMvaGZmLzwvdGV4dD4KPC9zdmc+",
+      "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA4MDAgNDUwIj4KPHJlY3Qgd2lkdGg9IjgwMCIgaGVpZ2h0PSI0NTAiIGZpbGw9IiM2MzQzMmYiLz4KPHJlY3Qgd2lkdGg9IjgwMCIgaGVpZ2h0PSI0NTAiIGZpbGw9InVybCgjZG90cykiIG9wYWNpdHk9IjAuMTUiLz4KPGRlZnM+PHBhdHRlcm4gaWQ9ImRvdHMiIHdpZHRoPSIyOCIgaGVpZ2h0PSIyOCIgcGF0dGVyblVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+PGNpcmNsZSBjeD0iNCIgY3k9IjQiIHI9IjIiIGZpbGw9IiNmZmZmZmYiLz48L3BhdHRlcm4+PC9kZWZzPgo8dGV4dCB4PSI0MDAiIHk9IjIxNSIgZm9udC1mYW1pbHk9IlZlcmRhbmEiIGZvbnQtc2l6ZT0iMjYiIGZpbGw9IiNmZmZmZmYiIHRleHQtYW5jaG9yPSJtaWRkbGUiIG9wYWNpdHk9IjAuODUiPlNDUkVFTlNIT1QgMzwvdGV4dD4KPHRleHQgeD0iNDAwIiB5PSIyNTAiIGZvbnQtZmFtaWx5PSJWZXJkYW5hIiBmb250LXNpemU9IjE0IiBmaWxsPSIjZmZmZmZmIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBvcGFjaXR5PSIwLjYiPmRyb3AgeW91ciBjYXB0dXJlIGluIC9hc3NldHMvaGZmLzwvdGV4dD4KPC9zdmc+",
+      "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA4MDAgNDUwIj4KPHJlY3Qgd2lkdGg9IjgwMCIgaGVpZ2h0PSI0NTAiIGZpbGw9IiMyZjYzNTAiLz4KPHJlY3Qgd2lkdGg9IjgwMCIgaGVpZ2h0PSI0NTAiIGZpbGw9InVybCgjZG90cykiIG9wYWNpdHk9IjAuMTUiLz4KPGRlZnM+PHBhdHRlcm4gaWQ9ImRvdHMiIHdpZHRoPSIyOCIgaGVpZ2h0PSIyOCIgcGF0dGVyblVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+PGNpcmNsZSBjeD0iNCIgY3k9IjQiIHI9IjIiIGZpbGw9IiNmZmZmZmYiLz48L3BhdHRlcm4+PC9kZWZzPgo8dGV4dCB4PSI0MDAiIHk9IjIxNSIgZm9udC1mYW1pbHk9IlZlcmRhbmEiIGZvbnQtc2l6ZT0iMjYiIGZpbGw9IiNmZmZmZmYiIHRleHQtYW5jaG9yPSJtaWRkbGUiIG9wYWNpdHk9IjAuODUiPlNDUkVFTlNIT1QgNDwvdGV4dD4KPHRleHQgeD0iNDAwIiB5PSIyNTAiIGZvbnQtZmFtaWx5PSJWZXJkYW5hIiBmb250LXNpemU9IjE0IiBmaWxsPSIjZmZmZmZmIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBvcGFjaXR5PSIwLjYiPmRyb3AgeW91ciBjYXB0dXJlIGluIC9hc3NldHMvaGZmLzwvdGV4dD4KPC9zdmc+",
+      "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA4MDAgNDUwIj4KPHJlY3Qgd2lkdGg9IjgwMCIgaGVpZ2h0PSI0NTAiIGZpbGw9IiM1YTJmNjMiLz4KPHJlY3Qgd2lkdGg9IjgwMCIgaGVpZ2h0PSI0NTAiIGZpbGw9InVybCgjZG90cykiIG9wYWNpdHk9IjAuMTUiLz4KPGRlZnM+PHBhdHRlcm4gaWQ9ImRvdHMiIHdpZHRoPSIyOCIgaGVpZ2h0PSIyOCIgcGF0dGVyblVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+PGNpcmNsZSBjeD0iNCIgY3k9IjQiIHI9IjIiIGZpbGw9IiNmZmZmZmYiLz48L3BhdHRlcm4+PC9kZWZzPgo8dGV4dCB4PSI0MDAiIHk9IjIxNSIgZm9udC1mYW1pbHk9IlZlcmRhbmEiIGZvbnQtc2l6ZT0iMjYiIGZpbGw9IiNmZmZmZmYiIHRleHQtYW5jaG9yPSJtaWRkbGUiIG9wYWNpdHk9IjAuODUiPlNDUkVFTlNIT1QgNTwvdGV4dD4KPHRleHQgeD0iNDAwIiB5PSIyNTAiIGZvbnQtZmFtaWx5PSJWZXJkYW5hIiBmb250LXNpemU9IjE0IiBmaWxsPSIjZmZmZmZmIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBvcGFjaXR5PSIwLjYiPmRyb3AgeW91ciBjYXB0dXJlIGluIC9hc3NldHMvaGZmLzwvdGV4dD4KPC9zdmc+",
+      "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA4MDAgNDUwIj4KPHJlY3Qgd2lkdGg9IjgwMCIgaGVpZ2h0PSI0NTAiIGZpbGw9IiMyZjVhNjMiLz4KPHJlY3Qgd2lkdGg9IjgwMCIgaGVpZ2h0PSI0NTAiIGZpbGw9InVybCgjZG90cykiIG9wYWNpdHk9IjAuMTUiLz4KPGRlZnM+PHBhdHRlcm4gaWQ9ImRvdHMiIHdpZHRoPSIyOCIgaGVpZ2h0PSIyOCIgcGF0dGVyblVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+PGNpcmNsZSBjeD0iNCIgY3k9IjQiIHI9IjIiIGZpbGw9IiNmZmZmZmYiLz48L3BhdHRlcm4+PC9kZWZzPgo8dGV4dCB4PSI0MDAiIHk9IjIxNSIgZm9udC1mYW1pbHk9IlZlcmRhbmEiIGZvbnQtc2l6ZT0iMjYiIGZpbGw9IiNmZmZmZmYiIHRleHQtYW5jaG9yPSJtaWRkbGUiIG9wYWNpdHk9IjAuODUiPlNDUkVFTlNIT1QgNjwvdGV4dD4KPHRleHQgeD0iNDAwIiB5PSIyNTAiIGZvbnQtZmFtaWx5PSJWZXJkYW5hIiBmb250LXNpemU9IjE0IiBmaWxsPSIjZmZmZmZmIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBvcGFjaXR5PSIwLjYiPmRyb3AgeW91ciBjYXB0dXJlIGluIC9hc3NldHMvaGZmLzwvdGV4dD4KPC9zdmc+"
+    ],
+    "theme": {
+      "accent": "#5cb85c",
+      "accentSoft": "#7fca7f",
+      "accent2": "#e8b923",
+      "hazardA": "#5cb85c",
+      "hazardB": "#2b2016",
+      "hazardAngle": "-45deg",
+      "fontDisplay": "Baloo 2",
+      "fontBody": "Nunito",
+      "fontMono": "Space Mono"
+    },
+    "platforms": [
+      {
+        "key": "pc",
+        "label": "PC · Steam"
+      },
+      {
+        "key": "ps4",
+        "label": "PlayStation 4"
+      },
+      {
+        "key": "xboxone",
+        "label": "Xbox One"
+      },
+      {
+        "key": "switch",
+        "label": "Nintendo Switch"
+      }
+    ],
+    "platformData": {
+      "en": {
+        "pc": {
+          "controller": "Full Support",
+          "crossplay": "Not supported",
+          "players": "Up to 4",
+          "servers": "Peer-to-peer"
+        },
+        "ps4": {
+          "controller": "Full Support",
+          "crossplay": "Not supported",
+          "players": "Up to 4",
+          "servers": "Peer-to-peer"
+        },
+        "xboxone": {
+          "controller": "Full Support",
+          "crossplay": "Not supported",
+          "players": "Up to 4",
+          "servers": "Peer-to-peer"
+        },
+        "switch": {
+          "controller": "Full Support",
+          "crossplay": "Not supported",
+          "players": "Up to 4",
+          "servers": "Peer-to-peer"
+        }
+      },
+      "fr": {
+        "pc": {
+          "controller": "Support complet",
+          "crossplay": "Non pris en charge",
+          "players": "Jusqu'à 4",
+          "servers": "Pair à pair"
+        },
+        "ps4": {
+          "controller": "Support complet",
+          "crossplay": "Non pris en charge",
+          "players": "Jusqu'à 4",
+          "servers": "Pair à pair"
+        },
+        "xboxone": {
+          "controller": "Support complet",
+          "crossplay": "Non pris en charge",
+          "players": "Jusqu'à 4",
+          "servers": "Pair à pair"
+        },
+        "switch": {
+          "controller": "Support complet",
+          "crossplay": "Non pris en charge",
+          "players": "Jusqu'à 4",
+          "servers": "Pair à pair"
+        }
+      }
+    },
+    "quickFacts": {
+      "en": [
+        {
+          "label": "Genre",
+          "value": "2D beat-'em-up RPG"
+        },
+        {
+          "label": "Developer",
+          "value": "The Behemoth"
+        },
+        {
+          "label": "Publisher",
+          "value": "The Behemoth"
+        },
+        {
+          "label": "Steam release",
+          "value": "Aug 27, 2008"
+        }
+      ],
+      "fr": [
+        {
+          "label": "Genre",
+          "value": "Beat-'em-up RPG en 2D"
+        },
+        {
+          "label": "Développeur",
+          "value": "The Behemoth"
+        },
+        {
+          "label": "Éditeur",
+          "value": "The Behemoth"
+        },
+        {
+          "label": "Sortie Steam",
+          "value": "27 août 2008"
+        }
+      ]
+    },
+    "loop": {
+      "en": [
+        "Bash",
+        "Level Up",
+        "Loot",
+        "Rescue"
+      ],
+      "fr": [
+        "Cogner",
+        "Monter de niveau",
+        "Piller",
+        "Secourir"
+      ]
+    },
+    "i18n": {
+      "en": {
+        "navGallery": "Gallery",
+        "navDetails": "Details",
+        "backLink": "Back to Library",
+        "titleMain": "CASTLE",
+        "titleAccent": " CRASHERS",
+        "heroTagline": "A hand-drawn medieval kingdom, a stolen gem, and four kidnapped princesses set off a side-scrolling brawl for up to four knights on one couch.",
+        "tags": [
+          "BEAT-'EM-UP",
+          "4-PLAYER CO-OP",
+          "2D SIDE-SCROLLER",
+          "LOCAL + ONLINE"
+        ],
+        "steamBtn": "View on Steam",
+        "wishlist": "Add to Wishlist",
+        "wishlisted": "Wishlisted",
+        "galleryHeading": "Screenshots",
+        "detailsHeading": "Details",
+        "detailsSub": "Platforms and cross-play capabilities.",
+        "lblController": "Controller",
+        "lblCrossplay": "Crossplay",
+        "lblPlayers": "Co-op players",
+        "lblServers": "Dedicated servers",
+        "descP": [
+          "A hand-drawn medieval kingdom, a stolen gem, and four kidnapped princesses set off a side-scrolling brawl through swamps, deserts, and pirate ships. Up to four knights can button-mash through the campaign together, leveling up strength, magic, and defense and unlocking dozens of playable characters and weapons along the way.",
+          "It plays equally well as a couch session or online, and the arena mode and mini-games — including an actual barrel-riding race — give a group a reason to keep playing after the story's done. Nearly two decades old, it's still one of the most reliable \"four friends, one couch\" picks around."
+        ],
+        "readMore": "Read more",
+        "readLess": "Read less",
+        "footer": "Fan-made reference layout · Not an official The Behemoth product"
+      },
+      "fr": {
+        "navGallery": "Galerie",
+        "navDetails": "Détails",
+        "backLink": "Retour à la bibliothèque",
+        "titleMain": "CASTLE",
+        "titleAccent": " CRASHERS",
+        "heroTagline": "Un royaume médiéval dessiné à la main, une gemme volée et quatre princesses enlevées déclenchent une bagarre en défilement horizontal pour jusqu'à quatre chevaliers sur un même canapé.",
+        "tags": [
+          "BEAT-'EM-UP",
+          "COOP À 4",
+          "DÉFILEMENT 2D",
+          "LOCAL + EN LIGNE"
+        ],
+        "steamBtn": "Voir sur Steam",
+        "wishlist": "Ajouter à la liste de souhaits",
+        "wishlisted": "Dans la liste de souhaits",
+        "galleryHeading": "Captures d'écran",
+        "detailsHeading": "Détails",
+        "detailsSub": "Plateformes et compatibilité multiplateforme.",
+        "lblController": "Manette",
+        "lblCrossplay": "Crossplay",
+        "lblPlayers": "Joueurs en coop",
+        "lblServers": "Serveurs dédiés",
+        "descP": [
+          "Un royaume médiéval dessiné à la main, une gemme volée et quatre princesses enlevées déclenchent une bagarre en défilement horizontal à travers marais, déserts et navires pirates. Jusqu'à quatre chevaliers peuvent traverser la campagne ensemble en martelant les boutons, en développant force, magie et défense, et en débloquant des dizaines de personnages et d'armes.",
+          "Le jeu fonctionne aussi bien en local que en ligne, et le mode arène ainsi que les mini-jeux — dont une véritable course en tonneau — donnent une bonne raison de continuer après l'histoire. Près de deux décennies plus tard, il reste l'un des choix les plus sûrs pour « quatre amis, un canapé »."
+        ],
+        "readMore": "Lire la suite",
+        "readLess": "Réduire",
+        "footer": "Mise en page fan-made · N'est pas un produit officiel de The Behemoth"
+      }
+    },
+    "canYouRunIt": {
+      "requirements": {
+        "minimum": {
+          "raw": {
+            "cpu": "Intel Core i5-4460",
+            "gpu": "NVIDIA GeForce GTX 1060 6GB",
+            "memory": "8 GB RAM",
+            "storage": ""
+          },
+          "cpu": [
+            {
+              "raw": "Intel Core i5-4460",
+              "brand": "intel",
+              "name": "Intel Core i5 4460",
+              "score": 14
+            }
+          ],
+          "gpu": [
+            {
+              "raw": "NVIDIA GeForce GTX 1060 6GB",
+              "brand": "nvidia",
+              "name": "NVIDIA GeForce GTX 1060 6GB",
+              "score": 9.5
+            }
+          ],
+          "ramGB": 8,
+          "storageGB": null
+        },
+        "recommended": {
+          "raw": {
+            "cpu": "AMD Ryzen 5 5600X",
+            "gpu": "NVIDIA GeForce RTX 3070",
+            "memory": "16 GB RAM",
+            "storage": ""
+          },
+          "cpu": [
+            {
+              "raw": "AMD Ryzen 5 5600X",
+              "brand": "amd",
+              "name": "AMD Ryzen 5 5600X",
+              "score": 51.9
+            }
+          ],
+          "gpu": [
+            {
+              "raw": "NVIDIA GeForce RTX 3070",
+              "brand": "nvidia",
+              "name": "NVIDIA GeForce RTX 3070",
+              "score": 42.8
+            }
+          ],
+          "ramGB": 16,
+          "storageGB": null
+        }
+      },
+      "mySpecs": {
+        "overall": "above-minimum",
+        "components": {
+          "cpu": {
+            "status": "above-minimum",
+            "fill": 67,
+            "myScore": 40,
+            "minScore": 14,
+            "recScore": 51.9,
+            "minName": "Intel Core i5 4460",
+            "recName": "AMD Ryzen 5 5600X"
+          },
+          "gpu": {
+            "status": "above-minimum",
+            "fill": 30,
+            "myScore": 20,
+            "minScore": 9.5,
+            "recScore": 42.8,
+            "minName": "NVIDIA GeForce GTX 1060 6GB",
+            "recName": "NVIDIA GeForce RTX 3070"
+          },
+          "ram": {
+            "status": "meets-recommended",
+            "fill": 0,
+            "myGB": 16,
+            "minGB": 8,
+            "recGB": 16
+          }
+        },
+        "storage": {
+          "requiredGB": null,
+          "type": "nvme",
+          "tier": "exceeds"
+        },
+        "lean": "gpu",
+        "priorities": [
+          {
+            "component": "gpu",
+            "severity": "critical",
+            "gap": -22.799999999999997
+          },
+          {
+            "component": "cpu",
+            "severity": "high",
+            "gap": -11.899999999999999
+          }
+        ]
+      }
+    }
+  },
+  "477160": {
+    "pageTitle": "Human: Fall Flat — Dream Log",
+    "headerBrand": "HUMAN: FALL FLAT",
+    "footerBrand": "HUMAN: FALL FLAT",
+    "brandIcon": "dot",
+    "backLink": "coop-library.html",
+    "steamUrl": "https://store.steampowered.com/app/477160/Human_Fall_Flat/",
+    "heroImage": "https://image.api.playstation.com/vulcan/img/rnd/202011/0614/IzgZInxLm5mhKWBE51s4LjBm.jpg",
+    "gallery": [
+      "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/477160/ss_56e2f54bc55f4c925955e8e58c52922699244dd5.1920x1080.jpg?t=1781193705",
+      "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/257298228/ddb074b5280fed525a9ead54c2c47f69fe86e095/movie_full.jpg",
+      "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/257220934/40d57f257e6ddc41098c033bf7cfcb8f822ad449/movie_full.jpg",
+      "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/257175671/3fd38ef5d186d319b77b85877d815b818f4c2f39/movie_full.jpg",
+      "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/257113846/8be50e3f7bf6840177e62333ff704d132fecc278/movie_full.jpg",
+      "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/257076768/99a08234a818bf2468aa81bc48fe98db7e62c425/movie_full.jpg"
+    ],
+    "theme": {
+      "accent": "#ff6b57",
+      "accentSoft": "#ff9a86",
+      "accent2": "#6fd6ff",
+      "hazardA": "#ff6b57",
+      "hazardB": "#6fd6ff",
+      "hazardAngle": "90deg",
+      "fontDisplay": "Baloo 2",
+      "fontBody": "Nunito",
+      "fontMono": "Baloo 2"
+    },
+    "platforms": [
+      {
+        "key": "pc",
+        "label": "PC · Steam"
+      },
+      {
+        "key": "xboxone",
+        "label": "Xbox One"
+      },
+      {
+        "key": "xboxseries",
+        "label": "Xbox Series X|S"
+      },
+      {
+        "key": "ps4",
+        "label": "PlayStation 4"
+      },
+      {
+        "key": "ps5",
+        "label": "PlayStation 5"
+      },
+      {
+        "key": "switch",
+        "label": "Nintendo Switch"
+      }
+    ],
+    "platformData": {
+      "en": {
+        "pc": {
+          "controller": "Full Support",
+          "crossplay": "All platforms",
+          "players": "Up to 8",
+          "servers": "Peer-to-peer"
+        },
+        "xboxone": {
+          "controller": "Native",
+          "crossplay": "All platforms",
+          "players": "Up to 8",
+          "servers": "Peer-to-peer"
+        },
+        "xboxseries": {
+          "controller": "Native",
+          "crossplay": "All platforms",
+          "players": "Up to 8",
+          "servers": "Peer-to-peer"
+        },
+        "ps4": {
+          "controller": "Native",
+          "crossplay": "All platforms",
+          "players": "Up to 8",
+          "servers": "Peer-to-peer"
+        },
+        "ps5": {
+          "controller": "Native",
+          "crossplay": "All platforms",
+          "players": "Up to 8",
+          "servers": "Peer-to-peer"
+        },
+        "switch": {
+          "controller": "Native",
+          "crossplay": "Switch only",
+          "players": "Up to 8",
+          "servers": "Peer-to-peer"
+        }
+      },
+      "fr": {
+        "pc": {
+          "controller": "Support complet",
+          "crossplay": "Toutes plateformes",
+          "players": "Jusqu'à 8",
+          "servers": "Pair à pair"
+        },
+        "xboxone": {
+          "controller": "Natif",
+          "crossplay": "Toutes plateformes",
+          "players": "Jusqu'à 8",
+          "servers": "Pair à pair"
+        },
+        "xboxseries": {
+          "controller": "Natif",
+          "crossplay": "Toutes plateformes",
+          "players": "Jusqu'à 8",
+          "servers": "Pair à pair"
+        },
+        "ps4": {
+          "controller": "Natif",
+          "crossplay": "Toutes plateformes",
+          "players": "Jusqu'à 8",
+          "servers": "Pair à pair"
+        },
+        "ps5": {
+          "controller": "Natif",
+          "crossplay": "Toutes plateformes",
+          "players": "Jusqu'à 8",
+          "servers": "Pair à pair"
+        },
+        "switch": {
+          "controller": "Natif",
+          "crossplay": "Switch uniquement",
+          "players": "Jusqu'à 8",
+          "servers": "Pair à pair"
+        }
+      }
+    },
+    "quickFacts": {
+      "en": [
+        {
+          "label": "Genre",
+          "value": "Physics puzzle platformer"
+        },
+        {
+          "label": "Developer",
+          "value": "No Brakes Games"
+        },
+        {
+          "label": "Publisher",
+          "value": "Curve Games"
+        },
+        {
+          "label": "Release",
+          "value": "July 22, 2016"
+        }
+      ],
+      "fr": [
+        {
+          "label": "Genre",
+          "value": "Plateforme-puzzle physique"
+        },
+        {
+          "label": "Développeur",
+          "value": "No Brakes Games"
+        },
+        {
+          "label": "Éditeur",
+          "value": "Curve Games"
+        },
+        {
+          "label": "Sortie",
+          "value": "22 juillet 2016"
+        }
+      ]
+    },
+    "loop": {
+      "en": [
+        "Wobble",
+        "Solve",
+        "Explore",
+        "Laugh"
+      ],
+      "fr": [
+        "Vaciller",
+        "Résoudre",
+        "Explorer",
+        "Rire"
+      ]
+    },
+    "i18n": {
+      "en": {
+        "navGallery": "Gallery",
+        "navDetails": "Details",
+        "backLink": "Back to Library",
+        "titleMain": "HUMAN",
+        "titleAccent": ": FALL FLAT",
+        "heroTagline": "A hilarious, light-hearted physics platformer where wobbly rag-doll humans solve puzzles across floating dreamscapes, solo or with up to 8 friends.",
+        "tags": [
+          "PHYSICS PUZZLE",
+          "PLATFORMER",
+          "FUNNY",
+          "CO-OP"
+        ],
+        "steamBtn": "View on Steam",
+        "wishlist": "Add to Wishlist",
+        "wishlisted": "Wishlisted",
+        "galleryHeading": "Screenshots",
+        "detailsHeading": "Details",
+        "detailsSub": "Platforms and cross-play capabilities.",
+        "lblController": "Controller",
+        "lblCrossplay": "Crossplay",
+        "lblPlayers": "Co-op players",
+        "lblServers": "Dedicated servers",
+        "descP": [
+          "You control Bob, a physics-driven ragdoll with no fixed shape or gravity script to save him — every grab, climb, and fall is simulated live, which is exactly why so much of the game is funnier than it means to be.",
+          "Levels are open-ended dreamscapes with multiple solutions to each puzzle, and the free Workshop adds thousands of community-made levels on top of the base game. It's best with friends, but the physics chaos holds up solo too."
+        ],
+        "readMore": "Read more",
+        "readLess": "Read less",
+        "footer": "Fan-made reference layout · Not an official No Brakes Games or Curve Games product"
+      },
+      "fr": {
+        "navGallery": "Galerie",
+        "navDetails": "Détails",
+        "backLink": "Retour à la bibliothèque",
+        "titleMain": "HUMAN",
+        "titleAccent": " : FALL FLAT",
+        "heroTagline": "Un plateforme-puzzle physique hilarant et léger où des pantins articulés résolvent des énigmes à travers des rêveries flottantes, seul ou jusqu'à 8 amis.",
+        "tags": [
+          "PUZZLE PHYSIQUE",
+          "PLATEFORME",
+          "DRÔLE",
+          "COOP"
+        ],
+        "steamBtn": "Voir sur Steam",
+        "wishlist": "Ajouter à la liste de souhaits",
+        "wishlisted": "Dans la liste de souhaits",
+        "galleryHeading": "Captures d'écran",
+        "detailsHeading": "Détails",
+        "detailsSub": "Plateformes et compatibilité multiplateforme.",
+        "lblController": "Manette",
+        "lblCrossplay": "Crossplay",
+        "lblPlayers": "Joueurs en coop",
+        "lblServers": "Serveurs dédiés",
+        "descP": [
+          "Vous contrôlez Bob, un pantin articulé régi par la physique, sans forme fixe ni script de gravité pour le sauver — chaque prise, chaque escalade et chaque chute est simulée en direct, ce qui explique pourquoi le jeu est souvent plus drôle qu'il ne le voudrait.",
+          "Les niveaux sont des rêveries ouvertes avec plusieurs solutions à chaque énigme, et le Workshop gratuit ajoute des milliers de niveaux créés par la communauté. C'est meilleur entre amis, mais le chaos physique fonctionne aussi très bien en solo."
+        ],
+        "readMore": "Lire la suite",
+        "readLess": "Réduire",
+        "footer": "Mise en page fan-made · N'est pas un produit officiel de No Brakes Games ou Curve Games"
+      }
+    },
+    "canYouRunIt": {
+      "requirements": {
+        "minimum": {
+          "raw": {
+            "cpu": "Intel Core2 Duo E6750 (2 * 2660) or equivalent | AMD Athlon 64 X2 Dual Core 6000+ (2 * 3000) or equivalent",
+            "gpu": "GeForce GT 740 (2048 MB) or equivalent | Radeon HD 5770 (1024 MB)",
+            "memory": "1024 MB RAM",
+            "storage": "500 MB available space"
+          },
+          "cpu": [
+            {
+              "raw": "Intel Core2 Duo E6750 (2 * 2660)",
+              "brand": "intel",
+              "name": null,
+              "score": null
+            },
+            {
+              "raw": "equivalent | AMD Athlon 64 X2 Dual Core 6000+ (2 * 3000)",
+              "brand": "amd",
+              "name": null,
+              "score": null
+            },
+            {
+              "raw": "equivalent",
+              "brand": null,
+              "name": null,
+              "score": null
+            }
+          ],
+          "gpu": [
+            {
+              "raw": "GeForce GT 740 (2048 MB)",
+              "brand": "nvidia",
+              "name": null,
+              "score": null
+            },
+            {
+              "raw": "equivalent | Radeon HD 5770 (1024 MB)",
+              "brand": null,
+              "name": null,
+              "score": null
+            }
+          ],
+          "ramGB": null,
+          "storageGB": null
+        },
+        "recommended": {
+          "raw": {
+            "cpu": "Intel Core2 Quad Q9300 (4 * 2500) or equivalent | AMD A10-5800K APU (4*3800) or equivalent",
+            "gpu": "GeForce GTX 460 (1024 MB) or equivalent | Radeon HD 7770 (1024 MB)",
+            "memory": "2048 MB RAM",
+            "storage": "500 MB available space"
+          },
+          "cpu": [
+            {
+              "raw": "Intel Core2 Quad Q9300 (4 * 2500)",
+              "brand": "intel",
+              "name": null,
+              "score": null
+            },
+            {
+              "raw": "equivalent | AMD A10-5800K APU (4*3800)",
+              "brand": "amd",
+              "name": null,
+              "score": null
+            },
+            {
+              "raw": "equivalent",
+              "brand": null,
+              "name": null,
+              "score": null
+            }
+          ],
+          "gpu": [
+            {
+              "raw": "GeForce GTX 460 (1024 MB)",
+              "brand": "nvidia",
+              "name": null,
+              "score": null
+            },
+            {
+              "raw": "equivalent | Radeon HD 7770 (1024 MB)",
+              "brand": null,
+              "name": null,
+              "score": null
+            }
+          ],
+          "ramGB": null,
+          "storageGB": null
+        }
+      },
+      "mySpecs": {
+        "overall": "not-listed",
+        "components": {
+          "cpu": {
+            "status": null,
+            "fill": null,
+            "myScore": 40,
+            "minScore": null,
+            "recScore": null,
+            "minName": null,
+            "recName": null
+          },
+          "gpu": {
+            "status": null,
+            "fill": null,
+            "myScore": 20,
+            "minScore": null,
+            "recScore": null,
+            "minName": null,
+            "recName": null
+          },
+          "ram": {
+            "status": null,
+            "fill": null,
+            "myGB": 16,
+            "minGB": null,
+            "recGB": null
+          }
+        },
+        "storage": {
+          "requiredGB": null,
+          "type": "nvme",
+          "tier": "exceeds"
+        },
+        "lean": null,
+        "priorities": []
+      }
+    }
+  },
+  "526870": {
+    "pageTitle": "Satisfactory — FICSIT Field Dossier",
+    "headerBrand": "SATISFACTORY — FICSIT FIELD DOSSIER",
+    "footerBrand": "SATISFACTORY — FICSIT FIELD DOSSIER",
+    "brandIcon": "bolt",
+    "backLink": "coop-library.html",
+    "steamUrl": "https://store.steampowered.com/app/526870/Satisfactory/",
+    "heroImage": "https://coffeestain.com/wp-content/uploads/satisfactory-hero-scaled_A.webp",
+    "gallery": [
+      "https://img2.storyblok.com/fit-in/0x1080/filters:format(webp)/f/110098/2560x1440/243e0e90e4/satisfactory_10_screenshot_1.jpg",
+      "https://img2.storyblok.com/fit-in/0x1080/filters:format(webp)/f/110098/2560x1440/fa6ae185d4/satisfactory_10_screenshot_2.jpg",
+      "https://img2.storyblok.com/fit-in/0x1080/filters:format(webp)/f/110098/1920x1080/f37fc78f67/satisfactory_10_screenshot_3.jpg",
+      "https://img2.storyblok.com/fit-in/0x1080/filters:format(webp)/f/110098/2560x1440/9b39cd1834/satisfactory_10_screenshot_9.png",
+      "https://img2.storyblok.com/fit-in/0x1080/filters:format(webp)/f/110098/1920x1080/1944228584/satisfactory_10_screenshot_5.jpg",
+      "https://img2.storyblok.com/fit-in/0x1080/filters:format(webp)/f/110098/1920x1080/003813ff47/satisfactory_10_screenshot_6.jpg",
+      "https://img2.storyblok.com/fit-in/0x1080/filters:format(webp)/f/110098/1920x1080/57f9a8f23e/satisfactory_10_screenshot_7.jpg"
+    ],
+    "theme": {
+      "accent": "#ee8b1f",
+      "accentSoft": "#f2a94d",
+      "accent2": "#5fa2c9",
+      "hazardA": "#ffc530",
+      "hazardB": "#14171a",
+      "hazardAngle": "-45deg",
+      "fontDisplay": "Oswald",
+      "fontBody": "Barlow",
+      "fontMono": "Space Mono"
+    },
+    "platforms": [
+      {
+        "key": "pc",
+        "label": "PC · Steam / Epic"
+      },
+      {
+        "key": "xbox",
+        "label": "Xbox Series X|S"
+      },
+      {
+        "key": "ps5",
+        "label": "PlayStation 5"
+      }
+    ],
+    "platformData": {
+      "en": {
+        "pc": {
+          "controller": "Full Support",
+          "crossplay": "PC pool only",
+          "players": "Up to 4 (config-editable)",
+          "servers": "Supported"
+        },
+        "xbox": {
+          "controller": "Native",
+          "crossplay": "Xbox ↔ PlayStation",
+          "players": "Up to 4",
+          "servers": "Not available"
+        },
+        "ps5": {
+          "controller": "Native + Haptics",
+          "crossplay": "PlayStation ↔ Xbox",
+          "players": "Up to 4",
+          "servers": "Not available"
+        }
+      },
+      "fr": {
+        "pc": {
+          "controller": "Support complet",
+          "crossplay": "Pool PC uniquement",
+          "players": "Jusqu'à 4 (modifiable)",
+          "servers": "Pris en charge"
+        },
+        "xbox": {
+          "controller": "Natif",
+          "crossplay": "Xbox ↔ PlayStation",
+          "players": "Jusqu'à 4",
+          "servers": "Non disponible"
+        },
+        "ps5": {
+          "controller": "Natif + retour haptique",
+          "crossplay": "PlayStation ↔ Xbox",
+          "players": "Jusqu'à 4",
+          "servers": "Non disponible"
+        }
+      }
+    },
+    "quickFacts": {
+      "en": [
+        {
+          "label": "Genre",
+          "value": "Factory sim / survival"
+        },
+        {
+          "label": "Developer",
+          "value": "Coffee Stain Studios"
+        },
+        {
+          "label": "Engine",
+          "value": "Unreal Engine 5"
+        },
+        {
+          "label": "1.0 release",
+          "value": "Sept 10, 2024"
+        }
+      ],
+      "fr": [
+        {
+          "label": "Genre",
+          "value": "Simulation d'usine / survie"
+        },
+        {
+          "label": "Développeur",
+          "value": "Coffee Stain Studios"
+        },
+        {
+          "label": "Moteur",
+          "value": "Unreal Engine 5"
+        },
+        {
+          "label": "Sortie 1.0",
+          "value": "10 sept. 2024"
+        }
+      ]
+    },
+    "loop": {
+      "en": [
+        "Automate",
+        "Build",
+        "Explore",
+        "Create"
+      ],
+      "fr": [
+        "Automatiser",
+        "Construire",
+        "Explorer",
+        "Créer"
+      ]
+    },
+    "i18n": {
+      "en": {
+        "navGallery": "Gallery",
+        "navDetails": "Details",
+        "backLink": "Back to Library",
+        "titleMain": "SATIS",
+        "titleAccent": "FACTORY",
+        "heroTagline": "A first-person open-world factory building game with a dash of exploration and combat, set on an alien planet just waiting to be exploited.",
+        "tags": [
+          "FACTORY BUILDER",
+          "OPEN WORLD",
+          "SURVIVAL",
+          "CO-OP"
+        ],
+        "steamBtn": "View on Steam",
+        "wishlist": "Add to Wishlist",
+        "wishlisted": "Wishlisted",
+        "galleryHeading": "Screenshots",
+        "detailsHeading": "Details",
+        "detailsSub": "Platforms and cross-play capabilities.",
+        "lblController": "Controller",
+        "lblCrossplay": "Crossplay",
+        "lblPlayers": "Co-op players",
+        "lblServers": "Dedicated servers",
+        "descP": [
+          "You are dropped onto planet MASSAGE-2(A-B)b as a Pioneer working for FICSIT Inc., tasked with establishing automated supply chains for an interstellar project of unclear purpose. What starts as a single smelter and a handful of conveyor belts tends to spiral into a continent-spanning industrial complex.",
+          "There's no fixed objective beyond FICSIT's ever-expanding project milestones — how you get there is up to you. The game left Early Access in September 2024, then arrived on Xbox Series X|S and PS5 in November 2025 with console-to-console crossplay."
+        ],
+        "readMore": "Read more",
+        "readLess": "Read less",
+        "footer": "Fan-made reference layout · Not an official FICSIT Inc. or Coffee Stain Studios product"
+      },
+      "fr": {
+        "navGallery": "Galerie",
+        "navDetails": "Détails",
+        "backLink": "Retour à la bibliothèque",
+        "titleMain": "SATIS",
+        "titleAccent": "FACTORY",
+        "heroTagline": "Un jeu de construction d'usines en vue à la première personne, en monde ouvert, avec un peu d'exploration et de combat, sur une planète extraterrestre qui n'attend que d'être exploitée.",
+        "tags": [
+          "CONSTRUCTION D'USINES",
+          "MONDE OUVERT",
+          "SURVIE",
+          "COOP"
+        ],
+        "steamBtn": "Voir sur Steam",
+        "wishlist": "Ajouter à la liste de souhaits",
+        "wishlisted": "Dans la liste de souhaits",
+        "galleryHeading": "Captures d'écran",
+        "detailsHeading": "Détails",
+        "detailsSub": "Plateformes et compatibilité multiplateforme.",
+        "lblController": "Manette",
+        "lblCrossplay": "Crossplay",
+        "lblPlayers": "Joueurs en coop",
+        "lblServers": "Serveurs dédiés",
+        "descP": [
+          "Vous êtes largué sur la planète MASSAGE-2(A-B)b en tant que Pionnier au service de FICSIT Inc., chargé de mettre en place des chaînes d'approvisionnement automatisées pour un projet interstellaire au but flou. Ce qui commence par un simple four et quelques tapis roulants finit souvent par s'étendre en un complexe industriel à l'échelle d'un continent.",
+          "Il n'y a pas d'objectif fixe au-delà des jalons toujours plus nombreux du projet FICSIT — la façon d'y arriver vous appartient. Le jeu est sorti d'accès anticipé en septembre 2024, puis est arrivé sur Xbox Series X|S et PS5 en novembre 2025 avec un crossplay console à console."
+        ],
+        "readMore": "Lire la suite",
+        "readLess": "Réduire",
+        "footer": "Mise en page fan-made · N'est pas un produit officiel de FICSIT Inc. ou Coffee Stain Studios"
+      }
+    },
+    "canYouRunIt": {
+      "requirements": {
+        "minimum": {
+          "raw": {
+            "cpu": "i5-3570 3.4 GHz 4 Core",
+            "gpu": "Nvidia GTX 1650/GTX 1050-ti, or AMD RX 470/RX 570, or equivalent performance & VRAM",
+            "memory": "8 GB RAM",
+            "storage": "20 GB available space"
+          },
+          "cpu": [
+            {
+              "raw": "i5-3570 3.4 GHz 4 Core",
+              "brand": null,
+              "name": null,
+              "score": null
+            }
+          ],
+          "gpu": [
+            {
+              "raw": "Nvidia GTX 1650",
+              "brand": "nvidia",
+              "name": "NVIDIA GeForce GTX 1650",
+              "score": 7.6
+            },
+            {
+              "raw": "GTX 1050-ti,",
+              "brand": "nvidia",
+              "name": "NVIDIA GeForce GTX 1050 Ti",
+              "score": 4.3
+            },
+            {
+              "raw": "AMD RX 470",
+              "brand": "amd",
+              "name": "AMD Radeon RX 470",
+              "score": 8.1
+            },
+            {
+              "raw": "RX 570,",
+              "brand": "amd",
+              "name": "AMD Radeon RX 570",
+              "score": 8.6
+            },
+            {
+              "raw": "equivalent performance & VRAM",
+              "brand": null,
+              "name": null,
+              "score": null
+            }
+          ],
+          "ramGB": 8,
+          "storageGB": 20
+        },
+        "recommended": {
+          "raw": {
+            "cpu": "Ryzen 5 5600X or i5-12400 or equivalent performance, 6 physical cores minimum",
+            "gpu": "Nvidia RTX 2070 or RX 5700, or equivalent performance & VRAM",
+            "memory": "16 GB RAM",
+            "storage": "20 GB available space"
+          },
+          "cpu": [
+            {
+              "raw": "Ryzen 5 5600X",
+              "brand": "amd",
+              "name": "AMD Ryzen 5 5600X",
+              "score": 51.9
+            },
+            {
+              "raw": "i5-12400",
+              "brand": null,
+              "name": null,
+              "score": null
+            },
+            {
+              "raw": "equivalent performance, 6 physical cores minimum",
+              "brand": null,
+              "name": null,
+              "score": null
+            }
+          ],
+          "gpu": [
+            {
+              "raw": "Nvidia RTX 2070",
+              "brand": "nvidia",
+              "name": "NVIDIA GeForce RTX 2070",
+              "score": 25
+            },
+            {
+              "raw": "RX 5700,",
+              "brand": "amd",
+              "name": "AMD Radeon RX 570",
+              "score": 8.6
+            },
+            {
+              "raw": "equivalent performance & VRAM",
+              "brand": null,
+              "name": null,
+              "score": null
+            }
+          ],
+          "ramGB": 16,
+          "storageGB": 20
+        }
+      },
+      "mySpecs": {
+        "overall": "below-minimum",
+        "components": {
+          "cpu": {
+            "status": "below-minimum",
+            "fill": 77,
+            "myScore": 40,
+            "minScore": null,
+            "recScore": 51.9,
+            "minName": null,
+            "recName": "AMD Ryzen 5 5600X"
+          },
+          "gpu": {
+            "status": "above-minimum",
+            "fill": 70,
+            "myScore": 20,
+            "minScore": 7.6,
+            "recScore": 25,
+            "minName": "NVIDIA GeForce GTX 1650",
+            "recName": "NVIDIA GeForce RTX 2070"
+          },
+          "ram": {
+            "status": "meets-recommended",
+            "fill": 0,
+            "myGB": 16,
+            "minGB": 8,
+            "recGB": 16
+          }
+        },
+        "storage": {
+          "requiredGB": 20,
+          "type": "nvme",
+          "tier": "exceeds"
+        },
+        "lean": "balanced",
+        "priorities": [
+          {
+            "component": "cpu",
+            "severity": "high",
+            "gap": -11.899999999999999
+          },
+          {
+            "component": "gpu",
+            "severity": "high",
+            "gap": -5
+          }
+        ]
+      }
+    }
+  },
+  "594650": {
+    "pageTitle": "Hunt: Showdown 1896 — Bounty Ledger",
+    "headerBrand": "HUNT: SHOWDOWN 1896",
+    "footerBrand": "HUNT: SHOWDOWN 1896",
+    "brandIcon": "dot",
+    "backLink": "coop-library.html",
+    "steamUrl": "https://store.steampowered.com/app/594650/Hunt_Showdown_1896/",
+    "heroImage": "",
+    "gallery": [
+      "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA4MDAgNDUwIj4KPHJlY3Qgd2lkdGg9IjgwMCIgaGVpZ2h0PSI0NTAiIGZpbGw9IiMzYTJmNjMiLz4KPHJlY3Qgd2lkdGg9IjgwMCIgaGVpZ2h0PSI0NTAiIGZpbGw9InVybCgjZG90cykiIG9wYWNpdHk9IjAuMTUiLz4KPGRlZnM+PHBhdHRlcm4gaWQ9ImRvdHMiIHdpZHRoPSIyOCIgaGVpZ2h0PSIyOCIgcGF0dGVyblVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+PGNpcmNsZSBjeD0iNCIgY3k9IjQiIHI9IjIiIGZpbGw9IiNmZmZmZmYiLz48L3BhdHRlcm4+PC9kZWZzPgo8dGV4dCB4PSI0MDAiIHk9IjIxNSIgZm9udC1mYW1pbHk9IlZlcmRhbmEiIGZvbnQtc2l6ZT0iMjYiIGZpbGw9IiNmZmZmZmYiIHRleHQtYW5jaG9yPSJtaWRkbGUiIG9wYWNpdHk9IjAuODUiPlNDUkVFTlNIT1QgMTwvdGV4dD4KPHRleHQgeD0iNDAwIiB5PSIyNTAiIGZvbnQtZmFtaWx5PSJWZXJkYW5hIiBmb250LXNpemU9IjE0IiBmaWxsPSIjZmZmZmZmIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBvcGFjaXR5PSIwLjYiPmRyb3AgeW91ciBjYXB0dXJlIGluIC9hc3NldHMvaGZmLzwvdGV4dD4KPC9zdmc+",
+      "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA4MDAgNDUwIj4KPHJlY3Qgd2lkdGg9IjgwMCIgaGVpZ2h0PSI0NTAiIGZpbGw9IiMyZjRhNjMiLz4KPHJlY3Qgd2lkdGg9IjgwMCIgaGVpZ2h0PSI0NTAiIGZpbGw9InVybCgjZG90cykiIG9wYWNpdHk9IjAuMTUiLz4KPGRlZnM+PHBhdHRlcm4gaWQ9ImRvdHMiIHdpZHRoPSIyOCIgaGVpZ2h0PSIyOCIgcGF0dGVyblVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+PGNpcmNsZSBjeD0iNCIgY3k9IjQiIHI9IjIiIGZpbGw9IiNmZmZmZmYiLz48L3BhdHRlcm4+PC9kZWZzPgo8dGV4dCB4PSI0MDAiIHk9IjIxNSIgZm9udC1mYW1pbHk9IlZlcmRhbmEiIGZvbnQtc2l6ZT0iMjYiIGZpbGw9IiNmZmZmZmYiIHRleHQtYW5jaG9yPSJtaWRkbGUiIG9wYWNpdHk9IjAuODUiPlNDUkVFTlNIT1QgMjwvdGV4dD4KPHRleHQgeD0iNDAwIiB5PSIyNTAiIGZvbnQtZmFtaWx5PSJWZXJkYW5hIiBmb250LXNpemU9IjE0IiBmaWxsPSIjZmZmZmZmIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBvcGFjaXR5PSIwLjYiPmRyb3AgeW91ciBjYXB0dXJlIGluIC9hc3NldHMvaGZmLzwvdGV4dD4KPC9zdmc+",
+      "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA4MDAgNDUwIj4KPHJlY3Qgd2lkdGg9IjgwMCIgaGVpZ2h0PSI0NTAiIGZpbGw9IiM2MzQzMmYiLz4KPHJlY3Qgd2lkdGg9IjgwMCIgaGVpZ2h0PSI0NTAiIGZpbGw9InVybCgjZG90cykiIG9wYWNpdHk9IjAuMTUiLz4KPGRlZnM+PHBhdHRlcm4gaWQ9ImRvdHMiIHdpZHRoPSIyOCIgaGVpZ2h0PSIyOCIgcGF0dGVyblVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+PGNpcmNsZSBjeD0iNCIgY3k9IjQiIHI9IjIiIGZpbGw9IiNmZmZmZmYiLz48L3BhdHRlcm4+PC9kZWZzPgo8dGV4dCB4PSI0MDAiIHk9IjIxNSIgZm9udC1mYW1pbHk9IlZlcmRhbmEiIGZvbnQtc2l6ZT0iMjYiIGZpbGw9IiNmZmZmZmYiIHRleHQtYW5jaG9yPSJtaWRkbGUiIG9wYWNpdHk9IjAuODUiPlNDUkVFTlNIT1QgMzwvdGV4dD4KPHRleHQgeD0iNDAwIiB5PSIyNTAiIGZvbnQtZmFtaWx5PSJWZXJkYW5hIiBmb250LXNpemU9IjE0IiBmaWxsPSIjZmZmZmZmIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBvcGFjaXR5PSIwLjYiPmRyb3AgeW91ciBjYXB0dXJlIGluIC9hc3NldHMvaGZmLzwvdGV4dD4KPC9zdmc+",
+      "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA4MDAgNDUwIj4KPHJlY3Qgd2lkdGg9IjgwMCIgaGVpZ2h0PSI0NTAiIGZpbGw9IiMyZjYzNTAiLz4KPHJlY3Qgd2lkdGg9IjgwMCIgaGVpZ2h0PSI0NTAiIGZpbGw9InVybCgjZG90cykiIG9wYWNpdHk9IjAuMTUiLz4KPGRlZnM+PHBhdHRlcm4gaWQ9ImRvdHMiIHdpZHRoPSIyOCIgaGVpZ2h0PSIyOCIgcGF0dGVyblVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+PGNpcmNsZSBjeD0iNCIgY3k9IjQiIHI9IjIiIGZpbGw9IiNmZmZmZmYiLz48L3BhdHRlcm4+PC9kZWZzPgo8dGV4dCB4PSI0MDAiIHk9IjIxNSIgZm9udC1mYW1pbHk9IlZlcmRhbmEiIGZvbnQtc2l6ZT0iMjYiIGZpbGw9IiNmZmZmZmYiIHRleHQtYW5jaG9yPSJtaWRkbGUiIG9wYWNpdHk9IjAuODUiPlNDUkVFTlNIT1QgNDwvdGV4dD4KPHRleHQgeD0iNDAwIiB5PSIyNTAiIGZvbnQtZmFtaWx5PSJWZXJkYW5hIiBmb250LXNpemU9IjE0IiBmaWxsPSIjZmZmZmZmIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBvcGFjaXR5PSIwLjYiPmRyb3AgeW91ciBjYXB0dXJlIGluIC9hc3NldHMvaGZmLzwvdGV4dD4KPC9zdmc+",
+      "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA4MDAgNDUwIj4KPHJlY3Qgd2lkdGg9IjgwMCIgaGVpZ2h0PSI0NTAiIGZpbGw9IiM1YTJmNjMiLz4KPHJlY3Qgd2lkdGg9IjgwMCIgaGVpZ2h0PSI0NTAiIGZpbGw9InVybCgjZG90cykiIG9wYWNpdHk9IjAuMTUiLz4KPGRlZnM+PHBhdHRlcm4gaWQ9ImRvdHMiIHdpZHRoPSIyOCIgaGVpZ2h0PSIyOCIgcGF0dGVyblVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+PGNpcmNsZSBjeD0iNCIgY3k9IjQiIHI9IjIiIGZpbGw9IiNmZmZmZmYiLz48L3BhdHRlcm4+PC9kZWZzPgo8dGV4dCB4PSI0MDAiIHk9IjIxNSIgZm9udC1mYW1pbHk9IlZlcmRhbmEiIGZvbnQtc2l6ZT0iMjYiIGZpbGw9IiNmZmZmZmYiIHRleHQtYW5jaG9yPSJtaWRkbGUiIG9wYWNpdHk9IjAuODUiPlNDUkVFTlNIT1QgNTwvdGV4dD4KPHRleHQgeD0iNDAwIiB5PSIyNTAiIGZvbnQtZmFtaWx5PSJWZXJkYW5hIiBmb250LXNpemU9IjE0IiBmaWxsPSIjZmZmZmZmIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBvcGFjaXR5PSIwLjYiPmRyb3AgeW91ciBjYXB0dXJlIGluIC9hc3NldHMvaGZmLzwvdGV4dD4KPC9zdmc+",
+      "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA4MDAgNDUwIj4KPHJlY3Qgd2lkdGg9IjgwMCIgaGVpZ2h0PSI0NTAiIGZpbGw9IiMyZjVhNjMiLz4KPHJlY3Qgd2lkdGg9IjgwMCIgaGVpZ2h0PSI0NTAiIGZpbGw9InVybCgjZG90cykiIG9wYWNpdHk9IjAuMTUiLz4KPGRlZnM+PHBhdHRlcm4gaWQ9ImRvdHMiIHdpZHRoPSIyOCIgaGVpZ2h0PSIyOCIgcGF0dGVyblVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+PGNpcmNsZSBjeD0iNCIgY3k9IjQiIHI9IjIiIGZpbGw9IiNmZmZmZmYiLz48L3BhdHRlcm4+PC9kZWZzPgo8dGV4dCB4PSI0MDAiIHk9IjIxNSIgZm9udC1mYW1pbHk9IlZlcmRhbmEiIGZvbnQtc2l6ZT0iMjYiIGZpbGw9IiNmZmZmZmYiIHRleHQtYW5jaG9yPSJtaWRkbGUiIG9wYWNpdHk9IjAuODUiPlNDUkVFTlNIT1QgNjwvdGV4dD4KPHRleHQgeD0iNDAwIiB5PSIyNTAiIGZvbnQtZmFtaWx5PSJWZXJkYW5hIiBmb250LXNpemU9IjE0IiBmaWxsPSIjZmZmZmZmIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBvcGFjaXR5PSIwLjYiPmRyb3AgeW91ciBjYXB0dXJlIGluIC9hc3NldHMvaGZmLzwvdGV4dD4KPC9zdmc+"
+    ],
+    "theme": {
+      "accent": "#8a1f1f",
+      "accentSoft": "#b03a3a",
+      "accent2": "#c98a3c",
+      "hazardA": "#8a1f1f",
+      "hazardB": "#141010",
+      "hazardAngle": "-45deg",
+      "fontDisplay": "Oswald",
+      "fontBody": "Barlow",
+      "fontMono": "Space Mono"
+    },
+    "platforms": [
+      {
+        "key": "pc",
+        "label": "PC · Steam"
+      },
+      {
+        "key": "ps5",
+        "label": "PlayStation 5"
+      },
+      {
+        "key": "xboxseries",
+        "label": "Xbox Series X|S"
+      }
+    ],
+    "platformData": {
+      "en": {
+        "pc": {
+          "controller": "Full Support",
+          "crossplay": "PlayStation ↔ Xbox only (PC separate)",
+          "players": "Up to 3",
+          "servers": "Dedicated"
+        },
+        "ps5": {
+          "controller": "Full Support",
+          "crossplay": "PlayStation ↔ Xbox only (PC separate)",
+          "players": "Up to 3",
+          "servers": "Dedicated"
+        },
+        "xboxseries": {
+          "controller": "Full Support",
+          "crossplay": "PlayStation ↔ Xbox only (PC separate)",
+          "players": "Up to 3",
+          "servers": "Dedicated"
+        }
+      },
+      "fr": {
+        "pc": {
+          "controller": "Support complet",
+          "crossplay": "PlayStation ↔ Xbox uniquement (PC séparé)",
+          "players": "Jusqu'à 3",
+          "servers": "Dédiés"
+        },
+        "ps5": {
+          "controller": "Support complet",
+          "crossplay": "PlayStation ↔ Xbox uniquement (PC séparé)",
+          "players": "Jusqu'à 3",
+          "servers": "Dédiés"
+        },
+        "xboxseries": {
+          "controller": "Support complet",
+          "crossplay": "PlayStation ↔ Xbox uniquement (PC séparé)",
+          "players": "Jusqu'à 3",
+          "servers": "Dédiés"
+        }
+      }
+    },
+    "quickFacts": {
+      "en": [
+        {
+          "label": "Genre",
+          "value": "PvPvE extraction shooter"
+        },
+        {
+          "label": "Developer",
+          "value": "Crytek"
+        },
+        {
+          "label": "Publisher",
+          "value": "Crytek"
+        },
+        {
+          "label": "1896 relaunch",
+          "value": "Aug 15, 2024"
+        }
+      ],
+      "fr": [
+        {
+          "label": "Genre",
+          "value": "Extraction shooter PvPvE"
+        },
+        {
+          "label": "Développeur",
+          "value": "Crytek"
+        },
+        {
+          "label": "Éditeur",
+          "value": "Crytek"
+        },
+        {
+          "label": "Relance 1896",
+          "value": "15 août 2024"
+        }
+      ]
+    },
+    "loop": {
+      "en": [
+        "Track",
+        "Banish",
+        "Duel",
+        "Extract"
+      ],
+      "fr": [
+        "Traquer",
+        "Bannir",
+        "Duel",
+        "Extraire"
+      ]
+    },
+    "i18n": {
+      "en": {
+        "navGallery": "Gallery",
+        "navDetails": "Details",
+        "backLink": "Back to Library",
+        "titleMain": "HUNT",
+        "titleAccent": ": SHOWDOWN 1896",
+        "heroTagline": "Teams of up to three bounty hunters track down monstrous bosses in a corrupted 1890s frontier — every gunshot is a message, and every death is permanent.",
+        "tags": [
+          "EXTRACTION SHOOTER",
+          "PvPvE",
+          "PERMADEATH",
+          "TEAMS OF UP TO 3"
+        ],
+        "steamBtn": "View on Steam",
+        "wishlist": "Add to Wishlist",
+        "wishlisted": "Wishlisted",
+        "galleryHeading": "Screenshots",
+        "detailsHeading": "Details",
+        "detailsSub": "Platforms and cross-play capabilities.",
+        "lblController": "Controller",
+        "lblCrossplay": "Crossplay",
+        "lblPlayers": "Co-op players",
+        "lblServers": "Dedicated servers",
+        "descP": [
+          "Somewhere in a corrupted 1890s frontier, teams of up to three bounty hunters chase down monstrous bosses while trying not to become someone else's bounty. Gunfights are slow and tense by design — every hit can be lethal, every death is permanent for that hunter, and the compound you're clearing might already have another team inside it.",
+          "The 1896 relaunch rebuilt the game on an upgraded engine and added the Colorado mountains of Mammon's Gulch alongside the original Louisiana bayou map. PC and console players sit in separate matchmaking pools, but PlayStation and Xbox hunters can party up and play together."
+        ],
+        "readMore": "Read more",
+        "readLess": "Read less",
+        "footer": "Fan-made reference layout · Not an official Crytek product"
+      },
+      "fr": {
+        "navGallery": "Galerie",
+        "navDetails": "Détails",
+        "backLink": "Retour à la bibliothèque",
+        "titleMain": "HUNT",
+        "titleAccent": " : SHOWDOWN 1896",
+        "heroTagline": "Des équipes de trois chasseurs de primes traquent des boss monstrueux dans une frontière corrompue des années 1890 — chaque coup de feu est un message, et chaque mort est permanente.",
+        "tags": [
+          "EXTRACTION SHOOTER",
+          "PvPvE",
+          "MORT PERMANENTE",
+          "ÉQUIPES DE 3"
+        ],
+        "steamBtn": "Voir sur Steam",
+        "wishlist": "Ajouter à la liste de souhaits",
+        "wishlisted": "Dans la liste de souhaits",
+        "galleryHeading": "Captures d'écran",
+        "detailsHeading": "Détails",
+        "detailsSub": "Plateformes et compatibilité multiplateforme.",
+        "lblController": "Manette",
+        "lblCrossplay": "Crossplay",
+        "lblPlayers": "Joueurs en coop",
+        "lblServers": "Serveurs dédiés",
+        "descP": [
+          "Quelque part dans une frontière corrompue des années 1890, des équipes de trois chasseurs de primes traquent des boss monstrueux tout en évitant de devenir la prime de quelqu'un d'autre. Les fusillades sont volontairement lentes et tendues : chaque coup peut être fatal, chaque mort est définitive pour ce chasseur, et le lieu que vous fouillez abrite peut-être déjà une autre équipe.",
+          "La relance 1896 a reconstruit le jeu sur un moteur amélioré et ajouté les montagnes du Colorado de Mammon's Gulch aux côtés du bayou louisianais d'origine. Les joueurs PC et consoles restent dans des files d'attente séparées, mais PlayStation et Xbox peuvent se regrouper et jouer ensemble."
+        ],
+        "readMore": "Lire la suite",
+        "readLess": "Réduire",
+        "footer": "Mise en page fan-made · N'est pas un produit officiel de Crytek"
+      }
+    },
+    "canYouRunIt": {
+      "requirements": {
+        "minimum": {
+          "raw": {
+            "cpu": "Intel CPU 7th Gen 7700 / AMD Ryzen 5 2600",
+            "gpu": "NVIDIA GTX 1650 Super or AMD Radeon RX 5500 XT, with a minimum of 4GB of VRAM",
+            "memory": "8 GB RAM",
+            "storage": "75 GB available space"
+          },
+          "cpu": [
+            {
+              "raw": "Intel CPU 7th Gen 7700",
+              "brand": "intel",
+              "name": null,
+              "score": null
+            },
+            {
+              "raw": "AMD Ryzen 5 2600",
+              "brand": "amd",
+              "name": "AMD Ryzen 5 2600",
+              "score": 33
+            }
+          ],
+          "gpu": [
+            {
+              "raw": "NVIDIA GTX 1650 Super",
+              "brand": "nvidia",
+              "name": "NVIDIA GeForce GTX 1650",
+              "score": 7.6
+            },
+            {
+              "raw": "AMD Radeon RX 5500 XT, with a minimum of 4GB of VRAM",
+              "brand": "amd",
+              "name": null,
+              "score": null
+            }
+          ],
+          "ramGB": 8,
+          "storageGB": 75
+        },
+        "recommended": {
+          "raw": {
+            "cpu": "Intel CPU 8th Gen 8700 / AMD Ryzen 7 2700",
+            "gpu": "RTX 2060 Super or AMD Radeon RX 6600 XT, with a minimum of 8GB of VRAM",
+            "memory": "12 GB RAM",
+            "storage": "75 GB available space"
+          },
+          "cpu": [
+            {
+              "raw": "Intel CPU 8th Gen 8700",
+              "brand": "intel",
+              "name": null,
+              "score": null
+            },
+            {
+              "raw": "AMD Ryzen 7 2700",
+              "brand": "amd",
+              "name": null,
+              "score": null
+            }
+          ],
+          "gpu": [
+            {
+              "raw": "RTX 2060 Super",
+              "brand": "nvidia",
+              "name": "NVIDIA GeForce RTX 2060 Super",
+              "score": 24
+            },
+            {
+              "raw": "AMD Radeon RX 6600 XT, with a minimum of 8GB of VRAM",
+              "brand": "amd",
+              "name": "AMD Radeon RX 6600 XT",
+              "score": 30.8
+            }
+          ],
+          "ramGB": 12,
+          "storageGB": 75
+        }
+      },
+      "mySpecs": {
+        "overall": "above-minimum",
+        "components": {
+          "cpu": {
+            "status": "above-minimum",
+            "fill": 10,
+            "myScore": 40,
+            "minScore": 33,
+            "recScore": null,
+            "minName": "AMD Ryzen 5 2600",
+            "recName": null
+          },
+          "gpu": {
+            "status": "above-minimum",
+            "fill": 74,
+            "myScore": 20,
+            "minScore": 7.6,
+            "recScore": 24,
+            "minName": "NVIDIA GeForce GTX 1650",
+            "recName": "NVIDIA GeForce RTX 2060 Super"
+          },
+          "ram": {
+            "status": "exceeds-recommended",
+            "fill": 11,
+            "myGB": 16,
+            "minGB": 8,
+            "recGB": 12
+          }
+        },
+        "storage": {
+          "requiredGB": 75,
+          "type": "nvme",
+          "tier": "exceeds"
+        },
+        "lean": "gpu",
+        "priorities": [
+          {
+            "component": "gpu",
+            "severity": "high",
+            "gap": -4
+          }
+        ]
+      }
+    }
+  },
+  "632360": {
+    "pageTitle": "Risk of Rain 2 — Survivor Log",
+    "headerBrand": "RISK OF RAIN 2",
+    "footerBrand": "RISK OF RAIN 2",
+    "brandIcon": "dot",
+    "backLink": "coop-library.html",
+    "steamUrl": "https://store.steampowered.com/app/632360/Risk_of_Rain_2/",
+    "heroImage": "",
+    "gallery": [
+      "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA4MDAgNDUwIj4KPHJlY3Qgd2lkdGg9IjgwMCIgaGVpZ2h0PSI0NTAiIGZpbGw9IiMzYTJmNjMiLz4KPHJlY3Qgd2lkdGg9IjgwMCIgaGVpZ2h0PSI0NTAiIGZpbGw9InVybCgjZG90cykiIG9wYWNpdHk9IjAuMTUiLz4KPGRlZnM+PHBhdHRlcm4gaWQ9ImRvdHMiIHdpZHRoPSIyOCIgaGVpZ2h0PSIyOCIgcGF0dGVyblVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+PGNpcmNsZSBjeD0iNCIgY3k9IjQiIHI9IjIiIGZpbGw9IiNmZmZmZmYiLz48L3BhdHRlcm4+PC9kZWZzPgo8dGV4dCB4PSI0MDAiIHk9IjIxNSIgZm9udC1mYW1pbHk9IlZlcmRhbmEiIGZvbnQtc2l6ZT0iMjYiIGZpbGw9IiNmZmZmZmYiIHRleHQtYW5jaG9yPSJtaWRkbGUiIG9wYWNpdHk9IjAuODUiPlNDUkVFTlNIT1QgMTwvdGV4dD4KPHRleHQgeD0iNDAwIiB5PSIyNTAiIGZvbnQtZmFtaWx5PSJWZXJkYW5hIiBmb250LXNpemU9IjE0IiBmaWxsPSIjZmZmZmZmIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBvcGFjaXR5PSIwLjYiPmRyb3AgeW91ciBjYXB0dXJlIGluIC9hc3NldHMvaGZmLzwvdGV4dD4KPC9zdmc+",
+      "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA4MDAgNDUwIj4KPHJlY3Qgd2lkdGg9IjgwMCIgaGVpZ2h0PSI0NTAiIGZpbGw9IiMyZjRhNjMiLz4KPHJlY3Qgd2lkdGg9IjgwMCIgaGVpZ2h0PSI0NTAiIGZpbGw9InVybCgjZG90cykiIG9wYWNpdHk9IjAuMTUiLz4KPGRlZnM+PHBhdHRlcm4gaWQ9ImRvdHMiIHdpZHRoPSIyOCIgaGVpZ2h0PSIyOCIgcGF0dGVyblVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+PGNpcmNsZSBjeD0iNCIgY3k9IjQiIHI9IjIiIGZpbGw9IiNmZmZmZmYiLz48L3BhdHRlcm4+PC9kZWZzPgo8dGV4dCB4PSI0MDAiIHk9IjIxNSIgZm9udC1mYW1pbHk9IlZlcmRhbmEiIGZvbnQtc2l6ZT0iMjYiIGZpbGw9IiNmZmZmZmYiIHRleHQtYW5jaG9yPSJtaWRkbGUiIG9wYWNpdHk9IjAuODUiPlNDUkVFTlNIT1QgMjwvdGV4dD4KPHRleHQgeD0iNDAwIiB5PSIyNTAiIGZvbnQtZmFtaWx5PSJWZXJkYW5hIiBmb250LXNpemU9IjE0IiBmaWxsPSIjZmZmZmZmIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBvcGFjaXR5PSIwLjYiPmRyb3AgeW91ciBjYXB0dXJlIGluIC9hc3NldHMvaGZmLzwvdGV4dD4KPC9zdmc+",
+      "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA4MDAgNDUwIj4KPHJlY3Qgd2lkdGg9IjgwMCIgaGVpZ2h0PSI0NTAiIGZpbGw9IiM2MzQzMmYiLz4KPHJlY3Qgd2lkdGg9IjgwMCIgaGVpZ2h0PSI0NTAiIGZpbGw9InVybCgjZG90cykiIG9wYWNpdHk9IjAuMTUiLz4KPGRlZnM+PHBhdHRlcm4gaWQ9ImRvdHMiIHdpZHRoPSIyOCIgaGVpZ2h0PSIyOCIgcGF0dGVyblVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+PGNpcmNsZSBjeD0iNCIgY3k9IjQiIHI9IjIiIGZpbGw9IiNmZmZmZmYiLz48L3BhdHRlcm4+PC9kZWZzPgo8dGV4dCB4PSI0MDAiIHk9IjIxNSIgZm9udC1mYW1pbHk9IlZlcmRhbmEiIGZvbnQtc2l6ZT0iMjYiIGZpbGw9IiNmZmZmZmYiIHRleHQtYW5jaG9yPSJtaWRkbGUiIG9wYWNpdHk9IjAuODUiPlNDUkVFTlNIT1QgMzwvdGV4dD4KPHRleHQgeD0iNDAwIiB5PSIyNTAiIGZvbnQtZmFtaWx5PSJWZXJkYW5hIiBmb250LXNpemU9IjE0IiBmaWxsPSIjZmZmZmZmIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBvcGFjaXR5PSIwLjYiPmRyb3AgeW91ciBjYXB0dXJlIGluIC9hc3NldHMvaGZmLzwvdGV4dD4KPC9zdmc+",
+      "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA4MDAgNDUwIj4KPHJlY3Qgd2lkdGg9IjgwMCIgaGVpZ2h0PSI0NTAiIGZpbGw9IiMyZjYzNTAiLz4KPHJlY3Qgd2lkdGg9IjgwMCIgaGVpZ2h0PSI0NTAiIGZpbGw9InVybCgjZG90cykiIG9wYWNpdHk9IjAuMTUiLz4KPGRlZnM+PHBhdHRlcm4gaWQ9ImRvdHMiIHdpZHRoPSIyOCIgaGVpZ2h0PSIyOCIgcGF0dGVyblVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+PGNpcmNsZSBjeD0iNCIgY3k9IjQiIHI9IjIiIGZpbGw9IiNmZmZmZmYiLz48L3BhdHRlcm4+PC9kZWZzPgo8dGV4dCB4PSI0MDAiIHk9IjIxNSIgZm9udC1mYW1pbHk9IlZlcmRhbmEiIGZvbnQtc2l6ZT0iMjYiIGZpbGw9IiNmZmZmZmYiIHRleHQtYW5jaG9yPSJtaWRkbGUiIG9wYWNpdHk9IjAuODUiPlNDUkVFTlNIT1QgNDwvdGV4dD4KPHRleHQgeD0iNDAwIiB5PSIyNTAiIGZvbnQtZmFtaWx5PSJWZXJkYW5hIiBmb250LXNpemU9IjE0IiBmaWxsPSIjZmZmZmZmIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBvcGFjaXR5PSIwLjYiPmRyb3AgeW91ciBjYXB0dXJlIGluIC9hc3NldHMvaGZmLzwvdGV4dD4KPC9zdmc+",
+      "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA4MDAgNDUwIj4KPHJlY3Qgd2lkdGg9IjgwMCIgaGVpZ2h0PSI0NTAiIGZpbGw9IiM1YTJmNjMiLz4KPHJlY3Qgd2lkdGg9IjgwMCIgaGVpZ2h0PSI0NTAiIGZpbGw9InVybCgjZG90cykiIG9wYWNpdHk9IjAuMTUiLz4KPGRlZnM+PHBhdHRlcm4gaWQ9ImRvdHMiIHdpZHRoPSIyOCIgaGVpZ2h0PSIyOCIgcGF0dGVyblVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+PGNpcmNsZSBjeD0iNCIgY3k9IjQiIHI9IjIiIGZpbGw9IiNmZmZmZmYiLz48L3BhdHRlcm4+PC9kZWZzPgo8dGV4dCB4PSI0MDAiIHk9IjIxNSIgZm9udC1mYW1pbHk9IlZlcmRhbmEiIGZvbnQtc2l6ZT0iMjYiIGZpbGw9IiNmZmZmZmYiIHRleHQtYW5jaG9yPSJtaWRkbGUiIG9wYWNpdHk9IjAuODUiPlNDUkVFTlNIT1QgNTwvdGV4dD4KPHRleHQgeD0iNDAwIiB5PSIyNTAiIGZvbnQtZmFtaWx5PSJWZXJkYW5hIiBmb250LXNpemU9IjE0IiBmaWxsPSIjZmZmZmZmIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBvcGFjaXR5PSIwLjYiPmRyb3AgeW91ciBjYXB0dXJlIGluIC9hc3NldHMvaGZmLzwvdGV4dD4KPC9zdmc+",
+      "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA4MDAgNDUwIj4KPHJlY3Qgd2lkdGg9IjgwMCIgaGVpZ2h0PSI0NTAiIGZpbGw9IiMyZjVhNjMiLz4KPHJlY3Qgd2lkdGg9IjgwMCIgaGVpZ2h0PSI0NTAiIGZpbGw9InVybCgjZG90cykiIG9wYWNpdHk9IjAuMTUiLz4KPGRlZnM+PHBhdHRlcm4gaWQ9ImRvdHMiIHdpZHRoPSIyOCIgaGVpZ2h0PSIyOCIgcGF0dGVyblVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+PGNpcmNsZSBjeD0iNCIgY3k9IjQiIHI9IjIiIGZpbGw9IiNmZmZmZmYiLz48L3BhdHRlcm4+PC9kZWZzPgo8dGV4dCB4PSI0MDAiIHk9IjIxNSIgZm9udC1mYW1pbHk9IlZlcmRhbmEiIGZvbnQtc2l6ZT0iMjYiIGZpbGw9IiNmZmZmZmYiIHRleHQtYW5jaG9yPSJtaWRkbGUiIG9wYWNpdHk9IjAuODUiPlNDUkVFTlNIT1QgNjwvdGV4dD4KPHRleHQgeD0iNDAwIiB5PSIyNTAiIGZvbnQtZmFtaWx5PSJWZXJkYW5hIiBmb250LXNpemU9IjE0IiBmaWxsPSIjZmZmZmZmIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBvcGFjaXR5PSIwLjYiPmRyb3AgeW91ciBjYXB0dXJlIGluIC9hc3NldHMvaGZmLzwvdGV4dD4KPC9zdmc+"
+    ],
+    "theme": {
+      "accent": "#39ff88",
+      "accentSoft": "#7dffb0",
+      "accent2": "#ff3d81",
+      "hazardA": "#39ff88",
+      "hazardB": "#0d1a12",
+      "hazardAngle": "-45deg",
+      "fontDisplay": "Oswald",
+      "fontBody": "Barlow",
+      "fontMono": "Space Mono"
+    },
+    "platforms": [
+      {
+        "key": "pc",
+        "label": "PC · Steam"
+      },
+      {
+        "key": "ps4",
+        "label": "PlayStation 4"
+      },
+      {
+        "key": "ps5",
+        "label": "PlayStation 5"
+      },
+      {
+        "key": "xboxone",
+        "label": "Xbox One"
+      },
+      {
+        "key": "xboxseries",
+        "label": "Xbox Series X|S"
+      },
+      {
+        "key": "switch",
+        "label": "Nintendo Switch"
+      }
+    ],
+    "platformData": {
+      "en": {
+        "pc": {
+          "controller": "Full Support",
+          "crossplay": "Not supported",
+          "players": "Up to 4",
+          "servers": "Peer-to-peer"
+        },
+        "ps4": {
+          "controller": "Full Support",
+          "crossplay": "Not supported",
+          "players": "Up to 4",
+          "servers": "Peer-to-peer"
+        },
+        "ps5": {
+          "controller": "Full Support",
+          "crossplay": "Not supported",
+          "players": "Up to 4",
+          "servers": "Peer-to-peer"
+        },
+        "xboxone": {
+          "controller": "Full Support",
+          "crossplay": "Not supported",
+          "players": "Up to 4",
+          "servers": "Peer-to-peer"
+        },
+        "xboxseries": {
+          "controller": "Full Support",
+          "crossplay": "Not supported",
+          "players": "Up to 4",
+          "servers": "Peer-to-peer"
+        },
+        "switch": {
+          "controller": "Full Support",
+          "crossplay": "Not supported",
+          "players": "Up to 4",
+          "servers": "Peer-to-peer"
+        }
+      },
+      "fr": {
+        "pc": {
+          "controller": "Support complet",
+          "crossplay": "Non pris en charge",
+          "players": "Jusqu'à 4",
+          "servers": "Pair à pair"
+        },
+        "ps4": {
+          "controller": "Support complet",
+          "crossplay": "Non pris en charge",
+          "players": "Jusqu'à 4",
+          "servers": "Pair à pair"
+        },
+        "ps5": {
+          "controller": "Support complet",
+          "crossplay": "Non pris en charge",
+          "players": "Jusqu'à 4",
+          "servers": "Pair à pair"
+        },
+        "xboxone": {
+          "controller": "Support complet",
+          "crossplay": "Non pris en charge",
+          "players": "Jusqu'à 4",
+          "servers": "Pair à pair"
+        },
+        "xboxseries": {
+          "controller": "Support complet",
+          "crossplay": "Non pris en charge",
+          "players": "Jusqu'à 4",
+          "servers": "Pair à pair"
+        },
+        "switch": {
+          "controller": "Support complet",
+          "crossplay": "Non pris en charge",
+          "players": "Jusqu'à 4",
+          "servers": "Pair à pair"
+        }
+      }
+    },
+    "quickFacts": {
+      "en": [
+        {
+          "label": "Genre",
+          "value": "3D roguelike shooter"
+        },
+        {
+          "label": "Developer",
+          "value": "Hopoo Games"
+        },
+        {
+          "label": "Publisher",
+          "value": "Gearbox Publishing"
+        },
+        {
+          "label": "1.0 release",
+          "value": "Aug 11, 2020"
+        }
+      ],
+      "fr": [
+        {
+          "label": "Genre",
+          "value": "Roguelike shooter en 3D"
+        },
+        {
+          "label": "Développeur",
+          "value": "Hopoo Games"
+        },
+        {
+          "label": "Éditeur",
+          "value": "Gearbox Publishing"
+        },
+        {
+          "label": "Sortie 1.0",
+          "value": "11 août 2020"
+        }
+      ]
+    },
+    "loop": {
+      "en": [
+        "Loot",
+        "Fight",
+        "Teleport",
+        "Survive"
+      ],
+      "fr": [
+        "Piller",
+        "Combattre",
+        "Téléporter",
+        "Survivre"
+      ]
+    },
+    "i18n": {
+      "en": {
+        "navGallery": "Gallery",
+        "navDetails": "Details",
+        "backLink": "Back to Library",
+        "titleMain": "RISK OF",
+        "titleAccent": " RAIN 2",
+        "heroTagline": "Crash-landed survivors fight through procedurally generated alien ruins, stacking item after item until the difficulty and the loadout are both completely out of hand.",
+        "tags": [
+          "ROGUELIKE",
+          "THIRD-PERSON SHOOTER",
+          "4-PLAYER CO-OP",
+          "PROCEDURAL"
+        ],
+        "steamBtn": "View on Steam",
+        "wishlist": "Add to Wishlist",
+        "wishlisted": "Wishlisted",
+        "galleryHeading": "Screenshots",
+        "detailsHeading": "Details",
+        "detailsSub": "Platforms and cross-play capabilities.",
+        "lblController": "Controller",
+        "lblCrossplay": "Crossplay",
+        "lblPlayers": "Co-op players",
+        "lblServers": "Dedicated servers",
+        "descP": [
+          "Crash-landed survivors fight through procedurally generated alien jungles and ruins, grabbing item after item that stack visibly onto their character until a single Engineer is dragging around a small arsenal of orbiting drones and exploding lanterns. Difficulty scales with time, not just progress, so every teleporter fight is a countdown against a world that's getting more dangerous by the second.",
+          "Up to four players can run a game together online, choosing from over a dozen playable Survivors with wildly different kits. There's no story to speak of beyond item logs and environmental hints — it's a run-based shooter built for \"one more loop\" sessions with friends."
+        ],
+        "readMore": "Read more",
+        "readLess": "Read less",
+        "footer": "Fan-made reference layout · Not an official Hopoo Games or Gearbox product"
+      },
+      "fr": {
+        "navGallery": "Galerie",
+        "navDetails": "Détails",
+        "backLink": "Retour à la bibliothèque",
+        "titleMain": "RISK OF",
+        "titleAccent": " RAIN 2",
+        "heroTagline": "Des survivants d'un crash affrontent des ruines extraterrestres générées aléatoirement, accumulant objet après objet jusqu'à ce que la difficulté et l'équipement deviennent totalement incontrôlables.",
+        "tags": [
+          "ROGUELIKE",
+          "TPS",
+          "COOP À 4",
+          "PROCÉDURAL"
+        ],
+        "steamBtn": "Voir sur Steam",
+        "wishlist": "Ajouter à la liste de souhaits",
+        "wishlisted": "Dans la liste de souhaits",
+        "galleryHeading": "Captures d'écran",
+        "detailsHeading": "Détails",
+        "detailsSub": "Plateformes et compatibilité multiplateforme.",
+        "lblController": "Manette",
+        "lblCrossplay": "Crossplay",
+        "lblPlayers": "Joueurs en coop",
+        "lblServers": "Serveurs dédiés",
+        "descP": [
+          "Des survivants d'un crash affrontent des jungles et ruines extraterrestres générées aléatoirement, accumulant objet après objet visiblement empilés sur leur personnage, jusqu'à ce qu'un simple Ingénieur traîne un petit arsenal de drones et de lanternes explosives. La difficulté augmente avec le temps, pas seulement la progression : chaque combat au téléporteur est un compte à rebours contre un monde de plus en plus dangereux.",
+          "Jusqu'à quatre joueurs peuvent jouer ensemble en ligne, en choisissant parmi une douzaine de Survivants aux kits radicalement différents. Il n'y a pas vraiment d'histoire, seulement des journaux d'objets et des indices environnementaux — un shooter en runs conçu pour les sessions « encore une boucle » entre amis."
+        ],
+        "readMore": "Lire la suite",
+        "readLess": "Réduire",
+        "footer": "Mise en page fan-made · N'est pas un produit officiel de Hopoo Games ou Gearbox"
+      }
+    },
+    "canYouRunIt": {
+      "requirements": {
+        "minimum": {
+          "raw": {
+            "cpu": "Intel Core i3-6100 / AMD FX-8350",
+            "gpu": "GTX 580 / AMD HD 7870",
+            "memory": "4 GB RAM",
+            "storage": "4 GB available space"
+          },
+          "cpu": [
+            {
+              "raw": "Intel Core i3-6100",
+              "brand": "intel",
+              "name": null,
+              "score": null
+            },
+            {
+              "raw": "AMD FX-8350",
+              "brand": "amd",
+              "name": "AMD FX-8350",
+              "score": 12
+            }
+          ],
+          "gpu": [
+            {
+              "raw": "GTX 580",
+              "brand": null,
+              "name": null,
+              "score": null
+            },
+            {
+              "raw": "AMD HD 7870",
+              "brand": "amd",
+              "name": null,
+              "score": null
+            }
+          ],
+          "ramGB": 4,
+          "storageGB": 4
+        },
+        "recommended": {
+          "raw": {
+            "cpu": "Intel Core i5-4670K / AMD Ryzen 5 1500X",
+            "gpu": "GTX 680 / AMD HD 7970",
+            "memory": "4 GB RAM",
+            "storage": "4 GB available space"
+          },
+          "cpu": [
+            {
+              "raw": "Intel Core i5-4670K",
+              "brand": "intel",
+              "name": null,
+              "score": null
+            },
+            {
+              "raw": "AMD Ryzen 5 1500X",
+              "brand": "amd",
+              "name": null,
+              "score": null
+            }
+          ],
+          "gpu": [
+            {
+              "raw": "GTX 680",
+              "brand": null,
+              "name": null,
+              "score": null
+            },
+            {
+              "raw": "AMD HD 7970",
+              "brand": "amd",
+              "name": null,
+              "score": null
+            }
+          ],
+          "ramGB": 4,
+          "storageGB": 4
+        }
+      },
+      "mySpecs": {
+        "overall": "above-minimum",
+        "components": {
+          "cpu": {
+            "status": "above-minimum",
+            "fill": 100,
+            "myScore": 40,
+            "minScore": 12,
+            "recScore": null,
+            "minName": "AMD FX-8350",
+            "recName": null
+          },
+          "gpu": {
+            "status": null,
+            "fill": null,
+            "myScore": 20,
+            "minScore": null,
+            "recScore": null,
+            "minName": null,
+            "recName": null
+          },
+          "ram": {
+            "status": "exceeds-recommended",
+            "fill": 100,
+            "myGB": 16,
+            "minGB": 4,
+            "recGB": 4
+          }
+        },
+        "storage": {
+          "requiredGB": 4,
+          "type": "nvme",
+          "tier": "exceeds"
+        },
+        "lean": null,
+        "priorities": []
+      }
+    }
+  },
+  "996770": {
+    "pageTitle": "Moving Out — Packmasters Dispatch",
+    "headerBrand": "MOVING OUT",
+    "footerBrand": "MOVING OUT",
+    "brandIcon": "bolt",
+    "backLink": "coop-library.html",
+    "steamUrl": "https://store.steampowered.com/app/996770/Moving_Out/",
+    "heroImage": "",
+    "gallery": [
+      "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA4MDAgNDUwIj4KPHJlY3Qgd2lkdGg9IjgwMCIgaGVpZ2h0PSI0NTAiIGZpbGw9IiMzYTJmNjMiLz4KPHJlY3Qgd2lkdGg9IjgwMCIgaGVpZ2h0PSI0NTAiIGZpbGw9InVybCgjZG90cykiIG9wYWNpdHk9IjAuMTUiLz4KPGRlZnM+PHBhdHRlcm4gaWQ9ImRvdHMiIHdpZHRoPSIyOCIgaGVpZ2h0PSIyOCIgcGF0dGVyblVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+PGNpcmNsZSBjeD0iNCIgY3k9IjQiIHI9IjIiIGZpbGw9IiNmZmZmZmYiLz48L3BhdHRlcm4+PC9kZWZzPgo8dGV4dCB4PSI0MDAiIHk9IjIxNSIgZm9udC1mYW1pbHk9IlZlcmRhbmEiIGZvbnQtc2l6ZT0iMjYiIGZpbGw9IiNmZmZmZmYiIHRleHQtYW5jaG9yPSJtaWRkbGUiIG9wYWNpdHk9IjAuODUiPlNDUkVFTlNIT1QgMTwvdGV4dD4KPHRleHQgeD0iNDAwIiB5PSIyNTAiIGZvbnQtZmFtaWx5PSJWZXJkYW5hIiBmb250LXNpemU9IjE0IiBmaWxsPSIjZmZmZmZmIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBvcGFjaXR5PSIwLjYiPmRyb3AgeW91ciBjYXB0dXJlIGluIC9hc3NldHMvaGZmLzwvdGV4dD4KPC9zdmc+",
+      "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA4MDAgNDUwIj4KPHJlY3Qgd2lkdGg9IjgwMCIgaGVpZ2h0PSI0NTAiIGZpbGw9IiMyZjRhNjMiLz4KPHJlY3Qgd2lkdGg9IjgwMCIgaGVpZ2h0PSI0NTAiIGZpbGw9InVybCgjZG90cykiIG9wYWNpdHk9IjAuMTUiLz4KPGRlZnM+PHBhdHRlcm4gaWQ9ImRvdHMiIHdpZHRoPSIyOCIgaGVpZ2h0PSIyOCIgcGF0dGVyblVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+PGNpcmNsZSBjeD0iNCIgY3k9IjQiIHI9IjIiIGZpbGw9IiNmZmZmZmYiLz48L3BhdHRlcm4+PC9kZWZzPgo8dGV4dCB4PSI0MDAiIHk9IjIxNSIgZm9udC1mYW1pbHk9IlZlcmRhbmEiIGZvbnQtc2l6ZT0iMjYiIGZpbGw9IiNmZmZmZmYiIHRleHQtYW5jaG9yPSJtaWRkbGUiIG9wYWNpdHk9IjAuODUiPlNDUkVFTlNIT1QgMjwvdGV4dD4KPHRleHQgeD0iNDAwIiB5PSIyNTAiIGZvbnQtZmFtaWx5PSJWZXJkYW5hIiBmb250LXNpemU9IjE0IiBmaWxsPSIjZmZmZmZmIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBvcGFjaXR5PSIwLjYiPmRyb3AgeW91ciBjYXB0dXJlIGluIC9hc3NldHMvaGZmLzwvdGV4dD4KPC9zdmc+",
+      "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA4MDAgNDUwIj4KPHJlY3Qgd2lkdGg9IjgwMCIgaGVpZ2h0PSI0NTAiIGZpbGw9IiM2MzQzMmYiLz4KPHJlY3Qgd2lkdGg9IjgwMCIgaGVpZ2h0PSI0NTAiIGZpbGw9InVybCgjZG90cykiIG9wYWNpdHk9IjAuMTUiLz4KPGRlZnM+PHBhdHRlcm4gaWQ9ImRvdHMiIHdpZHRoPSIyOCIgaGVpZ2h0PSIyOCIgcGF0dGVyblVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+PGNpcmNsZSBjeD0iNCIgY3k9IjQiIHI9IjIiIGZpbGw9IiNmZmZmZmYiLz48L3BhdHRlcm4+PC9kZWZzPgo8dGV4dCB4PSI0MDAiIHk9IjIxNSIgZm9udC1mYW1pbHk9IlZlcmRhbmEiIGZvbnQtc2l6ZT0iMjYiIGZpbGw9IiNmZmZmZmYiIHRleHQtYW5jaG9yPSJtaWRkbGUiIG9wYWNpdHk9IjAuODUiPlNDUkVFTlNIT1QgMzwvdGV4dD4KPHRleHQgeD0iNDAwIiB5PSIyNTAiIGZvbnQtZmFtaWx5PSJWZXJkYW5hIiBmb250LXNpemU9IjE0IiBmaWxsPSIjZmZmZmZmIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBvcGFjaXR5PSIwLjYiPmRyb3AgeW91ciBjYXB0dXJlIGluIC9hc3NldHMvaGZmLzwvdGV4dD4KPC9zdmc+",
+      "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA4MDAgNDUwIj4KPHJlY3Qgd2lkdGg9IjgwMCIgaGVpZ2h0PSI0NTAiIGZpbGw9IiMyZjYzNTAiLz4KPHJlY3Qgd2lkdGg9IjgwMCIgaGVpZ2h0PSI0NTAiIGZpbGw9InVybCgjZG90cykiIG9wYWNpdHk9IjAuMTUiLz4KPGRlZnM+PHBhdHRlcm4gaWQ9ImRvdHMiIHdpZHRoPSIyOCIgaGVpZ2h0PSIyOCIgcGF0dGVyblVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+PGNpcmNsZSBjeD0iNCIgY3k9IjQiIHI9IjIiIGZpbGw9IiNmZmZmZmYiLz48L3BhdHRlcm4+PC9kZWZzPgo8dGV4dCB4PSI0MDAiIHk9IjIxNSIgZm9udC1mYW1pbHk9IlZlcmRhbmEiIGZvbnQtc2l6ZT0iMjYiIGZpbGw9IiNmZmZmZmYiIHRleHQtYW5jaG9yPSJtaWRkbGUiIG9wYWNpdHk9IjAuODUiPlNDUkVFTlNIT1QgNDwvdGV4dD4KPHRleHQgeD0iNDAwIiB5PSIyNTAiIGZvbnQtZmFtaWx5PSJWZXJkYW5hIiBmb250LXNpemU9IjE0IiBmaWxsPSIjZmZmZmZmIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBvcGFjaXR5PSIwLjYiPmRyb3AgeW91ciBjYXB0dXJlIGluIC9hc3NldHMvaGZmLzwvdGV4dD4KPC9zdmc+",
+      "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA4MDAgNDUwIj4KPHJlY3Qgd2lkdGg9IjgwMCIgaGVpZ2h0PSI0NTAiIGZpbGw9IiM1YTJmNjMiLz4KPHJlY3Qgd2lkdGg9IjgwMCIgaGVpZ2h0PSI0NTAiIGZpbGw9InVybCgjZG90cykiIG9wYWNpdHk9IjAuMTUiLz4KPGRlZnM+PHBhdHRlcm4gaWQ9ImRvdHMiIHdpZHRoPSIyOCIgaGVpZ2h0PSIyOCIgcGF0dGVyblVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+PGNpcmNsZSBjeD0iNCIgY3k9IjQiIHI9IjIiIGZpbGw9IiNmZmZmZmYiLz48L3BhdHRlcm4+PC9kZWZzPgo8dGV4dCB4PSI0MDAiIHk9IjIxNSIgZm9udC1mYW1pbHk9IlZlcmRhbmEiIGZvbnQtc2l6ZT0iMjYiIGZpbGw9IiNmZmZmZmYiIHRleHQtYW5jaG9yPSJtaWRkbGUiIG9wYWNpdHk9IjAuODUiPlNDUkVFTlNIT1QgNTwvdGV4dD4KPHRleHQgeD0iNDAwIiB5PSIyNTAiIGZvbnQtZmFtaWx5PSJWZXJkYW5hIiBmb250LXNpemU9IjE0IiBmaWxsPSIjZmZmZmZmIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBvcGFjaXR5PSIwLjYiPmRyb3AgeW91ciBjYXB0dXJlIGluIC9hc3NldHMvaGZmLzwvdGV4dD4KPC9zdmc+",
+      "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA4MDAgNDUwIj4KPHJlY3Qgd2lkdGg9IjgwMCIgaGVpZ2h0PSI0NTAiIGZpbGw9IiMyZjVhNjMiLz4KPHJlY3Qgd2lkdGg9IjgwMCIgaGVpZ2h0PSI0NTAiIGZpbGw9InVybCgjZG90cykiIG9wYWNpdHk9IjAuMTUiLz4KPGRlZnM+PHBhdHRlcm4gaWQ9ImRvdHMiIHdpZHRoPSIyOCIgaGVpZ2h0PSIyOCIgcGF0dGVyblVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+PGNpcmNsZSBjeD0iNCIgY3k9IjQiIHI9IjIiIGZpbGw9IiNmZmZmZmYiLz48L3BhdHRlcm4+PC9kZWZzPgo8dGV4dCB4PSI0MDAiIHk9IjIxNSIgZm9udC1mYW1pbHk9IlZlcmRhbmEiIGZvbnQtc2l6ZT0iMjYiIGZpbGw9IiNmZmZmZmYiIHRleHQtYW5jaG9yPSJtaWRkbGUiIG9wYWNpdHk9IjAuODUiPlNDUkVFTlNIT1QgNjwvdGV4dD4KPHRleHQgeD0iNDAwIiB5PSIyNTAiIGZvbnQtZmFtaWx5PSJWZXJkYW5hIiBmb250LXNpemU9IjE0IiBmaWxsPSIjZmZmZmZmIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBvcGFjaXR5PSIwLjYiPmRyb3AgeW91ciBjYXB0dXJlIGluIC9hc3NldHMvaGZmLzwvdGV4dD4KPC9zdmc+"
+    ],
+    "theme": {
+      "accent": "#ff8c00",
+      "accentSoft": "#ffab40",
+      "accent2": "#2f80ed",
+      "hazardA": "#ff8c00",
+      "hazardB": "#1d1d1d",
+      "hazardAngle": "-45deg",
+      "fontDisplay": "Fredoka",
+      "fontBody": "Nunito",
+      "fontMono": "Space Mono"
+    },
+    "platforms": [
+      {
+        "key": "pc",
+        "label": "PC · Steam"
+      },
+      {
+        "key": "ps4",
+        "label": "PlayStation 4"
+      },
+      {
+        "key": "ps5",
+        "label": "PlayStation 5"
+      },
+      {
+        "key": "xboxone",
+        "label": "Xbox One"
+      },
+      {
+        "key": "xboxseries",
+        "label": "Xbox Series X|S"
+      },
+      {
+        "key": "switch",
+        "label": "Nintendo Switch"
+      }
+    ],
+    "platformData": {
+      "en": {
+        "pc": {
+          "controller": "Full Support",
+          "crossplay": "Not supported",
+          "players": "Up to 4",
+          "servers": "Peer-to-peer"
+        },
+        "ps4": {
+          "controller": "Full Support",
+          "crossplay": "Not supported",
+          "players": "Up to 4",
+          "servers": "Peer-to-peer"
+        },
+        "ps5": {
+          "controller": "Full Support",
+          "crossplay": "Not supported",
+          "players": "Up to 4",
+          "servers": "Peer-to-peer"
+        },
+        "xboxone": {
+          "controller": "Full Support",
+          "crossplay": "Not supported",
+          "players": "Up to 4",
+          "servers": "Peer-to-peer"
+        },
+        "xboxseries": {
+          "controller": "Full Support",
+          "crossplay": "Not supported",
+          "players": "Up to 4",
+          "servers": "Peer-to-peer"
+        },
+        "switch": {
+          "controller": "Full Support",
+          "crossplay": "Not supported",
+          "players": "Up to 4",
+          "servers": "Peer-to-peer"
+        }
+      },
+      "fr": {
+        "pc": {
+          "controller": "Support complet",
+          "crossplay": "Non pris en charge",
+          "players": "Jusqu'à 4",
+          "servers": "Pair à pair"
+        },
+        "ps4": {
+          "controller": "Support complet",
+          "crossplay": "Non pris en charge",
+          "players": "Jusqu'à 4",
+          "servers": "Pair à pair"
+        },
+        "ps5": {
+          "controller": "Support complet",
+          "crossplay": "Non pris en charge",
+          "players": "Jusqu'à 4",
+          "servers": "Pair à pair"
+        },
+        "xboxone": {
+          "controller": "Support complet",
+          "crossplay": "Non pris en charge",
+          "players": "Jusqu'à 4",
+          "servers": "Pair à pair"
+        },
+        "xboxseries": {
+          "controller": "Support complet",
+          "crossplay": "Non pris en charge",
+          "players": "Jusqu'à 4",
+          "servers": "Pair à pair"
+        },
+        "switch": {
+          "controller": "Support complet",
+          "crossplay": "Non pris en charge",
+          "players": "Jusqu'à 4",
+          "servers": "Pair à pair"
+        }
+      }
+    },
+    "quickFacts": {
+      "en": [
+        {
+          "label": "Genre",
+          "value": "Physics-based moving simulator"
+        },
+        {
+          "label": "Developer",
+          "value": "SMG Studio & DevM Games"
+        },
+        {
+          "label": "Publisher",
+          "value": "Team17"
+        },
+        {
+          "label": "Release",
+          "value": "Apr 28, 2020"
+        }
+      ],
+      "fr": [
+        {
+          "label": "Genre",
+          "value": "Simulation de déménagement physique"
+        },
+        {
+          "label": "Développeur",
+          "value": "SMG Studio & DevM Games"
+        },
+        {
+          "label": "Éditeur",
+          "value": "Team17"
+        },
+        {
+          "label": "Sortie",
+          "value": "28 avr. 2020"
+        }
+      ]
+    },
+    "loop": {
+      "en": [
+        "Grab",
+        "Launch",
+        "Smash",
+        "Deliver"
+      ],
+      "fr": [
+        "Attraper",
+        "Lancer",
+        "Fracasser",
+        "Livrer"
+      ]
+    },
+    "i18n": {
+      "en": {
+        "navGallery": "Gallery",
+        "navDetails": "Details",
+        "backLink": "Back to Library",
+        "titleMain": "MOVING",
+        "titleAccent": " OUT",
+        "heroTagline": "Newly certified Packmasters hurl furniture out of windows, down stairwells, and through walls that weren't supposed to move — against the clock, with up to three friends.",
+        "tags": [
+          "PARTY GAME",
+          "PHYSICS COMEDY",
+          "4-PLAYER CO-OP",
+          "LOCAL + ONLINE"
+        ],
+        "steamBtn": "View on Steam",
+        "wishlist": "Add to Wishlist",
+        "wishlisted": "Wishlisted",
+        "galleryHeading": "Screenshots",
+        "detailsHeading": "Details",
+        "detailsSub": "Platforms and cross-play capabilities.",
+        "lblController": "Controller",
+        "lblCrossplay": "Crossplay",
+        "lblPlayers": "Co-op players",
+        "lblServers": "Dedicated servers",
+        "descP": [
+          "You're a newly certified Packmaster, which mostly means hurling furniture out of windows, down stairwells, and occasionally through a wall that wasn't supposed to move. Levels are timed obstacle courses where the \"correct\" way to move a piano is rarely the fastest one.",
+          "Up to four players can wreck a level together, split-screen on one couch or online, and the campaign keeps escalating with new gimmicks — self-driving moving trucks, furniture on fire, appliances that fight back. It's short, loud, and built entirely around groups making bad decisions together."
+        ],
+        "readMore": "Read more",
+        "readLess": "Read less",
+        "footer": "Fan-made reference layout · Not an official SMG Studio, DevM Games, or Team17 product"
+      },
+      "fr": {
+        "navGallery": "Galerie",
+        "navDetails": "Détails",
+        "backLink": "Retour à la bibliothèque",
+        "titleMain": "MOVING",
+        "titleAccent": " OUT",
+        "heroTagline": "De nouveaux Packmasters certifiés balancent des meubles par les fenêtres, dans les escaliers et à travers des murs qui ne devaient pas bouger — contre la montre, avec jusqu'à trois amis.",
+        "tags": [
+          "JEU DE GROUPE",
+          "COMÉDIE PHYSIQUE",
+          "COOP À 4",
+          "LOCAL + EN LIGNE"
+        ],
+        "steamBtn": "Voir sur Steam",
+        "wishlist": "Ajouter à la liste de souhaits",
+        "wishlisted": "Dans la liste de souhaits",
+        "galleryHeading": "Captures d'écran",
+        "detailsHeading": "Détails",
+        "detailsSub": "Plateformes et compatibilité multiplateforme.",
+        "lblController": "Manette",
+        "lblCrossplay": "Crossplay",
+        "lblPlayers": "Joueurs en coop",
+        "lblServers": "Serveurs dédiés",
+        "descP": [
+          "Vous êtes un Packmaster fraîchement certifié, ce qui consiste surtout à jeter des meubles par les fenêtres, dans les escaliers, et parfois à travers un mur qui n'était pas censé bouger. Les niveaux sont des parcours chronométrés où la « bonne » façon de déplacer un piano est rarement la plus rapide.",
+          "Jusqu'à quatre joueurs peuvent tout casser ensemble, en écran partagé sur un canapé ou en ligne, et la campagne ne cesse d'ajouter de nouveaux gadgets — camions de déménagement autonomes, meubles en feu, électroménager qui riposte. Un jeu court, bruyant, entièrement construit autour de mauvaises décisions prises en groupe."
+        ],
+        "readMore": "Lire la suite",
+        "readLess": "Réduire",
+        "footer": "Mise en page fan-made · N'est pas un produit officiel de SMG Studio, DevM Games ou Team17"
+      }
+    },
+    "canYouRunIt": {
+      "requirements": {
+        "minimum": {
+          "raw": {
+            "cpu": "Intel Core2 Duo E8400 or AMD Phenom II X2 550",
+            "gpu": "Intel UHD 630 or Radeon Vega 8",
+            "memory": "4 GB RAM",
+            "storage": "1 GB available space"
+          },
+          "cpu": [
+            {
+              "raw": "Intel Core2 Duo E8400",
+              "brand": "intel",
+              "name": null,
+              "score": null
+            },
+            {
+              "raw": "AMD Phenom II X2 550",
+              "brand": "amd",
+              "name": null,
+              "score": null
+            }
+          ],
+          "gpu": [
+            {
+              "raw": "Intel UHD 630",
+              "brand": "intel",
+              "name": null,
+              "score": null
+            },
+            {
+              "raw": "Radeon Vega 8",
+              "brand": null,
+              "name": null,
+              "score": null
+            }
+          ],
+          "ramGB": 4,
+          "storageGB": 1
+        },
+        "recommended": {
+          "raw": {
+            "cpu": "Intel Pentium G4600 or AMD FX-4350",
+            "gpu": "GeForce GTX 750 or Radeon R9 270X",
+            "memory": "4 GB RAM",
+            "storage": "2 GB available space"
+          },
+          "cpu": [
+            {
+              "raw": "Intel Pentium G4600",
+              "brand": "intel",
+              "name": null,
+              "score": null
+            },
+            {
+              "raw": "AMD FX-4350",
+              "brand": "amd",
+              "name": null,
+              "score": null
+            }
+          ],
+          "gpu": [
+            {
+              "raw": "GeForce GTX 750",
+              "brand": "nvidia",
+              "name": null,
+              "score": null
+            },
+            {
+              "raw": "Radeon R9 270X",
+              "brand": null,
+              "name": null,
+              "score": null
+            }
+          ],
+          "ramGB": 4,
+          "storageGB": 2
+        }
+      },
+      "mySpecs": {
+        "overall": "exceeds-recommended",
+        "components": {
+          "cpu": {
+            "status": null,
+            "fill": null,
+            "myScore": 40,
+            "minScore": null,
+            "recScore": null,
+            "minName": null,
+            "recName": null
+          },
+          "gpu": {
+            "status": null,
+            "fill": null,
+            "myScore": 20,
+            "minScore": null,
+            "recScore": null,
+            "minName": null,
+            "recName": null
+          },
+          "ram": {
+            "status": "exceeds-recommended",
+            "fill": 100,
+            "myGB": 16,
+            "minGB": 4,
+            "recGB": 4
+          }
+        },
+        "storage": {
+          "requiredGB": 1,
+          "type": "nvme",
+          "tier": "exceeds"
+        },
+        "lean": null,
+        "priorities": []
+      }
+    }
+  },
+  "1222700": {
+    "pageTitle": "A Way Out — Case File",
+    "headerBrand": "A WAY OUT",
+    "footerBrand": "A WAY OUT",
+    "brandIcon": "bolt",
+    "backLink": "coop-library.html",
+    "steamUrl": "https://store.steampowered.com/app/1222700/A_Way_Out/",
+    "heroImage": "",
+    "gallery": [
+      "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA4MDAgNDUwIj4KPHJlY3Qgd2lkdGg9IjgwMCIgaGVpZ2h0PSI0NTAiIGZpbGw9IiMzYTJmNjMiLz4KPHJlY3Qgd2lkdGg9IjgwMCIgaGVpZ2h0PSI0NTAiIGZpbGw9InVybCgjZG90cykiIG9wYWNpdHk9IjAuMTUiLz4KPGRlZnM+PHBhdHRlcm4gaWQ9ImRvdHMiIHdpZHRoPSIyOCIgaGVpZ2h0PSIyOCIgcGF0dGVyblVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+PGNpcmNsZSBjeD0iNCIgY3k9IjQiIHI9IjIiIGZpbGw9IiNmZmZmZmYiLz48L3BhdHRlcm4+PC9kZWZzPgo8dGV4dCB4PSI0MDAiIHk9IjIxNSIgZm9udC1mYW1pbHk9IlZlcmRhbmEiIGZvbnQtc2l6ZT0iMjYiIGZpbGw9IiNmZmZmZmYiIHRleHQtYW5jaG9yPSJtaWRkbGUiIG9wYWNpdHk9IjAuODUiPlNDUkVFTlNIT1QgMTwvdGV4dD4KPHRleHQgeD0iNDAwIiB5PSIyNTAiIGZvbnQtZmFtaWx5PSJWZXJkYW5hIiBmb250LXNpemU9IjE0IiBmaWxsPSIjZmZmZmZmIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBvcGFjaXR5PSIwLjYiPmRyb3AgeW91ciBjYXB0dXJlIGluIC9hc3NldHMvaGZmLzwvdGV4dD4KPC9zdmc+",
+      "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA4MDAgNDUwIj4KPHJlY3Qgd2lkdGg9IjgwMCIgaGVpZ2h0PSI0NTAiIGZpbGw9IiMyZjRhNjMiLz4KPHJlY3Qgd2lkdGg9IjgwMCIgaGVpZ2h0PSI0NTAiIGZpbGw9InVybCgjZG90cykiIG9wYWNpdHk9IjAuMTUiLz4KPGRlZnM+PHBhdHRlcm4gaWQ9ImRvdHMiIHdpZHRoPSIyOCIgaGVpZ2h0PSIyOCIgcGF0dGVyblVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+PGNpcmNsZSBjeD0iNCIgY3k9IjQiIHI9IjIiIGZpbGw9IiNmZmZmZmYiLz48L3BhdHRlcm4+PC9kZWZzPgo8dGV4dCB4PSI0MDAiIHk9IjIxNSIgZm9udC1mYW1pbHk9IlZlcmRhbmEiIGZvbnQtc2l6ZT0iMjYiIGZpbGw9IiNmZmZmZmYiIHRleHQtYW5jaG9yPSJtaWRkbGUiIG9wYWNpdHk9IjAuODUiPlNDUkVFTlNIT1QgMjwvdGV4dD4KPHRleHQgeD0iNDAwIiB5PSIyNTAiIGZvbnQtZmFtaWx5PSJWZXJkYW5hIiBmb250LXNpemU9IjE0IiBmaWxsPSIjZmZmZmZmIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBvcGFjaXR5PSIwLjYiPmRyb3AgeW91ciBjYXB0dXJlIGluIC9hc3NldHMvaGZmLzwvdGV4dD4KPC9zdmc+",
+      "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA4MDAgNDUwIj4KPHJlY3Qgd2lkdGg9IjgwMCIgaGVpZ2h0PSI0NTAiIGZpbGw9IiM2MzQzMmYiLz4KPHJlY3Qgd2lkdGg9IjgwMCIgaGVpZ2h0PSI0NTAiIGZpbGw9InVybCgjZG90cykiIG9wYWNpdHk9IjAuMTUiLz4KPGRlZnM+PHBhdHRlcm4gaWQ9ImRvdHMiIHdpZHRoPSIyOCIgaGVpZ2h0PSIyOCIgcGF0dGVyblVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+PGNpcmNsZSBjeD0iNCIgY3k9IjQiIHI9IjIiIGZpbGw9IiNmZmZmZmYiLz48L3BhdHRlcm4+PC9kZWZzPgo8dGV4dCB4PSI0MDAiIHk9IjIxNSIgZm9udC1mYW1pbHk9IlZlcmRhbmEiIGZvbnQtc2l6ZT0iMjYiIGZpbGw9IiNmZmZmZmYiIHRleHQtYW5jaG9yPSJtaWRkbGUiIG9wYWNpdHk9IjAuODUiPlNDUkVFTlNIT1QgMzwvdGV4dD4KPHRleHQgeD0iNDAwIiB5PSIyNTAiIGZvbnQtZmFtaWx5PSJWZXJkYW5hIiBmb250LXNpemU9IjE0IiBmaWxsPSIjZmZmZmZmIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBvcGFjaXR5PSIwLjYiPmRyb3AgeW91ciBjYXB0dXJlIGluIC9hc3NldHMvaGZmLzwvdGV4dD4KPC9zdmc+",
+      "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA4MDAgNDUwIj4KPHJlY3Qgd2lkdGg9IjgwMCIgaGVpZ2h0PSI0NTAiIGZpbGw9IiMyZjYzNTAiLz4KPHJlY3Qgd2lkdGg9IjgwMCIgaGVpZ2h0PSI0NTAiIGZpbGw9InVybCgjZG90cykiIG9wYWNpdHk9IjAuMTUiLz4KPGRlZnM+PHBhdHRlcm4gaWQ9ImRvdHMiIHdpZHRoPSIyOCIgaGVpZ2h0PSIyOCIgcGF0dGVyblVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+PGNpcmNsZSBjeD0iNCIgY3k9IjQiIHI9IjIiIGZpbGw9IiNmZmZmZmYiLz48L3BhdHRlcm4+PC9kZWZzPgo8dGV4dCB4PSI0MDAiIHk9IjIxNSIgZm9udC1mYW1pbHk9IlZlcmRhbmEiIGZvbnQtc2l6ZT0iMjYiIGZpbGw9IiNmZmZmZmYiIHRleHQtYW5jaG9yPSJtaWRkbGUiIG9wYWNpdHk9IjAuODUiPlNDUkVFTlNIT1QgNDwvdGV4dD4KPHRleHQgeD0iNDAwIiB5PSIyNTAiIGZvbnQtZmFtaWx5PSJWZXJkYW5hIiBmb250LXNpemU9IjE0IiBmaWxsPSIjZmZmZmZmIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBvcGFjaXR5PSIwLjYiPmRyb3AgeW91ciBjYXB0dXJlIGluIC9hc3NldHMvaGZmLzwvdGV4dD4KPC9zdmc+",
+      "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA4MDAgNDUwIj4KPHJlY3Qgd2lkdGg9IjgwMCIgaGVpZ2h0PSI0NTAiIGZpbGw9IiM1YTJmNjMiLz4KPHJlY3Qgd2lkdGg9IjgwMCIgaGVpZ2h0PSI0NTAiIGZpbGw9InVybCgjZG90cykiIG9wYWNpdHk9IjAuMTUiLz4KPGRlZnM+PHBhdHRlcm4gaWQ9ImRvdHMiIHdpZHRoPSIyOCIgaGVpZ2h0PSIyOCIgcGF0dGVyblVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+PGNpcmNsZSBjeD0iNCIgY3k9IjQiIHI9IjIiIGZpbGw9IiNmZmZmZmYiLz48L3BhdHRlcm4+PC9kZWZzPgo8dGV4dCB4PSI0MDAiIHk9IjIxNSIgZm9udC1mYW1pbHk9IlZlcmRhbmEiIGZvbnQtc2l6ZT0iMjYiIGZpbGw9IiNmZmZmZmYiIHRleHQtYW5jaG9yPSJtaWRkbGUiIG9wYWNpdHk9IjAuODUiPlNDUkVFTlNIT1QgNTwvdGV4dD4KPHRleHQgeD0iNDAwIiB5PSIyNTAiIGZvbnQtZmFtaWx5PSJWZXJkYW5hIiBmb250LXNpemU9IjE0IiBmaWxsPSIjZmZmZmZmIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBvcGFjaXR5PSIwLjYiPmRyb3AgeW91ciBjYXB0dXJlIGluIC9hc3NldHMvaGZmLzwvdGV4dD4KPC9zdmc+",
+      "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA4MDAgNDUwIj4KPHJlY3Qgd2lkdGg9IjgwMCIgaGVpZ2h0PSI0NTAiIGZpbGw9IiMyZjVhNjMiLz4KPHJlY3Qgd2lkdGg9IjgwMCIgaGVpZ2h0PSI0NTAiIGZpbGw9InVybCgjZG90cykiIG9wYWNpdHk9IjAuMTUiLz4KPGRlZnM+PHBhdHRlcm4gaWQ9ImRvdHMiIHdpZHRoPSIyOCIgaGVpZ2h0PSIyOCIgcGF0dGVyblVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+PGNpcmNsZSBjeD0iNCIgY3k9IjQiIHI9IjIiIGZpbGw9IiNmZmZmZmYiLz48L3BhdHRlcm4+PC9kZWZzPgo8dGV4dCB4PSI0MDAiIHk9IjIxNSIgZm9udC1mYW1pbHk9IlZlcmRhbmEiIGZvbnQtc2l6ZT0iMjYiIGZpbGw9IiNmZmZmZmYiIHRleHQtYW5jaG9yPSJtaWRkbGUiIG9wYWNpdHk9IjAuODUiPlNDUkVFTlNIT1QgNjwvdGV4dD4KPHRleHQgeD0iNDAwIiB5PSIyNTAiIGZvbnQtZmFtaWx5PSJWZXJkYW5hIiBmb250LXNpemU9IjE0IiBmaWxsPSIjZmZmZmZmIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBvcGFjaXR5PSIwLjYiPmRyb3AgeW91ciBjYXB0dXJlIGluIC9hc3NldHMvaGZmLzwvdGV4dD4KPC9zdmc+"
+    ],
+    "theme": {
+      "accent": "#4a6fa5",
+      "accentSoft": "#7291bd",
+      "accent2": "#c1552c",
+      "hazardA": "#f6c319",
+      "hazardB": "#141414",
+      "hazardAngle": "-45deg",
+      "fontDisplay": "Oswald",
+      "fontBody": "Barlow",
+      "fontMono": "Space Mono"
+    },
+    "platforms": [
+      {
+        "key": "pc",
+        "label": "PC · Steam"
+      },
+      {
+        "key": "ps4",
+        "label": "PlayStation 4"
+      },
+      {
+        "key": "xboxone",
+        "label": "Xbox One"
+      }
+    ],
+    "platformData": {
+      "en": {
+        "pc": {
+          "controller": "Full Support",
+          "crossplay": "Not supported",
+          "players": "2 (co-op only)",
+          "servers": "Peer-to-peer"
+        },
+        "ps4": {
+          "controller": "Full Support",
+          "crossplay": "Not supported",
+          "players": "2 (co-op only)",
+          "servers": "Peer-to-peer"
+        },
+        "xboxone": {
+          "controller": "Full Support",
+          "crossplay": "Not supported",
+          "players": "2 (co-op only)",
+          "servers": "Peer-to-peer"
+        }
+      },
+      "fr": {
+        "pc": {
+          "controller": "Support complet",
+          "crossplay": "Non pris en charge",
+          "players": "2 (coop uniquement)",
+          "servers": "Pair à pair"
+        },
+        "ps4": {
+          "controller": "Support complet",
+          "crossplay": "Non pris en charge",
+          "players": "2 (coop uniquement)",
+          "servers": "Pair à pair"
+        },
+        "xboxone": {
+          "controller": "Support complet",
+          "crossplay": "Non pris en charge",
+          "players": "2 (coop uniquement)",
+          "servers": "Pair à pair"
+        }
+      }
+    },
+    "quickFacts": {
+      "en": [
+        {
+          "label": "Genre",
+          "value": "Co-op action-adventure"
+        },
+        {
+          "label": "Developer",
+          "value": "Hazelight Studios"
+        },
+        {
+          "label": "Director",
+          "value": "Josef Fares"
+        },
+        {
+          "label": "Release",
+          "value": "Mar 23, 2018"
+        }
+      ],
+      "fr": [
+        {
+          "label": "Genre",
+          "value": "Action-aventure coop"
+        },
+        {
+          "label": "Développeur",
+          "value": "Hazelight Studios"
+        },
+        {
+          "label": "Réalisateur",
+          "value": "Josef Fares"
+        },
+        {
+          "label": "Sortie",
+          "value": "23 mars 2018"
+        }
+      ]
+    },
+    "loop": {
+      "en": [
+        "Plan",
+        "Sneak",
+        "Fight",
+        "Escape"
+      ],
+      "fr": [
+        "Planifier",
+        "Se faufiler",
+        "Combattre",
+        "S'évader"
+      ]
+    },
+    "i18n": {
+      "en": {
+        "navGallery": "Gallery",
+        "navDetails": "Details",
+        "backLink": "Back to Library",
+        "titleMain": "A WAY",
+        "titleAccent": " OUT",
+        "heroTagline": "Two cellmates with nothing in common but a shared need to break out — told entirely in split-screen, from a hand and a score to settle on the outside.",
+        "tags": [
+          "CO-OP ONLY",
+          "PRISON BREAK",
+          "ACTION-ADVENTURE",
+          "SPLIT-SCREEN"
+        ],
+        "steamBtn": "View on Steam",
+        "wishlist": "Add to Wishlist",
+        "wishlisted": "Wishlisted",
+        "galleryHeading": "Screenshots",
+        "detailsHeading": "Details",
+        "detailsSub": "Platforms and cross-play capabilities.",
+        "lblController": "Controller",
+        "lblCrossplay": "Crossplay",
+        "lblPlayers": "Co-op players",
+        "lblServers": "Dedicated servers",
+        "descP": [
+          "Leo and Vincent are cellmates with nothing in common except a shared need to break out of prison and settle a score on the outside. Every scene is split down the middle of the screen — one of you is picking a lock while the other keeps watch, one of you is driving while the other returns fire.",
+          "Hazelight's first game set the template the studio has followed ever since: strictly two-player, no solo option, and one copy is enough to bring a friend along for the whole story. It's roughly a six-hour, cinema-paced crime thriller told entirely from Leo and Vincent's alternating perspectives."
+        ],
+        "readMore": "Read more",
+        "readLess": "Read less",
+        "footer": "Fan-made reference layout · Not an official Hazelight Studios or Electronic Arts product"
+      },
+      "fr": {
+        "navGallery": "Galerie",
+        "navDetails": "Détails",
+        "backLink": "Retour à la bibliothèque",
+        "titleMain": "A WAY",
+        "titleAccent": " OUT",
+        "heroTagline": "Deux codétenus qui n'ont rien en commun sinon le besoin de s'évader — une histoire racontée entièrement en écran partagé, entre coup de main et compte à régler dehors.",
+        "tags": [
+          "COOP UNIQUEMENT",
+          "ÉVASION",
+          "ACTION-AVENTURE",
+          "ÉCRAN PARTAGÉ"
+        ],
+        "steamBtn": "Voir sur Steam",
+        "wishlist": "Ajouter à la liste de souhaits",
+        "wishlisted": "Dans la liste de souhaits",
+        "galleryHeading": "Captures d'écran",
+        "detailsHeading": "Détails",
+        "detailsSub": "Plateformes et compatibilité multiplateforme.",
+        "lblController": "Manette",
+        "lblCrossplay": "Crossplay",
+        "lblPlayers": "Joueurs en coop",
+        "lblServers": "Serveurs dédiés",
+        "descP": [
+          "Leo et Vincent sont codétenus et n'ont rien en commun, sinon le besoin de s'évader et de régler un compte une fois dehors. Chaque scène partage l'écran en deux : l'un crochète une serrure pendant que l'autre fait le guet, l'un conduit pendant que l'autre riposte.",
+          "Le premier jeu de Hazelight a posé les bases que le studio suit depuis : strictement deux joueurs, aucun mode solo, et un seul exemplaire suffit pour inviter un ami sur toute l'histoire. Un thriller criminel au rythme cinématographique d'environ six heures, raconté en alternance du point de vue de Leo et de Vincent."
+        ],
+        "readMore": "Lire la suite",
+        "readLess": "Réduire",
+        "footer": "Mise en page fan-made · N'est pas un produit officiel de Hazelight Studios ou Electronic Arts"
+      }
+    },
+    "canYouRunIt": {
+      "requirements": {
+        "minimum": {
+          "raw": {
+            "cpu": "Intel core i3-2100T @ 2.5GHz/AMD FX 6100, or better",
+            "gpu": "NVIDIA GeForce GTX 650Ti 2GB, AMD Radeon HD 7750 2GB",
+            "memory": "8 GB RAM",
+            "storage": "25 GB available space"
+          },
+          "cpu": [
+            {
+              "raw": "Intel core i3-2100T @ 2.5GHz",
+              "brand": "intel",
+              "name": null,
+              "score": null
+            },
+            {
+              "raw": "AMD FX 6100,",
+              "brand": "amd",
+              "name": null,
+              "score": null
+            },
+            {
+              "raw": "better",
+              "brand": null,
+              "name": null,
+              "score": null
+            }
+          ],
+          "gpu": [
+            {
+              "raw": "NVIDIA GeForce GTX 650Ti 2GB, AMD Radeon HD 7750 2GB",
+              "brand": "amd",
+              "name": null,
+              "score": null
+            }
+          ],
+          "ramGB": 8,
+          "storageGB": 25
+        },
+        "recommended": {
+          "raw": {
+            "cpu": "Intel Core i5 3570K; AMD Ryzen 3 1300x or equivalent",
+            "gpu": "Nvidia GTX 960; AMD R9 290 or equivalent",
+            "memory": "16 GB RAM",
+            "storage": "25 GB available space"
+          },
+          "cpu": [
+            {
+              "raw": "Intel Core i5 3570K; AMD Ryzen 3 1300x",
+              "brand": "intel",
+              "name": null,
+              "score": null
+            },
+            {
+              "raw": "equivalent",
+              "brand": null,
+              "name": null,
+              "score": null
+            }
+          ],
+          "gpu": [
+            {
+              "raw": "Nvidia GTX 960; AMD R9 290",
+              "brand": "nvidia",
+              "name": "NVIDIA GeForce GTX 960",
+              "score": 5.2
+            },
+            {
+              "raw": "equivalent",
+              "brand": null,
+              "name": null,
+              "score": null
+            }
+          ],
+          "ramGB": 16,
+          "storageGB": 25
+        }
+      },
+      "mySpecs": {
+        "overall": "meets-recommended",
+        "components": {
+          "cpu": {
+            "status": null,
+            "fill": null,
+            "myScore": 40,
+            "minScore": null,
+            "recScore": null,
+            "minName": null,
+            "recName": null
+          },
+          "gpu": {
+            "status": "exceeds-recommended",
+            "fill": 100,
+            "myScore": 20,
+            "minScore": null,
+            "recScore": 5.2,
+            "minName": null,
+            "recName": "NVIDIA GeForce GTX 960"
+          },
+          "ram": {
+            "status": "meets-recommended",
+            "fill": 0,
+            "myGB": 16,
+            "minGB": 8,
+            "recGB": 16
+          }
+        },
+        "storage": {
+          "requiredGB": 25,
+          "type": "nvme",
+          "tier": "exceeds"
+        },
+        "lean": null,
+        "priorities": []
+      }
+    }
+  },
+  "1282100": {
+    "pageTitle": "Remnant 2 — Ward 13 Expedition Log",
+    "headerBrand": "REMNANT 2",
+    "footerBrand": "REMNANT 2",
+    "brandIcon": "dot",
+    "backLink": "coop-library.html",
+    "steamUrl": "https://store.steampowered.com/app/1282100/Remnant_II/",
+    "heroImage": "",
+    "gallery": [
+      "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA4MDAgNDUwIj4KPHJlY3Qgd2lkdGg9IjgwMCIgaGVpZ2h0PSI0NTAiIGZpbGw9IiMzYTJmNjMiLz4KPHJlY3Qgd2lkdGg9IjgwMCIgaGVpZ2h0PSI0NTAiIGZpbGw9InVybCgjZG90cykiIG9wYWNpdHk9IjAuMTUiLz4KPGRlZnM+PHBhdHRlcm4gaWQ9ImRvdHMiIHdpZHRoPSIyOCIgaGVpZ2h0PSIyOCIgcGF0dGVyblVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+PGNpcmNsZSBjeD0iNCIgY3k9IjQiIHI9IjIiIGZpbGw9IiNmZmZmZmYiLz48L3BhdHRlcm4+PC9kZWZzPgo8dGV4dCB4PSI0MDAiIHk9IjIxNSIgZm9udC1mYW1pbHk9IlZlcmRhbmEiIGZvbnQtc2l6ZT0iMjYiIGZpbGw9IiNmZmZmZmYiIHRleHQtYW5jaG9yPSJtaWRkbGUiIG9wYWNpdHk9IjAuODUiPlNDUkVFTlNIT1QgMTwvdGV4dD4KPHRleHQgeD0iNDAwIiB5PSIyNTAiIGZvbnQtZmFtaWx5PSJWZXJkYW5hIiBmb250LXNpemU9IjE0IiBmaWxsPSIjZmZmZmZmIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBvcGFjaXR5PSIwLjYiPmRyb3AgeW91ciBjYXB0dXJlIGluIC9hc3NldHMvaGZmLzwvdGV4dD4KPC9zdmc+",
+      "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA4MDAgNDUwIj4KPHJlY3Qgd2lkdGg9IjgwMCIgaGVpZ2h0PSI0NTAiIGZpbGw9IiMyZjRhNjMiLz4KPHJlY3Qgd2lkdGg9IjgwMCIgaGVpZ2h0PSI0NTAiIGZpbGw9InVybCgjZG90cykiIG9wYWNpdHk9IjAuMTUiLz4KPGRlZnM+PHBhdHRlcm4gaWQ9ImRvdHMiIHdpZHRoPSIyOCIgaGVpZ2h0PSIyOCIgcGF0dGVyblVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+PGNpcmNsZSBjeD0iNCIgY3k9IjQiIHI9IjIiIGZpbGw9IiNmZmZmZmYiLz48L3BhdHRlcm4+PC9kZWZzPgo8dGV4dCB4PSI0MDAiIHk9IjIxNSIgZm9udC1mYW1pbHk9IlZlcmRhbmEiIGZvbnQtc2l6ZT0iMjYiIGZpbGw9IiNmZmZmZmYiIHRleHQtYW5jaG9yPSJtaWRkbGUiIG9wYWNpdHk9IjAuODUiPlNDUkVFTlNIT1QgMjwvdGV4dD4KPHRleHQgeD0iNDAwIiB5PSIyNTAiIGZvbnQtZmFtaWx5PSJWZXJkYW5hIiBmb250LXNpemU9IjE0IiBmaWxsPSIjZmZmZmZmIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBvcGFjaXR5PSIwLjYiPmRyb3AgeW91ciBjYXB0dXJlIGluIC9hc3NldHMvaGZmLzwvdGV4dD4KPC9zdmc+",
+      "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA4MDAgNDUwIj4KPHJlY3Qgd2lkdGg9IjgwMCIgaGVpZ2h0PSI0NTAiIGZpbGw9IiM2MzQzMmYiLz4KPHJlY3Qgd2lkdGg9IjgwMCIgaGVpZ2h0PSI0NTAiIGZpbGw9InVybCgjZG90cykiIG9wYWNpdHk9IjAuMTUiLz4KPGRlZnM+PHBhdHRlcm4gaWQ9ImRvdHMiIHdpZHRoPSIyOCIgaGVpZ2h0PSIyOCIgcGF0dGVyblVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+PGNpcmNsZSBjeD0iNCIgY3k9IjQiIHI9IjIiIGZpbGw9IiNmZmZmZmYiLz48L3BhdHRlcm4+PC9kZWZzPgo8dGV4dCB4PSI0MDAiIHk9IjIxNSIgZm9udC1mYW1pbHk9IlZlcmRhbmEiIGZvbnQtc2l6ZT0iMjYiIGZpbGw9IiNmZmZmZmYiIHRleHQtYW5jaG9yPSJtaWRkbGUiIG9wYWNpdHk9IjAuODUiPlNDUkVFTlNIT1QgMzwvdGV4dD4KPHRleHQgeD0iNDAwIiB5PSIyNTAiIGZvbnQtZmFtaWx5PSJWZXJkYW5hIiBmb250LXNpemU9IjE0IiBmaWxsPSIjZmZmZmZmIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBvcGFjaXR5PSIwLjYiPmRyb3AgeW91ciBjYXB0dXJlIGluIC9hc3NldHMvaGZmLzwvdGV4dD4KPC9zdmc+",
+      "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA4MDAgNDUwIj4KPHJlY3Qgd2lkdGg9IjgwMCIgaGVpZ2h0PSI0NTAiIGZpbGw9IiMyZjYzNTAiLz4KPHJlY3Qgd2lkdGg9IjgwMCIgaGVpZ2h0PSI0NTAiIGZpbGw9InVybCgjZG90cykiIG9wYWNpdHk9IjAuMTUiLz4KPGRlZnM+PHBhdHRlcm4gaWQ9ImRvdHMiIHdpZHRoPSIyOCIgaGVpZ2h0PSIyOCIgcGF0dGVyblVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+PGNpcmNsZSBjeD0iNCIgY3k9IjQiIHI9IjIiIGZpbGw9IiNmZmZmZmYiLz48L3BhdHRlcm4+PC9kZWZzPgo8dGV4dCB4PSI0MDAiIHk9IjIxNSIgZm9udC1mYW1pbHk9IlZlcmRhbmEiIGZvbnQtc2l6ZT0iMjYiIGZpbGw9IiNmZmZmZmYiIHRleHQtYW5jaG9yPSJtaWRkbGUiIG9wYWNpdHk9IjAuODUiPlNDUkVFTlNIT1QgNDwvdGV4dD4KPHRleHQgeD0iNDAwIiB5PSIyNTAiIGZvbnQtZmFtaWx5PSJWZXJkYW5hIiBmb250LXNpemU9IjE0IiBmaWxsPSIjZmZmZmZmIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBvcGFjaXR5PSIwLjYiPmRyb3AgeW91ciBjYXB0dXJlIGluIC9hc3NldHMvaGZmLzwvdGV4dD4KPC9zdmc+",
+      "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA4MDAgNDUwIj4KPHJlY3Qgd2lkdGg9IjgwMCIgaGVpZ2h0PSI0NTAiIGZpbGw9IiM1YTJmNjMiLz4KPHJlY3Qgd2lkdGg9IjgwMCIgaGVpZ2h0PSI0NTAiIGZpbGw9InVybCgjZG90cykiIG9wYWNpdHk9IjAuMTUiLz4KPGRlZnM+PHBhdHRlcm4gaWQ9ImRvdHMiIHdpZHRoPSIyOCIgaGVpZ2h0PSIyOCIgcGF0dGVyblVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+PGNpcmNsZSBjeD0iNCIgY3k9IjQiIHI9IjIiIGZpbGw9IiNmZmZmZmYiLz48L3BhdHRlcm4+PC9kZWZzPgo8dGV4dCB4PSI0MDAiIHk9IjIxNSIgZm9udC1mYW1pbHk9IlZlcmRhbmEiIGZvbnQtc2l6ZT0iMjYiIGZpbGw9IiNmZmZmZmYiIHRleHQtYW5jaG9yPSJtaWRkbGUiIG9wYWNpdHk9IjAuODUiPlNDUkVFTlNIT1QgNTwvdGV4dD4KPHRleHQgeD0iNDAwIiB5PSIyNTAiIGZvbnQtZmFtaWx5PSJWZXJkYW5hIiBmb250LXNpemU9IjE0IiBmaWxsPSIjZmZmZmZmIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBvcGFjaXR5PSIwLjYiPmRyb3AgeW91ciBjYXB0dXJlIGluIC9hc3NldHMvaGZmLzwvdGV4dD4KPC9zdmc+",
+      "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA4MDAgNDUwIj4KPHJlY3Qgd2lkdGg9IjgwMCIgaGVpZ2h0PSI0NTAiIGZpbGw9IiMyZjVhNjMiLz4KPHJlY3Qgd2lkdGg9IjgwMCIgaGVpZ2h0PSI0NTAiIGZpbGw9InVybCgjZG90cykiIG9wYWNpdHk9IjAuMTUiLz4KPGRlZnM+PHBhdHRlcm4gaWQ9ImRvdHMiIHdpZHRoPSIyOCIgaGVpZ2h0PSIyOCIgcGF0dGVyblVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+PGNpcmNsZSBjeD0iNCIgY3k9IjQiIHI9IjIiIGZpbGw9IiNmZmZmZmYiLz48L3BhdHRlcm4+PC9kZWZzPgo8dGV4dCB4PSI0MDAiIHk9IjIxNSIgZm9udC1mYW1pbHk9IlZlcmRhbmEiIGZvbnQtc2l6ZT0iMjYiIGZpbGw9IiNmZmZmZmYiIHRleHQtYW5jaG9yPSJtaWRkbGUiIG9wYWNpdHk9IjAuODUiPlNDUkVFTlNIT1QgNjwvdGV4dD4KPHRleHQgeD0iNDAwIiB5PSIyNTAiIGZvbnQtZmFtaWx5PSJWZXJkYW5hIiBmb250LXNpemU9IjE0IiBmaWxsPSIjZmZmZmZmIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBvcGFjaXR5PSIwLjYiPmRyb3AgeW91ciBjYXB0dXJlIGluIC9hc3NldHMvaGZmLzwvdGV4dD4KPC9zdmc+"
+    ],
+    "theme": {
+      "accent": "#8b5fbf",
+      "accentSoft": "#ab89d4",
+      "accent2": "#4fa8a8",
+      "hazardA": "#8b5fbf",
+      "hazardB": "#161320",
+      "hazardAngle": "-45deg",
+      "fontDisplay": "Oswald",
+      "fontBody": "Barlow",
+      "fontMono": "Space Mono"
+    },
+    "platforms": [
+      {
+        "key": "pc",
+        "label": "PC · Steam"
+      },
+      {
+        "key": "ps5",
+        "label": "PlayStation 5"
+      },
+      {
+        "key": "xboxseries",
+        "label": "Xbox Series X|S"
+      }
+    ],
+    "platformData": {
+      "en": {
+        "pc": {
+          "controller": "Full Support",
+          "crossplay": "All platforms",
+          "players": "Up to 3",
+          "servers": "Peer-to-peer"
+        },
+        "ps5": {
+          "controller": "Full Support",
+          "crossplay": "All platforms",
+          "players": "Up to 3",
+          "servers": "Peer-to-peer"
+        },
+        "xboxseries": {
+          "controller": "Full Support",
+          "crossplay": "All platforms",
+          "players": "Up to 3",
+          "servers": "Peer-to-peer"
+        }
+      },
+      "fr": {
+        "pc": {
+          "controller": "Support complet",
+          "crossplay": "Toutes plateformes",
+          "players": "Jusqu'à 3",
+          "servers": "Pair à pair"
+        },
+        "ps5": {
+          "controller": "Support complet",
+          "crossplay": "Toutes plateformes",
+          "players": "Jusqu'à 3",
+          "servers": "Pair à pair"
+        },
+        "xboxseries": {
+          "controller": "Support complet",
+          "crossplay": "Toutes plateformes",
+          "players": "Jusqu'à 3",
+          "servers": "Pair à pair"
+        }
+      }
+    },
+    "quickFacts": {
+      "en": [
+        {
+          "label": "Genre",
+          "value": "Souls-like third-person shooter"
+        },
+        {
+          "label": "Developer",
+          "value": "Gunfire Games"
+        },
+        {
+          "label": "Publisher",
+          "value": "Gunfire Games"
+        },
+        {
+          "label": "Release",
+          "value": "Jul 25, 2023"
+        }
+      ],
+      "fr": [
+        {
+          "label": "Genre",
+          "value": "Souls-like / TPS"
+        },
+        {
+          "label": "Développeur",
+          "value": "Gunfire Games"
+        },
+        {
+          "label": "Éditeur",
+          "value": "Gunfire Games"
+        },
+        {
+          "label": "Sortie",
+          "value": "25 juil. 2023"
+        }
+      ]
+    },
+    "loop": {
+      "en": [
+        "Explore",
+        "Fight",
+        "Loot",
+        "Rebuild"
+      ],
+      "fr": [
+        "Explorer",
+        "Combattre",
+        "Piller",
+        "Reconstruire"
+      ]
+    },
+    "i18n": {
+      "en": {
+        "navGallery": "Gallery",
+        "navDetails": "Details",
+        "backLink": "Back to Library",
+        "titleMain": "REMNANT",
+        "titleAccent": " 2",
+        "heroTagline": "Humanity's last survivors step through portals into procedurally shuffled worlds — a haunted manor, an alien jungle, a flooded ruin — to fight for a future.",
+        "tags": [
+          "SOULS-LIKE",
+          "THIRD-PERSON SHOOTER",
+          "PROCEDURAL WORLDS",
+          "CO-OP"
+        ],
+        "steamBtn": "View on Steam",
+        "wishlist": "Add to Wishlist",
+        "wishlisted": "Wishlisted",
+        "galleryHeading": "Screenshots",
+        "detailsHeading": "Details",
+        "detailsSub": "Platforms and cross-play capabilities.",
+        "lblController": "Controller",
+        "lblCrossplay": "Crossplay",
+        "lblPlayers": "Co-op players",
+        "lblServers": "Dedicated servers",
+        "descP": [
+          "Ward 13 is humanity's last foothold, and it sends survivors like you through a portal-linked network of worlds — a haunted Gothic manor, an alien jungle, a flooded ruin — that reshuffle their layout, enemies, and bosses every time you visit. Punishing boss fights and a deep archetype/class system reward patience and build experimentation over brute force.",
+          "Up to three players can drop into any world together, and a post-launch update added full cross-platform play plus split-screen co-op on PlayStation 5 and Xbox Series X|S. Everyone in a party sees their own version of side quests and item drops, so replaying a world with a new group rarely feels the same twice."
+        ],
+        "readMore": "Read more",
+        "readLess": "Read less",
+        "footer": "Fan-made reference layout · Not an official Gunfire Games product"
+      },
+      "fr": {
+        "navGallery": "Galerie",
+        "navDetails": "Détails",
+        "backLink": "Retour à la bibliothèque",
+        "titleMain": "REMNANT",
+        "titleAccent": " 2",
+        "heroTagline": "Les derniers survivants de l'humanité franchissent des portails vers des mondes générés aléatoirement — manoir hanté, jungle extraterrestre, ruine engloutie — pour se battre pour un avenir.",
+        "tags": [
+          "SOULS-LIKE",
+          "TPS",
+          "MONDES PROCÉDURAUX",
+          "COOP"
+        ],
+        "steamBtn": "Voir sur Steam",
+        "wishlist": "Ajouter à la liste de souhaits",
+        "wishlisted": "Dans la liste de souhaits",
+        "galleryHeading": "Captures d'écran",
+        "detailsHeading": "Détails",
+        "detailsSub": "Plateformes et compatibilité multiplateforme.",
+        "lblController": "Manette",
+        "lblCrossplay": "Crossplay",
+        "lblPlayers": "Joueurs en coop",
+        "lblServers": "Serveurs dédiés",
+        "descP": [
+          "Ward 13 est le dernier bastion de l'humanité, et il envoie des survivants comme vous à travers un réseau de mondes reliés par portails — manoir gothique hanté, jungle extraterrestre, ruine engloutie — dont la disposition, les ennemis et les boss changent à chaque visite. Des combats de boss exigeants et un système d'archétypes/classes récompensent la patience et l'expérimentation plutôt que la force brute.",
+          "Jusqu'à trois joueurs peuvent explorer n'importe quel monde ensemble, et une mise à jour post-lancement a ajouté le crossplay complet ainsi que l'écran partagé sur PlayStation 5 et Xbox Series X|S. Chaque membre du groupe voit sa propre version des quêtes annexes et des butins, si bien que rejouer un monde avec un nouveau groupe ne se ressemble presque jamais."
+        ],
+        "readMore": "Lire la suite",
+        "readLess": "Réduire",
+        "footer": "Mise en page fan-made · N'est pas un produit officiel de Gunfire Games"
+      }
+    },
+    "canYouRunIt": {
+      "requirements": {
+        "minimum": {
+          "raw": {
+            "cpu": "Intel Core i5-7600 / AMD Ryzen 5 2600",
+            "gpu": "NVIDIA GeForce GTX 1650 / AMD Radeon RX 590",
+            "memory": "16 GB RAM",
+            "storage": "80 GB available space"
+          },
+          "cpu": [
+            {
+              "raw": "Intel Core i5-7600",
+              "brand": "intel",
+              "name": null,
+              "score": null
+            },
+            {
+              "raw": "AMD Ryzen 5 2600",
+              "brand": "amd",
+              "name": "AMD Ryzen 5 2600",
+              "score": 33
+            }
+          ],
+          "gpu": [
+            {
+              "raw": "NVIDIA GeForce GTX 1650",
+              "brand": "nvidia",
+              "name": "NVIDIA GeForce GTX 1650",
+              "score": 7.6
+            },
+            {
+              "raw": "AMD Radeon RX 590",
+              "brand": "amd",
+              "name": null,
+              "score": null
+            }
+          ],
+          "ramGB": 16,
+          "storageGB": 80
+        },
+        "recommended": {
+          "raw": {
+            "cpu": "Intel Core i5-10600K / AMD Ryzen 5 3600",
+            "gpu": "NVIDIA GeForce RTX 2060 / AMD Radeon RX 5700",
+            "memory": "16 GB RAM",
+            "storage": "80 GB available space"
+          },
+          "cpu": [
+            {
+              "raw": "Intel Core i5-10600K",
+              "brand": "intel",
+              "name": null,
+              "score": null
+            },
+            {
+              "raw": "AMD Ryzen 5 3600",
+              "brand": "amd",
+              "name": "AMD Ryzen 5 3600",
+              "score": 45
+            }
+          ],
+          "gpu": [
+            {
+              "raw": "NVIDIA GeForce RTX 2060",
+              "brand": "nvidia",
+              "name": "NVIDIA GeForce RTX 2060",
+              "score": 21
+            },
+            {
+              "raw": "AMD Radeon RX 5700",
+              "brand": "amd",
+              "name": "AMD Radeon RX 570",
+              "score": 8.6
+            }
+          ],
+          "ramGB": 16,
+          "storageGB": 80
+        }
+      },
+      "mySpecs": {
+        "overall": "meets-minimum",
+        "components": {
+          "cpu": {
+            "status": "above-minimum",
+            "fill": 43,
+            "myScore": 40,
+            "minScore": 33,
+            "recScore": 45,
+            "minName": "AMD Ryzen 5 2600",
+            "recName": "AMD Ryzen 5 3600"
+          },
+          "gpu": {
+            "status": "above-minimum",
+            "fill": 92,
+            "myScore": 20,
+            "minScore": 7.6,
+            "recScore": 21,
+            "minName": "NVIDIA GeForce GTX 1650",
+            "recName": "NVIDIA GeForce RTX 2060"
+          },
+          "ram": {
+            "status": "meets-minimum",
+            "fill": 0,
+            "myGB": 16,
+            "minGB": 16,
+            "recGB": 16
+          }
+        },
+        "storage": {
+          "requiredGB": 80,
+          "type": "nvme",
+          "tier": "exceeds"
+        },
+        "lean": "balanced",
+        "priorities": [
+          {
+            "component": "cpu",
+            "severity": "high",
+            "gap": -5
+          },
+          {
+            "component": "gpu",
+            "severity": "high",
+            "gap": -1
+          }
+        ]
+      }
+    }
+  },
+  "1426210": {
+    "pageTitle": "It Takes Two — Reconciliation File",
+    "headerBrand": "IT TAKES TWO",
+    "footerBrand": "IT TAKES TWO",
+    "brandIcon": "dot",
+    "backLink": "coop-library.html",
+    "steamUrl": "https://store.steampowered.com/app/1426210/It_Takes_Two/",
+    "heroImage": "",
+    "gallery": [
+      "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA4MDAgNDUwIj4KPHJlY3Qgd2lkdGg9IjgwMCIgaGVpZ2h0PSI0NTAiIGZpbGw9IiMzYTJmNjMiLz4KPHJlY3Qgd2lkdGg9IjgwMCIgaGVpZ2h0PSI0NTAiIGZpbGw9InVybCgjZG90cykiIG9wYWNpdHk9IjAuMTUiLz4KPGRlZnM+PHBhdHRlcm4gaWQ9ImRvdHMiIHdpZHRoPSIyOCIgaGVpZ2h0PSIyOCIgcGF0dGVyblVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+PGNpcmNsZSBjeD0iNCIgY3k9IjQiIHI9IjIiIGZpbGw9IiNmZmZmZmYiLz48L3BhdHRlcm4+PC9kZWZzPgo8dGV4dCB4PSI0MDAiIHk9IjIxNSIgZm9udC1mYW1pbHk9IlZlcmRhbmEiIGZvbnQtc2l6ZT0iMjYiIGZpbGw9IiNmZmZmZmYiIHRleHQtYW5jaG9yPSJtaWRkbGUiIG9wYWNpdHk9IjAuODUiPlNDUkVFTlNIT1QgMTwvdGV4dD4KPHRleHQgeD0iNDAwIiB5PSIyNTAiIGZvbnQtZmFtaWx5PSJWZXJkYW5hIiBmb250LXNpemU9IjE0IiBmaWxsPSIjZmZmZmZmIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBvcGFjaXR5PSIwLjYiPmRyb3AgeW91ciBjYXB0dXJlIGluIC9hc3NldHMvaGZmLzwvdGV4dD4KPC9zdmc+",
+      "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA4MDAgNDUwIj4KPHJlY3Qgd2lkdGg9IjgwMCIgaGVpZ2h0PSI0NTAiIGZpbGw9IiMyZjRhNjMiLz4KPHJlY3Qgd2lkdGg9IjgwMCIgaGVpZ2h0PSI0NTAiIGZpbGw9InVybCgjZG90cykiIG9wYWNpdHk9IjAuMTUiLz4KPGRlZnM+PHBhdHRlcm4gaWQ9ImRvdHMiIHdpZHRoPSIyOCIgaGVpZ2h0PSIyOCIgcGF0dGVyblVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+PGNpcmNsZSBjeD0iNCIgY3k9IjQiIHI9IjIiIGZpbGw9IiNmZmZmZmYiLz48L3BhdHRlcm4+PC9kZWZzPgo8dGV4dCB4PSI0MDAiIHk9IjIxNSIgZm9udC1mYW1pbHk9IlZlcmRhbmEiIGZvbnQtc2l6ZT0iMjYiIGZpbGw9IiNmZmZmZmYiIHRleHQtYW5jaG9yPSJtaWRkbGUiIG9wYWNpdHk9IjAuODUiPlNDUkVFTlNIT1QgMjwvdGV4dD4KPHRleHQgeD0iNDAwIiB5PSIyNTAiIGZvbnQtZmFtaWx5PSJWZXJkYW5hIiBmb250LXNpemU9IjE0IiBmaWxsPSIjZmZmZmZmIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBvcGFjaXR5PSIwLjYiPmRyb3AgeW91ciBjYXB0dXJlIGluIC9hc3NldHMvaGZmLzwvdGV4dD4KPC9zdmc+",
+      "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA4MDAgNDUwIj4KPHJlY3Qgd2lkdGg9IjgwMCIgaGVpZ2h0PSI0NTAiIGZpbGw9IiM2MzQzMmYiLz4KPHJlY3Qgd2lkdGg9IjgwMCIgaGVpZ2h0PSI0NTAiIGZpbGw9InVybCgjZG90cykiIG9wYWNpdHk9IjAuMTUiLz4KPGRlZnM+PHBhdHRlcm4gaWQ9ImRvdHMiIHdpZHRoPSIyOCIgaGVpZ2h0PSIyOCIgcGF0dGVyblVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+PGNpcmNsZSBjeD0iNCIgY3k9IjQiIHI9IjIiIGZpbGw9IiNmZmZmZmYiLz48L3BhdHRlcm4+PC9kZWZzPgo8dGV4dCB4PSI0MDAiIHk9IjIxNSIgZm9udC1mYW1pbHk9IlZlcmRhbmEiIGZvbnQtc2l6ZT0iMjYiIGZpbGw9IiNmZmZmZmYiIHRleHQtYW5jaG9yPSJtaWRkbGUiIG9wYWNpdHk9IjAuODUiPlNDUkVFTlNIT1QgMzwvdGV4dD4KPHRleHQgeD0iNDAwIiB5PSIyNTAiIGZvbnQtZmFtaWx5PSJWZXJkYW5hIiBmb250LXNpemU9IjE0IiBmaWxsPSIjZmZmZmZmIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBvcGFjaXR5PSIwLjYiPmRyb3AgeW91ciBjYXB0dXJlIGluIC9hc3NldHMvaGZmLzwvdGV4dD4KPC9zdmc+",
+      "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA4MDAgNDUwIj4KPHJlY3Qgd2lkdGg9IjgwMCIgaGVpZ2h0PSI0NTAiIGZpbGw9IiMyZjYzNTAiLz4KPHJlY3Qgd2lkdGg9IjgwMCIgaGVpZ2h0PSI0NTAiIGZpbGw9InVybCgjZG90cykiIG9wYWNpdHk9IjAuMTUiLz4KPGRlZnM+PHBhdHRlcm4gaWQ9ImRvdHMiIHdpZHRoPSIyOCIgaGVpZ2h0PSIyOCIgcGF0dGVyblVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+PGNpcmNsZSBjeD0iNCIgY3k9IjQiIHI9IjIiIGZpbGw9IiNmZmZmZmYiLz48L3BhdHRlcm4+PC9kZWZzPgo8dGV4dCB4PSI0MDAiIHk9IjIxNSIgZm9udC1mYW1pbHk9IlZlcmRhbmEiIGZvbnQtc2l6ZT0iMjYiIGZpbGw9IiNmZmZmZmYiIHRleHQtYW5jaG9yPSJtaWRkbGUiIG9wYWNpdHk9IjAuODUiPlNDUkVFTlNIT1QgNDwvdGV4dD4KPHRleHQgeD0iNDAwIiB5PSIyNTAiIGZvbnQtZmFtaWx5PSJWZXJkYW5hIiBmb250LXNpemU9IjE0IiBmaWxsPSIjZmZmZmZmIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBvcGFjaXR5PSIwLjYiPmRyb3AgeW91ciBjYXB0dXJlIGluIC9hc3NldHMvaGZmLzwvdGV4dD4KPC9zdmc+",
+      "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA4MDAgNDUwIj4KPHJlY3Qgd2lkdGg9IjgwMCIgaGVpZ2h0PSI0NTAiIGZpbGw9IiM1YTJmNjMiLz4KPHJlY3Qgd2lkdGg9IjgwMCIgaGVpZ2h0PSI0NTAiIGZpbGw9InVybCgjZG90cykiIG9wYWNpdHk9IjAuMTUiLz4KPGRlZnM+PHBhdHRlcm4gaWQ9ImRvdHMiIHdpZHRoPSIyOCIgaGVpZ2h0PSIyOCIgcGF0dGVyblVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+PGNpcmNsZSBjeD0iNCIgY3k9IjQiIHI9IjIiIGZpbGw9IiNmZmZmZmYiLz48L3BhdHRlcm4+PC9kZWZzPgo8dGV4dCB4PSI0MDAiIHk9IjIxNSIgZm9udC1mYW1pbHk9IlZlcmRhbmEiIGZvbnQtc2l6ZT0iMjYiIGZpbGw9IiNmZmZmZmYiIHRleHQtYW5jaG9yPSJtaWRkbGUiIG9wYWNpdHk9IjAuODUiPlNDUkVFTlNIT1QgNTwvdGV4dD4KPHRleHQgeD0iNDAwIiB5PSIyNTAiIGZvbnQtZmFtaWx5PSJWZXJkYW5hIiBmb250LXNpemU9IjE0IiBmaWxsPSIjZmZmZmZmIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBvcGFjaXR5PSIwLjYiPmRyb3AgeW91ciBjYXB0dXJlIGluIC9hc3NldHMvaGZmLzwvdGV4dD4KPC9zdmc+",
+      "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA4MDAgNDUwIj4KPHJlY3Qgd2lkdGg9IjgwMCIgaGVpZ2h0PSI0NTAiIGZpbGw9IiMyZjVhNjMiLz4KPHJlY3Qgd2lkdGg9IjgwMCIgaGVpZ2h0PSI0NTAiIGZpbGw9InVybCgjZG90cykiIG9wYWNpdHk9IjAuMTUiLz4KPGRlZnM+PHBhdHRlcm4gaWQ9ImRvdHMiIHdpZHRoPSIyOCIgaGVpZ2h0PSIyOCIgcGF0dGVyblVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+PGNpcmNsZSBjeD0iNCIgY3k9IjQiIHI9IjIiIGZpbGw9IiNmZmZmZmYiLz48L3BhdHRlcm4+PC9kZWZzPgo8dGV4dCB4PSI0MDAiIHk9IjIxNSIgZm9udC1mYW1pbHk9IlZlcmRhbmEiIGZvbnQtc2l6ZT0iMjYiIGZpbGw9IiNmZmZmZmYiIHRleHQtYW5jaG9yPSJtaWRkbGUiIG9wYWNpdHk9IjAuODUiPlNDUkVFTlNIT1QgNjwvdGV4dD4KPHRleHQgeD0iNDAwIiB5PSIyNTAiIGZvbnQtZmFtaWx5PSJWZXJkYW5hIiBmb250LXNpemU9IjE0IiBmaWxsPSIjZmZmZmZmIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBvcGFjaXR5PSIwLjYiPmRyb3AgeW91ciBjYXB0dXJlIGluIC9hc3NldHMvaGZmLzwvdGV4dD4KPC9zdmc+"
+    ],
+    "theme": {
+      "accent": "#ff5d73",
+      "accentSoft": "#ff8a9b",
+      "accent2": "#3ec9c0",
+      "hazardA": "#ffd23f",
+      "hazardB": "#3ec9c0",
+      "hazardAngle": "-45deg",
+      "fontDisplay": "Baloo 2",
+      "fontBody": "Nunito",
+      "fontMono": "Space Mono"
+    },
+    "platforms": [
+      {
+        "key": "pc",
+        "label": "PC · Steam"
+      },
+      {
+        "key": "ps4",
+        "label": "PlayStation 4"
+      },
+      {
+        "key": "ps5",
+        "label": "PlayStation 5"
+      },
+      {
+        "key": "xboxone",
+        "label": "Xbox One"
+      },
+      {
+        "key": "xboxseries",
+        "label": "Xbox Series X|S"
+      },
+      {
+        "key": "switch",
+        "label": "Nintendo Switch"
+      }
+    ],
+    "platformData": {
+      "en": {
+        "pc": {
+          "controller": "Full Support",
+          "crossplay": "All platforms",
+          "players": "2 (co-op only)",
+          "servers": "Peer-to-peer"
+        },
+        "ps4": {
+          "controller": "Full Support",
+          "crossplay": "All platforms",
+          "players": "2 (co-op only)",
+          "servers": "Peer-to-peer"
+        },
+        "ps5": {
+          "controller": "Full Support",
+          "crossplay": "All platforms",
+          "players": "2 (co-op only)",
+          "servers": "Peer-to-peer"
+        },
+        "xboxone": {
+          "controller": "Full Support",
+          "crossplay": "All platforms",
+          "players": "2 (co-op only)",
+          "servers": "Peer-to-peer"
+        },
+        "xboxseries": {
+          "controller": "Full Support",
+          "crossplay": "All platforms",
+          "players": "2 (co-op only)",
+          "servers": "Peer-to-peer"
+        },
+        "switch": {
+          "controller": "Full Support",
+          "crossplay": "All platforms",
+          "players": "2 (co-op only)",
+          "servers": "Peer-to-peer"
+        }
+      },
+      "fr": {
+        "pc": {
+          "controller": "Support complet",
+          "crossplay": "Toutes plateformes",
+          "players": "2 (coop uniquement)",
+          "servers": "Pair à pair"
+        },
+        "ps4": {
+          "controller": "Support complet",
+          "crossplay": "Toutes plateformes",
+          "players": "2 (coop uniquement)",
+          "servers": "Pair à pair"
+        },
+        "ps5": {
+          "controller": "Support complet",
+          "crossplay": "Toutes plateformes",
+          "players": "2 (coop uniquement)",
+          "servers": "Pair à pair"
+        },
+        "xboxone": {
+          "controller": "Support complet",
+          "crossplay": "Toutes plateformes",
+          "players": "2 (coop uniquement)",
+          "servers": "Pair à pair"
+        },
+        "xboxseries": {
+          "controller": "Support complet",
+          "crossplay": "Toutes plateformes",
+          "players": "2 (coop uniquement)",
+          "servers": "Pair à pair"
+        },
+        "switch": {
+          "controller": "Support complet",
+          "crossplay": "Toutes plateformes",
+          "players": "2 (coop uniquement)",
+          "servers": "Pair à pair"
+        }
+      }
+    },
+    "quickFacts": {
+      "en": [
+        {
+          "label": "Genre",
+          "value": "Co-op platform adventure"
+        },
+        {
+          "label": "Developer",
+          "value": "Hazelight Studios"
+        },
+        {
+          "label": "Publisher",
+          "value": "EA Originals"
+        },
+        {
+          "label": "Release",
+          "value": "Mar 26, 2021"
+        }
+      ],
+      "fr": [
+        {
+          "label": "Genre",
+          "value": "Aventure-plateforme coop"
+        },
+        {
+          "label": "Développeur",
+          "value": "Hazelight Studios"
+        },
+        {
+          "label": "Éditeur",
+          "value": "EA Originals"
+        },
+        {
+          "label": "Sortie",
+          "value": "26 mars 2021"
+        }
+      ]
+    },
+    "loop": {
+      "en": [
+        "Explore",
+        "Solve",
+        "Transform",
+        "Reconnect"
+      ],
+      "fr": [
+        "Explorer",
+        "Résoudre",
+        "Se transformer",
+        "Se retrouver"
+      ]
+    },
+    "i18n": {
+      "en": {
+        "navGallery": "Gallery",
+        "navDetails": "Details",
+        "backLink": "Back to Library",
+        "titleMain": "IT TAKES",
+        "titleAccent": " TWO",
+        "heroTagline": "A married couple turned into foot-tall dolls has to work together, tool by tool, to fix their marriage and get back to normal size.",
+        "tags": [
+          "CO-OP ONLY",
+          "PLATFORM ADVENTURE",
+          "PUZZLE",
+          "SPLIT-SCREEN"
+        ],
+        "steamBtn": "View on Steam",
+        "wishlist": "Add to Wishlist",
+        "wishlisted": "Wishlisted",
+        "galleryHeading": "Screenshots",
+        "detailsHeading": "Details",
+        "detailsSub": "Platforms and cross-play capabilities.",
+        "lblController": "Controller",
+        "lblCrossplay": "Crossplay",
+        "lblPlayers": "Co-op players",
+        "lblServers": "Dedicated servers",
+        "descP": [
+          "Cody and May are getting a divorce — and then their daughter's tears turn them into two foot-tall dolls, trapped together until they can fix what's broken between them. Every chapter throws out its toolset and starts over: one level you're swinging a hammer and nails, the next you're a pair of magnets, then a sentient cuckoo clock.",
+          "It's built exclusively for two, split-screen on one couch or online — there's no solo mode, and there doesn't need to be. Owners can invite a friend through Friend's Pass for free, so only one of you has to buy it. It Takes Two won Game of the Year at The Game Awards 2021."
+        ],
+        "readMore": "Read more",
+        "readLess": "Read less",
+        "footer": "Fan-made reference layout · Not an official Hazelight Studios or Electronic Arts product"
+      },
+      "fr": {
+        "navGallery": "Galerie",
+        "navDetails": "Détails",
+        "backLink": "Retour à la bibliothèque",
+        "titleMain": "IT TAKES",
+        "titleAccent": " TWO",
+        "heroTagline": "Un couple marié transformé en poupées de trente centimètres doit coopérer, outil après outil, pour réparer son mariage et retrouver une taille normale.",
+        "tags": [
+          "COOP UNIQUEMENT",
+          "AVENTURE-PLATEFORME",
+          "PUZZLE",
+          "ÉCRAN PARTAGÉ"
+        ],
+        "steamBtn": "Voir sur Steam",
+        "wishlist": "Ajouter à la liste de souhaits",
+        "wishlisted": "Dans la liste de souhaits",
+        "galleryHeading": "Captures d'écran",
+        "detailsHeading": "Détails",
+        "detailsSub": "Plateformes et compatibilité multiplateforme.",
+        "lblController": "Manette",
+        "lblCrossplay": "Crossplay",
+        "lblPlayers": "Joueurs en coop",
+        "lblServers": "Serveurs dédiés",
+        "descP": [
+          "Cody et May sont en instance de divorce — puis les larmes de leur fille les transforment en poupées de trente centimètres, condamnées à coopérer pour réparer ce qui s'est brisé entre eux. Chaque chapitre change entièrement de mécanique : un niveau au marteau et aux clous, le suivant en aimants, puis dans le corps d'un coucou de pendule.",
+          "Le jeu est conçu exclusivement pour deux joueurs, en écran partagé sur le même canapé ou en ligne — il n'y a pas de mode solo, et ce n'est pas nécessaire. Le Friend's Pass permet d'inviter un ami gratuitement, un seul exemplaire suffit. It Takes Two a remporté le Jeu de l'année aux Game Awards 2021."
+        ],
+        "readMore": "Lire la suite",
+        "readLess": "Réduire",
+        "footer": "Mise en page fan-made · N'est pas un produit officiel de Hazelight Studios ou Electronic Arts"
+      }
+    },
+    "canYouRunIt": {
+      "requirements": {
+        "minimum": {
+          "raw": {
+            "cpu": "Intel Core i3-2100T or AMD FX 6100",
+            "gpu": "NVIDIA GeForce GTX 660 or AMD Radeon HD 7850",
+            "memory": "8 GB RAM",
+            "storage": "50 GB available space"
+          },
+          "cpu": [
+            {
+              "raw": "Intel Core i3-2100T",
+              "brand": "intel",
+              "name": null,
+              "score": null
+            },
+            {
+              "raw": "AMD FX 6100",
+              "brand": "amd",
+              "name": null,
+              "score": null
+            }
+          ],
+          "gpu": [
+            {
+              "raw": "NVIDIA GeForce GTX 660",
+              "brand": "nvidia",
+              "name": "NVIDIA GeForce GTX 660",
+              "score": 3.6
+            },
+            {
+              "raw": "AMD Radeon HD 7850",
+              "brand": "amd",
+              "name": null,
+              "score": null
+            }
+          ],
+          "ramGB": 8,
+          "storageGB": 50
+        },
+        "recommended": {
+          "raw": {
+            "cpu": "Intel Core i5-3570K or AMD Ryzen 3 1300X",
+            "gpu": "NVIDIA GeForce GTX 960 or AMD Radeon RX 580",
+            "memory": "16 GB RAM",
+            "storage": "50 GB available space"
+          },
+          "cpu": [
+            {
+              "raw": "Intel Core i5-3570K",
+              "brand": "intel",
+              "name": null,
+              "score": null
+            },
+            {
+              "raw": "AMD Ryzen 3 1300X",
+              "brand": "amd",
+              "name": null,
+              "score": null
+            }
+          ],
+          "gpu": [
+            {
+              "raw": "NVIDIA GeForce GTX 960",
+              "brand": "nvidia",
+              "name": "NVIDIA GeForce GTX 960",
+              "score": 5.2
+            },
+            {
+              "raw": "AMD Radeon RX 580",
+              "brand": "amd",
+              "name": "AMD Radeon RX 580",
+              "score": 9.8
+            }
+          ],
+          "ramGB": 16,
+          "storageGB": 50
+        }
+      },
+      "mySpecs": {
+        "overall": "meets-recommended",
+        "components": {
+          "cpu": {
+            "status": null,
+            "fill": null,
+            "myScore": 40,
+            "minScore": null,
+            "recScore": null,
+            "minName": null,
+            "recName": null
+          },
+          "gpu": {
+            "status": "exceeds-recommended",
+            "fill": 100,
+            "myScore": 20,
+            "minScore": 3.6,
+            "recScore": 5.2,
+            "minName": "NVIDIA GeForce GTX 660",
+            "recName": "NVIDIA GeForce GTX 960"
+          },
+          "ram": {
+            "status": "meets-recommended",
+            "fill": 0,
+            "myGB": 16,
+            "minGB": 8,
+            "recGB": 16
+          }
+        },
+        "storage": {
+          "requiredGB": 50,
+          "type": "nvme",
+          "tier": "exceeds"
+        },
+        "lean": null,
+        "priorities": []
+      }
+    }
+  },
+  "1549970": {
+    "pageTitle": "Aliens: Fireteam Elite — USS Endeavor Log",
+    "headerBrand": "ALIENS: FIRETEAM ELITE",
+    "footerBrand": "ALIENS: FIRETEAM ELITE",
+    "brandIcon": "bolt",
+    "backLink": "coop-library.html",
+    "steamUrl": "https://store.steampowered.com/app/1549970/Aliens_Fireteam_Elite/",
+    "heroImage": "",
+    "gallery": [
+      "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA4MDAgNDUwIj4KPHJlY3Qgd2lkdGg9IjgwMCIgaGVpZ2h0PSI0NTAiIGZpbGw9IiMzYTJmNjMiLz4KPHJlY3Qgd2lkdGg9IjgwMCIgaGVpZ2h0PSI0NTAiIGZpbGw9InVybCgjZG90cykiIG9wYWNpdHk9IjAuMTUiLz4KPGRlZnM+PHBhdHRlcm4gaWQ9ImRvdHMiIHdpZHRoPSIyOCIgaGVpZ2h0PSIyOCIgcGF0dGVyblVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+PGNpcmNsZSBjeD0iNCIgY3k9IjQiIHI9IjIiIGZpbGw9IiNmZmZmZmYiLz48L3BhdHRlcm4+PC9kZWZzPgo8dGV4dCB4PSI0MDAiIHk9IjIxNSIgZm9udC1mYW1pbHk9IlZlcmRhbmEiIGZvbnQtc2l6ZT0iMjYiIGZpbGw9IiNmZmZmZmYiIHRleHQtYW5jaG9yPSJtaWRkbGUiIG9wYWNpdHk9IjAuODUiPlNDUkVFTlNIT1QgMTwvdGV4dD4KPHRleHQgeD0iNDAwIiB5PSIyNTAiIGZvbnQtZmFtaWx5PSJWZXJkYW5hIiBmb250LXNpemU9IjE0IiBmaWxsPSIjZmZmZmZmIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBvcGFjaXR5PSIwLjYiPmRyb3AgeW91ciBjYXB0dXJlIGluIC9hc3NldHMvaGZmLzwvdGV4dD4KPC9zdmc+",
+      "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA4MDAgNDUwIj4KPHJlY3Qgd2lkdGg9IjgwMCIgaGVpZ2h0PSI0NTAiIGZpbGw9IiMyZjRhNjMiLz4KPHJlY3Qgd2lkdGg9IjgwMCIgaGVpZ2h0PSI0NTAiIGZpbGw9InVybCgjZG90cykiIG9wYWNpdHk9IjAuMTUiLz4KPGRlZnM+PHBhdHRlcm4gaWQ9ImRvdHMiIHdpZHRoPSIyOCIgaGVpZ2h0PSIyOCIgcGF0dGVyblVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+PGNpcmNsZSBjeD0iNCIgY3k9IjQiIHI9IjIiIGZpbGw9IiNmZmZmZmYiLz48L3BhdHRlcm4+PC9kZWZzPgo8dGV4dCB4PSI0MDAiIHk9IjIxNSIgZm9udC1mYW1pbHk9IlZlcmRhbmEiIGZvbnQtc2l6ZT0iMjYiIGZpbGw9IiNmZmZmZmYiIHRleHQtYW5jaG9yPSJtaWRkbGUiIG9wYWNpdHk9IjAuODUiPlNDUkVFTlNIT1QgMjwvdGV4dD4KPHRleHQgeD0iNDAwIiB5PSIyNTAiIGZvbnQtZmFtaWx5PSJWZXJkYW5hIiBmb250LXNpemU9IjE0IiBmaWxsPSIjZmZmZmZmIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBvcGFjaXR5PSIwLjYiPmRyb3AgeW91ciBjYXB0dXJlIGluIC9hc3NldHMvaGZmLzwvdGV4dD4KPC9zdmc+",
+      "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA4MDAgNDUwIj4KPHJlY3Qgd2lkdGg9IjgwMCIgaGVpZ2h0PSI0NTAiIGZpbGw9IiM2MzQzMmYiLz4KPHJlY3Qgd2lkdGg9IjgwMCIgaGVpZ2h0PSI0NTAiIGZpbGw9InVybCgjZG90cykiIG9wYWNpdHk9IjAuMTUiLz4KPGRlZnM+PHBhdHRlcm4gaWQ9ImRvdHMiIHdpZHRoPSIyOCIgaGVpZ2h0PSIyOCIgcGF0dGVyblVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+PGNpcmNsZSBjeD0iNCIgY3k9IjQiIHI9IjIiIGZpbGw9IiNmZmZmZmYiLz48L3BhdHRlcm4+PC9kZWZzPgo8dGV4dCB4PSI0MDAiIHk9IjIxNSIgZm9udC1mYW1pbHk9IlZlcmRhbmEiIGZvbnQtc2l6ZT0iMjYiIGZpbGw9IiNmZmZmZmYiIHRleHQtYW5jaG9yPSJtaWRkbGUiIG9wYWNpdHk9IjAuODUiPlNDUkVFTlNIT1QgMzwvdGV4dD4KPHRleHQgeD0iNDAwIiB5PSIyNTAiIGZvbnQtZmFtaWx5PSJWZXJkYW5hIiBmb250LXNpemU9IjE0IiBmaWxsPSIjZmZmZmZmIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBvcGFjaXR5PSIwLjYiPmRyb3AgeW91ciBjYXB0dXJlIGluIC9hc3NldHMvaGZmLzwvdGV4dD4KPC9zdmc+",
+      "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA4MDAgNDUwIj4KPHJlY3Qgd2lkdGg9IjgwMCIgaGVpZ2h0PSI0NTAiIGZpbGw9IiMyZjYzNTAiLz4KPHJlY3Qgd2lkdGg9IjgwMCIgaGVpZ2h0PSI0NTAiIGZpbGw9InVybCgjZG90cykiIG9wYWNpdHk9IjAuMTUiLz4KPGRlZnM+PHBhdHRlcm4gaWQ9ImRvdHMiIHdpZHRoPSIyOCIgaGVpZ2h0PSIyOCIgcGF0dGVyblVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+PGNpcmNsZSBjeD0iNCIgY3k9IjQiIHI9IjIiIGZpbGw9IiNmZmZmZmYiLz48L3BhdHRlcm4+PC9kZWZzPgo8dGV4dCB4PSI0MDAiIHk9IjIxNSIgZm9udC1mYW1pbHk9IlZlcmRhbmEiIGZvbnQtc2l6ZT0iMjYiIGZpbGw9IiNmZmZmZmYiIHRleHQtYW5jaG9yPSJtaWRkbGUiIG9wYWNpdHk9IjAuODUiPlNDUkVFTlNIT1QgNDwvdGV4dD4KPHRleHQgeD0iNDAwIiB5PSIyNTAiIGZvbnQtZmFtaWx5PSJWZXJkYW5hIiBmb250LXNpemU9IjE0IiBmaWxsPSIjZmZmZmZmIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBvcGFjaXR5PSIwLjYiPmRyb3AgeW91ciBjYXB0dXJlIGluIC9hc3NldHMvaGZmLzwvdGV4dD4KPC9zdmc+",
+      "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA4MDAgNDUwIj4KPHJlY3Qgd2lkdGg9IjgwMCIgaGVpZ2h0PSI0NTAiIGZpbGw9IiM1YTJmNjMiLz4KPHJlY3Qgd2lkdGg9IjgwMCIgaGVpZ2h0PSI0NTAiIGZpbGw9InVybCgjZG90cykiIG9wYWNpdHk9IjAuMTUiLz4KPGRlZnM+PHBhdHRlcm4gaWQ9ImRvdHMiIHdpZHRoPSIyOCIgaGVpZ2h0PSIyOCIgcGF0dGVyblVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+PGNpcmNsZSBjeD0iNCIgY3k9IjQiIHI9IjIiIGZpbGw9IiNmZmZmZmYiLz48L3BhdHRlcm4+PC9kZWZzPgo8dGV4dCB4PSI0MDAiIHk9IjIxNSIgZm9udC1mYW1pbHk9IlZlcmRhbmEiIGZvbnQtc2l6ZT0iMjYiIGZpbGw9IiNmZmZmZmYiIHRleHQtYW5jaG9yPSJtaWRkbGUiIG9wYWNpdHk9IjAuODUiPlNDUkVFTlNIT1QgNTwvdGV4dD4KPHRleHQgeD0iNDAwIiB5PSIyNTAiIGZvbnQtZmFtaWx5PSJWZXJkYW5hIiBmb250LXNpemU9IjE0IiBmaWxsPSIjZmZmZmZmIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBvcGFjaXR5PSIwLjYiPmRyb3AgeW91ciBjYXB0dXJlIGluIC9hc3NldHMvaGZmLzwvdGV4dD4KPC9zdmc+",
+      "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA4MDAgNDUwIj4KPHJlY3Qgd2lkdGg9IjgwMCIgaGVpZ2h0PSI0NTAiIGZpbGw9IiMyZjVhNjMiLz4KPHJlY3Qgd2lkdGg9IjgwMCIgaGVpZ2h0PSI0NTAiIGZpbGw9InVybCgjZG90cykiIG9wYWNpdHk9IjAuMTUiLz4KPGRlZnM+PHBhdHRlcm4gaWQ9ImRvdHMiIHdpZHRoPSIyOCIgaGVpZ2h0PSIyOCIgcGF0dGVyblVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+PGNpcmNsZSBjeD0iNCIgY3k9IjQiIHI9IjIiIGZpbGw9IiNmZmZmZmYiLz48L3BhdHRlcm4+PC9kZWZzPgo8dGV4dCB4PSI0MDAiIHk9IjIxNSIgZm9udC1mYW1pbHk9IlZlcmRhbmEiIGZvbnQtc2l6ZT0iMjYiIGZpbGw9IiNmZmZmZmYiIHRleHQtYW5jaG9yPSJtaWRkbGUiIG9wYWNpdHk9IjAuODUiPlNDUkVFTlNIT1QgNjwvdGV4dD4KPHRleHQgeD0iNDAwIiB5PSIyNTAiIGZvbnQtZmFtaWx5PSJWZXJkYW5hIiBmb250LXNpemU9IjE0IiBmaWxsPSIjZmZmZmZmIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBvcGFjaXR5PSIwLjYiPmRyb3AgeW91ciBjYXB0dXJlIGluIC9hc3NldHMvaGZmLzwvdGV4dD4KPC9zdmc+"
+    ],
+    "theme": {
+      "accent": "#ff6b00",
+      "accentSoft": "#ff934d",
+      "accent2": "#3b8686",
+      "hazardA": "#ff6b00",
+      "hazardB": "#101010",
+      "hazardAngle": "-45deg",
+      "fontDisplay": "Oswald",
+      "fontBody": "Barlow",
+      "fontMono": "Space Mono"
+    },
+    "platforms": [
+      {
+        "key": "pc",
+        "label": "PC · Steam"
+      },
+      {
+        "key": "ps4",
+        "label": "PlayStation 4"
+      },
+      {
+        "key": "ps5",
+        "label": "PlayStation 5"
+      },
+      {
+        "key": "xboxone",
+        "label": "Xbox One"
+      },
+      {
+        "key": "xboxseries",
+        "label": "Xbox Series X|S"
+      }
+    ],
+    "platformData": {
+      "en": {
+        "pc": {
+          "controller": "Full Support",
+          "crossplay": "Console only",
+          "players": "Up to 3 (AI fills empty slots)",
+          "servers": "Peer-to-peer"
+        },
+        "ps4": {
+          "controller": "Full Support",
+          "crossplay": "Console only",
+          "players": "Up to 3 (AI fills empty slots)",
+          "servers": "Peer-to-peer"
+        },
+        "ps5": {
+          "controller": "Full Support",
+          "crossplay": "Console only",
+          "players": "Up to 3 (AI fills empty slots)",
+          "servers": "Peer-to-peer"
+        },
+        "xboxone": {
+          "controller": "Full Support",
+          "crossplay": "Console only",
+          "players": "Up to 3 (AI fills empty slots)",
+          "servers": "Peer-to-peer"
+        },
+        "xboxseries": {
+          "controller": "Full Support",
+          "crossplay": "Console only",
+          "players": "Up to 3 (AI fills empty slots)",
+          "servers": "Peer-to-peer"
+        }
+      },
+      "fr": {
+        "pc": {
+          "controller": "Support complet",
+          "crossplay": "Consoles uniquement",
+          "players": "Jusqu'à 3 (IA en renfort)",
+          "servers": "Pair à pair"
+        },
+        "ps4": {
+          "controller": "Support complet",
+          "crossplay": "Consoles uniquement",
+          "players": "Jusqu'à 3 (IA en renfort)",
+          "servers": "Pair à pair"
+        },
+        "ps5": {
+          "controller": "Support complet",
+          "crossplay": "Consoles uniquement",
+          "players": "Jusqu'à 3 (IA en renfort)",
+          "servers": "Pair à pair"
+        },
+        "xboxone": {
+          "controller": "Support complet",
+          "crossplay": "Consoles uniquement",
+          "players": "Jusqu'à 3 (IA en renfort)",
+          "servers": "Pair à pair"
+        },
+        "xboxseries": {
+          "controller": "Support complet",
+          "crossplay": "Consoles uniquement",
+          "players": "Jusqu'à 3 (IA en renfort)",
+          "servers": "Pair à pair"
+        }
+      }
+    },
+    "quickFacts": {
+      "en": [
+        {
+          "label": "Genre",
+          "value": "Co-op survival shooter"
+        },
+        {
+          "label": "Developer",
+          "value": "Cold Iron Studios"
+        },
+        {
+          "label": "Publisher",
+          "value": "Focus Entertainment"
+        },
+        {
+          "label": "Release",
+          "value": "Aug 24, 2021"
+        }
+      ],
+      "fr": [
+        {
+          "label": "Genre",
+          "value": "Shooter coop de survie"
+        },
+        {
+          "label": "Développeur",
+          "value": "Cold Iron Studios"
+        },
+        {
+          "label": "Éditeur",
+          "value": "Focus Entertainment"
+        },
+        {
+          "label": "Sortie",
+          "value": "24 août 2021"
+        }
+      ]
+    },
+    "loop": {
+      "en": [
+        "Deploy",
+        "Hold the Line",
+        "Extract",
+        "Rank Up"
+      ],
+      "fr": [
+        "Se déployer",
+        "Tenir la ligne",
+        "Extraire",
+        "Progresser"
+      ]
+    },
+    "i18n": {
+      "en": {
+        "navGallery": "Gallery",
+        "navDetails": "Details",
+        "backLink": "Back to Library",
+        "titleMain": "ALIENS",
+        "titleAccent": ": FIRETEAM ELITE",
+        "heroTagline": "Twenty-three years after Aliens, a three-Marine fireteam from the USS Endeavor drops into overrun colonies to hold the line against endless waves of Xenomorphs.",
+        "tags": [
+          "CO-OP SHOOTER",
+          "SQUAD OF 3",
+          "XENOMORPHS",
+          "THIRD-PERSON"
+        ],
+        "steamBtn": "View on Steam",
+        "wishlist": "Add to Wishlist",
+        "wishlisted": "Wishlisted",
+        "galleryHeading": "Screenshots",
+        "detailsHeading": "Details",
+        "detailsSub": "Platforms and cross-play capabilities.",
+        "lblController": "Controller",
+        "lblCrossplay": "Crossplay",
+        "lblPlayers": "Co-op players",
+        "lblServers": "Dedicated servers",
+        "descP": [
+          "Set 23 years after Aliens, Fireteam Elite drops a three-Colonial Marine squad from the USS Endeavor into overrun colonies crawling with Xenomorphs. Missions lean into the horde-shooter side of the license — ammo counters, motion-tracker beeps, and waves of Aliens closing in from every vent and doorway.",
+          "Any empty squad slot gets filled by an AI-controlled Marine, so the campaign holds up solo, but it's built around three players picking complementary classes — Gunner, Demolisher, Technician, Doc, and Recon — each with its own skill tree and gear loadout across four campaigns."
+        ],
+        "readMore": "Read more",
+        "readLess": "Read less",
+        "footer": "Fan-made reference layout · Not an official 20th Century Studios or Focus Entertainment product"
+      },
+      "fr": {
+        "navGallery": "Galerie",
+        "navDetails": "Détails",
+        "backLink": "Retour à la bibliothèque",
+        "titleMain": "ALIENS",
+        "titleAccent": " : FIRETEAM ELITE",
+        "heroTagline": "Vingt-trois ans après Aliens, une escouade de trois Marines de l'USS Endeavor se déploie dans des colonies envahies pour tenir tête à des vagues incessantes de Xenomorphs.",
+        "tags": [
+          "SHOOTER COOP",
+          "ESCOUADE DE 3",
+          "XENOMORPHS",
+          "TROISIÈME PERSONNE"
+        ],
+        "steamBtn": "Voir sur Steam",
+        "wishlist": "Ajouter à la liste de souhaits",
+        "wishlisted": "Dans la liste de souhaits",
+        "galleryHeading": "Captures d'écran",
+        "detailsHeading": "Détails",
+        "detailsSub": "Plateformes et compatibilité multiplateforme.",
+        "lblController": "Manette",
+        "lblCrossplay": "Crossplay",
+        "lblPlayers": "Joueurs en coop",
+        "lblServers": "Serveurs dédiés",
+        "descP": [
+          "Situé 23 ans après Aliens, Fireteam Elite envoie une escouade de trois Marines coloniaux de l'USS Endeavor dans des colonies envahies de Xenomorphs. Les missions penchent vers le shooter de vagues — compteur de munitions, bips du détecteur de mouvement, et Aliens surgissant de chaque conduit et de chaque porte.",
+          "Toute place vacante dans l'escouade est comblée par un Marine contrôlé par l'IA, donc la campagne se joue aussi en solo, mais elle est pensée pour trois joueurs choisissant des classes complémentaires — Artilleur, Démolisseur, Technicien, Médecin et Éclaireur — chacune avec son arbre de compétences et son équipement, sur quatre campagnes."
+        ],
+        "readMore": "Lire la suite",
+        "readLess": "Réduire",
+        "footer": "Mise en page fan-made · N'est pas un produit officiel de 20th Century Studios ou Focus Entertainment"
+      }
+    },
+    "canYouRunIt": {
+      "requirements": {
+        "minimum": {
+          "raw": {
+            "cpu": "AMD Athlon X4 950 / Intel i5-2500K",
+            "gpu": "AMD R9 285 4GB / Nvidia GTX 760 4GB",
+            "memory": "8 GB RAM",
+            "storage": "30 GB available space"
+          },
+          "cpu": [
+            {
+              "raw": "AMD Athlon X4 950",
+              "brand": "amd",
+              "name": null,
+              "score": null
+            },
+            {
+              "raw": "Intel i5-2500K",
+              "brand": "intel",
+              "name": null,
+              "score": null
+            }
+          ],
+          "gpu": [
+            {
+              "raw": "AMD R9 285 4GB",
+              "brand": "amd",
+              "name": null,
+              "score": null
+            },
+            {
+              "raw": "Nvidia GTX 760 4GB",
+              "brand": "nvidia",
+              "name": null,
+              "score": null
+            }
+          ],
+          "ramGB": 8,
+          "storageGB": 30
+        },
+        "recommended": {
+          "raw": {
+            "cpu": "AMD Ryzen 5 1600AF / Intel i5-7400",
+            "gpu": "AMD RX 480 8GB / Nvidia GTX 1060 6GB",
+            "memory": "16 GB RAM",
+            "storage": "30 GB available space"
+          },
+          "cpu": [
+            {
+              "raw": "AMD Ryzen 5 1600AF",
+              "brand": "amd",
+              "name": "AMD Ryzen 5 1600",
+              "score": 26
+            },
+            {
+              "raw": "Intel i5-7400",
+              "brand": "intel",
+              "name": null,
+              "score": null
+            }
+          ],
+          "gpu": [
+            {
+              "raw": "AMD RX 480 8GB",
+              "brand": "amd",
+              "name": "AMD Radeon RX 480",
+              "score": 9.2
+            },
+            {
+              "raw": "Nvidia GTX 1060 6GB",
+              "brand": "nvidia",
+              "name": "NVIDIA GeForce GTX 1060 6GB",
+              "score": 9.5
+            }
+          ],
+          "ramGB": 16,
+          "storageGB": 30
+        }
+      },
+      "mySpecs": {
+        "overall": "meets-recommended",
+        "components": {
+          "cpu": {
+            "status": "exceeds-recommended",
+            "fill": 38,
+            "myScore": 40,
+            "minScore": null,
+            "recScore": 26,
+            "minName": null,
+            "recName": "AMD Ryzen 5 1600"
+          },
+          "gpu": {
+            "status": "exceeds-recommended",
+            "fill": 100,
+            "myScore": 20,
+            "minScore": null,
+            "recScore": 9.5,
+            "minName": null,
+            "recName": "NVIDIA GeForce GTX 1060 6GB"
+          },
+          "ram": {
+            "status": "meets-recommended",
+            "fill": 0,
+            "myGB": 16,
+            "minGB": 8,
+            "recGB": 16
+          }
+        },
+        "storage": {
+          "requiredGB": 30,
+          "type": "nvme",
+          "tier": "exceeds"
+        },
+        "lean": "cpu",
+        "priorities": []
+      }
+    }
+  },
+  "1808500": {
+    "pageTitle": "ARC Raiders — Speranza Field Log",
+    "headerBrand": "ARC RAIDERS",
+    "footerBrand": "ARC RAIDERS",
+    "brandIcon": "bolt",
+    "backLink": "coop-library.html",
+    "steamUrl": "https://store.steampowered.com/app/1808500/ARC_Raiders/",
+    "heroImage": "",
+    "gallery": [
+      "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA4MDAgNDUwIj4KPHJlY3Qgd2lkdGg9IjgwMCIgaGVpZ2h0PSI0NTAiIGZpbGw9IiMzYTJmNjMiLz4KPHJlY3Qgd2lkdGg9IjgwMCIgaGVpZ2h0PSI0NTAiIGZpbGw9InVybCgjZG90cykiIG9wYWNpdHk9IjAuMTUiLz4KPGRlZnM+PHBhdHRlcm4gaWQ9ImRvdHMiIHdpZHRoPSIyOCIgaGVpZ2h0PSIyOCIgcGF0dGVyblVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+PGNpcmNsZSBjeD0iNCIgY3k9IjQiIHI9IjIiIGZpbGw9IiNmZmZmZmYiLz48L3BhdHRlcm4+PC9kZWZzPgo8dGV4dCB4PSI0MDAiIHk9IjIxNSIgZm9udC1mYW1pbHk9IlZlcmRhbmEiIGZvbnQtc2l6ZT0iMjYiIGZpbGw9IiNmZmZmZmYiIHRleHQtYW5jaG9yPSJtaWRkbGUiIG9wYWNpdHk9IjAuODUiPlNDUkVFTlNIT1QgMTwvdGV4dD4KPHRleHQgeD0iNDAwIiB5PSIyNTAiIGZvbnQtZmFtaWx5PSJWZXJkYW5hIiBmb250LXNpemU9IjE0IiBmaWxsPSIjZmZmZmZmIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBvcGFjaXR5PSIwLjYiPmRyb3AgeW91ciBjYXB0dXJlIGluIC9hc3NldHMvaGZmLzwvdGV4dD4KPC9zdmc+",
+      "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA4MDAgNDUwIj4KPHJlY3Qgd2lkdGg9IjgwMCIgaGVpZ2h0PSI0NTAiIGZpbGw9IiMyZjRhNjMiLz4KPHJlY3Qgd2lkdGg9IjgwMCIgaGVpZ2h0PSI0NTAiIGZpbGw9InVybCgjZG90cykiIG9wYWNpdHk9IjAuMTUiLz4KPGRlZnM+PHBhdHRlcm4gaWQ9ImRvdHMiIHdpZHRoPSIyOCIgaGVpZ2h0PSIyOCIgcGF0dGVyblVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+PGNpcmNsZSBjeD0iNCIgY3k9IjQiIHI9IjIiIGZpbGw9IiNmZmZmZmYiLz48L3BhdHRlcm4+PC9kZWZzPgo8dGV4dCB4PSI0MDAiIHk9IjIxNSIgZm9udC1mYW1pbHk9IlZlcmRhbmEiIGZvbnQtc2l6ZT0iMjYiIGZpbGw9IiNmZmZmZmYiIHRleHQtYW5jaG9yPSJtaWRkbGUiIG9wYWNpdHk9IjAuODUiPlNDUkVFTlNIT1QgMjwvdGV4dD4KPHRleHQgeD0iNDAwIiB5PSIyNTAiIGZvbnQtZmFtaWx5PSJWZXJkYW5hIiBmb250LXNpemU9IjE0IiBmaWxsPSIjZmZmZmZmIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBvcGFjaXR5PSIwLjYiPmRyb3AgeW91ciBjYXB0dXJlIGluIC9hc3NldHMvaGZmLzwvdGV4dD4KPC9zdmc+",
+      "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA4MDAgNDUwIj4KPHJlY3Qgd2lkdGg9IjgwMCIgaGVpZ2h0PSI0NTAiIGZpbGw9IiM2MzQzMmYiLz4KPHJlY3Qgd2lkdGg9IjgwMCIgaGVpZ2h0PSI0NTAiIGZpbGw9InVybCgjZG90cykiIG9wYWNpdHk9IjAuMTUiLz4KPGRlZnM+PHBhdHRlcm4gaWQ9ImRvdHMiIHdpZHRoPSIyOCIgaGVpZ2h0PSIyOCIgcGF0dGVyblVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+PGNpcmNsZSBjeD0iNCIgY3k9IjQiIHI9IjIiIGZpbGw9IiNmZmZmZmYiLz48L3BhdHRlcm4+PC9kZWZzPgo8dGV4dCB4PSI0MDAiIHk9IjIxNSIgZm9udC1mYW1pbHk9IlZlcmRhbmEiIGZvbnQtc2l6ZT0iMjYiIGZpbGw9IiNmZmZmZmYiIHRleHQtYW5jaG9yPSJtaWRkbGUiIG9wYWNpdHk9IjAuODUiPlNDUkVFTlNIT1QgMzwvdGV4dD4KPHRleHQgeD0iNDAwIiB5PSIyNTAiIGZvbnQtZmFtaWx5PSJWZXJkYW5hIiBmb250LXNpemU9IjE0IiBmaWxsPSIjZmZmZmZmIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBvcGFjaXR5PSIwLjYiPmRyb3AgeW91ciBjYXB0dXJlIGluIC9hc3NldHMvaGZmLzwvdGV4dD4KPC9zdmc+",
+      "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA4MDAgNDUwIj4KPHJlY3Qgd2lkdGg9IjgwMCIgaGVpZ2h0PSI0NTAiIGZpbGw9IiMyZjYzNTAiLz4KPHJlY3Qgd2lkdGg9IjgwMCIgaGVpZ2h0PSI0NTAiIGZpbGw9InVybCgjZG90cykiIG9wYWNpdHk9IjAuMTUiLz4KPGRlZnM+PHBhdHRlcm4gaWQ9ImRvdHMiIHdpZHRoPSIyOCIgaGVpZ2h0PSIyOCIgcGF0dGVyblVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+PGNpcmNsZSBjeD0iNCIgY3k9IjQiIHI9IjIiIGZpbGw9IiNmZmZmZmYiLz48L3BhdHRlcm4+PC9kZWZzPgo8dGV4dCB4PSI0MDAiIHk9IjIxNSIgZm9udC1mYW1pbHk9IlZlcmRhbmEiIGZvbnQtc2l6ZT0iMjYiIGZpbGw9IiNmZmZmZmYiIHRleHQtYW5jaG9yPSJtaWRkbGUiIG9wYWNpdHk9IjAuODUiPlNDUkVFTlNIT1QgNDwvdGV4dD4KPHRleHQgeD0iNDAwIiB5PSIyNTAiIGZvbnQtZmFtaWx5PSJWZXJkYW5hIiBmb250LXNpemU9IjE0IiBmaWxsPSIjZmZmZmZmIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBvcGFjaXR5PSIwLjYiPmRyb3AgeW91ciBjYXB0dXJlIGluIC9hc3NldHMvaGZmLzwvdGV4dD4KPC9zdmc+",
+      "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA4MDAgNDUwIj4KPHJlY3Qgd2lkdGg9IjgwMCIgaGVpZ2h0PSI0NTAiIGZpbGw9IiM1YTJmNjMiLz4KPHJlY3Qgd2lkdGg9IjgwMCIgaGVpZ2h0PSI0NTAiIGZpbGw9InVybCgjZG90cykiIG9wYWNpdHk9IjAuMTUiLz4KPGRlZnM+PHBhdHRlcm4gaWQ9ImRvdHMiIHdpZHRoPSIyOCIgaGVpZ2h0PSIyOCIgcGF0dGVyblVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+PGNpcmNsZSBjeD0iNCIgY3k9IjQiIHI9IjIiIGZpbGw9IiNmZmZmZmYiLz48L3BhdHRlcm4+PC9kZWZzPgo8dGV4dCB4PSI0MDAiIHk9IjIxNSIgZm9udC1mYW1pbHk9IlZlcmRhbmEiIGZvbnQtc2l6ZT0iMjYiIGZpbGw9IiNmZmZmZmYiIHRleHQtYW5jaG9yPSJtaWRkbGUiIG9wYWNpdHk9IjAuODUiPlNDUkVFTlNIT1QgNTwvdGV4dD4KPHRleHQgeD0iNDAwIiB5PSIyNTAiIGZvbnQtZmFtaWx5PSJWZXJkYW5hIiBmb250LXNpemU9IjE0IiBmaWxsPSIjZmZmZmZmIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBvcGFjaXR5PSIwLjYiPmRyb3AgeW91ciBjYXB0dXJlIGluIC9hc3NldHMvaGZmLzwvdGV4dD4KPC9zdmc+",
+      "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA4MDAgNDUwIj4KPHJlY3Qgd2lkdGg9IjgwMCIgaGVpZ2h0PSI0NTAiIGZpbGw9IiMyZjVhNjMiLz4KPHJlY3Qgd2lkdGg9IjgwMCIgaGVpZ2h0PSI0NTAiIGZpbGw9InVybCgjZG90cykiIG9wYWNpdHk9IjAuMTUiLz4KPGRlZnM+PHBhdHRlcm4gaWQ9ImRvdHMiIHdpZHRoPSIyOCIgaGVpZ2h0PSIyOCIgcGF0dGVyblVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+PGNpcmNsZSBjeD0iNCIgY3k9IjQiIHI9IjIiIGZpbGw9IiNmZmZmZmYiLz48L3BhdHRlcm4+PC9kZWZzPgo8dGV4dCB4PSI0MDAiIHk9IjIxNSIgZm9udC1mYW1pbHk9IlZlcmRhbmEiIGZvbnQtc2l6ZT0iMjYiIGZpbGw9IiNmZmZmZmYiIHRleHQtYW5jaG9yPSJtaWRkbGUiIG9wYWNpdHk9IjAuODUiPlNDUkVFTlNIT1QgNjwvdGV4dD4KPHRleHQgeD0iNDAwIiB5PSIyNTAiIGZvbnQtZmFtaWx5PSJWZXJkYW5hIiBmb250LXNpemU9IjE0IiBmaWxsPSIjZmZmZmZmIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBvcGFjaXR5PSIwLjYiPmRyb3AgeW91ciBjYXB0dXJlIGluIC9hc3NldHMvaGZmLzwvdGV4dD4KPC9zdmc+"
+    ],
+    "theme": {
+      "accent": "#d9622b",
+      "accentSoft": "#e88a52",
+      "accent2": "#5c7a94",
+      "hazardA": "#e8a33d",
+      "hazardB": "#1b1f1a",
+      "hazardAngle": "-45deg",
+      "fontDisplay": "Oswald",
+      "fontBody": "Barlow",
+      "fontMono": "Space Mono"
+    },
+    "platforms": [
+      {
+        "key": "pc",
+        "label": "PC · Steam"
+      },
+      {
+        "key": "ps5",
+        "label": "PlayStation 5"
+      },
+      {
+        "key": "xboxseries",
+        "label": "Xbox Series X|S"
+      }
+    ],
+    "platformData": {
+      "en": {
+        "pc": {
+          "controller": "Full Support",
+          "crossplay": "All platforms",
+          "players": "Up to 3",
+          "servers": "Dedicated"
+        },
+        "ps5": {
+          "controller": "Full Support",
+          "crossplay": "All platforms",
+          "players": "Up to 3",
+          "servers": "Dedicated"
+        },
+        "xboxseries": {
+          "controller": "Full Support",
+          "crossplay": "All platforms",
+          "players": "Up to 3",
+          "servers": "Dedicated"
+        }
+      },
+      "fr": {
+        "pc": {
+          "controller": "Support complet",
+          "crossplay": "Toutes plateformes",
+          "players": "Jusqu'à 3",
+          "servers": "Dédiés"
+        },
+        "ps5": {
+          "controller": "Support complet",
+          "crossplay": "Toutes plateformes",
+          "players": "Jusqu'à 3",
+          "servers": "Dédiés"
+        },
+        "xboxseries": {
+          "controller": "Support complet",
+          "crossplay": "Toutes plateformes",
+          "players": "Jusqu'à 3",
+          "servers": "Dédiés"
+        }
+      }
+    },
+    "quickFacts": {
+      "en": [
+        {
+          "label": "Genre",
+          "value": "Extraction shooter"
+        },
+        {
+          "label": "Developer",
+          "value": "Embark Studios"
+        },
+        {
+          "label": "Publisher",
+          "value": "Embark Studios"
+        },
+        {
+          "label": "Release",
+          "value": "Oct 30, 2025"
+        }
+      ],
+      "fr": [
+        {
+          "label": "Genre",
+          "value": "Extraction shooter"
+        },
+        {
+          "label": "Développeur",
+          "value": "Embark Studios"
+        },
+        {
+          "label": "Éditeur",
+          "value": "Embark Studios"
+        },
+        {
+          "label": "Sortie",
+          "value": "30 oct. 2025"
+        }
+      ]
+    },
+    "loop": {
+      "en": [
+        "Scavenge",
+        "Craft",
+        "Extract",
+        "Upgrade"
+      ],
+      "fr": [
+        "Récupérer",
+        "Fabriquer",
+        "Extraire",
+        "Améliorer"
+      ]
+    },
+    "i18n": {
+      "en": {
+        "navGallery": "Gallery",
+        "navDetails": "Details",
+        "backLink": "Back to Library",
+        "titleMain": "ARC",
+        "titleAccent": " RAIDERS",
+        "heroTagline": "Earth, 2180: scavenge a machine-ravaged surface world solo or in a squad of three, fighting off hostile ARC machines and rival Raiders alike.",
+        "tags": [
+          "EXTRACTION SHOOTER",
+          "PvPvE",
+          "THIRD-PERSON",
+          "SQUADS OF 3"
+        ],
+        "steamBtn": "View on Steam",
+        "wishlist": "Add to Wishlist",
+        "wishlisted": "Wishlisted",
+        "galleryHeading": "Screenshots",
+        "detailsHeading": "Details",
+        "detailsSub": "Platforms and cross-play capabilities.",
+        "lblController": "Controller",
+        "lblCrossplay": "Crossplay",
+        "lblPlayers": "Co-op players",
+        "lblServers": "Dedicated servers",
+        "descP": [
+          "Earth, 2180: humanity's survivors live underground in Speranza while hostile machines called ARC patrol the surface. Each raid sends you topside solo or with up to two squadmates to loot a ruined world for thirty minutes, fighting off ARC patrols and — just as often — other Raiders after the same loot.",
+          "Die in a raid and you lose everything you were carrying except what's tucked into your safe pocket, so every extraction elevator you reach alive is a genuine relief. Gear crafted and coin earned back at base carries over between runs, and full cross-play plus cross-progression means your squad can be split across PC, PlayStation, and Xbox."
+        ],
+        "readMore": "Read more",
+        "readLess": "Read less",
+        "footer": "Fan-made reference layout · Not an official Embark Studios product"
+      },
+      "fr": {
+        "navGallery": "Galerie",
+        "navDetails": "Détails",
+        "backLink": "Retour à la bibliothèque",
+        "titleMain": "ARC",
+        "titleAccent": " RAIDERS",
+        "heroTagline": "Terre, 2180 : pillez une surface ravagée par les machines, seul ou en escouade de trois, en affrontant les machines ARC hostiles et d'autres Raiders.",
+        "tags": [
+          "EXTRACTION SHOOTER",
+          "PvPvE",
+          "TROISIÈME PERSONNE",
+          "ESCOUADES DE 3"
+        ],
+        "steamBtn": "Voir sur Steam",
+        "wishlist": "Ajouter à la liste de souhaits",
+        "wishlisted": "Dans la liste de souhaits",
+        "galleryHeading": "Captures d'écran",
+        "detailsHeading": "Détails",
+        "detailsSub": "Plateformes et compatibilité multiplateforme.",
+        "lblController": "Manette",
+        "lblCrossplay": "Crossplay",
+        "lblPlayers": "Joueurs en coop",
+        "lblServers": "Serveurs dédiés",
+        "descP": [
+          "Terre, 2180 : les survivants de l'humanité vivent sous terre à Speranza pendant que des machines hostiles appelées ARC patrouillent en surface. Chaque raid vous envoie, seul ou avec deux coéquipiers, piller un monde en ruines pendant trente minutes, en affrontant les patrouilles ARC et, tout aussi souvent, d'autres Raiders après le même butin.",
+          "Mourir pendant un raid signifie perdre tout ce que vous transportiez, sauf ce qui est rangé dans votre poche sûre — chaque ascenseur d'extraction atteint vivant est donc un vrai soulagement. L'équipement fabriqué et l'argent gagné restent acquis entre les parties, et le crossplay complet avec la progression partagée permet à une escouade de mélanger PC, PlayStation et Xbox."
+        ],
+        "readMore": "Lire la suite",
+        "readLess": "Réduire",
+        "footer": "Mise en page fan-made · N'est pas un produit officiel de Embark Studios"
+      }
+    },
+    "canYouRunIt": {
+      "requirements": {
+        "minimum": {
+          "raw": {
+            "cpu": "Intel Core i5-6600K or AMD Ryzen R5 1600",
+            "gpu": "NVIDIA GeForce GTX 1050 Ti or AMD Radeon RX 580 or Intel Arc A380",
+            "memory": "12 GB RAM",
+            "storage": "50 GB available space"
+          },
+          "cpu": [
+            {
+              "raw": "Intel Core i5-6600K",
+              "brand": "intel",
+              "name": "Intel Core i5 6600K",
+              "score": 24
+            },
+            {
+              "raw": "AMD Ryzen R5 1600",
+              "brand": "amd",
+              "name": null,
+              "score": null
+            }
+          ],
+          "gpu": [
+            {
+              "raw": "NVIDIA GeForce GTX 1050 Ti",
+              "brand": "nvidia",
+              "name": "NVIDIA GeForce GTX 1050 Ti",
+              "score": 4.3
+            },
+            {
+              "raw": "AMD Radeon RX 580",
+              "brand": "amd",
+              "name": "AMD Radeon RX 580",
+              "score": 9.8
+            },
+            {
+              "raw": "Intel Arc A380",
+              "brand": "intel",
+              "name": null,
+              "score": null
+            }
+          ],
+          "ramGB": 12,
+          "storageGB": 50
+        },
+        "recommended": {
+          "raw": {
+            "cpu": "Intel Core i5-9600K or AMD Ryzen 5 3600",
+            "gpu": "NVIDIA GeForce RTX 2070",
+            "memory": "16 GB RAM",
+            "storage": "50 GB available space"
+          },
+          "cpu": [
+            {
+              "raw": "Intel Core i5-9600K",
+              "brand": "intel",
+              "name": null,
+              "score": null
+            },
+            {
+              "raw": "AMD Ryzen 5 3600",
+              "brand": "amd",
+              "name": "AMD Ryzen 5 3600",
+              "score": 45
+            }
+          ],
+          "gpu": [
+            {
+              "raw": "NVIDIA GeForce RTX 2070",
+              "brand": "nvidia",
+              "name": "NVIDIA GeForce RTX 2070",
+              "score": 25
+            }
+          ],
+          "ramGB": 16,
+          "storageGB": 50
+        }
+      },
+      "mySpecs": {
+        "overall": "above-minimum",
+        "components": {
+          "cpu": {
+            "status": "above-minimum",
+            "fill": 73,
+            "myScore": 40,
+            "minScore": 24,
+            "recScore": 45,
+            "minName": "Intel Core i5 6600K",
+            "recName": "AMD Ryzen 5 3600"
+          },
+          "gpu": {
+            "status": "above-minimum",
+            "fill": 75,
+            "myScore": 20,
+            "minScore": 4.3,
+            "recScore": 25,
+            "minName": "NVIDIA GeForce GTX 1050 Ti",
+            "recName": "NVIDIA GeForce RTX 2070"
+          },
+          "ram": {
+            "status": "meets-recommended",
+            "fill": 0,
+            "myGB": 16,
+            "minGB": 12,
+            "recGB": 16
+          }
+        },
+        "storage": {
+          "requiredGB": 50,
+          "type": "nvme",
+          "tier": "exceeds"
+        },
+        "lean": "balanced",
+        "priorities": [
+          {
+            "component": "cpu",
+            "severity": "high",
+            "gap": -5
+          },
+          {
+            "component": "gpu",
+            "severity": "high",
+            "gap": -5
+          }
+        ]
+      }
+    }
+  },
+  "2001120": {
+    "pageTitle": "Split Fiction — Dual Manuscript",
+    "headerBrand": "SPLIT FICTION",
+    "footerBrand": "SPLIT FICTION",
+    "brandIcon": "dot",
+    "backLink": "coop-library.html",
+    "steamUrl": "https://store.steampowered.com/app/2001120/Split_Fiction/",
+    "heroImage": "",
+    "gallery": [
+      "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA4MDAgNDUwIj4KPHJlY3Qgd2lkdGg9IjgwMCIgaGVpZ2h0PSI0NTAiIGZpbGw9IiMzYTJmNjMiLz4KPHJlY3Qgd2lkdGg9IjgwMCIgaGVpZ2h0PSI0NTAiIGZpbGw9InVybCgjZG90cykiIG9wYWNpdHk9IjAuMTUiLz4KPGRlZnM+PHBhdHRlcm4gaWQ9ImRvdHMiIHdpZHRoPSIyOCIgaGVpZ2h0PSIyOCIgcGF0dGVyblVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+PGNpcmNsZSBjeD0iNCIgY3k9IjQiIHI9IjIiIGZpbGw9IiNmZmZmZmYiLz48L3BhdHRlcm4+PC9kZWZzPgo8dGV4dCB4PSI0MDAiIHk9IjIxNSIgZm9udC1mYW1pbHk9IlZlcmRhbmEiIGZvbnQtc2l6ZT0iMjYiIGZpbGw9IiNmZmZmZmYiIHRleHQtYW5jaG9yPSJtaWRkbGUiIG9wYWNpdHk9IjAuODUiPlNDUkVFTlNIT1QgMTwvdGV4dD4KPHRleHQgeD0iNDAwIiB5PSIyNTAiIGZvbnQtZmFtaWx5PSJWZXJkYW5hIiBmb250LXNpemU9IjE0IiBmaWxsPSIjZmZmZmZmIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBvcGFjaXR5PSIwLjYiPmRyb3AgeW91ciBjYXB0dXJlIGluIC9hc3NldHMvaGZmLzwvdGV4dD4KPC9zdmc+",
+      "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA4MDAgNDUwIj4KPHJlY3Qgd2lkdGg9IjgwMCIgaGVpZ2h0PSI0NTAiIGZpbGw9IiMyZjRhNjMiLz4KPHJlY3Qgd2lkdGg9IjgwMCIgaGVpZ2h0PSI0NTAiIGZpbGw9InVybCgjZG90cykiIG9wYWNpdHk9IjAuMTUiLz4KPGRlZnM+PHBhdHRlcm4gaWQ9ImRvdHMiIHdpZHRoPSIyOCIgaGVpZ2h0PSIyOCIgcGF0dGVyblVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+PGNpcmNsZSBjeD0iNCIgY3k9IjQiIHI9IjIiIGZpbGw9IiNmZmZmZmYiLz48L3BhdHRlcm4+PC9kZWZzPgo8dGV4dCB4PSI0MDAiIHk9IjIxNSIgZm9udC1mYW1pbHk9IlZlcmRhbmEiIGZvbnQtc2l6ZT0iMjYiIGZpbGw9IiNmZmZmZmYiIHRleHQtYW5jaG9yPSJtaWRkbGUiIG9wYWNpdHk9IjAuODUiPlNDUkVFTlNIT1QgMjwvdGV4dD4KPHRleHQgeD0iNDAwIiB5PSIyNTAiIGZvbnQtZmFtaWx5PSJWZXJkYW5hIiBmb250LXNpemU9IjE0IiBmaWxsPSIjZmZmZmZmIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBvcGFjaXR5PSIwLjYiPmRyb3AgeW91ciBjYXB0dXJlIGluIC9hc3NldHMvaGZmLzwvdGV4dD4KPC9zdmc+",
+      "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA4MDAgNDUwIj4KPHJlY3Qgd2lkdGg9IjgwMCIgaGVpZ2h0PSI0NTAiIGZpbGw9IiM2MzQzMmYiLz4KPHJlY3Qgd2lkdGg9IjgwMCIgaGVpZ2h0PSI0NTAiIGZpbGw9InVybCgjZG90cykiIG9wYWNpdHk9IjAuMTUiLz4KPGRlZnM+PHBhdHRlcm4gaWQ9ImRvdHMiIHdpZHRoPSIyOCIgaGVpZ2h0PSIyOCIgcGF0dGVyblVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+PGNpcmNsZSBjeD0iNCIgY3k9IjQiIHI9IjIiIGZpbGw9IiNmZmZmZmYiLz48L3BhdHRlcm4+PC9kZWZzPgo8dGV4dCB4PSI0MDAiIHk9IjIxNSIgZm9udC1mYW1pbHk9IlZlcmRhbmEiIGZvbnQtc2l6ZT0iMjYiIGZpbGw9IiNmZmZmZmYiIHRleHQtYW5jaG9yPSJtaWRkbGUiIG9wYWNpdHk9IjAuODUiPlNDUkVFTlNIT1QgMzwvdGV4dD4KPHRleHQgeD0iNDAwIiB5PSIyNTAiIGZvbnQtZmFtaWx5PSJWZXJkYW5hIiBmb250LXNpemU9IjE0IiBmaWxsPSIjZmZmZmZmIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBvcGFjaXR5PSIwLjYiPmRyb3AgeW91ciBjYXB0dXJlIGluIC9hc3NldHMvaGZmLzwvdGV4dD4KPC9zdmc+",
+      "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA4MDAgNDUwIj4KPHJlY3Qgd2lkdGg9IjgwMCIgaGVpZ2h0PSI0NTAiIGZpbGw9IiMyZjYzNTAiLz4KPHJlY3Qgd2lkdGg9IjgwMCIgaGVpZ2h0PSI0NTAiIGZpbGw9InVybCgjZG90cykiIG9wYWNpdHk9IjAuMTUiLz4KPGRlZnM+PHBhdHRlcm4gaWQ9ImRvdHMiIHdpZHRoPSIyOCIgaGVpZ2h0PSIyOCIgcGF0dGVyblVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+PGNpcmNsZSBjeD0iNCIgY3k9IjQiIHI9IjIiIGZpbGw9IiNmZmZmZmYiLz48L3BhdHRlcm4+PC9kZWZzPgo8dGV4dCB4PSI0MDAiIHk9IjIxNSIgZm9udC1mYW1pbHk9IlZlcmRhbmEiIGZvbnQtc2l6ZT0iMjYiIGZpbGw9IiNmZmZmZmYiIHRleHQtYW5jaG9yPSJtaWRkbGUiIG9wYWNpdHk9IjAuODUiPlNDUkVFTlNIT1QgNDwvdGV4dD4KPHRleHQgeD0iNDAwIiB5PSIyNTAiIGZvbnQtZmFtaWx5PSJWZXJkYW5hIiBmb250LXNpemU9IjE0IiBmaWxsPSIjZmZmZmZmIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBvcGFjaXR5PSIwLjYiPmRyb3AgeW91ciBjYXB0dXJlIGluIC9hc3NldHMvaGZmLzwvdGV4dD4KPC9zdmc+",
+      "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA4MDAgNDUwIj4KPHJlY3Qgd2lkdGg9IjgwMCIgaGVpZ2h0PSI0NTAiIGZpbGw9IiM1YTJmNjMiLz4KPHJlY3Qgd2lkdGg9IjgwMCIgaGVpZ2h0PSI0NTAiIGZpbGw9InVybCgjZG90cykiIG9wYWNpdHk9IjAuMTUiLz4KPGRlZnM+PHBhdHRlcm4gaWQ9ImRvdHMiIHdpZHRoPSIyOCIgaGVpZ2h0PSIyOCIgcGF0dGVyblVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+PGNpcmNsZSBjeD0iNCIgY3k9IjQiIHI9IjIiIGZpbGw9IiNmZmZmZmYiLz48L3BhdHRlcm4+PC9kZWZzPgo8dGV4dCB4PSI0MDAiIHk9IjIxNSIgZm9udC1mYW1pbHk9IlZlcmRhbmEiIGZvbnQtc2l6ZT0iMjYiIGZpbGw9IiNmZmZmZmYiIHRleHQtYW5jaG9yPSJtaWRkbGUiIG9wYWNpdHk9IjAuODUiPlNDUkVFTlNIT1QgNTwvdGV4dD4KPHRleHQgeD0iNDAwIiB5PSIyNTAiIGZvbnQtZmFtaWx5PSJWZXJkYW5hIiBmb250LXNpemU9IjE0IiBmaWxsPSIjZmZmZmZmIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBvcGFjaXR5PSIwLjYiPmRyb3AgeW91ciBjYXB0dXJlIGluIC9hc3NldHMvaGZmLzwvdGV4dD4KPC9zdmc+",
+      "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA4MDAgNDUwIj4KPHJlY3Qgd2lkdGg9IjgwMCIgaGVpZ2h0PSI0NTAiIGZpbGw9IiMyZjVhNjMiLz4KPHJlY3Qgd2lkdGg9IjgwMCIgaGVpZ2h0PSI0NTAiIGZpbGw9InVybCgjZG90cykiIG9wYWNpdHk9IjAuMTUiLz4KPGRlZnM+PHBhdHRlcm4gaWQ9ImRvdHMiIHdpZHRoPSIyOCIgaGVpZ2h0PSIyOCIgcGF0dGVyblVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+PGNpcmNsZSBjeD0iNCIgY3k9IjQiIHI9IjIiIGZpbGw9IiNmZmZmZmYiLz48L3BhdHRlcm4+PC9kZWZzPgo8dGV4dCB4PSI0MDAiIHk9IjIxNSIgZm9udC1mYW1pbHk9IlZlcmRhbmEiIGZvbnQtc2l6ZT0iMjYiIGZpbGw9IiNmZmZmZmYiIHRleHQtYW5jaG9yPSJtaWRkbGUiIG9wYWNpdHk9IjAuODUiPlNDUkVFTlNIT1QgNjwvdGV4dD4KPHRleHQgeD0iNDAwIiB5PSIyNTAiIGZvbnQtZmFtaWx5PSJWZXJkYW5hIiBmb250LXNpemU9IjE0IiBmaWxsPSIjZmZmZmZmIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBvcGFjaXR5PSIwLjYiPmRyb3AgeW91ciBjYXB0dXJlIGluIC9hc3NldHMvaGZmLzwvdGV4dD4KPC9zdmc+"
+    ],
+    "theme": {
+      "accent": "#a15ce0",
+      "accentSoft": "#c090ee",
+      "accent2": "#3fae6a",
+      "hazardA": "#7b2ff7",
+      "hazardB": "#151529",
+      "hazardAngle": "-45deg",
+      "fontDisplay": "Chakra Petch",
+      "fontBody": "Barlow",
+      "fontMono": "Space Mono"
+    },
+    "platforms": [
+      {
+        "key": "pc",
+        "label": "PC · Steam"
+      },
+      {
+        "key": "ps5",
+        "label": "PlayStation 5"
+      },
+      {
+        "key": "xboxseries",
+        "label": "Xbox Series X|S"
+      },
+      {
+        "key": "switch2",
+        "label": "Nintendo Switch 2"
+      }
+    ],
+    "platformData": {
+      "en": {
+        "pc": {
+          "controller": "Full Support",
+          "crossplay": "All platforms",
+          "players": "2 (co-op only)",
+          "servers": "Peer-to-peer"
+        },
+        "ps5": {
+          "controller": "Full Support",
+          "crossplay": "All platforms",
+          "players": "2 (co-op only)",
+          "servers": "Peer-to-peer"
+        },
+        "xboxseries": {
+          "controller": "Full Support",
+          "crossplay": "All platforms",
+          "players": "2 (co-op only)",
+          "servers": "Peer-to-peer"
+        },
+        "switch2": {
+          "controller": "Full Support",
+          "crossplay": "All platforms",
+          "players": "2 (co-op only)",
+          "servers": "Peer-to-peer"
+        }
+      },
+      "fr": {
+        "pc": {
+          "controller": "Support complet",
+          "crossplay": "Toutes plateformes",
+          "players": "2 (coop uniquement)",
+          "servers": "Pair à pair"
+        },
+        "ps5": {
+          "controller": "Support complet",
+          "crossplay": "Toutes plateformes",
+          "players": "2 (coop uniquement)",
+          "servers": "Pair à pair"
+        },
+        "xboxseries": {
+          "controller": "Support complet",
+          "crossplay": "Toutes plateformes",
+          "players": "2 (coop uniquement)",
+          "servers": "Pair à pair"
+        },
+        "switch2": {
+          "controller": "Support complet",
+          "crossplay": "Toutes plateformes",
+          "players": "2 (coop uniquement)",
+          "servers": "Pair à pair"
+        }
+      }
+    },
+    "quickFacts": {
+      "en": [
+        {
+          "label": "Genre",
+          "value": "Co-op action-adventure"
+        },
+        {
+          "label": "Developer",
+          "value": "Hazelight Studios"
+        },
+        {
+          "label": "Publisher",
+          "value": "EA Originals"
+        },
+        {
+          "label": "Release",
+          "value": "Mar 6, 2025"
+        }
+      ],
+      "fr": [
+        {
+          "label": "Genre",
+          "value": "Action-aventure coop"
+        },
+        {
+          "label": "Développeur",
+          "value": "Hazelight Studios"
+        },
+        {
+          "label": "Éditeur",
+          "value": "EA Originals"
+        },
+        {
+          "label": "Sortie",
+          "value": "6 mars 2025"
+        }
+      ]
+    },
+    "loop": {
+      "en": [
+        "Write",
+        "Split",
+        "Adapt",
+        "Escape"
+      ],
+      "fr": [
+        "Écrire",
+        "Diviser",
+        "S'adapter",
+        "S'échapper"
+      ]
+    },
+    "i18n": {
+      "en": {
+        "navGallery": "Gallery",
+        "navDetails": "Details",
+        "backLink": "Back to Library",
+        "titleMain": "SPLIT",
+        "titleAccent": " FICTION",
+        "heroTagline": "Two authors — one sci-fi, one fantasy — get trapped inside a machine built to steal their stories, and have to fight through both worlds together to escape.",
+        "tags": [
+          "CO-OP ONLY",
+          "SCI-FI & FANTASY",
+          "ACTION-ADVENTURE",
+          "SPLIT-SCREEN"
+        ],
+        "steamBtn": "View on Steam",
+        "wishlist": "Add to Wishlist",
+        "wishlisted": "Wishlisted",
+        "galleryHeading": "Screenshots",
+        "detailsHeading": "Details",
+        "detailsSub": "Platforms and cross-play capabilities.",
+        "lblController": "Controller",
+        "lblCrossplay": "Crossplay",
+        "lblPlayers": "Co-op players",
+        "lblServers": "Dedicated servers",
+        "descP": [
+          "Mio writes hard sci-fi, Zoe writes fantasy, and both get trapped inside a machine built to steal their unpublished stories. Every chapter swaps between their two worlds — dragons and gravity bikes, cyber-ninjas and dance battles — with a new mechanic introduced roughly every few minutes and rarely repeated.",
+          "Like Hazelight's earlier games it's co-op only, with a free Friend's Pass for a second player, but Split Fiction is the first in the studio's catalogue to support full cross-platform play, so PC, PlayStation, Xbox, and Switch 2 owners can play together in the same session."
+        ],
+        "readMore": "Read more",
+        "readLess": "Read less",
+        "footer": "Fan-made reference layout · Not an official Hazelight Studios or Electronic Arts product"
+      },
+      "fr": {
+        "navGallery": "Galerie",
+        "navDetails": "Détails",
+        "backLink": "Retour à la bibliothèque",
+        "titleMain": "SPLIT",
+        "titleAccent": " FICTION",
+        "heroTagline": "Deux autrices — l'une en science-fiction, l'autre en fantasy — se retrouvent prisonnières d'une machine conçue pour voler leurs histoires, et doivent traverser leurs deux mondes ensemble pour s'échapper.",
+        "tags": [
+          "COOP UNIQUEMENT",
+          "SCI-FI ET FANTASY",
+          "ACTION-AVENTURE",
+          "ÉCRAN PARTAGÉ"
+        ],
+        "steamBtn": "Voir sur Steam",
+        "wishlist": "Ajouter à la liste de souhaits",
+        "wishlisted": "Dans la liste de souhaits",
+        "galleryHeading": "Captures d'écran",
+        "detailsHeading": "Détails",
+        "detailsSub": "Plateformes et compatibilité multiplateforme.",
+        "lblController": "Manette",
+        "lblCrossplay": "Crossplay",
+        "lblPlayers": "Joueurs en coop",
+        "lblServers": "Serveurs dédiés",
+        "descP": [
+          "Mio écrit de la science-fiction pure, Zoe de la fantasy, et toutes deux se retrouvent prisonnières d'une machine conçue pour voler leurs histoires inédites. Chaque chapitre alterne entre leurs deux mondes — dragons et motos à gravité, cyber-ninjas et battles de danse — avec une nouvelle mécanique introduite presque toutes les quelques minutes.",
+          "Comme les précédents jeux de Hazelight, il est exclusivement coopératif, avec un Friend's Pass gratuit pour un second joueur. Mais Split Fiction est le premier du catalogue du studio à proposer un crossplay complet : PC, PlayStation, Xbox et Switch 2 peuvent jouer ensemble dans la même partie."
+        ],
+        "readMore": "Lire la suite",
+        "readLess": "Réduire",
+        "footer": "Mise en page fan-made · N'est pas un produit officiel de Hazelight Studios ou Electronic Arts"
+      }
+    },
+    "canYouRunIt": {
+      "requirements": {
+        "minimum": {
+          "raw": {
+            "cpu": "Intel Core i5-6600K or AMD Ryzen 5 2600X",
+            "gpu": "NVIDIA GeForce GTX 970 - 4GB or Radeon RX 470 - 4GB",
+            "memory": "16 GB RAM",
+            "storage": "85 GB available space"
+          },
+          "cpu": [
+            {
+              "raw": "Intel Core i5-6600K",
+              "brand": "intel",
+              "name": "Intel Core i5 6600K",
+              "score": 24
+            },
+            {
+              "raw": "AMD Ryzen 5 2600X",
+              "brand": "amd",
+              "name": "AMD Ryzen 5 2600",
+              "score": 33
+            }
+          ],
+          "gpu": [
+            {
+              "raw": "NVIDIA GeForce GTX 970 - 4GB",
+              "brand": "nvidia",
+              "name": null,
+              "score": null
+            },
+            {
+              "raw": "Radeon RX 470 - 4GB",
+              "brand": "amd",
+              "name": "AMD Radeon RX 470",
+              "score": 8.1
+            }
+          ],
+          "ramGB": 16,
+          "storageGB": 85
+        },
+        "recommended": {
+          "raw": {
+            "cpu": "Intel Core i7-11700k or AMD Ryzen 7 5800X",
+            "gpu": "NVIDIA GeForce RTX 3070 - 8GB or AMD Radeon 6700 XT - 12GB",
+            "memory": "16 GB RAM",
+            "storage": "85 GB available space"
+          },
+          "cpu": [
+            {
+              "raw": "Intel Core i7-11700k",
+              "brand": "intel",
+              "name": null,
+              "score": null
+            },
+            {
+              "raw": "AMD Ryzen 7 5800X",
+              "brand": "amd",
+              "name": "AMD Ryzen 7 5800X",
+              "score": 54.5
+            }
+          ],
+          "gpu": [
+            {
+              "raw": "NVIDIA GeForce RTX 3070 - 8GB",
+              "brand": "nvidia",
+              "name": "NVIDIA GeForce RTX 3070",
+              "score": 42.8
+            },
+            {
+              "raw": "AMD Radeon 6700 XT - 12GB",
+              "brand": "amd",
+              "name": null,
+              "score": null
+            }
+          ],
+          "ramGB": 16,
+          "storageGB": 85
+        }
+      },
+      "mySpecs": {
+        "overall": "meets-minimum",
+        "components": {
+          "cpu": {
+            "status": "above-minimum",
+            "fill": 48,
+            "myScore": 40,
+            "minScore": 24,
+            "recScore": 54.5,
+            "minName": "Intel Core i5 6600K",
+            "recName": "AMD Ryzen 7 5800X"
+          },
+          "gpu": {
+            "status": "above-minimum",
+            "fill": 33,
+            "myScore": 20,
+            "minScore": 8.1,
+            "recScore": 42.8,
+            "minName": "AMD Radeon RX 470",
+            "recName": "NVIDIA GeForce RTX 3070"
+          },
+          "ram": {
+            "status": "meets-minimum",
+            "fill": 0,
+            "myGB": 16,
+            "minGB": 16,
+            "recGB": 16
+          }
+        },
+        "storage": {
+          "requiredGB": 85,
+          "type": "nvme",
+          "tier": "exceeds"
+        },
+        "lean": "gpu",
+        "priorities": [
+          {
+            "component": "gpu",
+            "severity": "critical",
+            "gap": -22.799999999999997
+          },
+          {
+            "component": "cpu",
+            "severity": "high",
+            "gap": -14.5
+          }
+        ]
+      }
+    }
+  }
+}
