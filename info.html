@@ -391,9 +391,34 @@
   @media (max-width:980px){
     .check-form{ grid-template-columns:1fr 1fr; }
   }
-  .check-form select{
+  .check-form select,
+  .check-form .combobox-input{
     width:100%; background:var(--field-bg, var(--surface)); border:1px solid var(--border);
     border-radius:8px; padding:11px 12px; font-size:14px; color:var(--text); font-family:var(--font-body);
+  }
+
+  /* Searchable CPU/GPU combobox: text input on top, native select hidden
+     underneath as the actual data source, dropdown list absolutely
+     positioned below the input so it never opens upward. */
+  .combobox{ position:relative; }
+  .combobox-input{ cursor:text; }
+  .combobox-input::placeholder{ color:var(--text-faint); }
+  .combobox-select{ display:none; }
+  .combobox-list{
+    position:absolute; top:calc(100% + 6px); left:0; right:0; z-index:30;
+    max-height:260px; overflow-y:auto; margin:0; padding:6px; list-style:none;
+    background:var(--field-bg, var(--surface)); border:1px solid var(--border);
+    border-radius:8px; box-shadow:0 12px 28px rgba(0,0,0,0.35);
+  }
+  .combobox-list[hidden]{ display:none; }
+  .combobox-option{
+    padding:9px 10px; border-radius:6px; font-size:13.5px; color:var(--text);
+    cursor:pointer; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;
+  }
+  .combobox-option:hover,
+  .combobox-option.active{ background:var(--accent2); color:#0c1720; }
+  .combobox-empty{
+    padding:9px 10px; font-size:13.5px; color:var(--text-faint); cursor:default;
   }
   #check-result{ margin-top:24px; }
   #check-result:empty{ display:none; }
@@ -563,11 +588,23 @@
     <div class="check-form">
       <div class="field">
         <div class="field-label">Processor</div>
-        <select class="field-control" id="check-cpu"></select>
+        <div class="combobox" id="check-cpu-combo">
+          <input type="text" class="field-control combobox-input" id="check-cpu-input"
+                 autocomplete="off" role="combobox" aria-expanded="false" aria-autocomplete="list"
+                 aria-controls="check-cpu-list" placeholder="Choose CPU">
+          <select class="combobox-select" id="check-cpu" hidden></select>
+          <ul class="combobox-list" id="check-cpu-list" role="listbox" hidden></ul>
+        </div>
       </div>
       <div class="field">
         <div class="field-label">Graphics Card</div>
-        <select class="field-control" id="check-gpu"></select>
+        <div class="combobox" id="check-gpu-combo">
+          <input type="text" class="field-control combobox-input" id="check-gpu-input"
+                 autocomplete="off" role="combobox" aria-expanded="false" aria-autocomplete="list"
+                 aria-controls="check-gpu-list" placeholder="Choose GPU">
+          <select class="combobox-select" id="check-gpu" hidden></select>
+          <ul class="combobox-list" id="check-gpu-list" role="listbox" hidden></ul>
+        </div>
       </div>
       <div class="field">
         <div class="field-label">RAM</div>
@@ -657,6 +694,7 @@
       priorityRam: 'RAM is below what this game asks for.',
       priorityOptimal: 'No upgrades needed for this game.',
       lblProcessor: 'Processor', lblGraphics: 'Graphics Card', lblRam: 'RAM', lblStorage: 'Storage Type',
+      placeholderCpu: 'Choose CPU', placeholderGpu: 'Choose GPU', comboNoMatches: 'No matches',
       componentNotListed: 'Not listed',
       storageOptions: { hdd: 'HDD', ssd: 'SATA SSD', nvme: 'NVMe SSD' },
       storageCapacity: gb => `Requires ${gb} GB of storage — keep at least ${gb} GB free to install this game.`,
@@ -698,6 +736,7 @@
       priorityRam: 'La RAM est en dessous de ce que demande ce jeu.',
       priorityOptimal: 'Aucune mise à niveau nécessaire pour ce jeu.',
       lblProcessor: 'Processeur', lblGraphics: 'Carte graphique', lblRam: 'RAM', lblStorage: 'Type de stockage',
+      placeholderCpu: 'Choisir un processeur', placeholderGpu: 'Choisir une carte graphique', comboNoMatches: 'Aucun résultat',
       componentNotListed: 'Non renseigné',
       storageOptions: { hdd: 'Disque dur (HDD)', ssd: 'SSD SATA', nvme: 'SSD NVMe' },
       storageCapacity: gb => `Nécessite ${gb} Go de stockage — gardez au moins ${gb} Go libres pour installer ce jeu.`,
@@ -864,6 +903,8 @@
   // ============ CAN YOU RUN IT? ============
   function initCalculator(){
     populateCheckSelects();
+    initCombobox('check-cpu');
+    initCombobox('check-gpu');
     document.querySelectorAll('.calc-tab').forEach(btn=>{
       btn.addEventListener('click', ()=>{
         document.querySelectorAll('.calc-tab').forEach(b=>b.classList.remove('active'));
@@ -878,12 +919,18 @@
 
   // The underlying hardware names (option value, used for matching against
   // HardwareTiers) always stay in their original English form — only the
-  // displayed "(Laptop)" qualifier is localized.
+  // displayed "Laptop" qualifier is localized. CPU entries write it as
+  // "(Laptop)" while GPU entries write it as a trailing "Laptop" with no
+  // parentheses, so both forms need to be matched.
   function hardwareDisplayName(name){
-    return currentLang === 'fr' ? name.replace(/\(Laptop\)/g, '(Portable)') : name;
+    if(currentLang !== 'fr') return name;
+    return name
+      .replace(/\(Laptop\)/g, '(Portable)')
+      .replace(/ Laptop$/, ' Portable');
   }
 
   function populateCheckSelects(){
+    const t = CALC_I18N[currentLang];
     const cpuSel = document.getElementById('check-cpu');
     const gpuSel = document.getElementById('check-gpu');
     // Preserve whatever's already selected when rebuilding on a language switch.
@@ -893,6 +940,116 @@
       HardwareTiers.CPUS.map(c => `<option value="${c[0]}"${c[0] === prevCpu ? ' selected' : ''}>${hardwareDisplayName(c[0])}</option>`).join('');
     gpuSel.innerHTML = `<option value="" disabled${prevGpu ? '' : ' selected'}>—</option>` +
       HardwareTiers.GPUS.map(g => `<option value="${g[0]}"${g[0] === prevGpu ? ' selected' : ''}>${hardwareDisplayName(g[0])}</option>`).join('');
+
+    syncComboboxDisplay(cpuSel, document.getElementById('check-cpu-input'), t.placeholderCpu);
+    syncComboboxDisplay(gpuSel, document.getElementById('check-gpu-input'), t.placeholderGpu);
+  }
+
+  // Reflects the hidden select's current value/label into the visible text
+  // input — used on init and whenever the select's options are rebuilt
+  // (e.g. a language switch changes the "(Laptop)"/"(Portable)" label).
+  function syncComboboxDisplay(selectEl, inputEl, placeholder){
+    const opt = selectEl.selectedOptions[0];
+    inputEl.value = (opt && opt.value) ? opt.textContent : '';
+    inputEl.placeholder = placeholder;
+  }
+
+  // A type-to-filter combobox layered on top of a plain <select>. The
+  // select stays the source of truth for the chosen value (so the rest of
+  // the calculator code can keep reading check-cpu/check-gpu .value
+  // unchanged) — this just adds a searchable text input + dropdown list
+  // in front of it. The list always opens below the input and scrolls
+  // rather than reflowing above it.
+  function initCombobox(comboId){
+    const combo = document.getElementById(`${comboId}-combo`);
+    const input = document.getElementById(`${comboId}-input`);
+    const select = document.getElementById(comboId);
+    const list = document.getElementById(`${comboId}-list`);
+    let activeIndex = -1;
+
+    function currentOptions(){
+      return [...select.options].filter(o => o.value).map(o => ({ value: o.value, label: o.textContent }));
+    }
+
+    function render(filter){
+      const q = (filter || '').trim().toLowerCase();
+      const opts = currentOptions();
+      const filtered = q ? opts.filter(o => o.label.toLowerCase().includes(q)) : opts;
+      activeIndex = -1;
+      list.innerHTML = filtered.length
+        ? filtered.map(o => `<li class="combobox-option" role="option" data-value="${escapeHtml(o.value)}">${escapeHtml(o.label)}</li>`).join('')
+        : `<li class="combobox-empty">${escapeHtml(CALC_I18N[currentLang].comboNoMatches)}</li>`;
+    }
+
+    function open(filter){
+      render(filter);
+      list.hidden = false;
+      input.setAttribute('aria-expanded', 'true');
+    }
+
+    function close(){
+      list.hidden = true;
+      input.setAttribute('aria-expanded', 'false');
+      activeIndex = -1;
+    }
+
+    function updateActive(items){
+      items.forEach((li, i) => li.classList.toggle('active', i === activeIndex));
+      if(activeIndex >= 0 && items[activeIndex]) items[activeIndex].scrollIntoView({ block: 'nearest' });
+    }
+
+    function choose(value){
+      const opt = currentOptions().find(o => o.value === value);
+      if(!opt) return;
+      select.value = value;
+      input.value = opt.label;
+      select.dispatchEvent(new Event('change'));
+      close();
+    }
+
+    // Clicking or focusing the box always shows the full list first —
+    // typing then narrows it down.
+    input.addEventListener('focus', () => { open(''); input.select(); });
+    input.addEventListener('click', () => { if(list.hidden) open(''); });
+    input.addEventListener('input', () => open(input.value));
+
+    input.addEventListener('keydown', (e) => {
+      const items = [...list.querySelectorAll('.combobox-option')];
+      if(e.key === 'ArrowDown'){
+        e.preventDefault();
+        if(list.hidden){ open(input.value); return; }
+        activeIndex = Math.min(activeIndex + 1, items.length - 1);
+        updateActive(items);
+      } else if(e.key === 'ArrowUp'){
+        e.preventDefault();
+        activeIndex = Math.max(activeIndex - 1, 0);
+        updateActive(items);
+      } else if(e.key === 'Enter'){
+        e.preventDefault();
+        if(activeIndex >= 0 && items[activeIndex]) choose(items[activeIndex].dataset.value);
+      } else if(e.key === 'Escape'){
+        close();
+      }
+    });
+
+    // mousedown (not click) fires before the input's blur, so the
+    // selection registers before we revert/close on blur below.
+    list.addEventListener('mousedown', (e) => {
+      const li = e.target.closest('.combobox-option');
+      if(!li) return;
+      e.preventDefault();
+      choose(li.dataset.value);
+    });
+
+    input.addEventListener('blur', () => {
+      close();
+      const opt = select.selectedOptions[0];
+      input.value = (opt && opt.value) ? opt.textContent : '';
+    });
+
+    document.addEventListener('click', (e) => {
+      if(!combo.contains(e.target)) close();
+    });
   }
 
   function renderCalculator(){
