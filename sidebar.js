@@ -171,19 +171,19 @@
       width: 28px;
       height: 28px;
       min-width: 0;
-      border-radius: 50%;
-      background-color: var(--hover);
-      color: var(--text);
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 11px;
-      font-weight: 500;
       flex-shrink: 0;
       margin-left: 4px;
       opacity: 0;
       overflow: hidden;
       transition: width var(--t-panel), opacity var(--t-panel), margin-left var(--t-panel);
+    }
+    .coop-sidebar .logo-mark svg {
+      width: 100%;
+      height: 100%;
+      display: block;
     }
     .coop-sidebar.expanded .logo-mark {
       width: 28px;
@@ -501,7 +501,7 @@
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
         </button>
         <a class="sidebar-brand" href="coop-library.html" aria-label="${t.brandHome}">
-          <span class="logo-mark">CL</span>
+          <span class="logo-mark"><svg viewBox="0 0 3162 2105" xmlns="http://www.w3.org/2000/svg"><path d="M 1691,1122 L 1679,1125 L 1670,1138 L 1650,1147 L 1624,1172 L 1588,1194 L 1415,1332 L 1298,1417 L 1288,1430 L 1263,1444 L 1254,1457 L 1200,1493 L 1185,1511 L 1148,1534 L 1103,1575 L 943,1696 L 928,1714 L 836,1781 L 821,1799 L 746,1853 L 736,1869 L 1709,1841 Z M 1647,1214 L 1659,1777 L 1655,1796 L 1549,1795 L 1540,1799 L 1471,1797 L 1354,1803 L 1325,1800 L 1324,1804 L 1285,1801 L 1245,1806 L 1128,1805 L 1092,1810 L 1071,1807 L 906,1815 L 882,1811 L 953,1754 L 955,1748 L 971,1741 L 973,1735 L 1055,1673 L 1061,1664 L 1359,1434 L 1378,1414 L 1413,1392 L 1634,1218 Z M 739,231 L 740,237 L 760,247 L 912,369 L 919,369 L 999,436 L 1031,454 L 1127,533 L 1135,533 L 1149,550 L 1169,560 L 1260,633 L 1267,633 L 1277,646 L 1301,659 L 1306,668 L 1618,902 L 1625,902 L 1635,915 L 1677,945 L 1690,948 L 1691,249 Z M 887,286 L 1644,298 L 1643,857 L 1634,857 L 1624,845 L 1613,841 L 1341,632 L 1306,610 L 1087,440 L 1058,422 L 1031,397 L 993,372 L 965,346 L 941,332 L 926,316 L 893,296 Z M 57,96 L 42,2001 L 283,1780 L 294,1156 L 1371,1147 L 464,1848 L 462,2065 L 2649,1988 L 2880,1768 L 1869,1787 L 1858,1144 L 2978,1137 L 3133,934 L 1851,924 L 1853,302 L 2854,319 L 2644,105 L 472,39 L 474,252 L 1370,924 L 296,926 L 293,318 Z M 109,213 L 239,330 L 239,973 L 1503,974 L 525,233 L 522,94 L 2624,147 L 2741,268 L 1805,251 L 1804,974 L 3048,977 L 2959,1094 L 1805,1099 L 1822,1835 L 2771,1817 L 2637,1943 L 519,2012 L 522,1865 L 1504,1100 L 250,1108 L 229,1764 L 96,1883 Z" fill="#1E6EFF" fill-rule="evenodd"/></svg></span>
           <span class="brand-label">Co-op Library</span>
         </a>
       </div>
