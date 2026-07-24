@@ -293,6 +293,18 @@
       padding:5px 8px;
     }
     .picker-hex-input:focus{ outline:none; border-color:var(--text-faint, #5e6478); }
+
+    /* Header text (eyebrow / h1 / sub) sits directly on the body
+       background with no opaque card behind it. Everywhere else that
+       uses --text/--text-dim/--text-faint is wrapped in a --surface
+       pill or card, so it stays readable no matter which base palette
+       is picked. This text isn't, so when a wallpaper is active it
+       needs to ignore the chosen light/dark base and always use
+       light, readable colors — the scrim behind the photo is always
+       dark, regardless of base. */
+    body.has-custom-bg .eyebrow{ color:#b7bdcf !important; }
+    body.has-custom-bg h1{ color:#f2efe9 !important; }
+    body.has-custom-bg .sub{ color:#d3d7e3 !important; }
   `;
 
   function injectStyle() {
@@ -604,6 +616,23 @@
 
     renderPicker();
   }
+
+  // Lets other scripts (the sidebar's whole-site "Themes" switcher)
+  // put the dark/light base palette back after temporarily overriding
+  // --bg/--surface/etc for something like the Clay theme.
+  window.CoopTheme = {
+    reapplyBase: function () {
+      const mode = localStorage.getItem(KEY_THEME) || "dark";
+      applyVars(THEMES[mode] || THEMES.dark);
+    },
+    // Lets other scripts (the sidebar's whole-site "Themes" switcher)
+    // wipe the hamburger-menu's single-color card accent override —
+    // otherwise its !important .card rule keeps winning over a
+    // whole-site theme like Clay's own card coloring.
+    clearCardColor: function () {
+      clearCardColor();
+    }
+  };
 
   function init() {
     injectStyle();

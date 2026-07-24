@@ -5,7 +5,7 @@
 <meta name="view-transition" content="same-origin">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="icon" type="image/svg+xml" href="favicon.svg">
-<title>Favorites — Co-op Library</title>
+<title>Coming Soon — Co-op Library</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
@@ -19,8 +19,8 @@
     --text:#eef1f7;
     --text-dim:#9aa0b8;
     --text-faint:#5e6478;
-    --heart:#ff6b81;
-    --heart-dim:#4a2733;
+    --soon:#ffb84d;
+    --soon-dim:#4a3a20;
   }
 
   *{box-sizing:border-box; margin:0; padding:0;}
@@ -75,7 +75,7 @@
     text-transform:uppercase;
     margin-bottom:14px;
   }
-  .eyebrow::before{ content:"▸ "; color:var(--heart); }
+  .eyebrow::before{ content:"▸ "; color:var(--soon); }
 
   h1{
     font-family:'Press Start 2P', monospace;
@@ -83,7 +83,7 @@
     line-height:1.5;
     letter-spacing:-0.01em;
     color:var(--text);
-    text-shadow: 3px 3px 0 rgba(255,107,129,0.22);
+    text-shadow: 3px 3px 0 rgba(255,184,77,0.22);
     margin-bottom:16px;
   }
 
@@ -95,7 +95,7 @@
     color:var(--text-faint);
     margin:28px 0 16px;
   }
-  .count span{ color:var(--heart); }
+  .count span{ color:var(--soon); }
 
   .grid{
     display:grid;
@@ -121,6 +121,15 @@
     color:var(--text-faint);
   }
 
+  .release-badge{
+    position:absolute; top:8px; left:8px;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:10.5px; font-weight:600; letter-spacing:0.03em;
+    color:var(--soon); background:rgba(14,16,22,0.82);
+    border:1px solid rgba(255,184,77,0.35);
+    padding:4px 9px; border-radius:20px;
+  }
+
   .card{
     background:var(--surface);
     border:1px solid var(--border);
@@ -135,20 +144,6 @@
 
   .card-top{ display:flex; justify-content:space-between; align-items:flex-start; gap:10px; }
   .name{ font-weight:600; font-size:16.5px; line-height:1.3; }
-
-  .remove-btn{
-    flex-shrink:0;
-    width:30px; height:30px;
-    display:flex; align-items:center; justify-content:center;
-    font-size:15px;
-    color:var(--heart);
-    background:var(--heart-dim);
-    border:1px solid var(--border);
-    border-radius:8px;
-    cursor:pointer;
-    transition: all 0.15s ease;
-  }
-  .remove-btn:hover{ transform:scale(1.08); border-color:var(--heart); }
 
   .note{ font-size:13px; color:var(--text-dim); line-height:1.5; flex-grow:1; }
 
@@ -167,7 +162,7 @@
     transition: all 0.15s ease;
   }
   .card-link-btn:hover{ color:var(--text); border-color:var(--text-faint); }
-  .card-link-btn.primary{ color:var(--bg); background:var(--text); border-color:var(--text); }
+  .card-link-btn.primary{ color:var(--bg); background:var(--soon); border-color:var(--soon); }
   .card-link-btn.primary:hover{ opacity:0.88; }
 
   .empty{
@@ -196,18 +191,18 @@
   <a class="back-link" href="coop-library.html" id="t-back"><span>←</span><span id="t-back-label">Back to Library</span></a>
 
   <header>
-    <div class="eyebrow" id="t-eyebrow">Wishlist</div>
-    <h1 id="t-title">FAVORITES</h1>
-    <p class="sub" id="t-sub">Games you've saved from their info page. Click the heart on any game's dossier to add or remove it here.</p>
+    <div class="eyebrow" id="t-eyebrow">On the radar</div>
+    <h1 id="t-title">COMING SOON</h1>
+    <p class="sub" id="t-sub">Unreleased co-op games we're keeping an eye on. Once they launch, they'll graduate to the main library.</p>
   </header>
 
-  <div class="count"><span id="count-num">0</span> <span id="t-saved">saved</span></div>
+  <div class="count"><span id="count-num">0</span> <span id="t-tracked">tracked</span></div>
 
   <div class="grid" id="grid"></div>
 
   <div class="empty" id="empty">
-    <div class="big">♡</div>
-    <p id="t-empty">No favorites yet. Open a game's info page and tap the heart next to "Add to Wishlist" to save it here.</p>
+    <div class="big">🕓</div>
+    <p id="t-empty">Nothing queued up yet. Add an entry to the comingSoonGames list in coming-soon.html to feature an unreleased game here.</p>
   </div>
 
 </div>
@@ -216,30 +211,49 @@
 <script src="favorites.js"></script>
 <script src="sidebar.js"></script>
 <script>
+/**
+ * Curated list of unreleased co-op games, shown on this page ahead of
+ * their launch. This is NOT tied to user favorites — it's a manually
+ * maintained list. To add a game, drop an object into the array below:
+ *
+ *   {
+ *     id: "unique-slug",         // any unique string
+ *     name: "Game Title",
+ *     tagline: "One-line pitch / why it's on the radar.",
+ *     releaseDate: "Q4 2026",    // shown as a badge on the thumbnail, can be a date, quarter, or "TBA"
+ *     img: "https://...jpg",     // optional cover art, falls back to a letter tile
+ *     steamUrl: "https://store.steampowered.com/app/...",   // optional, "Wishlist" button
+ *     infoUrl: "info.html?slug=..."                          // optional, "View" button
+ *   }
+ */
+const comingSoonGames = [
+  // { id:"example", name:"Example Game", tagline:"A short pitch for why it's exciting.", releaseDate:"TBA", steamUrl:"https://store.steampowered.com/" }
+];
+
 const i18n = {
   en: {
     back: "Back to Library",
-    eyebrow: "Wishlist",
-    title: "FAVORITES",
-    sub: "Games you've saved from their info page. Click the heart on any game's dossier to add or remove it here.",
-    saved: "saved",
-    emptyText: 'No favorites yet. Open a game\'s info page and tap the heart next to "Add to Wishlist" to save it here.',
+    eyebrow: "On the radar",
+    title: "COMING SOON",
+    sub: "Unreleased co-op games we're keeping an eye on. Once they launch, they'll graduate to the main library.",
+    tracked: "tracked",
+    emptyText: "Nothing queued up yet. Add an entry to the comingSoonGames list in coming-soon.html to feature an unreleased game here.",
     view: "View",
-    steam: "Steam ↗",
-    removeLabel: "Remove from favorites",
-    untitled: "Untitled"
+    wishlist: "Wishlist ↗",
+    untitled: "Untitled",
+    tba: "TBA"
   },
   fr: {
     back: "Retour à la bibliothèque",
-    eyebrow: "Liste de souhaits",
-    title: "FAVORIS",
-    sub: "Les jeux que vous avez enregistrés depuis leur fiche. Cliquez sur le cœur de la fiche d'un jeu pour l'ajouter ou le retirer d'ici.",
-    saved: "enregistrés",
-    emptyText: "Aucun favori pour l'instant. Ouvrez la fiche d'un jeu et appuyez sur le cœur à côté de « Ajouter à la liste de souhaits » pour l'enregistrer ici.",
+    eyebrow: "À surveiller",
+    title: "À VENIR",
+    sub: "Des jeux coopératifs pas encore sortis que l'on surveille. Une fois lancés, ils rejoindront la bibliothèque principale.",
+    tracked: "suivis",
+    emptyText: "Rien pour l'instant. Ajoutez une entrée à la liste comingSoonGames dans coming-soon.html pour présenter un jeu ici.",
     view: "Voir",
-    steam: "Steam ↗",
-    removeLabel: "Retirer des favoris",
-    untitled: "Sans titre"
+    wishlist: "Liste de souhaits ↗",
+    untitled: "Sans titre",
+    tba: "À déterminer"
   }
 };
 
@@ -252,7 +266,7 @@ function applyStaticTranslations(){
   document.getElementById("t-eyebrow").textContent = t.eyebrow;
   document.getElementById("t-title").textContent = t.title;
   document.getElementById("t-sub").textContent = t.sub;
-  document.getElementById("t-saved").textContent = t.saved;
+  document.getElementById("t-tracked").textContent = t.tracked;
   document.getElementById("t-empty").textContent = t.emptyText;
   document.getElementById("lang-en").classList.toggle("active", currentLang === "en");
   document.getElementById("lang-fr").classList.toggle("active", currentLang === "fr");
@@ -264,24 +278,21 @@ function render(){
   const grid = document.getElementById("grid");
   const empty = document.getElementById("empty");
   const t = i18n[currentLang];
-  const favorites = window.CoopFavorites ? window.CoopFavorites.getAll() : [];
 
   grid.innerHTML = "";
-  document.getElementById("count-num").textContent = favorites.length;
+  document.getElementById("count-num").textContent = comingSoonGames.length;
 
-  if(favorites.length === 0){
+  if(comingSoonGames.length === 0){
     empty.classList.add("show");
     return;
   }
   empty.classList.remove("show");
 
-  favorites.forEach(g => {
+  comingSoonGames.forEach(g => {
     const firstLetter = (g.name || "?").charAt(0);
     const thumbHtml = g.img
-      ? `<div class="thumb"><img class="thumb-img" src="${g.img}" alt="${g.name} cover art" loading="lazy" onerror="this.replaceWith(Object.assign(document.createElement('div'),{className:'thumb-placeholder',textContent:'${firstLetter}'}))"></div>`
-      : `<div class="thumb"><div class="thumb-placeholder">${firstLetter}</div></div>`;
-
-    const viewUrl = g.infoUrl || g.steamUrl || "#";
+      ? `<div class="thumb"><img class="thumb-img" src="${g.img}" alt="${g.name} cover art" loading="lazy" onerror="this.replaceWith(Object.assign(document.createElement('div'),{className:'thumb-placeholder',textContent:'${firstLetter}'}))"><span class="release-badge">${g.releaseDate || t.tba}</span></div>`
+      : `<div class="thumb"><div class="thumb-placeholder">${firstLetter}</div><span class="release-badge">${g.releaseDate || t.tba}</span></div>`;
 
     const card = document.createElement("div");
     card.className = "card";
@@ -289,18 +300,13 @@ function render(){
       ${thumbHtml}
       <div class="card-top">
         <div class="name">${g.name || t.untitled}</div>
-        <button class="remove-btn" title="${t.removeLabel}" aria-label="${t.removeLabel}">♥</button>
       </div>
       <div class="note">${g.tagline || ""}</div>
       <div class="card-bottom">
-        <a class="card-link-btn primary" href="${viewUrl}">${t.view}</a>
-        ${g.steamUrl ? `<a class="card-link-btn" href="${g.steamUrl}" target="_blank" rel="noopener">${t.steam}</a>` : ""}
+        ${g.infoUrl ? `<a class="card-link-btn primary" href="${g.infoUrl}">${t.view}</a>` : ""}
+        ${g.steamUrl ? `<a class="card-link-btn${g.infoUrl ? "" : " primary"}" href="${g.steamUrl}" target="_blank" rel="noopener">${t.wishlist}</a>` : ""}
       </div>
     `;
-    card.querySelector(".remove-btn").addEventListener("click", () => {
-      window.CoopFavorites.remove(g.id);
-      render();
-    });
     grid.appendChild(card);
   });
 }
@@ -314,7 +320,6 @@ document.querySelectorAll('.lang-btn').forEach(btn => {
   });
 });
 
-window.addEventListener("coopFavoritesChanged", render);
 window.addEventListener("coopLangChanged", () => {
   currentLang = window.CoopLang.get();
   applyStaticTranslations();
