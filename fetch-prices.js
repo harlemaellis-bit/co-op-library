@@ -5,9 +5,10 @@
  * IsThereAnyDeal API for each game, and writes prices.json.
  *
  * Run manually:   ITAD_API_KEY=xxxx node fetch-prices.js
- * Run on Netlify:  set ITAD_API_KEY as a site environment variable,
- *                  and this runs automatically as part of the build
- *                  command (see netlify.toml).
+ * Run on GitHub Pages: set ITAD_API_KEY as a repo Actions secret; this
+ *                  runs automatically via the scheduled workflow (see
+ *                  .github/workflows/refresh-data.yml), which commits the
+ *                  refreshed prices.json so Pages picks it up.
  * -----------------------------------------------------------------
  */
 

@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
+<script src="theme.js"></script>
 <meta name="view-transition" content="same-origin">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="icon" type="image/svg+xml" href="favicon.svg">
@@ -448,7 +449,6 @@
 
 </div>
 
-<script src="theme.js"></script>
 <script src="favorites.js"></script>
 <script src="sidebar.js"></script>
 <script>
@@ -592,6 +592,12 @@ let activePrice = "all";
 let activeTags = new Set();
 let currentLang = window.CoopLang ? window.CoopLang.get() : "en";
 
+function escapeHtml(str){
+  return String(str).replace(/[&<>"']/g, c => ({
+    '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;'
+  }[c]));
+}
+
 function renderPorts(game){
   const total = 4;
   let filled = Math.min(game.players, 4);
@@ -731,15 +737,16 @@ function render(){
     card.className = `card m-${g.mode}`;
 
     const img1 = g.img1 || (g.appid ? `https://cdn.akamai.steamstatic.com/steam/apps/${g.appid}/header.jpg` : null);
-    const firstLetter = g.name.charAt(0);
+    const firstLetter = escapeHtml(g.name.charAt(0));
+    const safeName = escapeHtml(g.name);
 
     const thumbHtml = img1
       ? `<div class="thumb">
-          <img class="thumb-img" src="${img1}" alt="${g.name} cover art" loading="lazy" onerror="handleImgError(this,'${firstLetter}')">
+          <img class="thumb-img" src="${img1}" alt="${safeName} cover art" loading="lazy" onerror="handleImgError(this,'${firstLetter}')">
         </div>`
       : `<div class="thumb"><div class="thumb-placeholder">${firstLetter}</div></div>`;
 
-    const noteText = currentLang === "fr" && g.note_fr ? g.note_fr : g.note;
+    const noteText = escapeHtml(currentLang === "fr" && g.note_fr ? g.note_fr : g.note);
     const chartUrl = `price-history.html?appid=${g.appid}`;
     const priceHistoryLink = g.noSteam ? "" : (g.appid
       ? `<a class="card-link" href="${chartUrl}">${t.priceHistoryLink}</a>`
@@ -755,8 +762,8 @@ function render(){
     card.innerHTML = `
       ${thumbHtml}
       <div class="card-top">
-        <div class="name">${g.name}</div>
-        <div class="price-tag">${g.price}</div>
+        <div class="name">${safeName}</div>
+        <div class="price-tag">${escapeHtml(g.price)}</div>
       </div>
       <div class="note">${noteText}</div>
       ${extraTagsRow}

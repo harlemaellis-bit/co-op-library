@@ -395,7 +395,7 @@
     document.querySelectorAll(".theme-swatch").forEach(b => {
       b.classList.toggle("active", b.dataset.theme === themeMode);
     });
-    const removeBtn = document.querySelector(".theme-remove-btn");
+    const removeBtn = document.getElementById("wallpaperRemoveBtn");
     if (removeBtn) removeBtn.style.display = (themeMode === "custom") ? "inline-flex" : "none";
 
     const pickerClearBtn = document.getElementById("pickerClearBtn");
@@ -440,7 +440,7 @@
         <button class="swatch-btn theme-swatch" data-theme="dark" type="button" title="Dark theme" style="background:#0e1016;"></button>
         <button class="swatch-btn theme-swatch" data-theme="light" type="button" title="Light theme" style="background:#f3f4f8;"></button>
         <button class="swatch-btn theme-swatch theme-swatch-custom" data-theme="custom" type="button" title="Custom wallpaper"></button>
-        <button class="theme-remove-btn" type="button" title="Remove wallpaper" style="display:none;">✕</button>
+        <button class="theme-remove-btn" id="wallpaperRemoveBtn" type="button" title="Remove wallpaper" style="display:none;">✕</button>
       </div>
       <input type="file" class="theme-image-input" accept="image/*" style="display:none;">
 
@@ -521,7 +521,7 @@
       fileInput.value = "";
     });
 
-    const removeBtn = panel.querySelector(".theme-remove-btn");
+    const removeBtn = panel.querySelector("#wallpaperRemoveBtn");
     removeBtn.addEventListener("click", () => {
       localStorage.removeItem(KEY_IMAGE);
       const base = localStorage.getItem(KEY_BASE) || "dark";
@@ -556,7 +556,7 @@
       const rgb = hexToRgb(hex);
       if (!rgb) return;
       const hsv = rgbToHsv(rgb.r, rgb.g, rgb.b);
-      pickerHue = hsv.h; pickerSat = hsv.s; pickerVal = hsv.v || 1;
+      pickerHue = hsv.h; pickerSat = hsv.s; pickerVal = hsv.v;
       renderPicker();
     }
 
@@ -633,6 +633,34 @@
       clearCardColor();
     }
   };
+
+  // --- Early theme application (this is what actually prevents the
+  // flash — everything else below just re-applies the same values
+  // later, once buildMenu()'s elements exist to reflect them) ---
+  //
+  // Every page's <style> block hardcodes the dark palette as its
+  // :root defaults, so the browser paints with those the instant it
+  // has enough CSS to paint at all. If this script only ran on
+  // DOMContentLoaded (i.e. after the whole document, including
+  // <body>, is parsed), anyone using light mode or a custom accent
+  // would see a flash of the wrong theme on every single page load.
+  //
+  // The fix is to run this part immediately, synchronously, as soon
+  // as the script executes — no waiting for DOMContentLoaded. That
+  // only works because applyVars()/applyCardOverride() touch nothing
+  // but document.documentElement and document.head, both of which
+  // exist as soon as the parser reaches this <script> tag. For that
+  // timing to matter, the tag itself has to live in <head> (before
+  // <body> is parsed/painted) rather than at the bottom of <body>
+  // where it sat before — see the <script src="theme.js"> placement
+  // in each HTML file.
+  function applyEarlyTheme() {
+    const mode = localStorage.getItem(KEY_THEME) || "dark";
+    const base = mode === "custom" ? (localStorage.getItem(KEY_BASE) || "dark") : mode;
+    applyVars(THEMES[base] || THEMES.dark);
+    applyCardOverride();
+  }
+  applyEarlyTheme();
 
   function init() {
     injectStyle();

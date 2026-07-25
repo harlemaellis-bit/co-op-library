@@ -101,6 +101,23 @@
   ];
 
   // [name, score(0-100), vramGB]
+  //
+  // SOURCE NOTE (added after a July 2026 audit): current-gen scores (RTX
+  // 50/40/30-series, RX 9000/7000-series, Arc B-series) match Tom's
+  // Hardware's 2026 GPU benchmark hierarchy (1080p rasterized column,
+  // RTX 5090 = 100) to the exact decimal — verified against ~35 cards.
+  // Legacy cards (RTX 20-series, GTX 10-series, RX 500-series, Vega) have
+  // been rescaled from Tom's Hardware's separate 2020-2021 legacy hierarchy
+  // (which uses its own 100-point baseline, RTX 3090 = 100%) via a linear
+  // regression fit against the RTX 30-series cards that appear in BOTH
+  // hierarchies (RTX 3090, 3080 Ti, 3070 Ti, 3070, 3060 Ti, 3060 12GB) —
+  // score ≈ 0.69 × legacyPct − 9.45 for legacyPct ≥ 55, score ≈ 0.552 ×
+  // legacyPct below that. This is a cross-generation calibration, not a
+  // direct measurement, so treat these as good-but-approximate (checked to
+  // within ~5-10% against known ratios). Cards older than Tom's legacy
+  // hierarchy covers (RX 480/470, GTX 900/700/600-series, R9 200/300-series,
+  // Arc A380, GT 1030, integrated GPUs) are UNVERIFIED — still the original
+  // hand-estimated values, not checked against any real benchmark source.
   const GPUS = [
     // -- NVIDIA GeForce RTX 50-series --
     ["NVIDIA GeForce RTX 5090",100.0,32],["NVIDIA GeForce RTX 5080",81.9,16],
@@ -133,16 +150,16 @@
     ["NVIDIA GeForce RTX 3070 Ti Laptop",33.0,8],["NVIDIA GeForce RTX 3070 Laptop",27.0,8],
     ["NVIDIA GeForce RTX 3060 Laptop",20.0,6],["NVIDIA GeForce RTX 3050 Ti Laptop",15.0,4],
     // -- NVIDIA GeForce RTX 20-series --
-    ["NVIDIA GeForce RTX 2080 Ti",38.0,11],["NVIDIA GeForce RTX 2080 Super",32.0,8],
-    ["NVIDIA GeForce RTX 2080",29.5,8],["NVIDIA GeForce RTX 2070 Super",29.0,8],
-    ["NVIDIA GeForce RTX 2070",25.0,8],["NVIDIA GeForce RTX 2060 Super",24.0,8],
-    ["NVIDIA GeForce RTX 2060",21.0,6],
+    ["NVIDIA GeForce RTX 2080 Ti",44.0,11],["NVIDIA GeForce RTX 2080 Super",36.6,8],
+    ["NVIDIA GeForce RTX 2080",33.7,8],["NVIDIA GeForce RTX 2070 Super",31.7,8],
+    ["NVIDIA GeForce RTX 2070",29.3,8],["NVIDIA GeForce RTX 2060 Super",27.9,8],
+    ["NVIDIA GeForce RTX 2060",24.8,6],
     // -- NVIDIA GeForce GTX 10/16-series --
-    ["NVIDIA GeForce GTX 1080 Ti",27.0,11],["NVIDIA GeForce GTX 1080",20.0,8],
-    ["NVIDIA GeForce GTX 1070 Ti",18.0,8],["NVIDIA GeForce GTX 1070",16.0,8],
-    ["NVIDIA GeForce GTX 1660 Ti",14.5,6],["NVIDIA GeForce GTX 1660 Super",14.0,6],
-    ["NVIDIA GeForce GTX 1660",13.0,6],
-    ["NVIDIA GeForce GTX 1060 6GB",9.5,6],
+    ["NVIDIA GeForce GTX 1080 Ti",30.4,11],["NVIDIA GeForce GTX 1080",25.0,8],
+    ["NVIDIA GeForce GTX 1070 Ti",23.1,8],["NVIDIA GeForce GTX 1070",20.3,8],
+    ["NVIDIA GeForce GTX 1660 Ti",20.9,6],["NVIDIA GeForce GTX 1660 Super",20.9,6],
+    ["NVIDIA GeForce GTX 1660",18.1,6],
+    ["NVIDIA GeForce GTX 1060 6GB",14.6,6],
     // -- AMD Radeon RX 9000-series --
     ["AMD Radeon RX 9070 XT",76.9,16],["AMD Radeon RX 9070",69.1,16],
     ["AMD Radeon RX 9070 GRE",59.2,12],["AMD Radeon RX 9060 XT 16GB",48.2,16],
@@ -164,15 +181,15 @@
     ["Intel Arc B580",35.1,12],["Intel Arc B570",31.1,10],
     ["Intel Arc A770",28.0,16],["Intel Arc A750",24.0,8],
     // -- Legacy / older (2013-2019, common in old Steam minimum specs) --
-    ["AMD Radeon RX 590",11.5,8],["AMD Radeon RX 580",9.8,8],["AMD Radeon RX 480",9.2,8],
-    ["AMD Radeon RX Vega 64",11.0,8],["AMD Radeon RX Vega 56",10.0,8],
-    ["AMD Radeon RX 570",8.6,8],["AMD Radeon RX 470",8.1,4],
-    ["NVIDIA GeForce GTX 1650",7.6,4],["NVIDIA GeForce GTX 1630",2.0,4],["AMD Radeon R9 390",6.2,8],
-    ["NVIDIA GeForce GTX 970",11.0,4],["NVIDIA GeForce GTX 960",5.2,2],
+    ["AMD Radeon RX 590",17.9,8],["AMD Radeon RX 580",17.1,8],["AMD Radeon RX 480",9.2,8],
+    ["AMD Radeon RX Vega 64",26.7,8],["AMD Radeon RX Vega 56",23.6,8],
+    ["AMD Radeon RX 570",13.9,8],["AMD Radeon RX 470",8.1,4],
+    ["NVIDIA GeForce GTX 1650",11.5,4],["NVIDIA GeForce GTX 1630",2.0,4],["AMD Radeon R9 390",15.0,8],
+    ["NVIDIA GeForce GTX 970",12.2,4],["NVIDIA GeForce GTX 960",5.2,2],
     ["AMD Radeon R9 285",5.0,2],["AMD Radeon R9 270X",5.5,2],["AMD Radeon R9 380",4.6,4],
-    ["NVIDIA GeForce GTX 1050 Ti",4.3,4],["NVIDIA GeForce GTX 950",4.0,2],
+    ["NVIDIA GeForce GTX 1050 Ti",8.9,4],["NVIDIA GeForce GTX 950",4.0,2],
     ["NVIDIA GeForce GTX 760",5.5,2],["NVIDIA GeForce GTX 680",5.0,2],
-    ["NVIDIA GeForce GTX 660",3.6,2],["NVIDIA GeForce GTX 1050",3.3,2],
+    ["NVIDIA GeForce GTX 660",3.6,2],["NVIDIA GeForce GTX 1050",6.7,2],
     ["NVIDIA GeForce GTX 750 Ti",2.4,2],["NVIDIA GeForce GTX 750",2.1,1],["NVIDIA GeForce GT 1030",1.0,2],
     ["Intel Arc A380",6.0,6],
     // -- Very old / low-end (2007-2013) --

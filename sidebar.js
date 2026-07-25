@@ -314,7 +314,17 @@
   const THEME_PALETTES = [
     { name: 'Lemon Zest Delight', card: '#606c38', label: '#283618', pill: '#fefae0' },
     { name: 'Ocean Breeze',       card: '#023047', label: '#219ebc', pill: '#ffb703' },
-    { name: 'Terracotta Dusk',    card: '#3d405b', label: '#e07a5f', pill: '#f2cc8f' }
+    { name: 'Terracotta Dusk',    card: '#3d405b', label: '#e07a5f', pill: '#f2cc8f' },
+    // Appended, not prepended: palette choice is saved as a plain array
+    // index in localStorage, so adding an entry at the front would
+    // quietly remap everyone's already-saved palette (index 1 no
+    // longer meaning Ocean Breeze, etc). This one matches the
+    // whole-site Clay theme's own native card (--surface), title
+    // (--text), and pill (--bg) colors exactly — so if you've been
+    // tweaking the curated/custom palette while Clay is active, picking
+    // this snaps straight back to Clay's original look in one click,
+    // without having to turn Clay off and back on.
+    { name: 'Clay',               card: '#a3a29d', label: '#3a3733', pill: '#8f8e88' }
   ];
   const SOLID_COLORS = [
 
@@ -324,7 +334,12 @@
     '#fbbc6f', '#ff9700', '#e46962', '#fe5722',
     '#ea1e63', '#ff758f', '#f1adf0', '#fdc5c6',
     '#e8d1a8', '#795547', '#9e9e9e', '#607d8b',
-    '#888888', '#303030'
+    '#888888', '#303030',
+    // Clay's own native page background (--bg) — palettes above only
+    // recolor the card/label/pill, never the background itself, so
+    // this is here as a one-click way to get the clay-toned background
+    // back underneath a curated or custom palette.
+    '#8f8e88'
   ];
 
   // ---------------------------------------------------------------
@@ -939,7 +954,15 @@
        "button" role on each page. Uses border: none (not just a
        transparent border-color) so there's no leftover 1px ring
        between the puffy shadow and the shape's edge. */
-    html.cn-clay-active body{ background: var(--clay-lo) !important; }
+    /* No !important here on purpose: a custom solid color or uploaded
+       background image is applied as an inline style on <body>, and
+       inline styles already beat this selector's specificity — but
+       only if this rule isn't !important. Leaving it off is what lets
+       "customize your own background" actually work while Clay is
+       active; Clay's own muted tone still wins whenever no custom
+       background is set, since nothing else targets body at this
+       specificity. */
+    html.cn-clay-active body{ background: var(--clay-lo); }
     html.cn-clay-active .card,
     html.cn-clay-active .chip,
     html.cn-clay-active .lang-btn,
@@ -1054,7 +1077,10 @@
     /* Shared surfaces on coop-library / favorites / info — same thin
        border + glow treatment applied to whatever plays the "card" /
        "pill" / "button" role on each page. */
-    html.cn-neon-active body{ background: var(--bg) !important; }
+    /* Same reasoning as the matching Clay rule above: no !important,
+       so a custom solid color / uploaded image (inline style) can
+       still show through. */
+    html.cn-neon-active body{ background: var(--bg); }
     html.cn-neon-active .card,
     html.cn-neon-active .chip,
     html.cn-neon-active .lang-btn,
@@ -1174,6 +1200,8 @@
       .cn-rail-top, .cn-divider, .cn-menu-label{ display:none; }
       .cn-nav{ flex-direction: row; width:100%; justify-content:space-around; padding:0; gap:0; overflow:visible; }
       .cn-favorites-list{ display:none; }
+      .cn-chevron-btn{ display:none !important; }
+      .cn-badge{ display:none !important; }
       .cn-social-section{ display:none !important; }
       .cn-flyout{ left: 12px; right: 12px; width:auto; bottom: 78px; top:auto; max-height: 60vh; }
     }
@@ -1476,7 +1504,8 @@
 
       const label = document.createElement("div");
       label.className = "cn-themepick-label";
-      label.textContent = theme.label;
+      label.dataset.cnT = id + "Theme";
+      label.textContent = t[id + "Theme"] || theme.label;
 
       wrap.appendChild(cell);
       wrap.appendChild(label);
@@ -1752,15 +1781,17 @@
       });
     });
 
-    // ---- Lock color-editing controls while a whole-site theme (Clay)
-    // is active — it's a fixed, curated look, not something meant to
-    // be tweaked on top of. Re-enabled the moment the theme's turned
-    // back off (clicking its swatch again in the Themes flyout, or
-    // "reset to default"). ----
-    const openSolidColorsTile = document.getElementById("cnOpenSolidColors");
+    // ---- Lock only the light/dark segmented toggle while a whole-site
+    // theme (Clay/Neon) is active — that base-mode switch fights the
+    // theme's own --bg/--surface vars. Solid colors, curated palettes,
+    // and the custom picker stay usable on top of a UI theme: card/
+    // label/pill and the page background are independent layers, so
+    // there's nothing for them to conflict with. Re-locked the moment
+    // a UI theme's turned back off doesn't matter here since it's
+    // never locked for those three. ----
     function updateThemeLockUI() {
       const locked = !!getSavedUiTheme();
-      [openSolidColorsTile, segmented, themeGrid, solidGrid].forEach(el => {
+      [segmented].forEach(el => {
         if (!el) return;
         el.classList.toggle("cn-locked", locked);
       });

@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
+<script src="theme.js"></script>
 <meta name="view-transition" content="same-origin">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="icon" type="image/svg+xml" href="favicon.svg">
@@ -425,6 +426,22 @@
   #check-result{ margin-top:24px; }
   #check-result:empty{ display:none; }
 
+  .check-remember{
+    display:flex; align-items:center; gap:9px; margin:2px 0 20px; user-select:none;
+  }
+  .check-remember input[type="checkbox"]{
+    appearance:none; -webkit-appearance:none; width:18px; height:18px; flex:none;
+    border:1px solid var(--border); border-radius:5px; background:var(--field-bg, var(--surface));
+    cursor:pointer; position:relative; margin:0;
+  }
+  .check-remember input[type="checkbox"]:checked{ background:var(--accent); border-color:var(--accent); }
+  .check-remember input[type="checkbox"]:checked::after{
+    content:''; position:absolute; left:5px; top:1px; width:5px; height:9px;
+    border:solid #1a1300; border-width:0 2px 2px 0; transform:rotate(45deg);
+  }
+  .check-remember input[type="checkbox"]:focus-visible{ outline:2px solid var(--accent); outline-offset:2px; }
+  .check-remember label{ font-size:13.5px; color:var(--text-dim); cursor:pointer; }
+
   @media (max-width:760px){
     .check-form{ grid-template-columns:1fr; }
   }
@@ -626,6 +643,10 @@
         </select>
       </div>
     </div>
+    <div class="check-remember">
+      <input type="checkbox" id="check-remember">
+      <label for="check-remember" id="check-remember-label">Remember my PC on this device</label>
+    </div>
     <button class="btn btn-primary" id="check-btn">Check My Specs</button>
     <div id="check-result"></div>
   </div>
@@ -643,7 +664,6 @@
 
 </div><!-- #page -->
 
-<script src="theme.js"></script>
 <script src="favorites.js"></script>
 <script src="sidebar.js"></script>
 <script src="hardware-tiers.js"></script>
@@ -708,6 +728,7 @@
       },
       storageTierSsdRequired: "This game's Steam page explicitly requires an SSD — an HDD may not just be slower, it may not run properly at all.",
       checkBtn: 'Check My Specs',
+      rememberLabel: 'Remember my PC on this device',
       checkPickBoth: 'Pick a processor and graphics card first.',
       gaugeHint: 'The ring shows progress within the current tier — not overall power. A full ring means it\'s about to cross into the next tier up.'
     },
@@ -750,6 +771,7 @@
       },
       storageTierSsdRequired: "La fiche Steam de ce jeu exige explicitement un SSD — un HDD risque non seulement d'être plus lent, mais aussi de ne pas fonctionner correctement.",
       checkBtn: 'Vérifier ma config',
+      rememberLabel: 'Se souvenir de ma config sur cet appareil',
       checkPickBoth: "Choisissez d'abord un processeur et une carte graphique.",
       gaugeHint: "L'anneau indique la progression dans le palier actuel — pas la puissance globale. Un anneau plein signifie que le composant est sur le point de passer au palier suivant."
     }
@@ -903,10 +925,53 @@
   }
 
   // ============ CAN YOU RUN IT? ============
+
+  // "Remember my PC" — saves the visitor's chosen CPU/GPU/RAM/storage to
+  // localStorage (same key on every game page, matching the
+  // "coopLibraryFavorites" naming convention used elsewhere on the site)
+  // so it can auto-fill and auto-run on any other game's info.html without
+  // asking again. Opt-in via the checkbox next to the Check My Specs
+  // button — nothing is saved unless it's checked.
+  const MY_SPECS_KEY = 'coopLibraryMySpecs';
+
+  function loadMySpecs(){
+    try {
+      const raw = localStorage.getItem(MY_SPECS_KEY);
+      return raw ? JSON.parse(raw) : null;
+    } catch (e) { return null; }
+  }
+  function saveMySpecs(specs){
+    try { localStorage.setItem(MY_SPECS_KEY, JSON.stringify(specs)); } catch (e) {}
+  }
+  function clearMySpecs(){
+    try { localStorage.removeItem(MY_SPECS_KEY); } catch (e) {}
+  }
+
+  // Applies any remembered specs to the form on load. Only runs once, right
+  // after the selects are first populated — a later language switch
+  // re-populates the selects too, but populateCheckSelects() already
+  // preserves whatever's currently chosen, so this doesn't need to run again.
+  function applyRememberedSpecs(){
+    const saved = loadMySpecs();
+    if(!saved) return;
+    document.getElementById('check-remember').checked = true;
+    const cpuSel = document.getElementById('check-cpu');
+    const gpuSel = document.getElementById('check-gpu');
+    if(saved.cpuName) cpuSel.value = saved.cpuName;
+    if(saved.gpuName) gpuSel.value = saved.gpuName;
+    if(saved.ramGB) document.getElementById('check-ram').value = String(saved.ramGB);
+    if(saved.storageType) document.getElementById('check-storage').value = saved.storageType;
+    const t = CALC_I18N[currentLang];
+    syncComboboxDisplay(cpuSel, document.getElementById('check-cpu-input'), t.placeholderCpu);
+    syncComboboxDisplay(gpuSel, document.getElementById('check-gpu-input'), t.placeholderGpu);
+    if(cpuSel.value && gpuSel.value) runCheck();
+  }
+
   function initCalculator(){
     populateCheckSelects();
     initCombobox('check-cpu');
     initCombobox('check-gpu');
+    applyRememberedSpecs();
     document.querySelectorAll('.calc-tab').forEach(btn=>{
       btn.addEventListener('click', ()=>{
         document.querySelectorAll('.calc-tab').forEach(b=>b.classList.remove('active'));
@@ -917,6 +982,21 @@
       });
     });
     document.getElementById('check-btn').addEventListener('click', runCheck);
+    document.getElementById('check-remember').addEventListener('change', (e) => {
+      if(e.target.checked){
+        const cpuName = document.getElementById('check-cpu').value;
+        const gpuName = document.getElementById('check-gpu').value;
+        if(cpuName && gpuName){
+          saveMySpecs({
+            cpuName, gpuName,
+            ramGB: Number(document.getElementById('check-ram').value),
+            storageType: document.getElementById('check-storage').value
+          });
+        }
+      } else {
+        clearMySpecs();
+      }
+    });
   }
 
   // The underlying hardware names (option value, used for matching against
@@ -1064,6 +1144,7 @@
     document.querySelector('#calc-panel-check .field:nth-child(2) .field-label').textContent = t.lblGraphics;
     document.querySelector('#calc-panel-check .field:nth-child(3) .field-label').textContent = t.lblRam;
     document.getElementById('lblStorage').textContent = t.lblStorage;
+    document.getElementById('check-remember-label').textContent = t.rememberLabel;
     const storageSel = document.getElementById('check-storage');
     [...storageSel.options].forEach(opt => { opt.textContent = t.storageOptions[opt.value]; });
     populateCheckSelects();
@@ -1199,6 +1280,10 @@
       return;
     }
 
+    if(document.getElementById('check-remember').checked){
+      saveMySpecs({ cpuName, gpuName, ramGB, storageType });
+    }
+
     const cpu = HardwareTiers.scoreForName(cpuName, HardwareTiers.CPUS);
     const gpu = HardwareTiers.scoreForName(gpuName, HardwareTiers.GPUS);
     const requirements = (game.canYouRunIt && game.canYouRunIt.requirements) || {};
@@ -1249,8 +1334,8 @@
     if(window.CoopFavorites && game){
       wishlisted = window.CoopFavorites.toggle({
         id: gameKey,
-        name: `${game.i18n.en.titleMain}${game.i18n.en.titleAccent}`,
-        tagline: game.i18n.en.heroTagline,
+        name: `${game.i18n[currentLang].titleMain}${game.i18n[currentLang].titleAccent}`,
+        tagline: game.i18n[currentLang].heroTagline,
         img: libraryCardImage(gameKey),
         steamUrl: game.steamUrl,
         infoUrl: `info.html?game=${gameKey}`

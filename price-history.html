@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
+<script src="theme.js"></script>
 <meta name="view-transition" content="same-origin">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="icon" type="image/svg+xml" href="favicon.svg">
@@ -260,7 +261,8 @@
 
 </div>
 
-<script src="theme.js"></script>
+<script src="favorites.js"></script>
+<script src="sidebar.js"></script>
 <script>
 /* ---------------------------------------------------------
    This page is deep-linked from coop-library.html cards via
@@ -450,7 +452,7 @@ function drawChart(fullHistory, days){
     label.setAttribute("font-size", "11");
     label.setAttribute("font-family", "IBM Plex Mono, monospace");
     label.setAttribute("fill", "#5e6478");
-    label.textContent = val.toFixed(0) + "€";
+    label.textContent = (maxPrice < 5 ? val.toFixed(2) : val.toFixed(0)) + "€";
     svg.appendChild(label);
   }
 

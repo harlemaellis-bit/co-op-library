@@ -21,12 +21,14 @@
  *
  * Why this has to run here and not in info.html: same as
  * fetch-game-info.js — store.steampowered.com/api/appdetails sends no CORS
- * headers, so a browser fetch() to it is blocked. Build-time fetch + a
- * static file the browser reads same-origin is the fix.
+ * headers, so a browser fetch() to it is blocked. Fetching ahead of time +
+ * a static file the browser reads same-origin is the fix.
  *
  * Run manually:   node fetch-spec-requirements.js
- * Run on Netlify:  wire into the build command in netlify.toml alongside
- *                  fetch-game-info.js, so it refreshes on every deploy.
+ * Run on GitHub Pages: already wired into
+ *                  .github/workflows/refresh-data.yml alongside
+ *                  fetch-game-info.js, so it refreshes on the daily
+ *                  schedule and commits the result for Pages to pick up.
  *
  * IMPORTANT — matching isn't perfect: Steam's requirement text is
  * publisher-written free text, and hardware-tiers.js only covers

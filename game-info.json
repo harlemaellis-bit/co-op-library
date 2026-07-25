@@ -12415,5 +12415,173 @@
         "footer": "Mise en page fan-made · N'est pas un produit officiel de Errare Games ou Vector3 Studio"
       }
     }
+  },
+  "4244510": {
+    "pageTitle": "Pratfall — Session Report",
+    "headerBrand": "PRATFALL",
+    "footerBrand": "PRATFALL",
+    "brandIcon": "dot",
+    "backLink": "coop-library.html",
+    "steamUrl": "https://store.steampowered.com/app/4244510/Pratfall/",
+    "heroImage": "",
+    "gallery": [
+      "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA4MDAgNDUwIj4KPHJlY3Qgd2lkdGg9IjgwMCIgaGVpZ2h0PSI0NTAiIGZpbGw9IiMzYTJmNjMiLz4KPHJlY3Qgd2lkdGg9IjgwMCIgaGVpZ2h0PSI0NTAiIGZpbGw9InVybCgjZG90cykiIG9wYWNpdHk9IjAuMTUiLz4KPGRlZnM+PHBhdHRlcm4gaWQ9ImRvdHMiIHdpZHRoPSIyOCIgaGVpZ2h0PSIyOCIgcGF0dGVyblVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+PGNpcmNsZSBjeD0iNCIgY3k9IjQiIHI9IjIiIGZpbGw9IiNmZmZmZmYiLz48L3BhdHRlcm4+PC9kZWZzPgo8dGV4dCB4PSI0MDAiIHk9IjIxNSIgZm9udC1mYW1pbHk9IlZlcmRhbmEiIGZvbnQtc2l6ZT0iMjYiIGZpbGw9IiNmZmZmZmYiIHRleHQtYW5jaG9yPSJtaWRkbGUiIG9wYWNpdHk9IjAuODUiPlNDUkVFTlNIT1QgMTwvdGV4dD4KPHRleHQgeD0iNDAwIiB5PSIyNTAiIGZvbnQtZmFtaWx5PSJWZXJkYW5hIiBmb250LXNpemU9IjE0IiBmaWxsPSIjZmZmZmZmIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBvcGFjaXR5PSIwLjYiPmRyb3AgeW91ciBjYXB0dXJlIGluIC9hc3NldHMvaGZmLzwvdGV4dD4KPC9zdmc+",
+      "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA4MDAgNDUwIj4KPHJlY3Qgd2lkdGg9IjgwMCIgaGVpZ2h0PSI0NTAiIGZpbGw9IiMyZjRhNjMiLz4KPHJlY3Qgd2lkdGg9IjgwMCIgaGVpZ2h0PSI0NTAiIGZpbGw9InVybCgjZG90cykiIG9wYWNpdHk9IjAuMTUiLz4KPGRlZnM+PHBhdHRlcm4gaWQ9ImRvdHMiIHdpZHRoPSIyOCIgaGVpZ2h0PSIyOCIgcGF0dGVyblVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+PGNpcmNsZSBjeD0iNCIgY3k9IjQiIHI9IjIiIGZpbGw9IiNmZmZmZmYiLz48L3BhdHRlcm4+PC9kZWZzPgo8dGV4dCB4PSI0MDAiIHk9IjIxNSIgZm9udC1mYW1pbHk9IlZlcmRhbmEiIGZvbnQtc2l6ZT0iMjYiIGZpbGw9IiNmZmZmZmYiIHRleHQtYW5jaG9yPSJtaWRkbGUiIG9wYWNpdHk9IjAuODUiPlNDUkVFTlNIT1QgMjwvdGV4dD4KPHRleHQgeD0iNDAwIiB5PSIyNTAiIGZvbnQtZmFtaWx5PSJWZXJkYW5hIiBmb250LXNpemU9IjE0IiBmaWxsPSIjZmZmZmZmIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBvcGFjaXR5PSIwLjYiPmRyb3AgeW91ciBjYXB0dXJlIGluIC9hc3NldHMvaGZmLzwvdGV4dD4KPC9zdmc+",
+      "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA4MDAgNDUwIj4KPHJlY3Qgd2lkdGg9IjgwMCIgaGVpZ2h0PSI0NTAiIGZpbGw9IiM2MzQzMmYiLz4KPHJlY3Qgd2lkdGg9IjgwMCIgaGVpZ2h0PSI0NTAiIGZpbGw9InVybCgjZG90cykiIG9wYWNpdHk9IjAuMTUiLz4KPGRlZnM+PHBhdHRlcm4gaWQ9ImRvdHMiIHdpZHRoPSIyOCIgaGVpZ2h0PSIyOCIgcGF0dGVyblVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+PGNpcmNsZSBjeD0iNCIgY3k9IjQiIHI9IjIiIGZpbGw9IiNmZmZmZmYiLz48L3BhdHRlcm4+PC9kZWZzPgo8dGV4dCB4PSI0MDAiIHk9IjIxNSIgZm9udC1mYW1pbHk9IlZlcmRhbmEiIGZvbnQtc2l6ZT0iMjYiIGZpbGw9IiNmZmZmZmYiIHRleHQtYW5jaG9yPSJtaWRkbGUiIG9wYWNpdHk9IjAuODUiPlNDUkVFTlNIT1QgMzwvdGV4dD4KPHRleHQgeD0iNDAwIiB5PSIyNTAiIGZvbnQtZmFtaWx5PSJWZXJkYW5hIiBmb250LXNpemU9IjE0IiBmaWxsPSIjZmZmZmZmIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBvcGFjaXR5PSIwLjYiPmRyb3AgeW91ciBjYXB0dXJlIGluIC9hc3NldHMvaGZmLzwvdGV4dD4KPC9zdmc+",
+      "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA4MDAgNDUwIj4KPHJlY3Qgd2lkdGg9IjgwMCIgaGVpZ2h0PSI0NTAiIGZpbGw9IiMyZjYzNTAiLz4KPHJlY3Qgd2lkdGg9IjgwMCIgaGVpZ2h0PSI0NTAiIGZpbGw9InVybCgjZG90cykiIG9wYWNpdHk9IjAuMTUiLz4KPGRlZnM+PHBhdHRlcm4gaWQ9ImRvdHMiIHdpZHRoPSIyOCIgaGVpZ2h0PSIyOCIgcGF0dGVyblVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+PGNpcmNsZSBjeD0iNCIgY3k9IjQiIHI9IjIiIGZpbGw9IiNmZmZmZmYiLz48L3BhdHRlcm4+PC9kZWZzPgo8dGV4dCB4PSI0MDAiIHk9IjIxNSIgZm9udC1mYW1pbHk9IlZlcmRhbmEiIGZvbnQtc2l6ZT0iMjYiIGZpbGw9IiNmZmZmZmYiIHRleHQtYW5jaG9yPSJtaWRkbGUiIG9wYWNpdHk9IjAuODUiPlNDUkVFTlNIT1QgNDwvdGV4dD4KPHRleHQgeD0iNDAwIiB5PSIyNTAiIGZvbnQtZmFtaWx5PSJWZXJkYW5hIiBmb250LXNpemU9IjE0IiBmaWxsPSIjZmZmZmZmIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBvcGFjaXR5PSIwLjYiPmRyb3AgeW91ciBjYXB0dXJlIGluIC9hc3NldHMvaGZmLzwvdGV4dD4KPC9zdmc+",
+      "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA4MDAgNDUwIj4KPHJlY3Qgd2lkdGg9IjgwMCIgaGVpZ2h0PSI0NTAiIGZpbGw9IiM1YTJmNjMiLz4KPHJlY3Qgd2lkdGg9IjgwMCIgaGVpZ2h0PSI0NTAiIGZpbGw9InVybCgjZG90cykiIG9wYWNpdHk9IjAuMTUiLz4KPGRlZnM+PHBhdHRlcm4gaWQ9ImRvdHMiIHdpZHRoPSIyOCIgaGVpZ2h0PSIyOCIgcGF0dGVyblVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+PGNpcmNsZSBjeD0iNCIgY3k9IjQiIHI9IjIiIGZpbGw9IiNmZmZmZmYiLz48L3BhdHRlcm4+PC9kZWZzPgo8dGV4dCB4PSI0MDAiIHk9IjIxNSIgZm9udC1mYW1pbHk9IlZlcmRhbmEiIGZvbnQtc2l6ZT0iMjYiIGZpbGw9IiNmZmZmZmYiIHRleHQtYW5jaG9yPSJtaWRkbGUiIG9wYWNpdHk9IjAuODUiPlNDUkVFTlNIT1QgNTwvdGV4dD4KPHRleHQgeD0iNDAwIiB5PSIyNTAiIGZvbnQtZmFtaWx5PSJWZXJkYW5hIiBmb250LXNpemU9IjE0IiBmaWxsPSIjZmZmZmZmIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBvcGFjaXR5PSIwLjYiPmRyb3AgeW91ciBjYXB0dXJlIGluIC9hc3NldHMvaGZmLzwvdGV4dD4KPC9zdmc+",
+      "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA4MDAgNDUwIj4KPHJlY3Qgd2lkdGg9IjgwMCIgaGVpZ2h0PSI0NTAiIGZpbGw9IiMyZjVhNjMiLz4KPHJlY3Qgd2lkdGg9IjgwMCIgaGVpZ2h0PSI0NTAiIGZpbGw9InVybCgjZG90cykiIG9wYWNpdHk9IjAuMTUiLz4KPGRlZnM+PHBhdHRlcm4gaWQ9ImRvdHMiIHdpZHRoPSIyOCIgaGVpZ2h0PSIyOCIgcGF0dGVyblVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+PGNpcmNsZSBjeD0iNCIgY3k9IjQiIHI9IjIiIGZpbGw9IiNmZmZmZmYiLz48L3BhdHRlcm4+PC9kZWZzPgo8dGV4dCB4PSI0MDAiIHk9IjIxNSIgZm9udC1mYW1pbHk9IlZlcmRhbmEiIGZvbnQtc2l6ZT0iMjYiIGZpbGw9IiNmZmZmZmYiIHRleHQtYW5jaG9yPSJtaWRkbGUiIG9wYWNpdHk9IjAuODUiPlNDUkVFTlNIT1QgNjwvdGV4dD4KPHRleHQgeD0iNDAwIiB5PSIyNTAiIGZvbnQtZmFtaWx5PSJWZXJkYW5hIiBmb250LXNpemU9IjE0IiBmaWxsPSIjZmZmZmZmIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBvcGFjaXR5PSIwLjYiPmRyb3AgeW91ciBjYXB0dXJlIGluIC9hc3NldHMvaGZmLzwvdGV4dD4KPC9zdmc+"
+    ],
+    "theme": {
+      "accent": "#e05a47",
+      "accentSoft": "#f08c7d",
+      "accent2": "#4fae7a",
+      "hazardA": "#e05a47",
+      "hazardB": "#14171a",
+      "hazardAngle": "-45deg",
+      "fontDisplay": "Oswald",
+      "fontBody": "Barlow",
+      "fontMono": "Space Mono"
+    },
+    "platforms": [
+      {
+        "key": "pc",
+        "label": "PC · Steam"
+      }
+    ],
+    "platformData": {
+      "en": {
+        "pc": {
+          "controller": "Full Support",
+          "crossplay": "None",
+          "players": "Up to 4 (co-op)",
+          "servers": "Peer-to-peer"
+        }
+      },
+      "fr": {
+        "pc": {
+          "controller": "Support complet",
+          "crossplay": "Aucun",
+          "players": "Jusqu'à 4 (coop)",
+          "servers": "Pair à pair"
+        }
+      }
+    },
+    "quickFacts": {
+      "en": [
+        {
+          "label": "Genre",
+          "value": "Party co-op"
+        },
+        {
+          "label": "Session length",
+          "value": "10–20 min rounds"
+        },
+        {
+          "label": "Players",
+          "value": "2–4"
+        },
+        {
+          "label": "Steam release",
+          "value": "TBA"
+        }
+      ],
+      "fr": [
+        {
+          "label": "Genre",
+          "value": "Jeu de fête coopératif"
+        },
+        {
+          "label": "Durée d'une session",
+          "value": "10 à 20 min"
+        },
+        {
+          "label": "Joueurs",
+          "value": "2 à 4"
+        },
+        {
+          "label": "Sortie Steam",
+          "value": "À déterminer"
+        }
+      ]
+    },
+    "loop": {
+      "en": [
+        "Pick a Round",
+        "Cause Chaos",
+        "Recover",
+        "Compare Scores"
+      ],
+      "fr": [
+        "Choisir une manche",
+        "Semer le chaos",
+        "Se relever",
+        "Comparer les scores"
+      ]
+    },
+    "i18n": {
+      "en": {
+        "navGallery": "Gallery",
+        "navDetails": "Details",
+        "backLink": "Back to Library",
+        "titleMain": "PRAT",
+        "titleAccent": "FALL",
+        "heroTagline": "A session-based party co-op about pulling off physical stunts with a group of friends — and mostly failing in interesting ways.",
+        "tags": [
+          "PARTY CO-OP",
+          "PHYSICS",
+          "SESSION-BASED",
+          "4 PLAYERS"
+        ],
+        "steamBtn": "View on Steam",
+        "wishlist": "Add to Wishlist",
+        "wishlisted": "Wishlisted",
+        "galleryHeading": "Screenshots",
+        "detailsHeading": "Details",
+        "detailsSub": "Platforms and cross-play capabilities.",
+        "lblController": "Controller",
+        "lblCrossplay": "Crossplay",
+        "lblPlayers": "Co-op players",
+        "lblServers": "Dedicated servers",
+        "descP": [
+          "Pratfall drops a group of up to four players into short, self-contained rounds built around physical comedy: stunts, obstacle courses, and stage setups that fall apart the moment anyone touches them.",
+          "There's no persistent story between sessions — you pick a round, try to pull it off together, and compare the wreckage afterward. Best played in short bursts with people you don't mind laughing at."
+        ],
+        "readMore": "Read more",
+        "readLess": "Read less",
+        "footer": "Fan-made reference layout · Not an official product of Pratfall's developer"
+      },
+      "fr": {
+        "navGallery": "Galerie",
+        "navDetails": "Détails",
+        "backLink": "Retour à la bibliothèque",
+        "titleMain": "PRAT",
+        "titleAccent": "FALL",
+        "heroTagline": "Un jeu de fête coopératif par sessions où l'on tente des cascades physiques avec ses amis — et où l'on échoue le plus souvent de façon mémorable.",
+        "tags": [
+          "JEU DE FÊTE COOP",
+          "PHYSIQUE",
+          "PAR SESSIONS",
+          "4 JOUEURS"
+        ],
+        "steamBtn": "Voir sur Steam",
+        "wishlist": "Ajouter à la liste de souhaits",
+        "wishlisted": "Dans la liste de souhaits",
+        "galleryHeading": "Captures d'écran",
+        "detailsHeading": "Détails",
+        "detailsSub": "Plateformes et compatibilité multiplateforme.",
+        "lblController": "Manette",
+        "lblCrossplay": "Crossplay",
+        "lblPlayers": "Joueurs en coop",
+        "lblServers": "Serveurs dédiés",
+        "descP": [
+          "Pratfall réunit jusqu'à quatre joueurs dans de courtes manches indépendantes bâties autour de la comédie physique : cascades, parcours d'obstacles et mises en scène qui s'effondrent dès qu'on y touche.",
+          "Il n'y a pas d'histoire persistante entre les sessions — on choisit une manche, on essaie de la réussir ensemble, puis on compare les dégâts. Idéal en petites doses, avec des amis qu'on n'a pas peur de voir échouer."
+        ],
+        "readMore": "Lire la suite",
+        "readLess": "Réduire",
+        "footer": "Mise en page fan-made · N'est pas un produit officiel du développeur de Pratfall"
+      }
+    }
   }
 }

@@ -17,13 +17,14 @@
  * Why this has to run here and not in info.html:
  * store.steampowered.com/api/appdetails doesn't send CORS headers, so
  * a browser fetch() to it is blocked no matter what. Same wall as the
- * ITAD price API, same fix: call it at build time (here, or on
- * Netlify) and write a static file the browser can read same-origin.
+ * ITAD price API, same fix: call it ahead of time (here, or in CI) and
+ * write a static file the browser can read same-origin.
  * No API key needed — this endpoint is public.
  *
  * Run manually:   node fetch-game-info.js
- * Run on Netlify:  wired into the build command in netlify.toml,
- *                  runs automatically on every deploy.
+ * Run on GitHub Pages: wired into .github/workflows/refresh-data.yml,
+ *                  runs automatically on the daily schedule (and commits
+ *                  the result, which is what triggers a Pages redeploy).
  * -----------------------------------------------------------------
  */
 
